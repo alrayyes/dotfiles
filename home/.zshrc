@@ -47,3 +47,8 @@ source $ZSH/oh-my-zsh.sh
 # Customize to your needs...
 export PATH=$PATH:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/X11/bin:/usr/local/Cellar/php/5.3.8/bin:/usr/local/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/X11/bin:/Users/l0rd/packer
 alias homeshick="$HOME/.homesick/repos/homeshick/home/.homeshick"
+
+if [ -f "~/.keychain/$HOST-sh" ]; then
+    keychain ~/.ssh/id_rsa
+    . ~/.keychain/$HOST-sh
+fi
