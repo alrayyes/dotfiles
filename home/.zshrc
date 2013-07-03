@@ -49,5 +49,5 @@ export PATH=$PATH:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/X11/bin:/usr
 alias homeshick="$HOME/.homesick/repos/homeshick/home/.homeshick"
 
 if which keychain > /dev/null; then
-    eval `keychain --eval --agents ssh id_dsa`
+    eval `keychain --eval --agents ssh id_rsa`
 fi
