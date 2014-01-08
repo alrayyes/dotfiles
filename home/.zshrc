@@ -56,3 +56,6 @@ alias homeshick="$HOME/.homesick/repos/homeshick/home/.homeshick"
 if which keychain > /dev/null; then
     eval `keychain --eval --agents ssh id_rsa`
 fi
+
+# Use ansible hosts in local file instead of /etc/ansible/hosts
+export ANSIBLE_HOSTS=~/.ansible/ansible_hosts
