@@ -50,7 +50,7 @@ plugins=(git)
 source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
-export PATH=$PATH:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/X11/bin:/usr/local/Cellar/php/5.3.8/bin:/usr/local/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/X11/bin:/Users/l0rd/packer
+export PATH=/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:$PATH
 alias homeshick="$HOME/.homesick/repos/homeshick/home/.homeshick"
 
 if which keychain > /dev/null; then
@@ -59,3 +59,4 @@ fi
 
 # Use ansible hosts in local file instead of /etc/ansible/hosts
 export ANSIBLE_HOSTS=~/.ansible/ansible_hosts
+eval "$(rbenv init -)"
