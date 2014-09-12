@@ -60,3 +60,4 @@ fi
 # Use ansible hosts in local file instead of /etc/ansible/hosts
 export ANSIBLE_HOSTS=~/.ansible/ansible_hosts
 eval "$(rbenv init -)"
+function gi() { curl -s https://www.gitignore.io/api/$@ ;}
