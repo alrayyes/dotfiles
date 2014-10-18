@@ -1,0 +1,11 @@
+[user]
+	name = Ryan
+	email = ryan@andthensome.nl
+[core]
+    quotepath = false
+    editor = vim
+[push]
+	default = matching
+[filter "media"]
+	clean = git-media-clean %f
+	smudge = git-media-smudge %f
