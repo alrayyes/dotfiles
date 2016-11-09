@@ -1,0 +1,12 @@
+[name]
+    name = Ryan
+    email = ryan@andthensome.nl
+
+[core]
+    editor = vim
+
+[push]
+    default = matching
+[user]
+	email = ryan@andthensome.nl
+	name = Ryan
