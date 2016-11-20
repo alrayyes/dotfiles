@@ -16,13 +16,13 @@ A repository of my personal configuration files.
 * [albert](https://github.com/ManuelSchneid3r/albert)
 * [conky](https://github.com/brndnmtthws/conky)
 * [git](https://git-scm.com/)
-* [gnome](https://www.gnome.org/)
+* [i3](https://i3wm.org/)
 * [mutt](http://www.mutt.org/)
 * [terminator](https://gnometerminator.blogspot.nl/p/introduction.html)
 * [tmux](https://tmux.github.io/)
 * [vim](http://www.vim.org/)
 * [zeal](https://zealdocs.org/)
-*  [zsh](https://www.zsh.org/)
+* [zsh](https://www.zsh.org/)
 
 # License
 
