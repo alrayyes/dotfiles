@@ -5,3 +5,6 @@
 [submodule "i3/.config/i3/vendor/i3blocks"]
 	path = i3/.config/i3/vendor/i3blocks
 	url = https://github.com/Anachron/i3blocks.git
+[submodule "i3/.config/i3/i3blocks"]
+	path = i3/.config/i3/i3blocks
+	url = https://github.com/alrayyes/i3blocks.git
