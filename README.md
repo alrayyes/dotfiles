@@ -19,6 +19,7 @@ A repository of my personal configuration files.
 * [git](https://git-scm.com/)
 * [i3](https://i3wm.org/)
 * [mutt](http://www.mutt.org/)
+* [Redshift](http://jonls.dk/redshift/)
 * [terminator](https://gnometerminator.blogspot.nl/p/introduction.html)
 * [tmux](https://tmux.github.io/)
 * [vim](http://www.vim.org/)
