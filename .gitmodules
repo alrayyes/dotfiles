@@ -1,0 +1,7 @@
+[submodule "oh-my-zsh/.oh-my-zsh/"]
+	path = oh-my-zsh/.oh-my-zsh
+	url = https://github.com/robbyrussell/oh-my-zsh.git
+
+[submodule "i3/.config/i3/vendor/i3blocks"]
+	path = i3/.config/i3/vendor/i3blocks
+	url = https://github.com/Anachron/i3blocks.git
