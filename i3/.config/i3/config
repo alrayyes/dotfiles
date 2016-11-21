@@ -251,7 +251,7 @@ exec google-chrome-stable
 exec firefox
 exec hexchat
 exec slack
-exec rtmpdump -v -r rtmp://aljazeeraflashlivefs.fplive.net/aljazeeraflashlive-live/aljazeera_eng_high  -o -| mplayer -name aljazeera -
+exec aljazeera.sh
 exec clementine
 exec gpodder
 
