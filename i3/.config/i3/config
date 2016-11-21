@@ -151,11 +151,15 @@ workspace $workspace4 output DP1
 workspace $workspace5 output DP1
 workspace $workspace6 output HDMI1
 
+assign [class="Google-chrome" instance="reddit.com"] $workspace5
+assign [class="Google-chrome" instance="tweetdeck.twitter.com"] $workspace5
 assign [class="Google-chrome"] $workspace2
 assign [class="Firefox"] $workspace2
 assign [class="Clementine"] $workspace4
+assign [class="Gpodder"] $workspace4
 assign [class="Hexchat"] $workspace6
 assign [class="Slack"] $workspace6
+assign [class="MPlayer" instance="aljazeera"] $workspace6
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -174,7 +178,7 @@ mode "resize" {
         # Pressing down will grow the window’s height.
         bindsym j resize shrink width 10 px or 10 ppt
         bindsym k resize grow height 10 px or 10 ppt
-        bindsym l resize shrink height 10 px or 10 ppt
+       bindsym l resize shrink height 10 px or 10 ppt
         bindsym semicolon resize grow width 10 px or 10 ppt
 
         # same bindings, but for the arrow keys
@@ -191,6 +195,9 @@ mode "resize" {
 # arandr
 for_window [title="Screen Layout Editor"] floating enable
 
+# Thunderbird write new message, floating
+for_window [title="Write:"] floating enable
+
 # Widow Colours
 #                         border  background text    indicator
 client.focused          $base01 $base01    $base07 $base0F
@@ -201,7 +208,7 @@ client.urgent           $base02 $base08    $base00 $base0F
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-    colors {
+	colors {
       separator $base03
       background $base01
       statusline $base05
@@ -211,28 +218,42 @@ bar {
       inactive_workspace $base01 $base01    $base03
       urgent_workspace   $base01 $base01    $base08
     }
-        #i3bar position
-        position top
 
-        # Use custom i3status.conf
-        status_command i3status -c ~/.config/i3/i3status.conf
-        #font pango:DejaVu Sans Mono, Awesome 10
+	#i3bar position
+	position top
+
+	# Use custom i3status.conf
+	#status_command i3status -c ~/.config/i3/i3status.conf
+	status_command i3blocks -c ~/.config/i3/i3blocks.conf
+	
+	#font pango:DejaVu Sans Mono, Awesome 10
+
+	# Show tray icons on primary display      
+	tray_output primary
 }
 
 # Startup programs
+exec_always --no-startup-id xrandr --output DP1 --primary
 exec_always --no-startup-id xrandr --output HDMI1 --mode 1920x1200 --right-of DP1 --rotate left 
 exec_always --no-startup-id feh --bg-fill ~/Dropbox/Wallpaper/Wallpaper/gxZG9Uw.jpg
 
 exec --no-startup-id nm-applet
 exec --no-startup-id dropbox start
-exec--no-startup-id compton -f
+exec --no-startup-id compton -f
+exec --no-startup-id redshift  # f.lux
+exec --no-startup-id redshift-gtk
 
+exec google-chrome-stable --new-window --app=https://tweetdeck.twitter.com/
+exec google-chrome-stable --new-window --app=https://www.reddit.com/
 exec google-chrome-stable
 exec firefox
 exec hexchat
 exec slack
+exec rtmpdump -v -r rtmp://aljazeeraflashlivefs.fplive.net/aljazeeraflashlive-live/aljazeera_eng_high  -o -| mplayer -name aljazeera -aop list=volume -
 exec clementine
+exec gpodder
 
 # Custom KeyBinds
-bindsym Control+$mod+l exec sh ~/.config/i3/i3lock
-bindsym Print exec scrot '%Y-%m-%d-%T_$wx$h_scrot.png' -e 'mv $f ~/Pictures/screenshots/'
+bindsym Control+$mod+l exec i3lock-fancy
+bindsym --release $mod+z exec scrot '%Y-%m-%d-%T_$wx$h_scrot.png' -s -e 'mv $f ~/Dropbox/Screenshots/'
+bindsym --release Shift+$mod+z exec scrot '%Y-%m-%d-%T_$wx$h_scrot.png' -e 'mv $f ~/Dropbox/Screenshots/'
