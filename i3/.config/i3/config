@@ -243,6 +243,7 @@ exec --no-startup-id compton -f
 exec --no-startup-id redshift  # f.lux
 exec --no-startup-id redshift-gtk
 exec --no-startup-id xautolock -time 10 -locker "i3lock-fancy"
+exec --no-startup-id /usr/lib/deja-dup/deja-dup/deja-dup-monitor
 
 exec google-chrome-stable --new-window --app=https://tweetdeck.twitter.com/
 exec google-chrome-stable --new-window --app=https://www.reddit.com/
