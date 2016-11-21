@@ -11,8 +11,9 @@ A repository of my personal configuration files.
 ```shell
 ./install.sh
 ```
-
 # Packages
+
+* [Arch Linux](https://www.archlinux.org/)
 * [albert](https://github.com/ManuelSchneid3r/albert)
 * [conky](https://github.com/brndnmtthws/conky)
 * [git](https://git-scm.com/)
