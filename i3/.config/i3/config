@@ -251,7 +251,7 @@ exec google-chrome-stable
 exec firefox
 exec hexchat
 exec slack
-exec aljazeera.sh
+exec ~/.config/i3/aljazeera.sh
 exec clementine
 exec gpodder
 
