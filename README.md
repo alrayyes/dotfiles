@@ -13,8 +13,9 @@ A repository of my personal configuration files.
 ```
 # Packages
 
-* [Arch Linux](https://www.archlinux.org/)
 * [albert](https://github.com/ManuelSchneid3r/albert)
+* [Arch Linux](https://www.archlinux.org/)
+* [Firejail](https://firejail.wordpress.com/)
 * [git](https://git-scm.com/)
 * [i3](https://i3wm.org/)
 * [mutt](http://www.mutt.org/)

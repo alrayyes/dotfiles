@@ -242,10 +242,10 @@ bar {
 # Startup programs
 exec_always --no-startup-id xrandr --output DP1 --primary
 exec_always --no-startup-id xrandr --output HDMI1 --mode 1920x1200 --right-of DP1 --rotate left 
-exec_always --no-startup-id feh --bg-fill ~/Dropbox/Wallpaper/Wallpaper/gxZG9Uw.jpg
+exec_always --no-startup-id firejail feh --bg-fill ~/Dropbox/Wallpaper/Wallpaper/gxZG9Uw.jpg
 
 exec --no-startup-id nm-applet
-exec --no-startup-id dropbox start
+exec --no-startup-id firejail dropbox start
 exec --no-startup-id compton -f
 exec --no-startup-id redshift  # f.lux
 exec --no-startup-id redshift-gtk
@@ -256,12 +256,12 @@ exec firejail google-chrome-stable --new-window --app=https://tweetdeck.twitter.
 exec firejail google-chrome-stable --new-window --app=https://www.reddit.com/
 exec firejail google-chrome-stable
 exec firejail firefox
-exec hexchat
-exec slack
+exec firejail hexchat
+exec firejail slack
 exec ~/.config/i3/aljazeera.sh
-exec terminator --classname=cmus -e cmus
-exec terminator --classname=mutt -e mutt
-exec gpodder
+exec terminator --classname=cmus -e firejail cmus
+exec terminator --classname=mutt -e firejail mutt
+exec firejail gpodder
 
 # Custom KeyBinds
 bindsym Control+$mod+l exec i3lock-fancy
