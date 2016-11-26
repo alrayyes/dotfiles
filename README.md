@@ -15,7 +15,6 @@ A repository of my personal configuration files.
 
 * [Arch Linux](https://www.archlinux.org/)
 * [albert](https://github.com/ManuelSchneid3r/albert)
-* [conky](https://github.com/brndnmtthws/conky)
 * [git](https://git-scm.com/)
 * [i3](https://i3wm.org/)
 * [mutt](http://www.mutt.org/)

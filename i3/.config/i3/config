@@ -156,7 +156,7 @@ workspace $workspace7 output HDMI1
 assign [class="Google-chrome" instance="reddit.com"] $workspace5
 assign [class="Google-chrome" instance="tweetdeck.twitter.com"] $workspace5
 assign [class="Google-chrome"] $workspace2
-assign [class="Firefox"] $workspace2
+assign [class="firejail firefox"] $workspace2
 assign [class="Clementine"] $workspace4
 assign [class="Terminator" instance="cmus"] $workspace4
 assign [class="Gpodder"] $workspace4
@@ -252,10 +252,10 @@ exec --no-startup-id redshift-gtk
 exec --no-startup-id xautolock -time 10 -locker "i3lock-fancy"
 exec --no-startup-id /usr/lib/deja-dup/deja-dup/deja-dup-monitor
 
-exec google-chrome-stable --new-window --app=https://tweetdeck.twitter.com/
-exec google-chrome-stable --new-window --app=https://www.reddit.com/
-exec google-chrome-stable
-exec firefox
+exec firejail google-chrome-stable --new-window --app=https://tweetdeck.twitter.com/
+exec firejail google-chrome-stable --new-window --app=https://www.reddit.com/
+exec firejail google-chrome-stable
+exec firejail firefox
 exec hexchat
 exec slack
 exec ~/.config/i3/aljazeera.sh
