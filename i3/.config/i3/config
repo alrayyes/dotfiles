@@ -252,8 +252,8 @@ exec --no-startup-id redshift-gtk
 exec --no-startup-id xautolock -time 10 -locker "i3lock-fancy"
 exec --no-startup-id /usr/lib/deja-dup/deja-dup/deja-dup-monitor
 
-exec firejail google-chrome-stable --new-window --app=https://tweetdeck.twitter.com/
-exec firejail google-chrome-stable --new-window --app=https://www.reddit.com/
+#exec firejail google-chrome-stable --new-window --app=https://tweetdeck.twitter.com/
+#exec firejail google-chrome-stable --new-window --app=https://www.reddit.com/
 exec firejail google-chrome-stable
 exec firejail firefox
 exec firejail hexchat
