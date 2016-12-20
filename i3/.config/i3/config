@@ -241,6 +241,7 @@ bar {
 }
 
 # Startup programs
+exec_always --no-startup-id xrandr --dpi 220
 exec_always --no-startup-id xrandr --output DP1 --primary
 exec_always --no-startup-id xrandr --output HDMI1 --mode 1920x1200 --right-of DP1 --rotate left 
 exec_always --no-startup-id firejail feh --bg-fill ~/Dropbox/Wallpaper/Wallpaper/gxZG9Uw.jpg
@@ -256,7 +257,7 @@ exec --no-startup-id /usr/lib/deja-dup/deja-dup/deja-dup-monitor
 #exec firejail google-chrome-stable --new-window --app=https://tweetdeck.twitter.com/
 #exec firejail google-chrome-stable --new-window --app=https://www.reddit.com/
 exec firejail google-chrome-stable
-exec firejail firefox
+#exec firejail firefox
 exec firejail hexchat
 exec firejail slack
 exec ~/.config/i3/aljazeera.sh
