@@ -241,7 +241,7 @@ bar {
 }
 
 # Startup programs
-exec_always --no-startup-id xrandr --dpi 220
+exec_always --no-startup-id xrandr --dpi 180
 exec_always --no-startup-id xrandr --output DP1 --primary
 exec_always --no-startup-id xrandr --output HDMI1 --mode 1920x1200 --right-of DP1 --rotate left 
 exec_always --no-startup-id firejail feh --bg-fill ~/Dropbox/Wallpaper/Wallpaper/gxZG9Uw.jpg
