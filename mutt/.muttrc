@@ -7,6 +7,12 @@ source ~/.mutt/mutt-colors-solarized/mutt-colors-solarized-dark-16.muttrc
 set move = no  
 set imap_keepalive = 900
 
+# pgp stuff
+set pgp_replyencrypt       # now crypt_replyencrypt
+set pgp_replysign          # now crypt_replysign
+set pgp_replysignencrypted # now crypt_replysignencrypted
+set pgp_show_unusable=no
+
 macro index <f2> '<sync-mailbox><enter-command>source ~/.mutt/account.com.gmail.alrayyes<enter><change-folder>!<enter>'
 macro index <f3> '<sync-mailbox><enter-command>source ~/.mutt/account.nl.andthensome.ryan<enter><change-folder>!<enter>'
 
