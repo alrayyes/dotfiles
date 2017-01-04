@@ -241,7 +241,7 @@ bar {
 }
 
 # Startup programs
-exec_always --no-startup-id xrandr --dpi 180 -output eDP1
+exec_always --no-startup-id xrandr --dpi 180 --output eDP1
 exec_always --no-startup-id xrandr --output DP1 --primary
 exec_always --no-startup-id xrandr --output HDMI1 --mode 1920x1200 --right-of DP1 --rotate left 
 exec_always --no-startup-id firejail feh --bg-fill ~/Dropbox/Wallpaper/Wallpaper/gxZG9Uw.jpg
@@ -249,7 +249,6 @@ exec_always --no-startup-id firejail feh --bg-fill ~/Dropbox/Wallpaper/Wallpaper
 exec --no-startup-id nm-applet
 exec --no-startup-id firejail dropbox start
 exec --no-startup-id compton -f
-exec --no-startup-id redshift  # f.lux
 exec --no-startup-id redshift-gtk
 exec --no-startup-id xautolock -time 10 -locker "i3lock-fancy"
 exec --no-startup-id /usr/lib/deja-dup/deja-dup/deja-dup-monitor
