@@ -9,6 +9,7 @@ borg create -v --stats                          \
     --exclude '/home/alrayyes/.cache' \
     --exclude '/home/alrayyes/stackdav' \
     --exclude '/home/alrayyes/music'            \
+    --exclude '/home/alrayyes/Mac*'            \
     --exclude '/home/alrayyes/Dropbox'            \
     --exclude '/home/alrayyes/gPodder/Downloads'
 
