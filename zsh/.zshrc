@@ -84,9 +84,6 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-# Nodejs settings
-export PATH="$PATH:`yarn global bin`"
-
 # Set GPG TTY
 export GPG_TTY=$(tty)
 
