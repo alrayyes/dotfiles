@@ -7,12 +7,7 @@ include /etc/firejail/disable-devel.inc
 include /etc/firejail/disable-passwdmgr.inc
 
 caps.drop all
-netfilter
 nonewprivs
 noroot
 protocol unix,inet,inet6
 seccomp
-
-private-bin cmusfm
-private-etc group
-shell none
