@@ -84,6 +84,9 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+# Emberjs settings
+export PATH="$PATH:/home/alrayyes/.config/yarn/global/node_modules/ember-cli/bin"
+
 # Set GPG TTY
 export GPG_TTY=$(tty)
 
