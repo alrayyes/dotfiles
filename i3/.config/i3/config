@@ -249,7 +249,6 @@ exec_always --no-startup-id ~/bin/start-conky.sh
 
 exec --no-startup-id nm-applet
 exec --no-startup-id firejail dropbox start
-exec --no-startup-id compton -f
 exec --no-startup-id redshift-gtk
 exec --no-startup-id xautolock -time 10 -locker "i3lock-fancy"
 exec --no-startup-id /usr/lib/deja-dup/deja-dup/deja-dup-monitor

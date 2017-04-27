@@ -107,3 +107,7 @@ fabric.properties
 # *.ipr
 
 # End of https://www.gitignore.io/api/webstorm
+
+# php-cs-fixer
+php-cs-fixer
+.php_cs.cache
