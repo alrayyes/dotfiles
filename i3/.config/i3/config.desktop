@@ -241,7 +241,6 @@ bar {
 }
 
 # Startup programs
-exec_always --no-startup-id xrandr --dpi 180 --output eDP1
 exec_always --no-startup-id xrandr --output DP1 --primary
 exec_always --no-startup-id xrandr --output HDMI1 --mode 1920x1200 --right-of DP1 --rotate left 
 exec_always --no-startup-id nitrogen --restore; sleep 1; compton -b
@@ -249,20 +248,21 @@ exec_always --no-startup-id ~/bin/start-conky.sh
 
 exec --no-startup-id nm-applet
 exec --no-startup-id firejail dropbox start
+exec --no-startup-id compton -f
 exec --no-startup-id redshift-gtk
 exec --no-startup-id xautolock -time 10 -locker "i3lock-fancy"
 exec --no-startup-id /usr/lib/deja-dup/deja-dup/deja-dup-monitor
 
-#exec firejail google-chrome-stable --new-window --app=https://tweetdeck.twitter.com/
-#exec firejail google-chrome-stable --new-window --app=https://www.reddit.com/
-exec firejail google-chrome-stable
+exec google-chrome-stable --new-window --app=https://tweetdeck.twitter.com/
+exec google-chrome-stable --new-window --app=https://www.reddit.com/
+exec google-chrome-stable
 #exec firejail firefox
-exec firejail hexchat
-exec firejail slack
+exec hexchat
+exec slack
 exec ~/.config/i3/aljazeera.sh
-exec terminator --classname=cmus -e firejail cmus
-exec terminator --classname=mutt -e firejail mutt
-exec firejail gpodder
+exec terminator --classname=cmus -e cmus
+exec terminator --classname=mutt -e mutt
+exec gpodder
 
 # Custom KeyBinds
 bindsym Control+$mod+l exec i3lock-fancy
