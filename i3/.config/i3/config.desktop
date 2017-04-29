@@ -253,15 +253,9 @@ exec --no-startup-id redshift-gtk
 exec --no-startup-id xautolock -time 10 -locker "i3lock-fancy"
 exec --no-startup-id /usr/lib/deja-dup/deja-dup/deja-dup-monitor
 
-exec google-chrome-stable --new-window --app=https://tweetdeck.twitter.com/
-exec google-chrome-stable --new-window --app=https://www.reddit.com/
 exec google-chrome-stable
-#exec firejail firefox
 exec hexchat
 exec slack
-exec ~/.config/i3/aljazeera.sh
-exec terminator --classname=cmus -e cmus
-exec terminator --classname=mutt -e mutt
 exec gpodder
 
 # Custom KeyBinds
