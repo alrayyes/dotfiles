@@ -1,0 +1,41 @@
+# -- feeds ---------------------------------------------------------------------
+
+auto-reload yes
+reload-time 15
+reload-threads 2
+max-downloads 4
+player mplayer
+refresh-on-startup yes
+show-read-feeds no
+
+# Solarized color scheme
+color background   default   default
+color listnormal   default   default
+color listfocus    black     yellow
+color info         default   black
+color article      default   default
+
+# -- navigation ----------------------------------------------------------------
+
+goto-next-feed no
+browser qutebrowser
+
+bind-key j down feedlist
+bind-key k up feedlist
+bind-key j next articlelist
+bind-key k prev articlelist
+bind-key J next-feed articlelist
+bind-key K prev-feed articlelist
+bind-key j down article
+bind-key k up article
+
+# highlights
+highlight article "^(Title):.*$" blue default
+highlight article "https?://[^ ]+" red default
+highlight article "\\[image\\ [0-9]+\\]" green default
+
+# -- misc ----------------------------------------------------------------------
+
+unbind-key C feedlist
+confirm-exit no
+cleanup-on-quit yes
