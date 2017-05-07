@@ -281,7 +281,7 @@ Theme = solarized
 #
 # Example:    Keymap = my_keymap
 #
-#Keymap =
+Keymap = keymap
 
 # Use ASCII rather than graphic characters for drawing lines.  This
 # helps on some terminals.
