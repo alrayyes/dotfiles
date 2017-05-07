@@ -28,3 +28,8 @@ macro index,pager gd "<change-folder>=[Gmail]/Drafts<enter>" "Go to drafts"
 macro index,pager e "<enter-command>unset trash\n <delete-message>" "Gmail archive message" # different from Gmail, but wanted to keep "y" to show folders.
 
 bind index G imap-fetch-mail
+
+# Goobook
+set query_command="goobook query %s"
+macro index,pager a "<pipe-message>goobook add<return>" "add sender to google contacts"
+bind editor <Tab> complete-query
