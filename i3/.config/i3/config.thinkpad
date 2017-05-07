@@ -48,6 +48,9 @@ set $base0F #fcc09e
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
+# Set default programs
+set $screencast  ffmpeg -y -f x11grab -video_size 2560x1440 -i :0.0 -f alsa -i default -c:v ffvhuff -r 30 -c:a flac output.mkv
+
 # start a terminal
 bindsym $mod+Return exec i3-sensible-terminal
 
@@ -153,17 +156,12 @@ workspace $workspace5 output DP1
 workspace $workspace6 output DP1
 workspace $workspace7 output HDMI1
 
-assign [class="Google-chrome" instance="reddit.com"] $workspace5
-assign [class="Google-chrome" instance="tweetdeck.twitter.com"] $workspace5
 assign [class="Google-chrome"] $workspace2
-assign [class="firejail firefox"] $workspace2
+assign [class="firefox"] $workspace2
 assign [class="Clementine"] $workspace4
-assign [class="Terminator" instance="cmus"] $workspace4
 assign [class="Gpodder"] $workspace4
-assign [class="Terminator" instance="mutt"] $workspace6
 assign [class="Hexchat"] $workspace7
 assign [class="Slack"] $workspace7
-assign [class="MPlayer" instance="aljazeera"] $workspace7
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
