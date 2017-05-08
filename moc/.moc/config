@@ -74,7 +74,7 @@ MusicDir = "~/music"
 # Start in the music directory by default?  If set to 'no', start
 # in the current directory by default.  A single directory on
 # the command line takes precedence.
-StartInMusicDir = yes
+#StartInMusicDir = yes
 
 # How to sort?  FileName is the option's only value for now.
 #Sort = FileName
