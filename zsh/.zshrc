@@ -90,6 +90,9 @@ export PATH="$PATH:/home/alrayyes/.config/yarn/global/node_modules/.bin"
 # Set GPG TTY
 export GPG_TTY=$(tty)
 
+# Set default browser
+export BROWSER=qutebrowser
+
 # Refresh gpg-agent tty in case user switches into an X session
 gpg-connect-agent updatestartuptty /bye >/dev/null
 
