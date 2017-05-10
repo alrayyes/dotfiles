@@ -18,4 +18,4 @@ shell none
 private-bin feh
 whitelist /tmp/.X11-unix
 private-dev
-private-etc feh,ld-so.cache,ld.so.preload,ssl,nsswitch,hosts.conf,resolv.conf
+#private-etc feh,ld.so.cache,ld.so.preload,localtime,nsswitch.conf,host.conf,resolv.conf,gai.conf,hosts
