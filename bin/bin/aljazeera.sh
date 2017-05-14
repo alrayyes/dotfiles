@@ -1,2 +1,2 @@
 #!/bin/sh
-rtmpdump -v -r rtmp://aljazeeraflashlivefs.fplive.net/aljazeeraflashlive-live/aljazeera_eng_high  -o -| mplayer -name aljazeera -
+mpv http://aljazeera-eng-apple-live.adaptive.level3.net/apple/aljazeera/english/appleman.m3u8
