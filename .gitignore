@@ -1,1 +1,4 @@
 /weechat/.weechat/irc.conf
+/weechat/.weechat/logs
+/weechat/.weechat/urls.log
+/weechat/.weechat/weechat.log
