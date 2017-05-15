@@ -1,6 +1,7 @@
 # Weechat IRC profile
 noblacklist ${HOME}/.weechat 
 noblacklist ${HOME}/.config/qutebrowser 
+read-write ${HOME}/dotfiles/weechat/.weechat/weechat.log
 include /etc/firejail/disable-common.inc
 include /etc/firejail/disable-programs.inc
 
