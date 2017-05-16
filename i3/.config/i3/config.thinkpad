@@ -116,13 +116,13 @@ bindsym $mod+a focus parent
 #bindsym $mod+d focus child
 
 # Name the workspaces
-set $workspace1 "1: term "
-set $workspace2 "2: www "
-set $workspace3 "3: code "
-set $workspace4 "4: music "
-set $workspace5 "5: news "
-set $workspace6 "6: email "
-set $workspace7 "7: im "
+set $workspace1 "1: "
+set $workspace2 "2: "
+set $workspace3 "3: "
+set $workspace4 "4: "
+set $workspace5 "5: "
+set $workspace6 "6: "
+set $workspace7 "7: "
 
 # switch to workspace
 bindsym $mod+1 workspace $workspace1
@@ -158,10 +158,8 @@ workspace $workspace7 output HDMI1
 
 assign [class="Google-chrome"] $workspace2
 assign [class="firefox"] $workspace2
-assign [class="Clementine"] $workspace4
 assign [class="Gpodder"] $workspace4
-assign [class="Hexchat"] $workspace7
-assign [class="Slack"] $workspace7
+assign [class="URxvt" instance="weechat$"] $workspace7
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -250,11 +248,9 @@ exec --no-startup-id nm-applet
 exec --no-startup-id dropbox start
 exec --no-startup-id redshift-gtk
 exec --no-startup-id xautolock -time 10 -locker "i3lock-fancy"
-exec --no-startup-id /usr/lib/deja-dup/deja-dup/deja-dup-monitor
 
 exec google-chrome-stable
-exec hexchat
-exec slack
+exec urxvt -name weechat -e weechat
 
 # Custom KeyBinds
 bindsym Control+$mod+l exec i3lock-fancy
