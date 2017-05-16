@@ -2,6 +2,8 @@
 noblacklist ${HOME}/.weechat 
 noblacklist ${HOME}/.config/qutebrowser 
 read-write ${HOME}/dotfiles/weechat/.weechat/weechat.log
+read-write ${HOME}/dotfiles/weechat/.weechat/urls.log
+read-write ${HOME}/dotfiles/weechat/.weechat/logs
 include /etc/firejail/disable-common.inc
 include /etc/firejail/disable-programs.inc
 
