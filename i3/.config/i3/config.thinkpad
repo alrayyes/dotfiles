@@ -248,6 +248,7 @@ exec --no-startup-id nm-applet
 exec --no-startup-id dropbox start
 exec --no-startup-id redshift-gtk
 exec --no-startup-id xautolock -time 10 -locker "i3lock-fancy"
+exec --no-startup-id syncthing-gtk
 
 exec google-chrome-stable
 exec urxvt -name weechat -e weechat
