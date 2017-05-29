@@ -6,6 +6,12 @@ set $audio ffmpeg -f alsa -i default -c:a flac -y output.flac
 set $browser firefox
 set $term=termite
 
+# i3-gaps
+hide_edge_borders both
+for_window [class="^.*"] border pixel 0 
+gaps inner 15 
+gaps outer 15
+
 # Colours
 set $base00 #101218
 set $base01 #1f222d
@@ -93,6 +99,7 @@ exec urxvt -name weechat -e weechat
 
 # start a terminal
 bindsym $mod+Return exec i3-sensible-terminal
+bindsym $mod+shift+Return exec i3-sensible-terminal -e tmux
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -207,8 +214,10 @@ mode "resize" {
 
 # Custom KeyBinds
 bindsym Control+$mod+l exec i3lock-fancy
-bindsym --release $mod+z exec scrot '%Y-%m-%d-%T_$wx$h_scrot.png' -s -e 'mv $f ~/Dropbox/Screenshots/'
-bindsym --release Shift+$mod+z exec scrot '%Y-%m-%d-%T_$wx$h_scrot.png' -e 'mv $f ~/Dropbox/Screenshots/'
+
+# Screenshots
+bindsym Print 			exec --no-startup-id scrot -e 'mv $f ~/Pictures/Screenshots/'
+bindsym Shift+Print 		exec --no-startup-id scrot -u -e 'mv $f ~/Pictures/Screenshots/'
 
 # Pulse Audio controls
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% #increase sound volume
