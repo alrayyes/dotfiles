@@ -2,10 +2,14 @@ folder-hook 'account.com.gmail.alrayyes' 'source ~/.mutt/account.com.gmail.alray
 folder-hook 'account.nl.andthensome.ryan' 'source ~/.mutt/account.nl.andthensome.ryan'
 
 source ~/.mutt/account.com.gmail.alrayyes
-source ~/.mutt/mutt-colors-solarized/mutt-colors-solarized-dark-16.muttrc
+source ~/.mutt/muttcol
 
+set sort = 'reverse-date'
 set move = no  
 set imap_keepalive = 900
+set date_format="%m/%d %I:%M"
+set index_format="%2C %Z %d %-15.15F %s (%-4.4c)"
+
 
 # pgp stuff
 set pgp_replyencrypt       # now crypt_replyencrypt
@@ -15,6 +19,18 @@ set pgp_show_unusable=no
 
 macro index <f2> '<sync-mailbox><enter-command>source ~/.mutt/account.com.gmail.alrayyes<enter><change-folder>!<enter>'
 macro index <f3> '<sync-mailbox><enter-command>source ~/.mutt/account.nl.andthensome.ryan<enter><change-folder>!<enter>'
+
+mono bold bold
+mono underline underline
+mono indicator reverse
+color index yellow default '.*'
+color index_author red default '.*'
+color index_number blue default
+color index_subject cyan default '.s'
+color index_size green default
+color normal default default
+color body brightred default [\-\.+_a-zA-Z0-9]+@[\-\.a-zA-Z0-9]+
+color body brightblue default (https?|ftp)://[\-\.,/%~_:?&=\#a-zA-Z0-9]+
 
 bind editor <space> noop
 macro index,pager y "<save-message>=[Gmail]/All Mail<enter><enter>" "Archive"
