@@ -81,7 +81,7 @@ bar {
     }
 
 	position top
-	status_command bumblebee-status -m mpd pasink pasource brightness battery nic pacman disk load sensors datetime caffeine -p datetime.format="%Y-%m-%d %H:%M:%S" nic.states=^down nic.exclude=br,lo,docker0 disk.path=/home disk.open="termite -e ranger" -t solarized-powerline
+	status_command bumblebee-status -m mpd pasink pasource brightness battery nic pacman load sensors datetime caffeine -p datetime.format="%Y-%m-%d %H:%M:%S" nic.states=^down nic.exclude=br,lo,docker0 disk.path=/home disk.open="termite -e ranger" disk.showUsed=false disk.showSize=false -t solarized-powerline
 }
 
 # Startup programs
