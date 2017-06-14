@@ -43,9 +43,11 @@ font pango:DejaVuSansMonoForPowerline Nerd Font 8
 floating_modifier $mod
 
 assign [class="Google-chrome"] $workspace2
-assign [class="firefox"] $workspace2
+assign [class="Firefox"] $workspace2
 assign [class="Gpodder"] $workspace4
-assign [class="URxvt" instance="weechat$"] $workspace7
+assign [class="ncmpcpp"] $workspace4
+assign [class="Slack"] $workspace7
+assign [class="weechat"] $workspace7
 
 # arandr
 for_window [title="Screen Layout Editor"] floating enable
@@ -58,6 +60,10 @@ new_window 1pixel
 for_window [window_role="gimp-dock"] floating disable; move left; resize shrink width 50 px or 50ppt
 for_window [window_role="gimp-toolbox"] floating disable; move right; resize grow width 30 px or 30ppt
 
+# Pulseaudio tools
+for_window [title="PulseAudio Manager"] floating enable
+for_window [title="PulseAudio Volume Meter"] floating enable
+for_window [title="Volume Control"] floating enable
 
 # Widow Colours
 #                         border  background text    indicator
@@ -94,11 +100,15 @@ exec --no-startup-id pulseaudio
 exec --no-startup-id pasystray
 exec --no-startup-id nm-applet
 exec --no-startup-id redshift-gtk
+exec --no-startup-id syncthing-gtk -m
 exec --no-startup-id xautolock -time 10 -locker "i3lock-fancy"
 exec --no-startup-id offlineimap
 
-exec google-chrome-stable
-exec urxvt -name weechat -e weechat
+exec firefox
+exec slack
+exec i3-sensible-terminal --class=weechat -e weechat
+exec i3-sensible-terminal --class=ncmpcpp -e ncmpcpp
+exec gpodder
 
 # Start dropdown shell
 exec --no-startup-id i3-sensible-terminal --name=dropdown -e tmux
