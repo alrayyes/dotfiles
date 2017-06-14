@@ -63,6 +63,9 @@ for_window [window_role="gimp-toolbox"] floating disable; move right; resize gro
 for_window [title="PulseAudio Manager"] floating enable
 for_window [title="PulseAudio Volume Meter"] floating enable
 for_window [title="Volume Control"] floating enable
+# Toggl
+for_window [title="Toggl Desktop"] floating enable
+
 
 # Widow Colours
 #                         border  background text    indicator

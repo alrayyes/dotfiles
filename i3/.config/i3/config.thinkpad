@@ -59,11 +59,12 @@ new_window 1pixel
 # Gimp
 for_window [window_role="gimp-dock"] floating disable; move left; resize shrink width 50 px or 50ppt
 for_window [window_role="gimp-toolbox"] floating disable; move right; resize grow width 30 px or 30ppt
-
 # Pulseaudio tools
 for_window [title="PulseAudio Manager"] floating enable
 for_window [title="PulseAudio Volume Meter"] floating enable
 for_window [title="Volume Control"] floating enable
+# Toggl
+for_window [title="Toggl Desktop"] floating enable
 
 # Widow Colours
 #                         border  background text    indicator
