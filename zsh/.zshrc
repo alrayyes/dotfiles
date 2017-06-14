@@ -1,8 +1,11 @@
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
+# Stop tmux bitching about 256 colours
+export TERM="xterm-256color"
+
 # Path to your oh-my-zsh installation.
-  export ZSH=/home/alrayyes/.oh-my-zsh
+export ZSH=/home/alrayyes/.oh-my-zsh
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
@@ -93,9 +96,6 @@ export GPG_TTY=$(tty)
 
 # Set default browser
 export BROWSER=qutebrowser
-
-# Stop tmux bitching about 256 colours
-export TERM="xterm-256color"
 
 # Refresh gpg-agent tty in case user switches into an X session
 gpg-connect-agent updatestartuptty /bye >/dev/null
