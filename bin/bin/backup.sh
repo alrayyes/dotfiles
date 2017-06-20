@@ -1,16 +1,15 @@
 #!/bin/sh
-REPOSITORY=~/stackdav/thinkpadbackup
+REPOSITORY=~/mnt/backups
 
 # Backup all of /home and /var/www except a few
 # excluded directories
-borg create -v --stats                          \
+borg create -v --stats                         \
+    --compression lz4                          \
     $REPOSITORY::'{hostname}-{now:%Y-%m-%d}'    \
     /home/alrayyes                              \
     --exclude '/home/alrayyes/.cache' \
-    --exclude '/home/alrayyes/stackdav' \
+    --exclude '/home/alrayyes/mnt' \
     --exclude '/home/alrayyes/music'            \
-    --exclude '/home/alrayyes/Mac*'            \
-    --exclude '/home/alrayyes/Dropbox'            \
     --exclude '/home/alrayyes/gPodder/Downloads'
 
 # Use the `prune` subcommand to maintain 7 daily, 4 weekly and 6 monthly
