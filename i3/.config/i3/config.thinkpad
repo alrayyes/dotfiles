@@ -67,6 +67,8 @@ for_window [title="Volume Control"] floating enable
 for_window [title="Toggl Desktop"] floating enable
 # Syncthing
 for_window [title="Syncthing"] floating enable
+# Qtpass
+for_window [title="QtPass"] floating enable
 
 # Widow Colours
 #                         border  background text    indicator
