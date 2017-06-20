@@ -67,7 +67,8 @@ for_window [title="Volume Control"] floating enable
 for_window [title="Toggl Desktop"] floating enable
 # Syncthing
 for_window [title="Syncthing"] floating enable
-
+# Qtpass
+for_window [title="QtPass"] floating enable
 
 # Widow Colours
 #                         border  background text    indicator
@@ -105,7 +106,6 @@ bar {
 exec_always --no-startup-id xrandr --output DP1 --mode 2560x1440 --dpi 96 --primary --output HDMI1 --mode 1920x1200 --right-of DP1 --rotate left
 exec_always --no-startup-id compton -b
 exec_always --no-startup-id dunst
-exec_always --no-startup-id feh --bg-scale ~/.config/wall.png
 
 exec --no-startup-id pulseaudio
 exec --no-startup-id pasystray
@@ -115,6 +115,7 @@ exec --no-startup-id syncthing-gtk -m
 exec --no-startup-id xautolock -time 10 -locker "i3lock-fancy"
 exec --no-startup-id offlineimap
 
+exec nitrogen --restore
 exec firefox
 exec slack
 exec i3-sensible-terminal --class=weechat -e weechat
