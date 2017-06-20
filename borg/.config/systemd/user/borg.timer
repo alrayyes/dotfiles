@@ -1,0 +1,9 @@
+[Unit]
+Description=Run borg daily
+
+[Timer]
+OnBootSec=300m
+OnUnitActiveSec=1d
+
+[Install]
+WantedBy=timers.target
