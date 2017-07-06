@@ -12,7 +12,7 @@ autorefresh = 0.5
 quick = 10
 
 [Repository gmail-local]
-type = GmailMaildir
+type = Maildir
 localfolders = ~/mail/gmail
 
 [Repository gmail-remote]
@@ -37,7 +37,7 @@ autorefresh = 0.5
 quick = 10
 
 [Repository andthensome-local]
-type = GmailMaildir
+type = Maildir
 localfolders = ~/mail/andthensome
 
 [Repository andthensome-remote]

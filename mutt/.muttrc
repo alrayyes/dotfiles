@@ -1,6 +1,4 @@
-folder-hook 'account.com.gmail.alrayyes' 'source ~/.mutt/account.com.gmail.alrayyes'
-folder-hook 'account.nl.andthensome.ryan' 'source ~/.mutt/account.nl.andthensome.ryan'
-
+source ~/.mutt/mailboxes
 source ~/.mutt/account.com.gmail.alrayyes
 source ~/.mutt/muttcol
 
@@ -10,15 +8,14 @@ set imap_keepalive = 900
 set date_format="%m/%d %I:%M"
 set index_format="%2C %Z %d %-15.15F %s (%-4.4c)"
 
-
 # pgp stuff
 set pgp_replyencrypt       # now crypt_replyencrypt
 set pgp_replysign          # now crypt_replysign
 set pgp_replysignencrypted # now crypt_replysignencrypted
 set pgp_show_unusable=no
 
-macro index <f2> '<sync-mailbox><enter-command>source ~/.mutt/account.com.gmail.alrayyes<enter><change-folder>!<enter>'
-macro index <f3> '<sync-mailbox><enter-command>source ~/.mutt/account.nl.andthensome.ryan<enter><change-folder>!<enter>'
+macro index <f1> '<sync-mailbox><enter-command>source ~/.mutt/account.com.gmail.alrayyes<enter><change-folder>!<enter>'
+macro index <f2> '<sync-mailbox><enter-command>source ~/.mutt/account.nl.andthensome.ryan<enter><change-folder>!<enter>'
 
 mono bold bold
 mono underline underline
@@ -33,17 +30,6 @@ color body brightred default [\-\.+_a-zA-Z0-9]+@[\-\.a-zA-Z0-9]+
 color body brightblue default (https?|ftp)://[\-\.,/%~_:?&=\#a-zA-Z0-9]+
 
 bind editor <space> noop
-macro index,pager y "<save-message>=[Gmail]/All Mail<enter><enter>" "Archive"
-macro index,pager d "<save-message>=[Gmail]/Trash<enter><enter>" "Trash"
-
-# Gmail-style keyboard shortcuts
-macro index,pager ga "<change-folder>=[Gmail]/All<tab><enter>" "Go to all mail"  
-macro index,pager gi "<change-folder>=INBOX<enter>" "Go to inbox"  
-macro index,pager gs "<change-folder>=[Gmail]/Starred<enter>" "Go to starred messages"  
-macro index,pager gd "<change-folder>=[Gmail]/Drafts<enter>" "Go to drafts"  
-macro index,pager e "<enter-command>unset trash\n <delete-message>" "Gmail archive message" # different from Gmail, but wanted to keep "y" to show folders.
-
-bind index G imap-fetch-mail
 
 # Goobook
 set query_command="goobook query %s"
