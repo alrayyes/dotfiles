@@ -1,0 +1,4 @@
+set folder = "~/mail"
+set spoolfile = "+andthensome/inbox"
+set record = "+andthensome/Sent\ Items"
+set postponed = "+andthensome/Drafts"
