@@ -1,0 +1,148 @@
+# Paths
+set folder = ~/mail
+set header_cache = ~/.mutt/cache/headers
+set message_cachedir = ~/.mutt/cache/bodies
+set mailcap_path = ~/.mailcap
+set tmpdir = ~/.mutt/temp
+set signature = ~/.mutt/sig
+
+# Basic options
+set wait_key = no
+set mbox_type = Maildir
+set timeout = 3
+set mail_check = 0
+set move = no  
+set delete
+set confirmappend = no
+set quit
+set beep_new
+set pipe_decode
+set thorough_search
+
+# Index view options
+set sort = threads
+set sort_aux = reverse-last-date-received
+set date_format="%d/%m %I:%M"
+set index_format="[%Z] %D %-20.20F %s"
+set uncollapse_jump
+
+# pgp stuff
+set pgp_replyencrypt       # now crypt_replyencrypt
+set pgp_replysign          # now crypt_replysign
+set pgp_replysignencrypted # now crypt_replysignencrypted
+set pgp_show_unusable=no
+
+# Pager View Options ---------------------------------
+set pager_index_lines = 10 # number of index lines to show
+set pager_context = 3      # number of context lines to show
+set pager_stop             # don't go to next message automatically
+set menu_scroll            # scroll in menus
+set tilde                  # show tildes like in vim
+unset markers              # no ugly plus signs
+
+set quote_regexp = "^( {0,4}[>|:#%]| {0,4}[a-z0-9]+[>|]+)+"
+alternative_order text/plain text/enriched text/html
+
+# Sidebar
+set sidebar_visible
+set sidebar_format = "%B%?F? [%F]?%* %?N?%N/?%S"
+set mail_check_stats
+set sidebar_short_path
+set sidebar_delim_chars="/"
+set sidebar_new_mail_only
+set sidebar_width = 24
+
+# Compose View Options -------------------------------
+set envelope_from                    # which from?
+set sig_dashes                       # dashes before sig
+set edit_headers                     # show headers when composing
+set fast_reply                       # skip to compose when replying
+set askcc                            # ask for CC:
+set fcc_attach                       # save attachments with the body
+unset mime_forward                   # forward attachments as part of body
+set forward_format = "Fwd: %s"       # format of subject when forwarding
+set forward_decode                   # decode when forwarding
+set attribution = "On %d, %n wrote:" # format of quoting header
+set reply_to                         # reply to Reply to: field
+set reverse_name                     # reply as whomever it was to
+set include                          # include message in replies
+set forward_quote                    # include message in forwards
+set editor = vim
+
+# Index Key Bindings ---------------------------------
+bind index g        noop
+bind index gg       first-entry
+bind index G        last-entry
+bind index R        group-reply
+bind index <tab>    sync-mailbox
+bind index <space>  collapse-thread
+
+# Pager bindings
+bind pager g  noop
+bind pager k  previous-line
+bind pager j  next-line
+bind pager gg top
+bind pager G  bottom
+bind pager R group-reply
+
+# Sidebar Navigation ---------------------------------
+bind index,pager <down>   sidebar-next
+bind index,pager <up>     sidebar-prev
+bind index,pager <right>  sidebar-open
+bind index,pager B sidebar-toggle-visible
+
+# Attachments and editor
+bind attach <return> view-mailcap
+bind editor <space> noop
+
+# Ctrl-R to mark all as read
+macro index \Cr "T~U<enter><tag-prefix><clear-flag>N<untag-pattern>.<enter>" "mark all messages as read"
+
+# Saner copy/move dialogs
+macro index C "<copy-message>?<toggle-mailboxes>" "copy a message to a mailbox"
+macro index M "<save-message>?<toggle-mailboxes>" "move a message to a mailbox"
+
+# Switch between mailboxes
+macro index <f1> '<sync-mailbox><enter-command>source ~/.mutt/account.com.gmail.alrayyes<enter><change-folder>!<enter>'
+macro index <f2> '<sync-mailbox><enter-command>source ~/.mutt/account.nl.andthensome.ryan<enter><change-folder>!<enter>'
+
+# Sync email
+macro index O "<shell-escape>offlineimap -o <enter>"           "run offlineimap to sync all mail"
+macro index o "<shell-escape>offlineimap -o -qf INBOX<enter>" "run offlineimap to sync inbox"
+
+# Open links with urlview
+macro pager \Cu "|urlview<enter>"
+
+# Header Options -------------------------------------
+ignore *                                # ignore all headers
+unignore from: to: cc: date: subject:   # show only these
+unhdr_order *                           # some distros order things by default
+hdr_order from: to: cc: date: subject:  # and in this order
+
+# layout
+mono bold bold
+mono underline underline
+mono indicator reverse
+color index yellow default '.*'
+color index_author red default '.*'
+color index_number blue default
+color index_subject cyan default '.s'
+color index_size green default
+color normal default default
+color body brightred default [\-\.+_a-zA-Z0-9]+@[\-\.a-zA-Z0-9]+
+color body brightblue default (https?|ftp)://[\-\.,/%~_:?&=\#a-zA-Z0-9]+
+color sidebar_new       color221 color233
+
+# Goobook
+set query_command="goobook query %s"
+macro index,pager a "<pipe-message>goobook add<return>" "add sender to google contacts"
+bind editor <Tab> complete-query
+
+# Notmuch
+#set virtual_spoolfile=yes
+#source ~/.mutt/notmuchmailboxes
+
+source ~/.mutt/mailboxes
+source ~/.mutt/account.com.gmail.alrayyes
+source ~/.mutt/muttcol
+source ~/.mutt/gpg.rc

@@ -2,3 +2,6 @@ color molokai
 
 " vim-devicons
 set encoding=utf8
+
+" mutt
+au BufRead ~/.mutt/temp/mutt-* set tw=72

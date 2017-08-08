@@ -1,4 +1,9 @@
-set folder = "~/mail"
 set spoolfile = "+andthensome/inbox"
 set record = "+andthensome/Sent\ Items"
 set postponed = "+andthensome/Drafts"
+
+set from     = "ryan@andthensome.nl"
+set sendmail = "msmtp -a andthensome"
+set sendmail_wait = 0
+unset record
+set realname = "Ryan Kes"
