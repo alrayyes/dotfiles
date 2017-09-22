@@ -105,6 +105,7 @@ macro index M "<save-message>?<toggle-mailboxes>" "move a message to a mailbox"
 # Switch between mailboxes
 macro index <f1> '<sync-mailbox><enter-command>source ~/.mutt/account.com.gmail.alrayyes<enter><change-folder>!<enter>'
 macro index <f2> '<sync-mailbox><enter-command>source ~/.mutt/account.nl.andthensome.ryan<enter><change-folder>!<enter>'
+macro index <f3> '<sync-mailbox><enter-command>source ~/.mutt/account.eu.higherlearning.ryan<enter><change-folder>!<enter>'
 
 # Sync email
 macro index O "<shell-escape>offlineimap -o <enter>"           "run offlineimap to sync all mail"
