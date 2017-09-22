@@ -98,7 +98,15 @@ bar {
 
     output eDP1
 	position top
-	status_command ~/bin/bumblebee-status/bumblebee-status -m mpd pasink pasource brightness battery bluetooth nic pacman load sensors datetime caffeine -p datetime.format="%Y-%m-%d %H:%M:%S" nic.states=^down nic.exclude=br,lo,docker0 disk.path=/home disk.open="termite -e ranger" disk.showUsed=false disk.showSize=false battery.device=BAT0 -t solarized-powerline
+	status_command ~/bin/bumblebee-status/bumblebee-status -m brightness battery bluetooth nic pacman github load sensors datetime caffeine -p datetime.format="%Y-%m-%d %H:%M:%S" nic.states=^down nic.exclude=br,lo,docker0 disk.path=/home disk.open="termite -e ranger" disk.showUsed=false disk.showSize=false battery.device=BAT0 -t solarized-powerline
+}
+bar {
+    output eDP1
+    position bottom
+    tray_output none
+    workspace_buttons no
+    mode hide
+	status_command ~/bin/bumblebee-status/bumblebee-status -m spotify mpd pasink pasource -t solarized-powerline
 }
 bar {
     output HDMI2
