@@ -7,6 +7,7 @@ rofi.color-normal: #111, #819396, #222, #008ed4, #ffffff
 rofi.color-active: #002b37, #008ed4, #003643, #008ed4, #66c6ff
 rofi.color-urgent: #002b37, #da4281, #003643, #008ed4, #890661
 
+rofi.show-icons: true
 rofi.fake-transparency: true
 rofi.lines: 3
 rofi.bw: 0
