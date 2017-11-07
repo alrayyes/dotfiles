@@ -92,3 +92,9 @@ fabric.properties
 # php-cs-fixer
 php-cs-fixer
 .php_cs.cache
+
+# composer
+composer.phar
+
+.idea
+.idea/*

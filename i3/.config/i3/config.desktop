@@ -96,12 +96,13 @@ bar {
 	position top
     output DP-1
     tray_output DP-1
-	status_command ~/bin/bumblebee-status/bumblebee-status -m mpd pasink pasource bluetooth nic publicip traffic disk pacman load sensors datetime caffeine -p datetime.format="%Y-%m-%d %H:%M:%S" nic.states=^down nic.exclude=br,lo,docker0 traffic.states=^down traffic.exclude=br,lo,docker0 disk.path=/home disk.open="termite -e ranger" -t solarized-powerline
+	status_command ~/bin/bumblebee-status/bumblebee-status -m bluetooth nic publicip traffic disk pacman load sensors datetime caffeine -p datetime.format="%Y-%m-%d %H:%M:%S" nic.states=^down nic.exclude=br,lo,docker0 traffic.states=^down traffic.exclude=br,lo,docker0 disk.path=/home disk.open="termite -e ranger" -t solarized-powerline
 }
 bar {
     output HDMI-1
 	position top
 	tray_output none
+	status_command ~/bin/bumblebee-status/bumblebee-status -m spotify mpd pasink pasource -t solarized-powerline
 }
 
 # Startup programs
