@@ -50,6 +50,7 @@ assign [class="ncmpcpp"] $workspace4
 assign [class="Slack"] $workspace7
 assign [class="weechat"] $workspace7
 assign [class="retroarch"] $workspace8
+assign [class="mutt"] $workspace6
 
 # arandr
 for_window [title="Screen Layout Editor"] floating enable
@@ -122,6 +123,7 @@ exec iceweasel
 exec slack
 exec i3-sensible-terminal --class=weechat -e weechat
 exec i3-sensible-terminal --class=ncmpcpp -e ncmpcpp
+exec i3-sensible-terminal --class=mutt -e neomutt
 exec gpodder
 
 # Start dropdown shell
