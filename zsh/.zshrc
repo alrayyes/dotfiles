@@ -97,6 +97,9 @@ export GPG_TTY=$(tty)
 # Set default browser
 export BROWSER=firefox
 
+# pkg editor
+export VISUAL="vim"
+
 # Refresh gpg-agent tty in case user switches into an X session
 gpg-connect-agent updatestartuptty /bye >/dev/null
 
