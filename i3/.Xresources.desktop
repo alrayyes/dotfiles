@@ -43,7 +43,7 @@ URxvt.internalBorder:       3
 URxvt.lineSpace:            0
 
 ! Fonts
-URxvt*font: xft:DejaVuSansMonoForPowerline Nerd Font:size=10
+URxvt*font: xft:DejaVu Sans Mono Nerd Font Complete Mono:size=10
 URxvt*boldFont: xft:DejaVuSansMonoForPowerline Nerd Font:size=10
 !URxvt*boldFont: xft:Dejavu Sans Mono Bold for Powerline Nerd Font:size=10
 
