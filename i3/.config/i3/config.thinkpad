@@ -4,7 +4,7 @@ set $mod Mod4
 set $screencast  ffmpeg -y -f x11grab -video_size 2560x1440 -i :0.0 -f alsa -i default -c:v ffvhuff -r 30 -c:a flac output.mkv
 set $audio ffmpeg -f alsa -i default -c:a flac -y output.flac
 set $browser firefox
-set $term=termite
+set $term=st
 
 # i3-gaps
 hide_edge_borders both
@@ -98,7 +98,7 @@ bar {
 
     output eDP1
 	position top
-	status_command ~/bin/bumblebee-status/bumblebee-status -m brightness battery nic pacman github load sensors datetime caffeine -p datetime.format="%Y-%m-%d %H:%M:%S" nic.states=^down nic.exclude=br,lo,docker0 disk.path=/home disk.open="termite -e ranger" disk.showUsed=false disk.showSize=false battery.device=BAT0 -t solarized-powerline
+	status_command ~/bin/bumblebee-status/bumblebee-status -m brightness battery nic pacman github load sensors datetime caffeine -p datetime.format="%Y-%m-%d %H:%M:%S" nic.states=^down nic.exclude=br,lo,docker0 disk.path=/home disk.open="st -e ranger" disk.showUsed=false disk.showSize=false battery.device=BAT0 -t solarized-powerline
 }
 bar {
     output eDP1
@@ -126,7 +126,7 @@ exec --no-startup-id pasystray
 exec --no-startup-id nm-applet
 exec --no-startup-id redshift-gtk
 exec --no-startup-id syncthing-gtk -m
-exec --no-startup-id xautolock -time 10 -locker "i3lock-fancy"
+exec --no-startup-id xautolock -corners ---- -cornersize 30 -detectsleep -time 10 -locker "i3lock-fancy"
 exec --no-startup-id offlineimap
 
 exec firefox
