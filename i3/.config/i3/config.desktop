@@ -1,16 +1,42 @@
 # vim: filetype=i3
 
-set $mod Mod4
-set $screencast  ffmpeg -y -f x11grab -video_size 2560x1440 -i :0.0 -f alsa -i default -c:v ffvhuff -r 30 -c:a flac output.mkv
-set $audio ffmpeg -f alsa -i default -c:a flac -y output.flac
-set $browser firefox
-set $term=st
-
+# #---Basic Definitions ---# #
 # i3-gaps
 hide_edge_borders both
-for_window [class="^.*"] border pixel 0 
+for_window [class="^.*"] border pixel 3 
 gaps inner 15 
 gaps outer 15
+font pango:DejaVuSansMonoForPowerline Nerd Font 8
+set $mod Mod4
+
+# #---Start External Scripts---# #
+# Align monitors
+exec_always --no-startup-id xrandr --output DP-1 --mode 2560x1440 --dpi 96 --primary --output HDMI-1 --mode 1920x1200 --right-of DP-1 --rotate left
+# Polybar
+exec_always --no-startup-id $HOME/.config/polybar/launch-desktop.sh
+# Composite manager
+exec_always --no-startup-id compton -b
+# Makes mouse invisible after a brief period
+exec --no-startup-id unclutter
+# Applet to control pulseaudio
+exec --no-startup-id pasystray
+# Network manager applet
+exec --no-startup-id nm-applet
+# Redhift for better sleep
+exec --no-startup-id redshift-gtk
+# Syncthing
+exec --no-startup-id syncthing-gtk -m
+# Wallpaper
+exec nitrogen --restore
+
+## --- Start Apps ---# #
+# Browser
+exec iceweasel
+exec slack
+exec i3-sensible-terminal -c weechat -e weechat
+exec i3-sensible-terminal -c mutt -e neomutt
+exec spotify
+exec gpodder
 
 # Colours
 set $base00 #101218
@@ -40,13 +66,14 @@ set $workspace6 "6: "
 set $workspace7 "7: "
 set $workspace8 "8: "
 
-font pango:DejaVuSansMonoForPowerline Nerd Font 8
+
 floating_modifier $mod
 
 assign [class="Google-chrome"] $workspace2
-assign [class="Firefox"] $workspace2
+assign [class="Iceweasel"] $workspace2
 assign [class="Gpodder"] $workspace4
 assign [class="ncmpcpp"] $workspace4
+for_window [class="Spotify"] move to workspace $workspace4
 assign [class="Slack"] $workspace7
 assign [class="weechat"] $workspace7
 assign [class="retroarch"] $workspace8
@@ -79,52 +106,6 @@ client.focused          $base01 $base01    $base07 $base0F
 client.focused_inactive $base02 $base02    $base03 $base0F
 client.unfocused        $base02 $base02    $base03 $base0F
 client.urgent           $base02 $base08    $base00 $base0F
-
-# Start i3bar to display a workspace bar (plus the system information i3status
-# finds out, if available)
-bar {
-	colors {
-      separator $base03
-      background $base01
-      statusline $base05
-#                        border  background text
-      focused_workspace  $base01 $base01    $base07
-      active_workspace   $base01 $base02    $base03
-      inactive_workspace $base01 $base01    $base03
-      urgent_workspace   $base01 $base01    $base08
-    }
-
-	position top
-    output DP-1
-    tray_output DP-1
-	status_command ~/bin/bumblebee-status/bumblebee-status -m bluetooth nic publicip traffic disk pacman load sensors datetime caffeine -p datetime.format="%Y-%m-%d %H:%M:%S" nic.states=^down nic.exclude=br,lo,docker0 traffic.states=^down traffic.exclude=br,lo,docker0 disk.path=/home disk.open="st -e ranger" -t solarized-powerline
-}
-bar {
-    output HDMI-1
-	position top
-	tray_output none
-	status_command ~/bin/bumblebee-status/bumblebee-status -m spotify mpd pasink pasource -t solarized-powerline
-}
-
-# Startup programs
-exec_always --no-startup-id xrandr --output DP-1 --mode 2560x1440 --dpi 96 --primary --output HDMI-1 --mode 1920x1200 --right-of DP-1 --rotate left
-exec_always --no-startup-id compton -b
-exec_always --no-startup-id dunst
-
-exec --no-startup-id pulseaudio
-exec --no-startup-id pasystray
-exec --no-startup-id nm-applet
-exec --no-startup-id redshift-gtk
-exec --no-startup-id syncthing-gtk -m
-exec --no-startup-id xautolock -time 10 -locker "i3lock-fancy"
-
-exec nitrogen --restore
-exec iceweasel
-exec slack
-exec i3-sensible-terminal --class=weechat -e weechat
-exec i3-sensible-terminal --class=ncmpcpp -e ncmpcpp
-exec i3-sensible-terminal --class=mutt -e neomutt
-exec gpodder
 
 # Start dropdown shell
 exec --no-startup-id i3-sensible-terminal --name=dropdown -e tmux
