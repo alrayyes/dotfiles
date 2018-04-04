@@ -1,156 +1,56 @@
 # vim: filetype=i3
 
-set $mod Mod4
-set $screencast  ffmpeg -y -f x11grab -video_size 2560x1440 -i :0.0 -f alsa -i default -c:v ffvhuff -r 30 -c:a flac output.mkv
-set $audio ffmpeg -f alsa -i default -c:a flac -y output.flac
-set $browser firefox
-set $term=st
-
+# #---Basic Definitions ---# #
 # i3-gaps
 hide_edge_borders both
 for_window [class="^.*"] border pixel 0 
 gaps inner 15 
 gaps outer 15
-
-# Colours
-set $base00 #101218
-set $base01 #1f222d
-set $base02 #252936
-set $base03 #7780a1
-set $base04 #C0C5CE
-set $base05 #d1d4e0
-set $base06 #C9CCDB
-set $base07 #ffffff
-set $base08 #ee829f
-set $base09 #f99170
-set $base0A #ffefcc
-set $base0B #a5ffe1
-set $base0C #97e0ff
-set $base0D #97bbf7
-set $base0E #c0b7f9
-set $base0F #fcc09e
-
-# Name the workspaces
-set $workspace1 "1: "
-set $workspace2 "2: "
-set $workspace3 "3: "
-set $workspace4 "4: "
-set $workspace5 "5: "
-set $workspace6 "6: "
-set $workspace7 "7: "
-set $workspace8 "8: "
-
 font pango:DejaVuSansMonoForPowerline Nerd Font 8
-floating_modifier $mod
+set $mod Mod4
 
-assign [class="Google-chrome"] $workspace2
-assign [class="Firefox"] $workspace2
-assign [class="Gpodder"] $workspace4
-assign [class="ncmpcpp"] $workspace4
-assign [class="mutt"] $workspace6
-assign [class="Slack"] $workspace7
-assign [class="weechat"] $workspace7
-assign [class="retroarch"] $workspace8
-
-workspace $workspace8 output HDMI2
-
-# arandr
-for_window [title="Screen Layout Editor"] floating enable
-# Thunderbird write new message, floating
-for_window [title="Write:"] floating enable
-# Hide title bar
-for_window [class="^.*"] border pixel 1
-new_window 1pixel
-# Gimp
-for_window [window_role="gimp-dock"] floating disable; move left; resize shrink width 50 px or 50ppt
-for_window [window_role="gimp-toolbox"] floating disable; move right; resize grow width 30 px or 30ppt
-# Pulseaudio tools
-for_window [title="PulseAudio Manager"] floating enable
-for_window [title="PulseAudio Volume Meter"] floating enable
-for_window [title="Volume Control"] floating enable
-# Toggl
-for_window [title="Toggl Desktop"] floating enable
-# Syncthing
-for_window [title="Syncthing"] floating enable
-# Qtpass
-for_window [title="QtPass"] floating enable
-
-# Widow Colours
-#                         border  background text    indicator
-client.focused          $base01 $base01    $base07 $base0F
-client.focused_inactive $base02 $base02    $base03 $base0F
-client.unfocused        $base02 $base02    $base03 $base0F
-client.urgent           $base02 $base08    $base00 $base0F
-
-# Start i3bar to display a workspace bar (plus the system information i3status
-# finds out, if available)
-bar {
-	colors {
-      separator $base03
-      background $base01
-      statusline $base05
-#                        border  background text
-      focused_workspace  $base01 $base01    $base07
-      active_workspace   $base01 $base02    $base03
-      inactive_workspace $base01 $base01    $base03
-      urgent_workspace   $base01 $base01    $base08
-    }
-
-    output eDP1
-	position top
-	status_command ~/bin/bumblebee-status/bumblebee-status -m brightness battery nic pacman github load sensors datetime caffeine -p datetime.format="%Y-%m-%d %H:%M:%S" nic.states=^down nic.exclude=br,lo,docker0 disk.path=/home disk.open="st -e ranger" disk.showUsed=false disk.showSize=false battery.device=BAT0 -t solarized-powerline
-}
-bar {
-    output eDP1
-    position bottom
-    tray_output none
-    workspace_buttons no
-    mode hide
-	status_command ~/bin/bumblebee-status/bumblebee-status -m xrandr  spotify mpd pasink pasource -t solarized-powerline
-}
-bar {
-    output HDMI2
-	position top
-	tray_output none
-}
-
-
-# Startup programs
+# #---Start External Scripts---# #
+# Align monitors
 exec_always --no-startup-id xrandr --dpi 150
-exec_always --no-startup-id compton -b
-exec_always --no-startup-id dunst
+# Polybar
+exec_always --no-startup-id $HOME/.config/polybar/launch-laptop.sh
+# Composite manager
+exec --no-startup-id compton --xrender-sync-fence
+# Wallpaper
 exec_always --no-startup-id feh --bg-scale ~/.config/wall.png
-
-exec --no-startup-id pulseaudio
+# Makes mouse invisible after a brief period
+exec --no-startup-id unclutter
+# Applet to control pulseaudio
 exec --no-startup-id pasystray
+# Network manager applet
 exec --no-startup-id nm-applet
+# Redhift for better sleep
 exec --no-startup-id redshift-gtk
+# Syncthing
 exec --no-startup-id syncthing-gtk -m
-exec --no-startup-id xautolock -corners ---- -cornersize 30 -detectsleep -time 10 -locker "i3lock-fancy"
-exec --no-startup-id offlineimap
 
-exec firefox
+## --- Start Apps ---# #
+# Browser
+exec iceweasel
 exec slack
-exec i3-sensible-terminal --class=weechat -e weechat
-exec i3-sensible-terminal --class=ncmpcpp -e ncmpcpp
-exec i3-sensible-terminal --class=mutt -e neomutt
+exec i3-sensible-terminal -c weechat -e weechat
+exec i3-sensible-terminal -c mutt -e neomutt
+exec spotify
 exec gpodder
 
-# Start dropdown shell
-exec --no-startup-id i3-sensible-terminal --name=dropdown -e tmux
-for_window [instance="dropdown"] floating enable;
-for_window [instance="dropdown"] move scratchpad; [instance="dropdown"] scratchpad show; move scratchpad
-bindsym $mod+u [instance="dropdown"] scratchpad show
-
-# start a terminal
+# #---Basic Bindings---# #
 bindsym $mod+Return exec i3-sensible-terminal
 bindsym $mod+shift+Return exec i3-sensible-terminal -e tmux
 
-# kill focused window
-bindsym $mod+Shift+q kill
+bindsym $mod+Shift+space floating toggle
+bindsym $mod+space focus mode_toggle
 
-# rofi
-bindsym $mod+d exec rofi -show run -eh 2 -font "System San Francisco Display 18" -fullscreen
+bindsym $mod+Escape		workspace prev
+bindsym $mod+Shift+e exec i3-msg exit
+
+bindsym $mod+Shift+BackSpace	exec sudo reboot
+
+bindsym $mod+Shift+q kill
 
 # change focus
 bindsym $mod+j focus left
@@ -190,17 +90,43 @@ bindsym $mod+s layout stacking
 bindsym $mod+w layout tabbed
 bindsym $mod+e layout toggle split
 
-# toggle tiling / floating
-bindsym $mod+Shift+space floating toggle
+# reload the configuration file
+bindsym $mod+Shift+c reload
+# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+bindsym $mod+Shift+r restart
 
-# change focus between tiling / floating windows
-bindsym $mod+space focus mode_toggle
 
-# switch workspace
-bindsym $mod+Escape		workspace prev
+# my keybindings
+bindsym $mod+u [instance="dropdown"] scratchpad show
+bindsym $mod+d exec rofi -show run -eh 2 -font "System San Francisco Display 18" -fullscreen
+bindsym Control+$mod+l exec i3lock-fancy
 
-# Reboot
-bindsym $mod+Shift+BackSpace	exec sudo reboot
+# Screenshots
+bindsym Print 			exec --no-startup-id scrot -e 'mv $f ~/Pictures/Screenshots/'
+bindsym Shift+Print 		exec --no-startup-id scrot -u -e 'mv $f ~/Pictures/Screenshots/'
+
+# Pulse Audio controls
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% #increase sound volume
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5% #decrease sound volume
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute sound
+
+# Sreen brightness controls
+bindsym XF86MonBrightnessUp exec xbacklight -inc 20 # increase screen brightness
+bindsym XF86MonBrightnessDown exec xbacklight -dec 20 # decrease screen brightness
+
+# #---Workspace Bindings--# #
+
+# name workspaces
+set $workspace1 "1"
+set $workspace2 "2"
+set $workspace3 "3"
+set $workspace4 "4"
+set $workspace5 "5"
+set $workspace6 "6"
+set $workspace7 "7"
+set $workspace8 "8"
+set $workspace9 "9"
+set $workspace10 "10"
 
 # switch to workspace
 bindsym $mod+1 workspace $workspace1
@@ -211,8 +137,8 @@ bindsym $mod+5 workspace $workspace5
 bindsym $mod+6 workspace $workspace6
 bindsym $mod+7 workspace $workspace7
 bindsym $mod+8 workspace $workspace8
-bindsym $mod+9 workspace 9
-bindsym $mod+0 workspace 10
+bindsym $mod+9 workspace $workspace9
+bindsym $mod+0 workspace $workspace10
 
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace $workspace1
@@ -223,15 +149,45 @@ bindsym $mod+Shift+5 move container to workspace $workspace5
 bindsym $mod+Shift+6 move container to workspace $workspace6
 bindsym $mod+Shift+7 move container to workspace $workspace7
 bindsym $mod+Shift+8 move container to workspace $workspace8
-bindsym $mod+Shift+9 move container to workspace 9
-bindsym $mod+Shift+0 move container to workspace 10
+bindsym $mod+Shift+9 move container to workspace $workspace9
+bindsym $mod+Shift+0 move container to workspace $workspace10
 
-# reload the configuration file
-bindsym $mod+Shift+c reload
-# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
-bindsym $mod+Shift+r restart
-# exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+workspace $workspace8 output HDMI2
+
+# enable floating for apps
+for_window [title="Screen Layout Editor"] floating enable
+for_window [window_role="gimp-dock"] floating disable; move left; resize shrink width 50 px or 50ppt
+for_window [window_role="gimp-toolbox"] floating disable; move right; resize grow width 30 px or 30ppt
+for_window [title="PulseAudio Manager"] floating enable
+for_window [title="PulseAudio Volume Meter"] floating enable
+for_window [title="Volume Control"] floating enable
+for_window [title="Toggl Desktop"] floating enable
+for_window [title="Syncthing"] floating enable for_window [title="QtPass"] floating enable
+
+# make sure all apps start where they're supposed to
+assign [class="Google-chrome"] $workspace2
+assign [class="Firefox"] $workspace2
+assign [class="Gpodder"] $workspace4
+assign [class="ncmpcpp"] $workspace4
+for_window [class="Spotify"] move to workspace $workspace4
+assign [class="Slack"] $workspace7
+assign [class="weechat"] $workspace7
+assign [class="retroarch"] $workspace8
+assign [class="mutt"] $workspace6
+
+# First I have a tmux window used for background scripts.
+# I'll later bind this to mod+u.
+for_window [instance="dropdown"] floating enable
+for_window [instance="dropdown"] resize set 625 400
+for_window [instance="dropdown"] move scratchpad
+for_window [instance="dropdown"] border pixel 5
+# Runs the tmuxinit script, which searches for an earlier tmux instance,
+# otherwise starts a new one (to prevent multiple dropdown sessions).
+exec --no-startup-id $term -n dropdown -e tmux
+# Runs neofetch on first tmux screen if installed.
+exec_always --no-startup-id "tmux send-keys -t 0:0 'clear && neofetch 2>/dev/null' Enter"
+
+floating_modifier $mod
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -256,19 +212,3 @@ mode "resize" {
         bindsym Return mode "default"
         bindsym Escape mode "default"
 } bindsym $mod+r mode "resize"
-
-# Custom KeyBinds
-bindsym Control+$mod+l exec i3lock-fancy
-
-# Screenshots
-bindsym Print 			exec --no-startup-id scrot -e 'mv $f ~/Pictures/Screenshots/'
-bindsym Shift+Print 		exec --no-startup-id scrot -u -e 'mv $f ~/Pictures/Screenshots/'
-
-# Pulse Audio controls
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% #increase sound volume
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5% #decrease sound volume
-bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute sound
-
-# Sreen brightness controls
-bindsym XF86MonBrightnessUp exec xbacklight -inc 20 # increase screen brightness
-bindsym XF86MonBrightnessDown exec xbacklight -dec 20 # decrease screen brightness
