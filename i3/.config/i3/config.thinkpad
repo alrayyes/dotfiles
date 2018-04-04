@@ -4,8 +4,8 @@
 # i3-gaps
 hide_edge_borders both
 for_window [class="^.*"] border pixel 0 
-gaps inner 15 
-gaps outer 15
+gaps inner 5 
+gaps outer 5
 font pango:DejaVuSansMonoForPowerline Nerd Font 8
 set $mod Mod4
 
