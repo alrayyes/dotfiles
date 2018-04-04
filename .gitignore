@@ -3,3 +3,13 @@
 /weechat/.weechat/urls.log
 /weechat/.weechat/weechat.log
 /i3/.config/i3/config
+
+borg/.config/systemd/user/default.target.wants/
+borg/.config/systemd/user/mail.target.wants/
+borg/.config/systemd/user/sockets.target.wants/
+
+mpd/.config/mpd/database
+mpd/.config/mpd/log
+mpd/.config/mpd/state
+mpd/.config/mpd/sticker.sql
+
