@@ -28,6 +28,8 @@ exec --no-startup-id nm-applet
 exec --no-startup-id redshift-gtk
 # Syncthing
 exec --no-startup-id syncthing-gtk -m
+# Notification
+exec_always --no-startup-id dunst
 
 ## --- Start Apps ---# #
 # Browser
