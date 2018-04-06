@@ -10,7 +10,8 @@ borg create -v --stats                         \
     --exclude '/home/alrayyes/.cache' \
     --exclude '/home/alrayyes/mnt' \
     --exclude '/home/alrayyes/music'            \
-    --exclude '/home/alrayyes/gPodder/Downloads'
+    --exclude '/home/alrayyes/gPodder/Downloads' \
+    --exclude '/home/alrayyes/Macbook\ Import'
 
 # Use the `prune` subcommand to maintain 7 daily, 4 weekly and 6 monthly
 # archives of THIS machine. The '{hostname}-' prefix is very important to
