@@ -46,7 +46,7 @@ font-0 = DejaVuSansMono Nerd Font Mono:pixelsize=14
 font-1 = "Wuncon Siji:pixelsize=14;1"
 
 modules-left = i3
-modules-center = player-mpris-tail
+modules-center = mpd player-mpris-tail
 modules-right = github updates-arch-combined battery xbacklight bluetooth wlan enp0s31f6 filesystem volume-laptop memory cpu temperature date
 
 tray-position = right
@@ -96,7 +96,7 @@ font-0 = DejaVuSansMono Nerd Font Mono:pixelsize=10
 font-1 = "Wuncon Siji:pixelsize=10;1"
 
 modules-left = i3
-modules-center = player-mpris-tail
+modules-center = mpd player-mpris-tail
 modules-right = github updates-arch-combined bluetooth eth filesystem volume memory cpu temperature date
 
 tray-position = right
