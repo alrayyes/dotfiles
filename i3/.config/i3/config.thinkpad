@@ -100,7 +100,8 @@ bindsym $mod+Shift+r restart
 
 # my keybindings
 bindsym $mod+u [instance="dropdown"] scratchpad show
-bindsym $mod+d exec rofi -show run -eh 2 -font "System San Francisco Display 18" -fullscreen
+bindsym $mod+d exec rofi -show
+bindsym $mod+p exec rofi-pass -show
 bindsym Control+$mod+l exec i3lock-fancy
 
 # Screenshots
