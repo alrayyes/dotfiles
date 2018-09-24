@@ -1,7 +1,8 @@
 # thumb wheel up => increase volume
-"xte 'key XF86AudioRaiseVolume'"
+"pactl set-sink-volume @DEFAULT_SINK@ +5%"
    b:6
 
 # thumb wheel down => lower volume
-"xte 'key XF86AudioLowerVolume'"
+"pactl set-sink-volume @DEFAULT_SINK@ -5%"
    b:7
+
