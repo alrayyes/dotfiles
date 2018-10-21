@@ -18,7 +18,36 @@ primary = #ffb52a
 secondary = #e60053
 alert = #bd2c40
 
-[bar/laptop]
+[bar/laptop-bottom]
+bottom = true
+monitor = ${env:MONITOR:e-DP1}
+width = 100%
+
+height = 27
+radius = 6.0
+fixed-center = false
+
+background = ${colors.background}
+foreground = ${colors.foreground}
+
+line-size = 3
+line-color = #f00
+
+border-size = 0
+border-color = #00000000
+
+padding-left = 0
+padding-right = 2
+
+module-margin-left = 1
+module-margin-right = 2
+
+font-0 = DejaVuSansMono Nerd Font Mono:pixelsize=14
+font-1 = "Wuncon Siji:pixelsize=14;1"
+
+modules-center = mpd player-mpris-tail
+
+[bar/laptop-top]
 monitor = ${env:MONITOR:e-DP1}
 width = 100%
 height = 27
@@ -46,8 +75,8 @@ font-0 = DejaVuSansMono Nerd Font Mono:pixelsize=14
 font-1 = "Wuncon Siji:pixelsize=14;1"
 
 modules-left = i3
-modules-center = mpd player-mpris-tail
-modules-right = github updates-arch-combined battery xbacklight bluetooth wlan enp0s31f6 filesystem volume-laptop memory cpu temperature date
+modules-center = tun0 tun1 wlan bluetooth
+modules-right = github updates-arch-combined battery xbacklight filesystem volume-laptop memory cpu temperature date
 
 tray-position = right
 tray-padding = 0
@@ -278,21 +307,44 @@ interface = wlp4s0
 interval = 3.0
 
 format-connected = <ramp-signal> <label-connected>
-format-connected-underline = #9f78e1
-label-connected = "%local_ip% %downspeed% %upspeed%"
-
+format-packetloss = <animation-packetloss> <label-connected>
 format-disconnected =
-;format-disconnected = <label-disconnected>
-;format-disconnected-underline = ${self.format-connected-underline}
-;label-disconnected = %ifname% disconnected
-;label-disconnected-foreground = ${colors.foreground-alt}
+format-connected-underline = #55aa55
+format-connected-prefix = " "
 
-ramp-signal-0 = 
-ramp-signal-1 = 
-ramp-signal-2 = 
-ramp-signal-3 = 
-ramp-signal-4 = 
-ramp-signal-foreground = ${colors.foreground-alt}
+label-connected = "%essid% %signal% %downspeed:8% %upspeed:8%"
+
+ramp-signal-0 = ▁
+ramp-signal-1 = ▂
+ramp-signal-2 = ▃
+ramp-signal-3 = ▄
+ramp-signal-4 = ▅
+ramp-signal-5 = ▆
+ramp-signal-6 = ▇
+ramp-signal-7 = █
+
+animation-packetloss-0 = ⚠
+animation-packetloss-1 = 📶
+; Framerate in milliseconds
+animation-packetloss-framerate = 500
+
+[module/tun0]
+type = internal/network
+interface = tun0
+interval = 3.0
+
+format-connected-underline = #55aa55
+format-connected-prefix = "嬨 "
+label-connected = "%ifname%"
+
+[module/tun1]
+type = internal/network
+interface = tun1
+interval = 3.0
+
+format-connected-underline = #55aa55
+format-connected-prefix = "嬨 "
+label-connected = "%ifname%"
 
 [module/eth]
 type = internal/network
