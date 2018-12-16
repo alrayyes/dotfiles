@@ -33,7 +33,7 @@ exec_always --no-startup-id dunst
 
 ## --- Start Apps ---# #
 # Browser
-exec iceweasel
+exec firefox
 exec slack
 exec i3-sensible-terminal -c weechat -e weechat
 exec i3-sensible-terminal -c mutt -e neomutt
