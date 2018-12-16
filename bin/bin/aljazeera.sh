@@ -1,2 +1,2 @@
 #!/bin/sh
-mpv -quiet "https://www.youtube.com/watch?v=Qmu26hkNhrA" > /dev/null & disown
+mpv -quiet "https://www.youtube.com/watch?v=iygNrT5d27U" > /dev/null & disown
