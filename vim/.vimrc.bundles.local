@@ -1,1 +1,2 @@
 Bundle 'ryanoasis/vim-devicons'
+UnBundle 'amirh/HTML-AutoCloseTag'
