@@ -1,8 +1,29 @@
 # thumb wheel up => increase volume
 "pactl set-sink-volume @DEFAULT_SINK@ +5%"
-   b:6
+    b:6
 
 # thumb wheel down => lower volume
 "pactl set-sink-volume @DEFAULT_SINK@ -5%"
-   b:7
+    b:7
 
+# screenshot of focussed window
+"scrot -u -e 'mv $f ~/Pictures/Screenshots/ && notify-send -i ~/Pictures/Screenshots/$f "Focussed Screenshot" ~/Pictures/Screenshots/$f'"
+    Shift+Mod4 + Print
+
+# desktop screenshot
+"scrot -e 'mv $f ~/Pictures/Screenshots/ && notify-send -i ~/Pictures/Screenshots/$f "Desktop Screenshot" ~/Pictures/Screenshots/$f'"
+    Mod4 + Print
+
+# Audio controls
+"pactl set-sink-volume 0 +5%"
+    XF86AudioRaiseVolume 
+"pactl set-sink-volume 0 -5%"
+    XF86AudioLowerVolume 
+"pactl set-sink-mute 0 toggle"
+    XF86AudioMute
+
+# Screen brightness controls
+"xbacklight -inc 20"
+    XF86MonBrightnessUp 
+"xbacklight -dec 20"
+    XF86MonBrightnessDown 
