@@ -29,9 +29,13 @@
     XF86MonBrightnessDown 
 
 # lock screen
-"/home/alrayyes/.scripts/lock.sh"
+"lock.sh"
     Mod4 + x
 
 # dmenu calculator
 "dmenu_bc.sh"
     Mod4 + equal
+
+# password selector
+"dmenu_passmenu.sh"
+    Mod4 + z
