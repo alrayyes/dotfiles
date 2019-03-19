@@ -37,5 +37,9 @@
     Mod4 + equal
 
 # password selector
-"dmenu_passmenu.sh"
+"passmenu"
     Mod4 + z
+
+# authenticator
+"dmenu_yubikey_oath.sh"
+    Mod4 + c
