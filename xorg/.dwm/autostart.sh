@@ -1,6 +1,6 @@
 #!/bin/sh
 
-xautolock -time 10 -locker ~/.bin/lock.sh &
+xautolock -time 10 -locker ~/.scripts/lock.sh &
 xbindkeys &
 compton --xrender-sync-fence &
 feh --bg-scale ~/.config/wall.png &

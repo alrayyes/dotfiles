@@ -27,3 +27,11 @@
     XF86MonBrightnessUp 
 "xbacklight -dec 20"
     XF86MonBrightnessDown 
+
+# lock screen
+"/home/alrayyes/.scripts/lock.sh"
+    Mod4 + x
+
+# dmenu calculator
+"dmenu_bc.sh"
+    Mod4 + equal

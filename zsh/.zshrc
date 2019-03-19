@@ -91,13 +91,17 @@ source $ZSH/oh-my-zsh.sh
 # nvim alias
 alias vim="nvim"
 
+# ls alias
+alias ls="lsd"
+alias l="lsd -al"
+
 transfer() { if [ $# -eq 0 ]; then echo -e "No arguments specified. Usage:\necho transfer /tmp/test.md\ncat /tmp/test.md | transfer test.md"; return 1; fi
 tmpfile=$( mktemp -t transferXXX ); if tty -s; then basefile=$(basename "$1" | sed -e 's/[^a-zA-Z0-9._-]/-/g'); curl --progress-bar --upload-file "$1" "https://share.higherlearning.eu/$basefile" >> $tmpfile; else curl --progress-bar --upload-file "-" "https://share.higherlearning.eu/$1" >> $tmpfile ; fi; cat $tmpfile; rm -f $tmpfile; }
 transferats() { if [ $# -eq 0 ]; then echo -e "No arguments specified. Usage:\necho transfer /tmp/test.md\ncat /tmp/test.md | transfer test.md"; return 1; fi
 tmpfile=$( mktemp -t transferXXX ); if tty -s; then basefile=$(basename "$1" | sed -e 's/[^a-zA-Z0-9._-]/-/g'); curl --progress-bar --upload-file "$1" "https://share.andthensome.nl/$basefile" >> $tmpfile; else curl --progress-bar --upload-file "-" "https://share.andthensome.nl/$1" >> $tmpfile ; fi; cat $tmpfile; rm -f $tmpfile; }
 
 # Emberjs settings
-export PATH="$PATH:/home/alrayyes/.config/yarn/global/node_modules/.bin:/home/alrayyes/.bin"
+export PATH="$PATH:/home/alrayyes/.config/yarn/global/node_modules/.bin:/home/alrayyes/.scripts"
 
 # Set GPG TTY
 export GPG_TTY="$(tty)"
