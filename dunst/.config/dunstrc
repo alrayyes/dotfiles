@@ -24,7 +24,7 @@
     sort = yes
 
     idle_threshold = 120
-    font = pango:DejaVuSansMonoForPowerline Nerd Font 10
+    font = SauceCodePro Nerd Font Mono:style=Regular:pixelsize=18:antialias=true:autohint=true
 
     line_height = 0
     markup = full
@@ -54,8 +54,8 @@
     #icon_path = /usr/share/icons/gnome/16x16/status/:/usr/share/icons/gnome/16x16/devices/:/usr/share/icons/Adwaita/256x256/status/
     sticky_history = yes
     history_length = 20
-    dmenu = /usr/bin/dmenu -p dunst:
-    browser = /usr/bin/firefox -new-tab
+    dmenu = dmenu -p dunst:
+    browser = firefox -new-tab
 
     # Always run rule-defined scripts, even if the notification is suppressed
     always_run_script = true
