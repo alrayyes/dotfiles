@@ -2,6 +2,8 @@
 notmuch new
 notmuch tag +inbox +new -- tag:new
 notmuch tag -new -inbox +sent -- from:alrayyes@gmail.com or from:ryan@andthensome.nl
+notmuch tag +gmail -- to:alrayyes@gmail.com
+notmuch tag +andthensome -- to:ryan@andthensome.nl
 
 ACCOUNTS=( "gmail" "andthensome")
 for ACCOUNT in "${ACCOUNTS[@]}"
