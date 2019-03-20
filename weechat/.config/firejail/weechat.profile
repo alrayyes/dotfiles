@@ -1,2 +1,2 @@
 include /etc/firejail/weechat.profile
-read-write ${HOME}/dotfiles/weechat/.weechat/weechat.log
+read-write ${HOME}/dotfiles/weechat/.weechat/
