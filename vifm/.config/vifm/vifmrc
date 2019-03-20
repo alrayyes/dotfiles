@@ -144,6 +144,7 @@ command! mkcd :mkdir %a | cd %a
 command! vgrep nvim "+grep %a"
 command! reload :write | restart
 command! ncdu ncdu %d 2> /dev/null
+command! wallpaper generate-lock-image.sh %f 2> /dev/null
 
 " Fuzzy file search
 command! FZFfind :set noquickview | :execute 'goto "'.system('find | fzf --height 10 2>/dev/tty ').'"%IU' | redraw
@@ -472,7 +473,7 @@ nnoremap ,t :!st &<cr>
 " Open editor to edit vifmrc and apply settings after returning to vifm
 nnoremap ,c :write | edit $MYVIFMRC | restart<cr>
 " Open gvim to edit vifmrc
-nnoremap ,C :!st -e nvim $MYVIFMRC &<cr>
+nnoremap ,C :!st -e nvim %i $MYVIFMRC &<cr>
 
 " Toggle wrap setting on ,w key
 nnoremap ,w :set wrap!<cr>
@@ -484,6 +485,9 @@ nnoremap <f5> :copy<cr>
 nnoremap <f6> :move<cr>
 nnoremap <f7> :mkdir<space>
 nnoremap <f8> :delete<cr>
+
+" Generate wallapaper
+nnoremap ,w :wallpaper<cr>
 
 " quit
 nnoremap q :q!<cr>
