@@ -6,7 +6,7 @@ xss-lock lock &
 
 xbindkeys &
 compton --xrender-sync-fence &
-feh --bg-scale ~/.config/wall.png &
+feh --bg-scale ~/.cache/wall.png &
 unclutter &
 redshift-gtk &
 dunst &
