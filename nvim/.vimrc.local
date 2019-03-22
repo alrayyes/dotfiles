@@ -8,3 +8,6 @@ au BufRead ~/.mutt/temp/mutt-* set tw=72
 
 " default previe browser
 let g:livedown_browser='firefox-developer-edition --class="firefox-developer"' 
+
+" toggle markdown preview
+nmap <leader>P :LivedownToggle<CR>
