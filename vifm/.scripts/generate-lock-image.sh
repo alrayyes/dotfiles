@@ -3,7 +3,7 @@
 clear
 
 WIDTH=$(xrandr | grep '\*' | awk -F 'x' '{print $1}' | sed 's/ //g')
-OUTPUT_IMAGE="$HOME/.config/lock.png"
+OUTPUT_IMAGE="$HOME/.cache/lock.png"
 
 echo "Converting ${1} to ${OUTPUT_IMAGE}...."
 convert "${1}" "${OUTPUT_IMAGE}"
