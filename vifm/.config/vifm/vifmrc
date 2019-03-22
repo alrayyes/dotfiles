@@ -347,9 +347,10 @@ filetype *.7z
 fileviewer *.7z 7z l %c
 
 " Office files
-filextype *.odt,*.doc,*.docx,*.xls,*.xlsx,*.odp,*.pptx libreoffice %f &
+filextype *.odt,*.doc,*.docx,*.xls,*.xlsx,*.odp,*.pptx,*.ods libreoffice %f %i &
 fileviewer *.doc catdoc %c
 fileviewer *.docx docx2txt.pl %f -
+fileviewer *.odt,*.ods,*.odp,*.sxw odt2txt %c
 
 " TuDu files
 filetype *.tudu tudu -f %c
