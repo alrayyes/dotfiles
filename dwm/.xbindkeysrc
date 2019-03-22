@@ -36,10 +36,14 @@
 "="
     Mod4 + equal
 
-# password selector
+# dmenu password selector
 "passmenu"
     Mod4 + z
 
-# authenticator
+# dmenu authenticator
 "yubikey-oath-dmenu --clipboard clipboard --notify"
     Mod4 + c
+
+# dmenu application launcher
+"dmenu-frequency"
+    Mod4 + p
