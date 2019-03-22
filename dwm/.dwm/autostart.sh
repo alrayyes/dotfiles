@@ -14,4 +14,11 @@ slstatus &
 
 exec st -c tmux -e tmux & 
 exec spotify &
-exec firefox &
+
+if [ -e /usr/bin/firefox ]
+then
+    exec firefox &
+elif [ -e /usr/bin/iceweasel ]
+then
+    exec iceweasel &
+fi
