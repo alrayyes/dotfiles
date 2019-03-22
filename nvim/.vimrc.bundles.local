@@ -1,2 +1,4 @@
 Bundle 'ryanoasis/vim-devicons'
+Bundle 'shime/vim-livedown'
 UnBundle 'amirh/HTML-AutoCloseTag'
+UnBundle 'spf13/vim-preview'

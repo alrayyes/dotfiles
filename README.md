@@ -11,20 +11,35 @@ A repository of my personal configuration files.
 ```shell
 ./install.sh
 ```
-# Packages
 
-* [albert](https://github.com/ManuelSchneid3r/albert)
-* [Arch Linux](https://www.archlinux.org/)
-* [Firejail](https://firejail.wordpress.com/)
+# Packages Configured
+
+* [borg](https://www.borgbackup.org/)
+* [compton](https://github.com/yshui/compton)
+* [dunst](https://dunst-project.org/)
+* [feh](https://linux.die.net/man/1/feh)
+* [firejail](https://firejail.wordpress.com/)
 * [git](https://git-scm.com/)
-* [i3](https://i3wm.org/)
-* [mutt](http://www.mutt.org/)
-* [Redshift](http://jonls.dk/redshift/)
-* [terminator](https://gnometerminator.blogspot.nl/p/introduction.html)
+* [gnupg](https://gnupg.org/)
+* [gtk](https://www.gtk.org/)
+* [mpd](https://www.musicpd.org/)
+* [neomutt](https://neomutt.org/)
+* [neovim](https://neovim.io/)
+* [redshift](http://jonls.dk/redshift/)
+* [rtv](https://github.com/michael-lazar/rtv)
+* [spacemacs](http://spacemacs.org/)
 * [tmux](https://tmux.github.io/)
-* [vim](http://www.vim.org/)
+* [vifm](https://vifm.info/)
+* [weechat](https://weechat.org/)
 * [zeal](https://zealdocs.org/)
 * [zsh](https://www.zsh.org/)
+
+# Custom Packages configured
+
+These are custom packages I use (mostly [suckless](https://suckless.org/)).
+
+* [dwm](https://github.com/alrayyes/dwm)
+* [slstatus](https://github.com/alrayyes/slstatus)
 
 # License
 

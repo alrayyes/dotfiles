@@ -1,0 +1,10 @@
+color molokai
+
+" vim-devicons
+set encoding=utf8
+
+" mutt
+au BufRead ~/.mutt/temp/mutt-* set tw=72
+
+" default previe browser
+let g:livedown_browser='firefox-developer-edition --class="firefox-developer"' 
