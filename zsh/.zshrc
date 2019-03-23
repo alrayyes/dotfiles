@@ -55,7 +55,7 @@ ZSH_THEME="powerlevel9k/powerlevel9k"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(aws archlinux bower common-aliases composer docker git git-flow pass sudo symfony2 systemd tmux)
+plugins=(aws archlinux bower common-aliases composer docker git git-flow pass sudo symfony2 systemd tmux fzf)
 
 source $ZSH/oh-my-zsh.sh
 
