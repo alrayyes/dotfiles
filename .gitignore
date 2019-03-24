@@ -13,3 +13,5 @@ mpd/.config/mpd/log
 mpd/.config/mpd/state
 mpd/.config/mpd/sticker.sql
 
+vifm/.config/vifm/vifm-help.txt
+vifm/.config/vifm/vifminfo
