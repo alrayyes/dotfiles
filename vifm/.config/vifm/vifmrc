@@ -146,7 +146,8 @@ command! vgrep nvim "+grep %a"
 command! reload :write | restart
 command! ncdu ncdu %d 2> /dev/null
 command! lockwallpaper generate-lock-image.sh %f 2> /dev/null
-command! backgroundwallpaper switch-background-image.sh %f 2> /dev/null
+command! backgroundwallpaperone switch-background-image.sh %f 1 2> /dev/null
+command! backgroundwallpapertwo switch-background-image.sh %f 2 2> /dev/null
 
 " Fuzzy file search
 command! FZFfind :set noquickview | :execute 'goto "'.system('find | fzf --height 10 2>/dev/tty ').'"%IU' | redraw
@@ -492,7 +493,8 @@ nnoremap <f8> :delete<cr>
 " Generate lock wallapaper
 nnoremap ,l :lockwallpaper<cr>
 " Generate background image wallpaper
-nnoremap ,w :backgroundwallpaper<cr>
+nnoremap ,w1 :backgroundwallpaperone<cr>
+nnoremap ,w2 :backgroundwallpapertwo<cr>
 
 " quit
 nnoremap q :q!<cr>
