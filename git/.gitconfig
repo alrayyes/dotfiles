@@ -3,7 +3,7 @@
     email = ryan@andthensome.nl
 
 [core]
-    editor = vim
+    editor = nvim
 	excludesfile = /home/alrayyes/.gitignore_global
 
 [push]
