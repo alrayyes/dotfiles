@@ -1,0 +1,6 @@
+#!/bin/sh
+
+xrandr --newmode "2560x1440_40" 201.00 2560 2720 2984 3408 1440 1443 1448 1476 -hsync +vsync
+xrandr --addmode HDMI-2 2560x1440_40
+
+xrandr --output VGA-1 --off --output DP-1 --primary --mode 3840x2160 --rotate normal --output HDMI-3 --off --output HDMI-2 --mode 2560x1440_40 --pos 0x0 --rotate left --output HDMI-1 --off

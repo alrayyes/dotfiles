@@ -3,11 +3,20 @@
 # Set screen orientation if second monitor is connected
 SCREENCOUNT=$(xrandr | grep -c "\*")
 
+# If multi screen add special mode for monitor so it supports 1440p over HDMI
 if [ "$SCREENCOUNT" -eq 2 ]
 then
-    xrandr --newmode "2560x1440_40" 201.00 2560 2720 2984 3408 1440 1443 1448 1476 -hsync +vsync \
-        && xrandr --addmode HDMI-2 2560x1440_40 \
-        && xrandr --output DP-1 --mode 3840x2160 --primary --output HDMI-2 --mode 2560x1440_40 --left-of DP-1 --rotate left &
+    if [ -f "$HOME/.screenlayout/screen_desktop.sh" ]
+    then
+        /bin/sh ~/.screenlayout/screen_desktop.sh
+        # Make sure mouse is on main screen so windows are launched there
+        xdotool mousemove 3360 1080
+    fi
+else
+    if [ -f "$HOME/.screenlayout/screen.sh" ]
+    then
+        /bin/sh ~/.screenlayout/screen.sh
+    fi
 fi
 
 # lock screen after x minutes and on laptop close lid
