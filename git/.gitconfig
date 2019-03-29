@@ -12,3 +12,11 @@
 	email = alrayyes@gmail.com
 	name = Ryan Kes
 	signingkey = alrayyes@gmail.com
+[sendemail]
+    confirm = auto
+
+[sendemail]
+	smtpEncryption = tls
+    smtpServer = /usr/bin/msmtp
+    confirm = auto
+    chainreplyto = false
