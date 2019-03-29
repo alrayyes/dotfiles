@@ -16,7 +16,7 @@
     confirm = auto
 
 [sendemail]
-	smtpEncryption = tls
+    smtpEncryption = tls
     smtpServer = /usr/bin/msmtp
     confirm = auto
     chainreplyto = false
