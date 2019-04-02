@@ -34,6 +34,10 @@ then
     feh --bg-scale ~/.cache/wall1.png &
 fi
 
+# switch off microphones
+amixer -c 2 set Mic nocap
+amixer -c 3 set Mic nocap
+
 unclutter &
 redshift-gtk &
 dunst &
