@@ -90,6 +90,7 @@ source $ZSH/oh-my-zsh.sh
 
 # nvim alias
 alias vim="nvim"
+alias vi="nvim"
 
 # ls alias
 alias ls="lsd"
