@@ -1,4 +1,4 @@
-# Ifkyou come from bash you might have to change your $PATH.
+# If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Stop tmux bitching about 256 colours
@@ -111,7 +111,13 @@ export PATH="$PATH:/home/alrayyes/.config/yarn/global/node_modules/.bin:/home/al
 export GPG_TTY="$(tty)"
 
 # Set default browser
-export BROWSER="firefox"
+ if [ -e "/usr/bin/firefox" ]
+then
+    export BROWSER="firefox"
+elif [ -e "/usr/bin/iceweasel" ]
+then
+    export BROWSER="iceweasel"
+fi
 
 # Set default terminal
 export TERMINAL="st"
