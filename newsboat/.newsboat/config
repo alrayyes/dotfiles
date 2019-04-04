@@ -9,6 +9,7 @@ show-read-feeds no
 auto-reload yes
 reload-time 10
 external-url-viewer "urlscan -dc -r 'linkhandler.sh {}'"
+notify-program "/usr/bin/notify-send"
 
 bind-key ^R reload-all
 bind-key j down
