@@ -1,9 +1,0 @@
-[Unit]
-Description=Run update-pacman-cache every 15m
-
-[Timer]
-OnBootSec=300m
-OnUnitActiveSec=15m
-
-[Install]
-WantedBy=timers.target

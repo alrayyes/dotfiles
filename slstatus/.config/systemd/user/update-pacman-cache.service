@@ -1,8 +1,0 @@
-[Unit]
-Description=Update Pacman Cache
-
-[Service]
-ExecStart=yay -Sy
-
-[Install]
-WantedBy=default.target
