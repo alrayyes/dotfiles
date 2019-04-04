@@ -10,7 +10,7 @@
     padding = 0
     horizontal_padding = 8
     frame_width = 3
-    frame_color = "#282828"
+    icon_position = left
 
     # Define a color for the separator.
     # possible values are:
@@ -18,13 +18,13 @@
     #  * foreground: use the same color as the foreground;
     #  * frame: use the same color as the frame;
     #  * anything else will be interpreted as a X color.
-    separator_color = frame
+    separator_color = auto
 
     # Sort messages by urgency.
     sort = yes
 
     idle_threshold = 120
-    font = SauceCodePro Nerd Font Mono:style=Regular:pixelsize=18:antialias=true:autohint=true
+    font = SauceCodePro Nerd Font Mono:style=Regular:pixelsize=12:antialias=true:autohint=true
 
     line_height = 0
     markup = full
@@ -49,9 +49,8 @@
     stack_duplicates = true
     hide_duplicate_count = false
     show_indicators = yes
-    icon_position = left
     max_icon_size = 40
-    #icon_path = /usr/share/icons/gnome/16x16/status/:/usr/share/icons/gnome/16x16/devices/:/usr/share/icons/Adwaita/256x256/status/
+    icon_path = /usr/share/icons/gnome/16x16/status/:/usr/share/icons/gnome/16x16/devices/:/usr/share/icons/Adwaita/256x256/status/
     sticky_history = yes
     history_length = 20
     dmenu = dmenu -p dunst:
@@ -152,3 +151,20 @@
 #
 # vim: ft=cfg
 
+frame_color = "#93a1a1"
+separator_color = "#93a1a1"
+
+[base16_low]
+    msg_urgency = low
+    background = "#073642"
+    foreground = "#657b83"
+
+[base16_normal]
+    msg_urgency = normal
+    background = "#586e75"
+    foreground = "#93a1a1"
+
+[base16_critical]
+    msg_urgency = critical
+    background = "#dc322f"
+    foreground = "#eee8d5"
