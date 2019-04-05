@@ -6,6 +6,7 @@ ttrss-login "alrayyes"
 ttrss-passwordeval "pass homelab/rss.higherlearning.eu\\ alrayyes | head -n 1"
 
 show-read-feeds no
+show-read-articles no
 auto-reload yes
 reload-time 10
 external-url-viewer "urlscan -dc -r 'linkhandler.sh {}'"
