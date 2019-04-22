@@ -98,3 +98,7 @@ composer.phar
 
 .idea
 .idea/*
+
+# gitlab runner
+builds/
+cache/
