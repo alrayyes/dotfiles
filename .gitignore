@@ -3,6 +3,7 @@
 /weechat/.weechat/urls.log
 /weechat/.weechat/weechat.log
 /i3/.config/i3/config
+/weechat/.weechat/weechat_crash_*.log
 
 borg/.config/systemd/user/default.target.wants/
 borg/.config/systemd/user/mail.target.wants/
@@ -24,3 +25,5 @@ newsboat/.newsboat/history.cmdline
 newsboat/.newsboat/history.search
 
 mutt/.config/mutt/mailboxes
+
+gtk/.config/gtk-3.0/bookmarks
