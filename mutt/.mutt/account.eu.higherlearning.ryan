@@ -1,7 +1,0 @@
-set spoolfile = +higherlearning/INBOX
-set record = +higherlearning/Sent
-
-set from     = "ryan@ryankes.eu"
-set sendmail = "msmtp -a higherlearning"
-set sendmail_wait = 0
-set realname = "Ryan Kes"

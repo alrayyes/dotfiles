@@ -1,10 +1,10 @@
 # Paths
 set folder = ~/mail
-set header_cache = ~/.mutt/cache/headers
-set message_cachedir = ~/.mutt/cache/bodies
+set header_cache = ~/.config/mutt/cache/headers
+set message_cachedir = ~/.config/mutt/cache/bodies
 set mailcap_path = ~/.mailcap
-set tmpdir = ~/.mutt/temp
-set signature = ~/.mutt/sig
+set tmpdir = ~/.config/mutt/temp
+set signature = ~/.config/mutt/sig
 
 # Basic options
 set wait_key = no
@@ -103,9 +103,9 @@ macro index C "<copy-message>?<toggle-mailboxes>" "copy a message to a mailbox"
 macro index M "<save-message>?<toggle-mailboxes>" "move a message to a mailbox"
 
 # Switch between mailboxes
-macro index <f1> '<sync-mailbox><enter-command>source ~/.mutt/account.com.gmail.alrayyes<enter><change-folder>!<enter>'
-macro index <f2> '<sync-mailbox><enter-command>source ~/.mutt/account.nl.andthensome.ryan<enter><change-folder>!<enter>'
-macro index <f3> '<sync-mailbox><enter-command>source ~/.mutt/account.eu.higherlearning.ryan<enter><change-folder>!<enter>'
+macro index <f1> '<sync-mailbox><enter-command>source ~/.config/mutt/account.com.gmail.alrayyes<enter><change-folder>!<enter>'
+macro index <f2> '<sync-mailbox><enter-command>source ~/.config/mutt/account.nl.andthensome.ryan<enter><change-folder>!<enter>'
+macro index <f3> '<sync-mailbox><enter-command>source ~/.config/mutt/account.eu.ryankes.ryan<enter><change-folder>!<enter>'
 
 # Sync email
 macro index O "<shell-escape>offlineimap -o <enter>"           "run offlineimap to sync all mail"
@@ -141,9 +141,11 @@ bind editor <Tab> complete-query
 
 # Notmuch
 #set virtual_spoolfile=yes
-#source ~/.mutt/notmuchmailboxes
+#source ~/.config/mutt/notmuchmailboxes
 
-source ~/.mutt/mailboxes
-source ~/.mutt/account.com.gmail.alrayyes
-source ~/.mutt/muttcol
-source ~/.mutt/gpg.rc
+source ~/.config/mutt/mailboxes
+source ~/.config/mutt/account.com.gmail.alrayyes
+source ~/.config/mutt/account.nl.andthensome.ryan
+source ~/.config/mutt/account.eu.ryankes.ryan
+source ~/.config/mutt/muttcol
+source ~/.config/mutt/gpg.rc
