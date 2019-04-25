@@ -105,7 +105,7 @@ transferats() { if [ $# -eq 0 ]; then echo -e "No arguments specified. Usage:\ne
 tmpfile=$( mktemp -t transferXXX ); if tty -s; then basefile=$(basename "$1" | sed -e 's/[^a-zA-Z0-9._-]/-/g'); curl --progress-bar --upload-file "$1" "https://share.andthensome.nl/$basefile" >> $tmpfile; else curl --progress-bar --upload-file "-" "https://share.andthensome.nl/$1" >> $tmpfile ; fi; cat $tmpfile; rm -f $tmpfile; }
 
 # Emberjs settings
-export PATH="$PATH:/home/alrayyes/.config/yarn/global/node_modules/.bin:/home/alrayyes/.scripts"
+export PATH="$PATH:/home/alrayyes/.config/yarn/global/node_modules/.bin:/home/alrayyes/.scripts:/home/alrayyes/.local/bin"
 
 # Set GPG TTY
 export GPG_TTY="$(tty)"
