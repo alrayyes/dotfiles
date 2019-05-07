@@ -1,0 +1,8 @@
+[Unit]
+Description=Restic Backup
+
+[Service]
+ExecStart=/home/alrayyes/.scripts/backup.sh
+
+[Install]
+WantedBy=default.target

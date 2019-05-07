@@ -1,8 +1,0 @@
-[Unit]
-Description=Borg Backup
-
-[Service]
-ExecStart=/home/alrayyes/bin/backup.sh
-
-[Install]
-WantedBy=default.target

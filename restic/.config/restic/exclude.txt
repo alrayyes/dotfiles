@@ -1,0 +1,11 @@
+/home/alrayyes/.cache
+/home/alrayyes/.composer
+/home/alrayyes/mnt
+/home/alrayyes/music
+/home/alrayyes/gPodder/Downloads
+/home/alrayyes/Desktop/cloudvps
+/home/alrayyes/Macbook\ Import
+/home/alrayyes/.davfs2
+/home/alrayyes/Documents
+/home/alrayyes/Pictures
+/home/alrayyes/Videos
