@@ -2,7 +2,7 @@
 Description=Restic Backup
 
 [Service]
-ExecStart=/home/alrayyes/.scripts/backup.sh
+ExecStart=/home/alrayyes/.local/bin/backup.sh
 
 [Install]
 WantedBy=default.target

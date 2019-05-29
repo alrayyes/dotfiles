@@ -118,7 +118,7 @@ set statusline="  Hint: %z%= %A %10u:%-7g %15s %20d  "
 
 mark b ~/bin/
 mark h ~/
-mark s ~/.scripts
+mark s ~/.local/bin
 mark d ~/Documents
 mark w ~/Pictures/wallpaper
 
