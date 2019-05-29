@@ -47,3 +47,7 @@
 # dmenu application launcher
 "dmenu-frequency"
     Mod4 + p
+
+# Wireguard
+"~/.scripts/vpn-switch.sh"
+    Mod4 + w
