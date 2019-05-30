@@ -14,8 +14,6 @@ A repository of my personal configuration files.
 
 # Packages Configured
 
-* [borg](https://www.borgbackup.org/)
-* [compton](https://github.com/yshui/compton)
 * [dunst](https://dunst-project.org/)
 * [feh](https://linux.die.net/man/1/feh)
 * [firejail](https://firejail.wordpress.com/)
@@ -26,10 +24,13 @@ A repository of my personal configuration files.
 * [neomutt](https://neomutt.org/)
 * [neovim](https://neovim.io/)
 * [redshift](http://jonls.dk/redshift/)
+* [restic](https://github.com/restic/restic)
 * [rtv](https://github.com/michael-lazar/rtv)
 * [spacemacs](http://spacemacs.org/)
 * [tmux](https://tmux.github.io/)
 * [vifm](https://vifm.info/)
+* [xcompmgr](https://github.com/freedesktop/xcompmgr)
+* [xwallpaper](https://github.com/stoeckmann/xwallpaper)
 * [weechat](https://weechat.org/)
 * [zsh](https://www.zsh.org/)
 
