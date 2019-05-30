@@ -24,7 +24,7 @@ xautolock -time 10 -locker lock &
 xss-lock lock &
 
 xbindkeys &
-compton --xrender-sync-fence &
+xcompmgr &
 
 if [ -e ~/.cache/wall1.png ] &&  [ -e ~/.cache/wall2.png ]
 then
