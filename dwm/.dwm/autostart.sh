@@ -28,10 +28,10 @@ xcompmgr &
 
 if [ -e ~/.cache/wall1.png ] &&  [ -e ~/.cache/wall2.png ]
 then
-    feh --bg-scale ~/.cache/wall1.png --bg-scale ~/.cache/wall2.png &
+    xwallpaper --output HDMI-2 --zoom ~/.cache/wall2.png --output DP-1 --zoom ~/.cache/wall1.png &
 elif [ -e ~/.cache/wall1.png ]
 then
-    feh --bg-scale ~/.cache/wall1.png &
+    xwallpaper --output eDP1 --zoom ~/.cache/wall1.png &
 fi
 
 # switch off microphones
