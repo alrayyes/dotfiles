@@ -31,7 +31,6 @@ A repository of my personal configuration files.
 * [tmux](https://tmux.github.io/)
 * [vifm](https://vifm.info/)
 * [weechat](https://weechat.org/)
-* [zeal](https://zealdocs.org/)
 * [zsh](https://www.zsh.org/)
 
 # Custom Packages configured
