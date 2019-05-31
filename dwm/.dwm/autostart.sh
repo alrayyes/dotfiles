@@ -6,16 +6,16 @@ SCREENCOUNT=$(xrandr | grep -c "\*")
 # If multi screen add special mode for monitor so it supports 1440p over HDMI
 if [ "$SCREENCOUNT" -eq 2 ]
 then
-    if [ -f "$HOME/.screenlayout/screen_desktop.sh" ]
+    if [ -f "$HOME/.local/bin/screen_desktop" ]
     then
-        /bin/sh ~/.screenlayout/screen_desktop.sh
+        screen_desktop
         # Make sure mouse is on main screen so windows are launched there
         xdotool mousemove 3360 1080
     fi
 else
-    if [ -f "$HOME/.screenlayout/screen.sh" ]
+    if [ -f "$HOME/.local/bin/screen" ]
     then
-        /bin/sh ~/.screenlayout/screen.sh
+        screen
     fi
 fi
 

@@ -145,9 +145,9 @@ command! mkcd :mkdir %a | cd %a
 command! vgrep nvim "+grep %a"
 command! reload :write | restart
 command! ncdu ncdu %d 2> /dev/null
-command! lockwallpaper generate-lock-image.sh %f 2> /dev/null
-command! backgroundwallpaperone switch-background-image.sh %f 1 2> /dev/null
-command! backgroundwallpapertwo switch-background-image.sh %f 2 2> /dev/null
+command! lockwallpaper generate-lock-image %f 2> /dev/null
+command! backgroundwallpaperone switch-background-image %f 1 2> /dev/null
+command! backgroundwallpapertwo switch-background-image %f 2 2> /dev/null
 
 " Fuzzy file search
 command! FZFfind :set noquickview | :execute 'goto "'.system('find | fzf --height 10 2>/dev/tty ').'"%IU' | redraw
