@@ -49,5 +49,5 @@
     Mod4 + p
 
 # Wireguard
-"~/.scripts/vpn-switch"
+"vpn-switch"
     Mod4 + w
