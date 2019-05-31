@@ -12,6 +12,7 @@ alias l="lsd -al"
 
 # vifm alias
 alias vifm="vifmrun"
+alias vim="nvim"
 
 # Refresh gpg-agent tty in case user switches into an X session
 gpg-connect-agent updatestartuptty /bye >/dev/null
