@@ -1,0 +1,55 @@
+# screenshot of focussed window
+shift+ Print
+  maimpick
+
+# desktop screenshot
+Print
+  maim ~/Pictures/Screenshots/pic-full-$(date '+%Y-%m-%d-%H%M%S').png && notify-send -i ~/Pictures/Screenshots/pic-full-$(date '+%Y-%m-%d-%H%M%S').png "Desktop Screenshot ~/Pictures/Screenshots/pic-full-$(date '+%Y-%m-%d-%H%M%S').png"
+
+# Audio controls
+XF86AudioRaiseVolume 
+  pactl set-sink-volume @DEFAULT_SINK@ +5%
+XF86AudioLowerVolume
+  pactl set-sink-volume @DEFAULT_SINK@ -5%
+XF86AudioMute
+  pactl set-sink-mute @DEFAULT_SINK@ toggle
+
+# Screen brightness controls
+XF86MonBrightnessUp 
+  xbacklight -inc 20
+XF86MonBrightnessDown 
+  xbacklight -dec 20
+
+# lock screen
+super + x
+  lock
+
+# dmenu calculator
+super + equal
+  =
+
+# dmenu password selector
+super + z
+  passmenu
+
+# dmenu authenticator
+super + c
+  yubikey-oath-dmenu --clipboard clipboard --notify
+
+# dmenu application launcher
+super + p
+  dmenu-frequency
+
+# Wireguard
+super + w
+  vpn-switch
+
+# Shutdown / reboot
+XF86Eject 
+	prompt "Shutdown computer?" "sudo -A shutdown -h now"
+shift + XF86Eject
+  prompt "Reboot computer?" "sudo -A shutdown -r now"
+
+# Open frequent apps
+super + o ; {e,w,m,r,h}
+	{emacs, $BROWSER, $TERMINAL -e neomutt, $TERMINAL -e vifm, $TERMINAL -e htop}

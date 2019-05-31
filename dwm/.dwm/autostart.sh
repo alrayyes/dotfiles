@@ -22,9 +22,8 @@ fi
 # lock screen after x minutes and on laptop close lid
 xautolock -time 10 -locker lock &
 xss-lock lock &
-
-xbindkeys &
 xcompmgr &
+sxhkd &
 
 if [ -e ~/.cache/wall1.png ] &&  [ -e ~/.cache/wall2.png ]
 then
