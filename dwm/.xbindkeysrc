@@ -7,12 +7,12 @@
     b:7
 
 # screenshot of focussed window
-"scrot -u -e 'mv $f ~/Pictures/Screenshots/ && notify-send -i ~/Pictures/Screenshots/$f "Focussed Screenshot" ~/Pictures/Screenshots/$f'"
-    Shift+Mod4 + Print
+"maimpick"
+    Shift+ Print
 
 # desktop screenshot
-"scrot -e 'mv $f ~/Pictures/Screenshots/ && notify-send -i ~/Pictures/Screenshots/$f "Desktop Screenshot" ~/Pictures/Screenshots/$f'"
-    Mod4 + Print
+"maim ~/Pictures/Screenshots/pic-full-$(date '+%Y-%m-%d-%H%M%S').png && notify-send -i ~/Pictures/Screenshots/pic-full-$(date '+%Y-%m-%d-%H%M%S').png "Desktop Screenshot ~/Pictures/Screenshots/pic-full-$(date '+%Y-%m-%d-%H%M%S').png""
+    Print
 
 # Audio controls
 "pactl set-sink-volume @DEFAULT_SINK@ +5%"
