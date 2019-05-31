@@ -1,8 +1,11 @@
 #!/bin/sh
+
+TIMESTAMP=$(date '+%Y-%m-%d-%H%M%S')
+
 case "$(printf "a selected area\\ncurrent window\\nfull screen\\na selected area (copy)\\ncurrent window (copy)\\nfull screen (copy)" | dmenu -l 6 -i -p "Screenshot which area?")" in
-	"a selected area") maim -s ~/Pictures/Screenshots/pic-selected-"$(date '+%Y-%m-%d-%H%m%S').png" ;;
-	"current window") maim -i "$(xdotool getactivewindow)" ~/Pictures/Screenshots/pic-window-"$(date '+%Y-%m-%d-%H%m%S').png" ;;
-	"full screen") maim ~/Pictures/Screenshots/pic-full-"$(date '+%Y-%m-%d-%H%m%S').png" ;;
+	  "a selected area") maim -s ~/Pictures/Screenshots/pic-selected-"$TIMESTAMP".png && notify-send -i ~/Pictures/Screenshots/pic-selected-"$TIMESTAMP".png "Desktop Screenshot pic-selected-$TIMESTAMP.png" ;;
+	  "current window") maim -i "$(xdotool getactivewindow)" ~/Pictures/Screenshots/pic-window-"$TIMESTAMP".png && notify-send -i ~/Pictures/Screenshots/pic-window-"$TIMESTAMP".png "Desktop Screenshot pic-window-$TIMESTAMP.png";;
+	  "full screen") maim ~/Pictures/Screenshots/pic-full-"$TIMESTAMP".png && notify-send -i ~/Pictures/Screenshots/pic-full-"$TIMESTAMP".png "Desktop Screenshot pic-full-$TIMESTAMP.png" ;;
 	"a selected area (copy)") maim -s | xclip -selection clipboard -t image/png ;;
 	"current window (copy)") maim -i "$(xdotool getactivewindow)" | xclip -selection clipboard -t image/png ;;
 	"full screen (copy)") maim | xclip -selection clipboard -t image/png ;;
