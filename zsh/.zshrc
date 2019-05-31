@@ -13,7 +13,17 @@ alias l="lsd -al"
 # vifm alias
 alias vifm="vifmrun"
 alias vim="nvim"
+alias vi="nvim"
 
+# ls alias
+alias ls="lsd"
+alias l="lsd -al"
+
+# vifm alias
+alias vifm="vifmrun"
+
+# Set GPG TTY
+export GPG_TTY="$(tty)"
 # Refresh gpg-agent tty in case user switches into an X session
 gpg-connect-agent updatestartuptty /bye >/dev/null
 
