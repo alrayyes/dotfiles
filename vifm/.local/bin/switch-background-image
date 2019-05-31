@@ -21,6 +21,12 @@ echo "Resizing ${OUTPUT_IMAGE} to ${WIDTH}x${HEIGHT}"
 convert "${OUTPUT_IMAGE}" -resize "${WIDTH}x${HEIGHT}^" -gravity center -extent "${WIDTH}"x"${HEIGHT}" "${OUTPUT_IMAGE}"
 
 echo "Setting background images...."
-feh --bg-scale ~/.cache/wall1.png --bg-scale ~/.cache/wall2.png
+if [ -e ~/.cache/wall1.png ] &&  [ -e ~/.cache/wall2.png ]
+then
+    xwallpaper --output HDMI-2 --zoom ~/.cache/wall2.png --output DP-1 --zoom ~/.cache/wall1.png &
+elif [ -e ~/.cache/wall1.png ]
+then
+    xwallpaper --output eDP1 --zoom ~/.cache/wall1.png &
+fi
 
 echo "done!"

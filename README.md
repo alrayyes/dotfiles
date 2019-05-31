@@ -15,7 +15,6 @@ A repository of my personal configuration files.
 # Packages Configured
 
 * [dunst](https://dunst-project.org/)
-* [feh](https://linux.die.net/man/1/feh)
 * [firejail](https://firejail.wordpress.com/)
 * [git](https://git-scm.com/)
 * [gnupg](https://gnupg.org/)
