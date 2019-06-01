@@ -1,0 +1,15 @@
+#!/bin/bash
+
+# get hostnames from ~/.ssh/known_hosts
+ssh_host="$(awk -F "[ ,]+" '{print $1}'  ~/.ssh/known_hosts | tr -d '[]' | uniq | sort -n | dmenu)"
+# split hostnames into array { hostname, port }
+mapfile -t params < <(echo "$ssh_host" | awk -F ":" '{print $1} {if ($2) print $2}')
+
+if [ -n "$ssh_host"  ]; then
+    # If array size is two then second parameter is port number
+    if [ ${#params[@]} -eq 2 ]; then
+        $TERMINAL -e ssh "${params[0]}" -p "${params[1]}"
+    else
+        $TERMINAL -e ssh "${params[0]}"
+    fi
+fi

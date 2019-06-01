@@ -44,12 +44,16 @@ super + p
 super + w
   vpn-switch
 
+# ssh shell
+super + s
+  ssh-dmenu
+
 # Shutdown / reboot
 XF86Eject 
-	prompt "Shutdown computer?" "sudo -A shutdown -h now"
+  prompt "Shutdown computer?" "sudo -A shutdown -h now"
 shift + XF86Eject
   prompt "Reboot computer?" "sudo -A shutdown -r now"
 
 # Open frequent apps
 super + o ; {e,w,m,r,h}
-	{emacs, $BROWSER, $TERMINAL -e neomutt, $TERMINAL -e vifm, $TERMINAL -e htop}
+  {emacs, $BROWSER, $TERMINAL -e neomutt, $TERMINAL -e vifm, $TERMINAL -e htop}
