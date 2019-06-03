@@ -4,7 +4,7 @@ shift+ Print
 
 # desktop screenshot
 Print
-  maim ~/Pictures/Screenshots/pic-full-$(date '+%Y-%m-%d-%H%M%S').png && notify-send -i ~/Pictures/Screenshots/pic-full-$(date '+%Y-%m-%d-%H%M%S').png "Desktop Screenshot ~/Pictures/Screenshots/pic-full-$(date '+%Y-%m-%d-%H%M%S').png"
+  TIMESTAMP=$(date '+%Y-%m-%d-%H%M%S'); maim ~/Pictures/Screenshots/pic-full-$TIMESTAMP.png && notify-send -i ~/Pictures/Screenshots/pic-full-$TIMESTAMP.png "Desktop Screenshot pic-full-$TIMESTAMP.png"
 
 # Audio controls
 XF86AudioRaiseVolume 
