@@ -55,5 +55,5 @@ shift + XF86Eject
   prompt "Reboot computer?" "sudo -A shutdown -r now"
 
 # Open frequent apps
-super + o ; {e,w,m,r,h}
-  {emacs, $BROWSER, $TERMINAL -e neomutt, $TERMINAL -e vifm, $TERMINAL -e htop}
+super + o ; {e,w,m,v,h,s,i,n,r,q}
+  {emacs, $BROWSER, $TERMINAL -e neomutt, $TERMINAL -e vifm, $TERMINAL -e htop, slack, $TERMINAL -e weechat, $TERMINAL -e newsboat, qtpass}
