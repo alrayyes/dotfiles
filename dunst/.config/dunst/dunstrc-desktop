@@ -1,7 +1,7 @@
 [global] 
-    monitor = 0 
-    follow = keyboard 
-    geometry = "350x5-0+24" 
+    monitor = 0
+    follow = keyboard
+    geometry = "600x5-30+30"
     indicate_hidden = yes
     shrink = yes
     transparency = 20
@@ -10,7 +10,7 @@
     padding = 0
     horizontal_padding = 8
     frame_width = 3
-    icon_position = left
+    frame_color = "#d5c4a1"
 
     # Define a color for the separator.
     # possible values are:
@@ -18,13 +18,13 @@
     #  * foreground: use the same color as the foreground;
     #  * frame: use the same color as the frame;
     #  * anything else will be interpreted as a X color.
-    separator_color = auto
+    separator_color = frame
 
     # Sort messages by urgency.
     sort = yes
 
     idle_threshold = 120
-    font = SauceCodePro Nerd Font Mono:style=Regular:pixelsize=12:antialias=true:autohint=true
+    font = SauceCodePro Nerd Font:style=Regular:pixelsize=12:antialias=true:autohint=true
 
     line_height = 0
     markup = full
@@ -39,7 +39,7 @@
     #   %n  progress value if set without any extra characters
     #   %%  Literal %
     # Markup is allowed
-    format = "<b>%s<b>\n%b"
+    format = "<b>%s</b>\n%b"
 
     alignment = left
     show_age_threshold = 60
@@ -47,10 +47,11 @@
     ellipsize = middle
     ignore_newline = no
     stack_duplicates = true
-    hide_duplicate_count = false
+    hide_duplicate_count = true
     show_indicators = yes
+    icon_position = left
     max_icon_size = 40
-    icon_path = /usr/share/icons/gnome/16x16/status/:/usr/share/icons/gnome/16x16/devices/:/usr/share/icons/Adwaita/256x256/status/
+    #icon_path = /usr/share/icons/gnome/16x16/status/:/usr/share/icons/gnome/16x16/devices/:/usr/share/icons/Adwaita/256x256/status/
     sticky_history = yes
     history_length = 20
     dmenu = dmenu -p dunst:
@@ -71,26 +72,6 @@
     close_all = ctrl+shift+space
     history = ctrl+grave
     context = ctrl+shift+period
-
-[urgency_low]
-    # IMPORTANT: colors have to be defined in quotation marks.
-    # Otherwise the "#" and following would be interpreted as a comment.
-    background = "#282828"
-    foreground = "#928374"
-    timeout = 5
-    # Icon for notifications with low urgency, uncomment to enable
-    #icon = /path/to/icon
-
-[urgency_normal]
-    background = "#458588"
-    foreground = "#ebdbb2"
-    timeout = 5
-
-[urgency_critical]
-    background = "#cc2421"
-    foreground = "#ebdbb2"
-    frame_color = "#fabd2f"
-    timeout = 0
 
 # Every section that isn't one of the above is interpreted as a rules to
 # override settings for certain messages.
@@ -151,20 +132,17 @@
 #
 # vim: ft=cfg
 
-frame_color = "#93a1a1"
-separator_color = "#93a1a1"
-
 [base16_low]
     msg_urgency = low
-    background = "#073642"
-    foreground = "#657b83"
+    background = "#3c3836"
+    foreground = "#665c54"
 
 [base16_normal]
     msg_urgency = normal
-    background = "#586e75"
-    foreground = "#93a1a1"
+    background = "#504945"
+    foreground = "#d5c4a1"
 
 [base16_critical]
     msg_urgency = critical
-    background = "#dc322f"
-    foreground = "#eee8d5"
+    background = "#fb4934"
+    foreground = "#ebdbb2"
