@@ -16,10 +16,13 @@ Path ~/.local/share/mail/ryankes/
 Inbox ~/.local/share/mail/ryankes/INBOX
 Flatten .
 
-Channel ryankes
+Channel ryankes-all
 Master :ryankes-remote:
 Slave :ryankes-local:
 Patterns INBOX* Trash Drafts Sent Archive Spam
+
+Group ryankes
+Channel ryankes-all
 # End profile
 
 IMAPStore gmail-remote

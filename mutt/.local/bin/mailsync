@@ -33,7 +33,7 @@ syncandnotify() {
 
 # Sync accounts passed as argument or all.
 if [ "$#" -eq "0" ]; then
-    accounts="$(awk '/^Channel/ {print $2}' "$HOME/.mbsyncrc")"
+    accounts="$(awk '/^Group/ {print $2}' "$HOME/.mbsyncrc")"
 else
     accounts=$*
 fi
