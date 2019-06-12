@@ -67,7 +67,10 @@ fi
 export TERMINAL="st"
 
 # pkg editor
-export VISUAL="vim"
+export VISUAL="nvim"
+
+# editor
+export EDITOR="nvim"
 
 # Enable password store extensions
 export PASSWORD_STORE_ENABLE_EXTENSIONS="true"
