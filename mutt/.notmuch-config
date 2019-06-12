@@ -49,7 +49,7 @@ other_email=alrayyes@gmail.com;ryan@andthensome.nl;
 #
 [new]
 tags=unread;inbox;
-ignore=
+ignore=Trash;Spam;
 
 # Search configuration
 #
@@ -61,7 +61,7 @@ ignore=
 #		query will override that exclusion.
 #
 [search]
-exclude_tags=trash;spam;
+exclude_tags=Trash;Spam;
 
 # Maildir compatibility configuration
 #
