@@ -1,9 +1,0 @@
-set spoolfile = "+gmail/inbox"
-set record = "+gmail/Sent\ Items"
-set postponed = "+gmail/Drafts"
-
-set from     = "alrayyes@gmail.com"
-set sendmail = "msmtp -a gmail"
-set sendmail_wait = 0
-unset record
-set realname = "Ryan"
