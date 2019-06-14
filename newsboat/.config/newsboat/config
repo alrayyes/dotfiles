@@ -3,7 +3,7 @@ ttrss-url "https://rss.higherlearning.eu/
 ttrss-flag-star "s"
 ttrss-flag-publish "p"
 ttrss-login "alrayyes"
-ttrss-passwordeval "pass homelab/rss.higherlearning.eu\\ alrayyes | head -n 1"
+ttrss-passwordeval "gpg2 -q --for-your-eyes-only --no-tty -d ~/.authinfo.gpg | awk '/machine rss.higherlearning.eu login alrayyes/ {print $NF}'"
 
 show-read-feeds no
 show-read-articles no
