@@ -33,13 +33,11 @@ bind-key U show-urls
 bind-key x pb-delete
 bind-key ^t next-unread
 
-color background         default   default
-color listnormal         default   default
-color listnormal_unread  default   default
-color listfocus          black     yellow
-color listfocus_unread   black     yellow
-color info               default   black
-color article            default   default
+# Color settings (Gruvbox)
+color listfocus             white     black     bold
+color listnormal_unread     red       black
+color listfocus_unread      red       black     bold
+color info                  color236  yellow    bold
 
 # highlights
 highlight article "^(Title):.*$" blue default

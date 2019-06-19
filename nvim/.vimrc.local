@@ -1,4 +1,4 @@
-color molokai
+color gruvbox
 
 " vim-devicons
 set encoding=utf8
