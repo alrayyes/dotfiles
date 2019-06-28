@@ -20,8 +20,8 @@ else
 fi
 
 # lock screen after x minutes and on laptop close lid
-xautolock -time 10 -locker lock &
-xss-lock lock &
+xautolock -time 10 -locker ~/.local/bin/lock &
+xss-lock -- ~/.local/bin/lock &
 xcompmgr &
 sxhkd &
 
@@ -38,9 +38,12 @@ amixer -c 2 set Mic nocap
 amixer -c 3 set Mic nocap
 
 unclutter &
-redshift-gtk &
 dunst &
 slstatus &
+
+redshift-gtk &
+nm-applet &
+syncthing-gtk &
 
 exec st -c tmux -e tmux & 
 exec spotify &
