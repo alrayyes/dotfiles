@@ -44,6 +44,7 @@ slstatus &
 redshift-gtk &
 nm-applet &
 syncthing-gtk &
+gpodder &
 
 exec st -c tmux -e tmux & 
 exec spotify &

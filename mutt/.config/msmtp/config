@@ -5,11 +5,11 @@ tls_trust_file	/etc/ssl/certs/ca-certificates.crt
 logfile	~/.config/msmtp/msmtp.log
 
 account ryankes
-host mail.higherlearning.eu
+host smtp.mailbox.org
 port 587
 from ryan@ryankes.eu
 user ryan@ryankes.eu
-passwordeval "gpg2 -q --for-your-eyes-only --no-tty -d ~/.authinfo.gpg | awk '/machine mail.higherlearning.eu login ryan@ryankes.eu/ {print $NF}'"
+passwordeval "gpg2 -q --for-your-eyes-only --no-tty -d ~/.authinfo.gpg | awk '/machine smtp.mailbox.org login ryan@ryankes.eu/ {print $NF}'"
 
 account gmail
 host smtp.gmail.com

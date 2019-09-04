@@ -3,10 +3,10 @@ Expunge Both
 SyncState *
 
 IMAPStore ryankes-remote
-Host mail.higherlearning.eu
+Host imap.mailbox.org
 Port  993
 User ryan@ryankes.eu
-PassCmd "gpg2 -q --for-your-eyes-only --no-tty -d ~/.authinfo.gpg | awk '/machine mail.higherlearning.eu login ryan@ryankes.eu/ {print $NF}'"
+PassCmd "gpg2 -q --for-your-eyes-only --no-tty -d ~/.authinfo.gpg | awk '/machine imap.mailbox.org login ryan@ryankes.eu/ {print $NF}'"
 SSLType IMAPS
 CertificateFile /etc/ssl/certs/ca-certificates.crt
 
