@@ -43,21 +43,22 @@ password.fetch = ["command", "getpassword", "ryankes"]
 read_only = true
 
 # CALDAV
-#[pair bob_calendar]
-#a = "bob_calendar_local"
-#b = "bob_calendar_remote"
-#collections = ["from a", "from b"]
+[pair personal_calendar]
+a = "personal_calendar_local"
+b = "personal_calendar_remote"
+collections = ["from a", "from b"]
 
 # Calendars also have a color property
 #metadata = ["displayname", "color"]
 
-#[storage bob_calendar_local]
-#type = "filesystem"
-#path = "~/.calendars/"
-#fileext = ".ics"
+[storage personal_calendar_local]
+type = "filesystem"
+path = "~/.local/share/calendars/personal"
+fileext = ".ics"
 
-#[storage bob_calendar_remote]
-#type = "caldav"
-#url = "https://nextcloud.example.com/"
-#username =
-#password =
+[storage personal_calendar_remote]
+type = "caldav"
+url = "https://dav.mailbox.org/caldav"
+username = "ryan@ryankes.eu"
+password.fetch = ["command", "getpassword", "ryankes"]
+
