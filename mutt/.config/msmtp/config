@@ -9,18 +9,18 @@ host smtp.mailbox.org
 port 587
 from ryan@ryankes.eu
 user ryan@ryankes.eu
-passwordeval "gpg2 -q --for-your-eyes-only --no-tty -d ~/.authinfo.gpg | awk '/machine smtp.mailbox.org login ryan@ryankes.eu/ {print $NF}'"
+passwordeval "getpassword ryankes"
 
 account gmail
 host smtp.gmail.com
 port 587
 from alrayyes@gmail.com
 user alrayyes@gmail.com
-passwordeval "gpg2 -q --for-your-eyes-only --no-tty -d ~/.authinfo.gpg | awk '/machine imap.gmail.com login alrayyes@gmail.com/ {print $NF}'"
+passwordeval "getpassword gmail"
 
 account andthensome
 host smtp.gmail.com
 port 587
 from ryan@andthensome.nl
 user ryan@andthensome.nl
-passwordeval "gpg2 -q --for-your-eyes-only --no-tty -d ~/.authinfo.gpg | awk '/machine imap.gmail.com login ryan@andthensome.nl/ {print $NF}'"
+passwordeval "getpassword andthensome"

@@ -6,7 +6,7 @@ IMAPStore ryankes-remote
 Host imap.mailbox.org
 Port  993
 User ryan@ryankes.eu
-PassCmd "gpg2 -q --for-your-eyes-only --no-tty -d ~/.authinfo.gpg | awk '/machine imap.mailbox.org login ryan@ryankes.eu/ {print $NF}'"
+PassCmd "getpassword ryankes"
 SSLType IMAPS
 CertificateFile /etc/ssl/certs/ca-certificates.crt
 
@@ -29,7 +29,7 @@ IMAPStore gmail-remote
 Host imap.gmail.com
 Port  993
 User alrayyes@gmail.com
-PassCmd "gpg2 -q --for-your-eyes-only --no-tty -d ~/.authinfo.gpg | awk '/machine imap.gmail.com login alrayyes@gmail.com/ {print $NF}'"
+PassCmd "getpassword gmail"
 SSLType IMAPS
 CertificateFile /etc/ssl/certs/ca-certificates.crt
 
@@ -78,7 +78,7 @@ IMAPStore andthensome-remote
 Host imap.gmail.com
 Port  993
 User ryan@andthensome.nl
-PassCmd "gpg2 -q --for-your-eyes-only --no-tty -d ~/.authinfo.gpg | awk '/machine imap.gmail.com login ryan@andthensome.nl/ {print $NF}'"
+PassCmd "getpassword andthensome"
 SSLType IMAPS
 CertificateFile /etc/ssl/certs/ca-certificates.crt
 
