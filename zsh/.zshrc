@@ -2,7 +2,7 @@
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(aws archlinux bower common-aliases composer docker git git-flow pass sudo symfony2 systemd tmux fzf gitignore )
+plugins=(aws archlinux bower common-aliases composer docker extract fzf git git-flow gitignore httpie pass rsync sudo symfony2 systemd tmux vi-mode yarn zsh-syntax-highlighting )
 
 source $ZSH/oh-my-zsh.sh
 

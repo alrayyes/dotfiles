@@ -74,3 +74,6 @@ export EDITOR="nvim"
 
 # Enable password store extensions
 export PASSWORD_STORE_ENABLE_EXTENSIONS="true"
+
+# Save history file in proper place
+HISTFILE=~/.cache/zsh/history
