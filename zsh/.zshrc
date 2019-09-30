@@ -3,9 +3,9 @@
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 #
-# fzf must start after vi-mode for it to work properly
+# fzf & sudo must start after vi-mode for it to work properly
 # 
-plugins=(aws archlinux bower common-aliases composer docker extract git git-flow gitignore httpie pass rsync sudo symfony2 systemd tmux vi-mode fzf yarn zsh-syntax-highlighting )
+plugins=(aws archlinux bower common-aliases composer docker extract git git-flow gitignore httpie pass rsync symfony2 systemd tmux vi-mode fzf sudo yarn zsh-syntax-highlighting )
 
 source $ZSH/oh-my-zsh.sh
 
