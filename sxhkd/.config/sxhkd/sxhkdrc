@@ -38,7 +38,7 @@ super + c
 
 # dmenu application launcher
 super + p
-  dmenu-frequency
+  dmenu-frecency
 
 # Wireguard
 super + w
