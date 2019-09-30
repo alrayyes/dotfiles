@@ -19,6 +19,7 @@ A repository of my personal configuration files.
 * [git](https://git-scm.com/)
 * [gnupg](https://gnupg.org/)
 * [gtk](https://www.gtk.org/)
+* [lf](https://github.com/gokcehan/lf)
 * [mpd](https://www.musicpd.org/)
 * [neomutt](https://neomutt.org/)
 * [neovim](https://neovim.io/)

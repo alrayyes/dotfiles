@@ -9,12 +9,7 @@ plugins=(aws archlinux bower common-aliases composer docker extract git git-flow
 
 source $ZSH/oh-my-zsh.sh
 
-# ls alias
-alias ls="lsd"
-alias l="lsd -al"
-
-# vifm alias
-alias vifm="vifmrun"
+# vim alias
 alias vim="nvim"
 alias vi="nvim"
 
