@@ -25,6 +25,18 @@ alias l="lsd -al"
 # vifm alias
 alias vifm="vifmrun"
 
+# Use lf to switch directories and bind it to ctrl-o
+lfcd () {
+    tmp="$(mktemp)"
+    lf -last-dir-path="$tmp" "$@"
+    if [ -f "$tmp" ]; then
+        dir="$(cat "$tmp")"
+        rm -f "$tmp"
+        [ -d "$dir" ] && [ "$dir" != "$(pwd)" ] && cd "$dir"
+    fi
+}
+
+bindkey -s '^o' 'lfcd\n'
 # Set GPG TTY
 export GPG_TTY="$(tty)"
 # Refresh gpg-agent tty in case user switches into an X session
