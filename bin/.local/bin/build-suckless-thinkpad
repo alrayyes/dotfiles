@@ -1,0 +1,6 @@
+#!/bin/sh
+
+# Build
+rm -rf src
+updpkgsums
+makepkg -sif
