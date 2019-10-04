@@ -19,7 +19,7 @@ Flatten .
 Channel ryankes-all
 Master :ryankes-remote:
 Slave :ryankes-local:
-Patterns INBOX* Trash Drafts Sent Archive* Spam
+Patterns INBOX* Trash Drafts Sent Archive Archive/quicknet Spam
 
 Group ryankes
 Channel ryankes-all
