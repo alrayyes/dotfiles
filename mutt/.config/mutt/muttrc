@@ -1,6 +1,6 @@
 # vim: filetype=neomuttrc
 set certificate_file = ~/.cache/mutt/certificates
-set date_format="%y/%m/%d %H:%M"
+set date_format="%d-%m-%Y %H:%M"
 set index_format="%2C [%Z] %?X?A& ? %D %-15.15F %s (%-4.4c)"
 set sort = 'threads'
 set sort_aux = 'reverse-last-date-received'
@@ -55,6 +55,10 @@ bind index \005 next-undeleted		# Mouse wheel
 bind pager \031 previous-line		# Mouse wheel
 bind pager \005 next-line		# Mouse wheel
 bind editor <Tab> complete-query
+
+macro index,pager \cb "<pipe-message> urlscan<Enter>" "call urlscan to extract URLs out of a message"
+macro attach,compose \cb "<pipe-entry> urlscan<Enter>" "call urlscan to extract URLs out of a message"
+
 
 macro index \Cr "T~U<enter><tag-prefix><clear-flag>N<untag-pattern>.<enter>" "mark all messages as read"
 macro index O "<shell-escape>mailsync -Va<enter>" "run offlineimap to sync all mail"
