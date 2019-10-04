@@ -1,6 +1,7 @@
 /home/alrayyes/.cache
 /home/alrayyes/.composer
 /home/alrayyes/.local/share/Zeal
+/home/alrayyes/.local/share/vifm
 /home/alrayyes/mnt
 /home/alrayyes/music
 /home/alrayyes/gPodder/Downloads
