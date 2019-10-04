@@ -56,4 +56,4 @@ shift + XF86Eject
 
 # Open frequent apps
 super + o ; {e,w,m,v,h,s,i,n,r,q}
-  {emacs, $BROWSER, $TERMINAL -e neomutt, $TERMINAL -e vifm, $TERMINAL -e htop, slack, $TERMINAL -e weechat, $TERMINAL -e newsboat, qtpass}
+  {emacs, $TERMINAL -e weather, $TERMINAL -e neomutt, $TERMINAL -e vifm, $TERMINAL -e htop, slack, $TERMINAL -e weechat, $TERMINAL -e newsboat, qtpass}
