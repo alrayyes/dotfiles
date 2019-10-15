@@ -9,9 +9,9 @@
 [push]
     default = matching
 [user]
-	email = alrayyes@gmail.com
+	email = ryan@ryankes.eu
 	name = Ryan Kes
-	signingkey = alrayyes@gmail.com
+	signingkey = ryan@ryankes.eu
 [sendemail]
     confirm = auto
 
