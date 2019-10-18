@@ -1,22 +1,10 @@
-[name]
-    name = Ryan
-    email = ryan@andthensome.nl
-
 [core]
-    editor = nvim
+	editor = emacs
 	excludesfile = /home/alrayyes/.gitignore_global
-
-[push]
-    default = matching
 [user]
-	email = alrayyes@gmail.com
+	email = ryan@ryankes.eu
 	name = Ryan Kes
-	signingkey = alrayyes@gmail.com
-[sendemail]
-    confirm = auto
-
-[sendemail]
-    smtpEncryption = tls
-    smtpServer = /usr/bin/msmtp
-    confirm = auto
-    chainreplyto = false
+	signingkey = ryan@ryankes.eu
+	useconfigonly = true
+[push]
+	default = matching
