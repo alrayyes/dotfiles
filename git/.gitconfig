@@ -5,5 +5,6 @@
 	email = ryan@ryankes.eu
 	name = Ryan Kes
 	signingkey = ryan@ryankes.eu
+	useconfigonly = true
 [push]
 	default = matching
