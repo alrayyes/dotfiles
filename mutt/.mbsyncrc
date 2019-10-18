@@ -6,7 +6,7 @@ IMAPStore ryankes-remote
 Host imap.mailbox.org
 Port  993
 User ryan@ryankes.eu
-PassCmd "getpassword ryankes"
+PassCmd "~/.local/bin/getpassword ryankes"
 SSLType IMAPS
 CertificateFile /etc/ssl/certs/ca-certificates.crt
 
@@ -29,7 +29,7 @@ IMAPStore gmail-remote
 Host imap.gmail.com
 Port  993
 User alrayyes@gmail.com
-PassCmd "getpassword gmail"
+PassCmd "~/.local/bin/getpassword gmail"
 SSLType IMAPS
 CertificateFile /etc/ssl/certs/ca-certificates.crt
 
@@ -78,7 +78,7 @@ IMAPStore andthensome-remote
 Host imap.gmail.com
 Port  993
 User ryan@andthensome.nl
-PassCmd "getpassword andthensome"
+PassCmd "~/.local/bin/getpassword andthensome"
 SSLType IMAPS
 CertificateFile /etc/ssl/certs/ca-certificates.crt
 
