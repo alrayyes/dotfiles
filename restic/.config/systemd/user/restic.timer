@@ -1,9 +1,0 @@
-[Unit]
-Description=Run restic daily
-
-[Timer]
-OnBootSec=300m
-OnUnitActiveSec=1d
-
-[Install]
-WantedBy=timers.target

@@ -1,8 +1,0 @@
-[Unit]
-Description=Restic Backup
-
-[Service]
-ExecStart=/home/alrayyes/.local/bin/backup
-
-[Install]
-WantedBy=default.target

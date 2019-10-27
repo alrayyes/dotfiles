@@ -24,7 +24,6 @@ A repository of my personal configuration files.
 * [neomutt](https://neomutt.org/)
 * [neovim](https://neovim.io/)
 * [redshift](http://jonls.dk/redshift/)
-* [restic](https://github.com/restic/restic)
 * [sxhkd](https://github.com/baskerville/sxhkd)
 * [spacemacs](http://spacemacs.org/)
 * [tmux](https://tmux.github.io/)

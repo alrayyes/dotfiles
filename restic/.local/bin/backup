@@ -1,6 +1,0 @@
-#!/bin/sh
-
-. /home/alrayyes/.restic
-restic backup --exclude-file=/home/alrayyes/.config/restic/exclude.txt /home/alrayyes /etc
-restic unlock
-restic forget -m 6 -w 4 -d 7 --prune
