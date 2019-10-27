@@ -1,4 +1,4 @@
-# screenshot of focussed window
+:
 shift+ Print
   maimpick
 
@@ -55,5 +55,5 @@ shift + XF86Eject
   prompt "Reboot computer?" "sudo -A shutdown -r now"
 
 # Open frequent apps
-super + o ; {e,w,m,v,h,s,i,n,r,q}
-  {emacs, $TERMINAL -e weather, $TERMINAL -e neomutt, $TERMINAL -e vifm, $TERMINAL -e htop, slack, $TERMINAL -e weechat, $TERMINAL -e newsboat, qtpass}
+super + o ; {e,w,m,v,h,s,i,n,q,c}
+  {emacs, $TERMINAL -e weather, $TERMINAL -e neomutt, $TERMINAL -e vifm, $TERMINAL -e htop, slack, $TERMINAL -e weechat, $TERMINAL -e newsboat, qtpass, $TERMINAL -e calendar}

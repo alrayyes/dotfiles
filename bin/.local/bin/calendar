@@ -1,0 +1,4 @@
+#!/bin/sh
+
+khal list
+read -s -n 1
