@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-for d in `ls -d */ | cut -f1 -d '/'`;
+for d in $(find -- */ -maxdepth 0 -type d | cut -f1 -d '/');
 do
-    ( stow -t $HOME $d  )
+    ( stow -t "$HOME" "$d" )
 done

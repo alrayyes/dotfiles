@@ -12,7 +12,12 @@ A repository of my personal configuration files.
 ./install.sh
 ```
 
-# Packages Configured
+# Find & delete orphaned symlinks 
+```shell
+./clean-dead-symlinks
+```
+
+# Packages configured
 
 * [dunst](https://dunst-project.org/)
 * [firejail](https://firejail.wordpress.com/)
@@ -33,7 +38,7 @@ A repository of my personal configuration files.
 * [weechat](https://weechat.org/)
 * [zsh](https://www.zsh.org/)
 
-# Custom Packages configured
+# Custom packages configured
 
 These are custom packages I use (mostly [suckless](https://suckless.org/)).
 
