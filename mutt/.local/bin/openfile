@@ -1,0 +1,5 @@
+#!/bin/sh
+# Helps open a file with xdg-open from mutt in a external program without weird side effects.
+opener="setsid xdg-open"
+$opener "$1" >/dev/null 2>&1 &
+

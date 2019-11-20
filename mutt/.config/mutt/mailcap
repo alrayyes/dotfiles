@@ -1,10 +1,10 @@
-audio/*; /usr/bin/xdg-open %s
-video/*; /usr/bin/xdg-open %s
-image/*; /usr/bin/xdg-open %s
+audio/*; openfile %s
+video/*; openfile %s
+image/*; openfile %s
 
-application/msword; /usr/bin/xdg-open %s
-application/pdf; /usr/bin/xdg-open %s
-application/postscript ; /usr/bin/xdg-open %s
+application/msword; openfile %s
+application/pdf; openfile %s
+application/postscript ; openfile %s
 
-text/html; /usr/bin/xdg-open %s ; copiousoutput
+text/html; openfile %s ; copiousoutput
 text/plain; $EDITOR %s ; 
