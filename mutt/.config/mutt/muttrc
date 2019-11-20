@@ -1,5 +1,7 @@
 # vim: filetype=neomuttrc
 set certificate_file = ~/.cache/mutt/certificates
+set mailcap_path = ~/.config/mutt/mailcap
+set tmpdir = ~/Downloads
 set date_format="%d-%m-%Y %H:%M"
 set index_format="%2C [%Z] %?X?A& ? %D %-15.15F %s (%-4.4c)"
 set sort = 'threads'
