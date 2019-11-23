@@ -48,5 +48,7 @@ wait
 
 notmuch new 2>/dev/null
 
+mu index --muhome=~/.cache/mu --maildir=~/.local/share/mail 2>/dev/null
+
 #Create a touch file that indicates the time of the last run of mailsync
 touch "$HOME/.config/mutt/.mailsynclastrun"
