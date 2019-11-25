@@ -37,6 +37,7 @@ A repository of my personal configuration files.
 * [xwallpaper](https://github.com/stoeckmann/xwallpaper)
 * [weechat](https://weechat.org/)
 * [zsh](https://www.zsh.org/)
+* [spaceship zsh theme](https://github.com/denysdovhan/spaceship-prompt)
 
 # Custom packages configured
 
