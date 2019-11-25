@@ -52,6 +52,7 @@ values."
            helm-dash-docset-newpath "~/.local/share/Zeal/docsets/"
            helm-dash-browser-func 'eww)
      markdown
+     mu4e
      org
      ;; (shell :variables
      ;;        shell-default-height 30
@@ -148,7 +149,7 @@ values."
    dotspacemacs-colorize-cursor-according-to-state t
    ;; Default font, or prioritized list of fonts. `powerline-scale' allows to
    ;; quickly tweak the mode-line size to make separators look not too crappy.
-   dotspacemacs-default-font '("Source Code Pro"
+   dotspacemacs-default-font '("FuraCode Nerd Font Mono"
                                :size 13
                                :weight normal
                                :width normal
@@ -337,7 +338,38 @@ you should place your code here."
            :port "5000"
            :encryption tls
            :auth "l0rd/snoonet")))
+  (mu4e/mail-account-reset)
   )
+
+;; mu4e
+(setq mu4e-maildir "~/.local/share/mail"
+      mu4e-get-mail-command "mailsync"
+      mu4e-enable-mode-line t
+      mu4e-use-fancy-chars t
+      mu4e-account-alist
+      '(("gmail"
+         (mu4e-sent-messages-behavior delete)
+         (mu4e-refile-folder "/gmail/Archive")
+         (mu4e-sent-folder "/gmail/Sent")
+         (mu4e-drafts-folder "/gmail/Drafts")
+         (mu4e-trash-folder "/gmail/Trash")
+         (user-mail-address "alrayyes@gmail.com")
+         (user-full-name "Ryan"))
+        ("andthensome"
+         (mu4e-sent-messages-behavior delete)
+         (mu4e-refile-folder "/andthensome/Archive")
+         (mu4e-sent-folder "/andthensome/Sent")
+         (mu4e-drafts-folder "/andthensome/Drafts")
+         (mu4e-trash-folder "/andthensome/Trash")
+         (user-mail-address "ryan@andthensome.nl")
+         (user-full-name "Ryan Kes"))
+        ("ryankes"
+         (mu4e-refile-folder "/ryankes/Archive")
+         (mu4e-sent-folder "/ryankes/Sent")
+         (mu4e-drafts-folder "/ryankes/Drafts")
+         (mu4e-trash-folder "/ryankes/Trash")
+         (user-mail-address "ryan@ryankes.eu")
+         (user-full-name "Ryan"))))
 
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.
@@ -351,8 +383,9 @@ you should place your code here."
  '(evil-want-Y-yank-to-eol nil)
  '(package-selected-packages
    (quote
-    (darcula-theme yaml-mode web-beautify livid-mode skewer-mode simple-httpd json-mode json-snatcher json-reformat js2-refactor multiple-cursors js2-mode js-doc company-tern dash-functional tern coffee-mode csv-mode web-mode tagedit slim-mode scss-mode sass-mode pug-mode helm-css-scss haml-mode emmet-mode company-web web-completion-data toml-mode racer flycheck-rust cargo rust-mode insert-shebang fish-mode company-shell zeal-at-point helm-dash dash-docs spotify helm-spotify-plus multi mu4e-maildirs-extension mu4e-alert ht rcirc-notify rcirc-color powerline-theme pkgbuild-mode unfill smeargle orgit org-projectile org-category-capture org-present org-pomodoro alert log4e gntp org-mime org-download mwim mmm-mode markdown-toc markdown-mode magit-gitflow magit-popup htmlize helm-gitignore helm-company helm-c-yasnippet gnuplot gitignore-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link gh-md fuzzy flyspell-correct-helm flyspell-correct flycheck-pos-tip pos-tip flycheck evil-magit magit transient git-commit with-editor company-statistics company auto-yasnippet yasnippet auto-dictionary ac-ispell auto-complete ws-butler winum which-key volatile-highlights vi-tilde-fringe uuidgen use-package toc-org spaceline powerline restart-emacs request rainbow-delimiters popwin persp-mode pcre2el paradox spinner org-plus-contrib org-bullets open-junk-file neotree move-text macrostep lorem-ipsum linum-relative link-hint indent-guide hydra lv hungry-delete hl-todo highlight-parentheses highlight-numbers parent-mode highlight-indentation helm-themes helm-swoop helm-projectile projectile pkg-info epl helm-mode-manager helm-make helm-flx helm-descbinds helm-ag google-translate golden-ratio flx-ido flx fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist highlight evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state smartparens evil-indent-plus evil-iedit-state iedit evil-exchange evil-escape evil-ediff evil-args evil-anzu anzu evil goto-chg undo-tree eval-sexp-fu elisp-slime-nav dumb-jump f dash s diminish define-word column-enforce-mode clean-aindent-mode bind-map bind-key auto-highlight-symbol auto-compile packed aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line helm avy helm-core popup async)))
- '(paradox-github-token t))
+    (slack emojify circe oauth2 websocket darcula-theme yaml-mode web-beautify livid-mode skewer-mode simple-httpd json-mode json-snatcher json-reformat js2-refactor multiple-cursors js2-mode js-doc company-tern dash-functional tern coffee-mode csv-mode web-mode tagedit slim-mode scss-mode sass-mode pug-mode helm-css-scss haml-mode emmet-mode company-web web-completion-data toml-mode racer flycheck-rust cargo rust-mode insert-shebang fish-mode company-shell zeal-at-point helm-dash dash-docs spotify helm-spotify-plus multi mu4e-maildirs-extension mu4e-alert ht rcirc-notify rcirc-color powerline-theme pkgbuild-mode unfill smeargle orgit org-projectile org-category-capture org-present org-pomodoro alert log4e gntp org-mime org-download mwim mmm-mode markdown-toc markdown-mode magit-gitflow magit-popup htmlize helm-gitignore helm-company helm-c-yasnippet gnuplot gitignore-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link gh-md fuzzy flyspell-correct-helm flyspell-correct flycheck-pos-tip pos-tip flycheck evil-magit magit transient git-commit with-editor company-statistics company auto-yasnippet yasnippet auto-dictionary ac-ispell auto-complete ws-butler winum which-key volatile-highlights vi-tilde-fringe uuidgen use-package toc-org spaceline powerline restart-emacs request rainbow-delimiters popwin persp-mode pcre2el paradox spinner org-plus-contrib org-bullets open-junk-file neotree move-text macrostep lorem-ipsum linum-relative link-hint indent-guide hydra lv hungry-delete hl-todo highlight-parentheses highlight-numbers parent-mode highlight-indentation helm-themes helm-swoop helm-projectile projectile pkg-info epl helm-mode-manager helm-make helm-flx helm-descbinds helm-ag google-translate golden-ratio flx-ido flx fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist highlight evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state smartparens evil-indent-plus evil-iedit-state iedit evil-exchange evil-escape evil-ediff evil-args evil-anzu anzu evil goto-chg undo-tree eval-sexp-fu elisp-slime-nav dumb-jump f dash s diminish define-word column-enforce-mode clean-aindent-mode bind-map bind-key auto-highlight-symbol auto-compile packed aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line helm avy helm-core popup async)))
+ '(paradox-github-token t)
+ '(send-mail-function (quote smtpmail-send-it)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
