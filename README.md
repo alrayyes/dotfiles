@@ -46,6 +46,10 @@ These are custom packages I use (mostly [suckless](https://suckless.org/)).
 * [dwm](https://github.com/alrayyes/dwm)
 * [slstatus](https://github.com/alrayyes/slstatus)
 
+# Caveats
+
+rcirc doesn't work peroperly with znc
+
 # License
 
 This theme is released under the MIT License. For more information read the [license][license].
