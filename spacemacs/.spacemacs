@@ -31,8 +31,8 @@ values."
                        markdown
                        mu4e
                        org
-                       (rcirc :variables rcirc-enable-znc-support
-                              t)
+                       (rcirc : variables
+                              rcirc-enable-znc-support t)
                        semantic
                        shell-scripts
                        spotify
@@ -184,12 +184,10 @@ This is the place where most of your configurations should be done. Unless it is
 explicitly specified that a variable should be set before a package is loaded,
 you should place your code here."
   ;; rcirc
-  (setq rcirc-server-alist '(("freenode" :host "irc.higherlearning.eu"
-                              :port "5000"
+  (setq rcirc-server-alist '(("freenode.higherlearning.eu" :port "5000"
                               :encryption tls
                               :auth "l0rd/freenode")
-                             ("snoonet" :host "irc.higherlearning.eu"
-                              :port "5000"
+                             ("snoonet.higherlearning.eu" :port "5000"
                               :encryption tls
                               :auth "l0rd/snoonet")))
   ;; mu4e
