@@ -1,5 +1,8 @@
 #!/bin/sh
 
+# Set working directory to home
+cd ~
+
 # Set screen orientation if second monitor is connected
 SCREENCOUNT=$(xrandr | grep -c "\*")
 
