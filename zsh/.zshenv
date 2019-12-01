@@ -49,7 +49,7 @@ ZSH_THEME="spaceship"
 # ZSH_CUSTOM=/path/to/new-custom-folder
 
 # PATH 
-export PATH="$PATH:/home/alrayyes/.config/yarn/global/node_modules/.bin:/home/alrayyes/.local/bin"
+export PATH="$PATH:/home/alrayyes/.config/yarn/global/node_modules/.bin:/home/alrayyes/.local/bin:/home/alrayyes/.emacs.d/bin"
 
 # Set GPG TTY
 export GPG_TTY="$(tty)"
