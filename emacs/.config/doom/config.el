@@ -29,3 +29,6 @@
            :channels ("#islam"))
           ))
   )
+
+;; temporarily fix bug
+(fset 'battery-update #'ignore)
