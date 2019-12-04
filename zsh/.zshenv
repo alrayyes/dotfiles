@@ -78,7 +78,7 @@ export PASSWORD_STORE_ENABLE_EXTENSIONS="true"
 # Save history file in proper place
 HISTFILE=~/.cache/zsh/history
 
--# Use alternative muhome
+# Use alternative muhome
 export MU_HOME="/home/alrayyes/.cache/mu"
 
 # Needed to get zsh to play nice with emacs vterm
