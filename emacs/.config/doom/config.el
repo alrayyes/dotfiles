@@ -54,6 +54,3 @@
   )
 (setq org-directory "~/Documents/org/"
       org-log-done 'note)
-
-;; temporarily fix bug
-;; (fset 'battery-update #'ignore)
