@@ -78,5 +78,14 @@ export PASSWORD_STORE_ENABLE_EXTENSIONS="true"
 # Save history file in proper place
 HISTFILE=~/.cache/zsh/history
 
-# Use alternative muhome
+-# Use alternative muhome
 export MU_HOME="/home/alrayyes/.cache/mu"
+
+# Needed to get zsh to play nice with emacs vterm
+if [[ "$INSIDE_EMACS" = 'vterm' ]]; then
+    alias clear='printf "\e]51;Evterm-clear-scrollback\e\\";tput clear'
+fi
+vterm_prompt_end() {
+    printf "\e]51;A$(whoami)@$(hostname):$(pwd)\e\\";
+}
+PROMPT=$PROMPT'%{$(vterm_prompt_end)%}'

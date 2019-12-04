@@ -48,8 +48,8 @@ other_email=alrayyes@gmail.com;ryan@andthensome.nl;
 #		in the mail store.
 #
 [new]
-tags=unread;inbox;
-ignore=Trash;Spam;
+#tags=new;
+#ignore=Trash;Spam;
 
 # Search configuration
 #
@@ -61,7 +61,7 @@ ignore=Trash;Spam;
 #		query will override that exclusion.
 #
 [search]
-exclude_tags=Trash;Spam;
+exclude_tags=trash;spam;
 
 # Maildir compatibility configuration
 #

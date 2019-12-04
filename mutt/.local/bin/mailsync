@@ -47,6 +47,16 @@ done
 wait
 
 notmuch new 2>/dev/null
+notmuch tag +spam -inbox --- folder:"gmail/Spam" OR folder:"andthensome/Spam" OR folder:"ryankes/Spam"
+notmuch tag +trash -inbox --- folder:"gmail/Trash" OR folder:"andthensome/Trash" OR folder:"ryankes/Trash"
+notmuch tag +archive -inbox --- folder:"gmail/Archive" OR folder:"andthensome/Archive" OR folder:"ryankes/Archive"
+notmuch tag +sent -inbox --- folder:"gmail/Sent" OR folder:"andthensome/Sent" OR folder:"ryankes/Sent"
+notmuch tag +eudora -inbox --- folder:"/ryankes/Archive.Eudora/"
+notmuch tag +hotmail -inbox --- folder:"/ryankes/Archive.hotmail/"
+notmuch tag +inbox --- folder:"gmail/INBOX" OR folder:"andthensome/INBOX" OR folder:"ryankes/INBOX"
+notmuch tag +gmail --- folder:"/gmail/"
+notmuch tag +andthensome --- folder:"/andthensome/"
+notmuch tag +ryankes --- folder:"/ryankes/"
 
 mu index --muhome=~/.cache/mu --maildir=~/.local/share/mail 2>/dev/null
 
