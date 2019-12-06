@@ -37,3 +37,4 @@ These are custom packages I use (mostly
 [[https://suckless.org/][suckless]]).
 - [[https://github.com/alrayyes/dwm][dwm]]
 - [[https://github.com/alrayyes/slstatus][slstatus]]
+- [[https://github.com/alrayyes/st][st]]
