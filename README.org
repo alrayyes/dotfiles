@@ -3,15 +3,15 @@ A repository of my personal configuration files.
 
 ** Requirements
 - [[http://www.gnu.org/software/stow/][stow]]
-*** Installation
+** Installation
 #+BEGIN_SRC shell
 ./install.sh
 #+END_SRC
-*** Find & delete orphaned symlinks
+** Find & delete orphaned symlinks
 #+BEGIN_SRC shell
 ./clean-dead-symlinks
 #+END_SRC
-*** Configured Packages
+** Configured Packages
 - [[https://dunst-project.org/][dunst]]
 - [[https://firejail.wordpress.com/][firejail]]
 - [[https://git-scm.com/][git]]
@@ -32,7 +32,7 @@ A repository of my personal configuration files.
 - [[https://www.zsh.org/][zsh]]
 - [[https://github.com/denysdovhan/spaceship-prompt][spaceship zsh
   theme]]
-*** Custom packages
+** Custom packages
 These are custom packages I use (mostly
 [[https://suckless.org/][suckless]]).
 - [[https://github.com/alrayyes/dwm][dwm]]
