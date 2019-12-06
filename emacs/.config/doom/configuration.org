@@ -1,0 +1,82 @@
+* General settings
+Set fonts to a [[https://www.nerdfonts.com/][Nerd Fonts]] patched version of [[https://github.com/tonsky/FiraCode][Fira Code]]. Theme is set to
+doom-molokai from [[https://github.com/hlissner/emacs-doom-themes][doom-themes]]
+
+[[https://raw.githubusercontent.com/hlissner/emacs-doom-themes/screenshots/doom-molokai.png][doom-molokai screenshot]]
+
+#+BEGIN_SRC emacs-lisp
+(setq doom-font (font-spec :family "FuraCode Nerd Font Mono" :size 12) ; Set font
+      doom-theme 'doom-molokai) ; Set theme
+#+END_SRC
+
+* [[https://www.projectile.mx/en/latest/][Projectile]]
+Set default paths projectile should search
+
+#+BEGIN_SRC emacs-lisp
+(use-package! projectile
+  :config
+  (setq projectile-project-search-path '("~/devel/personal/" "~/devel/andthensome/" "~/Documents/"))) ; Default paths
+#+END_SRC
+
+* [[https://github.com/jorgenschaefer/circe][Circe]]
+Connect to [[https://wiki.znc.in/ZNC][ZNC]]. Passwords are gotten from [[https://www.passwordstore.org/][Password Store]].
+
+#+BEGIN_SRC emacs-lisp
+(use-package! circe
+  :config
+  (setq circe-network-options
+        `(
+          ("znc-freenode"
+           :host "irc.higherlearning.eu"
+           :port "5000"
+           :tls t ;; Enable tls
+           :user "l0rd/freenode"
+           :server-buffer-name "⇄ Freenode (ZNC)"
+           :pass (lambda (&rest _) (+pass-get-secret "controlpanel/irc.higherlearning.eu")) ;; Get password from pass
+           :channels ("#emacs"))
+          ("znc-snoonet"
+           :host "irc.higherlearning.eu"
+           :port "5000"
+           :tls t
+           :user "l0rd/snoonet"
+           :server-buffer-name "⇄ Snoonet (ZNC)"
+           :pass (lambda (&rest _) (+pass-get-secret "controlpanel/irc.higherlearning.eu"))
+           :channels ("#islam"))
+          ))
+  :hook (circe-channel-mode . enable-lui-autopaste)
+  )
+#+END_SRC
+
+* [[https://notmuchmail.org/notmuch-emacs/][Notmuch Emacs]]
+Play nice with [[https://marlam.de/msmtp/][msmtp]] and fetch mail via custom [[https://github.com/alrayyes/dotfiles/blob/master/mutt/.local/bin/mailsync][mailsync]] shell script.
+
+#+BEGIN_SRC emacs-lisp
+(use-package! notmuch
+  :config
+  (setq +notmuch-sync-backend nil ; Needed to make sure notmuch-sync-command below is run when notmmuch is loaded
+        +notmuch-sync-command "mailsync" ; Command to fetch email
+        sendmail-program "/usr/bin/msmtp" ; Use msmtp to send mail
+        message-sendmail-f-is-evil t; Non-nil means don't add "-f username" to the sendmail command line.
+        message-sendmail-extra-arguments '("--read-envelope-from") ; Additional arguments to sendmail-program.
+        message-send-mail-function 'message-send-mail-with-sendmail) ; Function to call to send the current buffer as mail.
+  )
+#+END_SRC
+
+* [[https://orgmode.org/][Org mode]]
+When moving entries up and down in the buffer use `j` and `k` instead of `↑` and `↓`
+#+BEGIN_SRC emacs-lisp
+(after! org
+  (map! :map org-mode-map
+        :n "M-j" #'org-metadown
+        :n "M-k" #'org-metaup)
+  )
+#+END_SRC
+
+- Set default org directory
+- When task is set to `DONE` [[https://orgmode.org/manual/Closing-items.html][add timestamp and give the opportunity to type in a note]]
+- Show images in buffers as default
+#+BEGIN_SRC emacs-lisp
+(setq org-directory "~/Documents/org/"
+      org-log-done 'note
+      org-startup-with-inline-images t)
+#+END_SRC
