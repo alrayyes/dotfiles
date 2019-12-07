@@ -1,16 +1,14 @@
 * General settings
 Set fonts to a [[https://www.nerdfonts.com/][Nerd Fonts]] patched version of [[https://github.com/tonsky/FiraCode][Fira Code]]. Theme is set to
 doom-molokai from [[https://github.com/hlissner/emacs-doom-themes][doom-themes]]
-
-[[https://raw.githubusercontent.com/hlissner/emacs-doom-themes/screenshots/doom-molokai.png][doom-molokai screenshot]]
-
+[[https://raw.githubusercontent.com/hlissner/emacs-doom-themes/screenshots/doom-molokai.png][doom-molokai screenshot]] 
 #+BEGIN_SRC emacs-lisp
 (setq doom-font (font-spec :family "FuraCode Nerd Font Mono" :size 12) ; Set font
       doom-theme 'doom-molokai) ; Set theme
 #+END_SRC
 
 * [[https://www.projectile.mx/en/latest/][Projectile]]
-Set default paths projectile should search
+Set default paths [[https://www.projectile.mx/en/latest/][projectile]] should search
 
 #+BEGIN_SRC emacs-lisp
 (use-package! projectile
