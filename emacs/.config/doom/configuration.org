@@ -78,3 +78,9 @@ When moving entries up and down in the buffer use `j` and `k` instead of `↑` a
       org-log-done 'note
       org-startup-with-inline-images t)
 #+END_SRC
+* Spotify
+Control Spotify with [[https://github.com/Lautaro-Garcia/counsel-spotify][Counsel Spotify]]
+#+BEGIN_SRC emacs-lisp
+(setq counsel-spotify-client-id "03f9817b1b6946febf9a0573d28e3831"
+      counsel-spotify-client-secret "d03c172f1497466a953026f001f1daeb")
+#+END_SRC
