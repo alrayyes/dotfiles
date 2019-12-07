@@ -74,7 +74,8 @@ When moving entries up and down in the buffer use `j` and `k` instead of `↑` a
 - When task is set to `DONE` [[https://orgmode.org/manual/Closing-items.html][add timestamp and give the opportunity to type in a note]]
 - Show images in buffers as default
 #+BEGIN_SRC emacs-lisp
-(setq org-directory "~/Documents/org/"
+(setq org-directory "~/Documents/org"
+      org-agenda-files '("~/Documents/org")
       org-log-done 'note
       org-startup-with-inline-images t)
 #+END_SRC
