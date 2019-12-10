@@ -7,23 +7,22 @@ SCREENCOUNT=$(xrandr | grep -c "\*")
 
 # If multi screen add special mode for monitor so it supports 1440p over HDMI
 if [ "$SCREENCOUNT" -eq 2 ]; then
-	if [ -f "$HOME/.local/bin/screen_desktop" ]; then
-		screen_desktop
-		# Make sure mouse is on main screen so windows are launched there
-		# xdotool mousemove 3360 1080
 		bspc monitor DP-1 -d 2 3 4 5 6 7 8 9 10
 		bspc monitor HDMI-2 -d 1
+	if [ -f "$HOME/.local/bin/screen_desktop" ]; then
+		screen_desktop
 	fi
 	if [ -f "$HOME/.local/bin/polybar-desktop" ]; then
 		polybar-desktop
 	fi
 else
+	bspc monitor -d 1 2 3 4 5 6 7 8 9 0
 	if [ -f "$HOME/.local/bin/screen" ]; then
 		screen
 	fi
 	if [ -f "$HOME/.local/bin/polybar-laptop" ]; then
-		bspc monitor -d 1 2 3 4 5 6 7 8 9 0
-		polybar-laptop
+        polybar laptop-top &
+        polybar laptop-bottom &
 	fi
 fi
 
@@ -70,9 +69,8 @@ bspc rule -a "Syncthing GTK" state=floating
 bspc rule -a Gimp state=floating
 bspc rule -a Gpodder desktop='^4'
 bspc rule -a Spotify desktop='^4'
-bspc rule -a Slack desktop='^4'
 bspc rule -a Emacs state=tiled
 bspc rule -a iceweasel desktop='^9'
-bspc rule -a Firefox desktop='^9'
+bspc rule -a firefox desktop='^9'
 bspc rule -a scratchpad sticky=on state=floating
 bspc rule -a scratchmacs sticky=on state=floating
