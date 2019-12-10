@@ -1,0 +1,78 @@
+#! /bin/sh
+
+sxhkd &
+
+# Set screen orientation if second monitor is connected
+SCREENCOUNT=$(xrandr | grep -c "\*")
+
+# If multi screen add special mode for monitor so it supports 1440p over HDMI
+if [ "$SCREENCOUNT" -eq 2 ]; then
+	if [ -f "$HOME/.local/bin/screen_desktop" ]; then
+		screen_desktop
+		# Make sure mouse is on main screen so windows are launched there
+		# xdotool mousemove 3360 1080
+		bspc monitor DP-1 -d 2 3 4 5 6 7 8 9 10
+		bspc monitor HDMI-2 -d 1
+	fi
+	if [ -f "$HOME/.local/bin/polybar-desktop" ]; then
+		polybar-desktop
+	fi
+else
+	if [ -f "$HOME/.local/bin/screen" ]; then
+		screen
+	fi
+	if [ -f "$HOME/.local/bin/polybar-laptop" ]; then
+		bspc monitor -d 1 2 3 4 5 6 7 8 9 0
+		polybar-laptop
+	fi
+fi
+
+# lock screen after x minutes and on laptop close lid
+xautolock -time 10 -locker ~/.local/bin/lock &
+xss-lock -- ~/.local/bin/lock &
+xcompmgr &
+
+if [ -e ~/.cache/wall1.png ] && [ -e ~/.cache/wall2.png ]; then
+	xwallpaper --output HDMI-2 --zoom ~/.cache/wall2.png --output DP-1 --zoom ~/.cache/wall1.png &
+elif [ -e ~/.cache/wall1.png ]; then
+	xwallpaper --output eDP1 --zoom ~/.cache/wall1.png &
+fi
+
+# switch off microphones
+amixer -c 2 set Mic nocap
+amixer -c 3 set Mic nocap
+
+unclutter &
+dunst &
+slstatus &
+
+redshift-gtk &
+nm-applet &
+syncthing-gtk &
+gpodder &
+
+spotify &
+
+if [ -e /usr/bin/firefox ]; then
+	firefox &
+elif [ -e /usr/bin/iceweasel ]; then
+	iceweasel &
+fi
+
+bspc config border_width 2
+bspc config window_gap 12
+
+bspc config split_ratio 0.52
+bspc config borderless_monocle true
+bspc config gapless_monocle true
+
+bspc rule -a "Syncthing GTK" state=floating
+bspc rule -a Gimp state=floating
+bspc rule -a Gpodder desktop='^4'
+bspc rule -a Spotify desktop='^4'
+bspc rule -a Slack desktop='^4'
+bspc rule -a Emacs state=tiled
+bspc rule -a iceweasel desktop='^9'
+bspc rule -a Firefox desktop='^9'
+bspc rule -a scratchpad sticky=on state=floating
+bspc rule -a scratchmacs sticky=on state=floating

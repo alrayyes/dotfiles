@@ -12,6 +12,7 @@ A repository of my personal configuration files.
 ./clean-dead-symlinks
 #+END_SRC
 ** Configured Packages
+- [[https://github.com/baskerville/bspwm][bspwm]]
 - [[https://dunst-project.org/][dunst]]
 - [[https://firejail.wordpress.com/][firejail]]
 - [[https://git-scm.com/][git]]
@@ -33,8 +34,4 @@ A repository of my personal configuration files.
 - [[https://github.com/denysdovhan/spaceship-prompt][spaceship zsh
   theme]]
 ** Custom packages
-These are custom packages I use (mostly
-[[https://suckless.org/][suckless]]).
-- [[https://github.com/alrayyes/dwm][dwm]]
-- [[https://github.com/alrayyes/slstatus][slstatus]]
 - [[https://github.com/alrayyes/st][st]]
