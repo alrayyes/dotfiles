@@ -75,6 +75,9 @@ export EDITOR="nvim"
 # Enable password store extensions
 export PASSWORD_STORE_ENABLE_EXTENSIONS="true"
 
+# This needs to be set for bspwm to see config
+export XDG_CONFIG_HOME="$HOME/.config"
+
 # Save history file in proper place
 HISTFILE=~/.cache/zsh/history
 

@@ -24,3 +24,4 @@ mutt/.config/mutt/.mailsynclastrun
 gtk/.config/gtk-3.0/bookmarks
 
 mpd/.config/mpd/pid
+/emacs/.config/doom/configuration.el

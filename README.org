@@ -1,0 +1,37 @@
+* Dotfiles
+A repository of my personal configuration files.
+
+** Requirements
+- [[http://www.gnu.org/software/stow/][stow]]
+** Installation
+#+BEGIN_SRC shell
+./install.sh
+#+END_SRC
+** Find & delete orphaned symlinks
+#+BEGIN_SRC shell
+./clean-dead-symlinks
+#+END_SRC
+** Configured Packages
+- [[https://github.com/baskerville/bspwm][bspwm]]
+- [[https://dunst-project.org/][dunst]]
+- [[https://firejail.wordpress.com/][firejail]]
+- [[https://git-scm.com/][git]]
+- [[https://gnupg.org/][gnupg]]
+- [[https://www.gtk.org/][gtk]]
+- [[https://github.com/gokcehan/lf][lf]]
+- [[https://www.musicpd.org/][mpd]]
+- [[https://neomutt.org/][neomutt]]
+- [[https://neovim.io/][neovim]]
+- [[http://jonls.dk/redshift/][redshift]]
+- [[https://github.com/baskerville/sxhkd][sxhkd]]
+- [[https://github.com/hlissner/doom-emacs][Doom Emacs]]
+- [[https://tmux.github.io/][tmux]]
+- [[https://vifm.info/][vifm]]
+- [[https://github.com/freedesktop/xcompmgr][xcompmgr]]
+- [[https://github.com/stoeckmann/xwallpaper][xwallpaper]]
+- [[https://weechat.org/][weechat]]
+- [[https://www.zsh.org/][zsh]]
+- [[https://github.com/denysdovhan/spaceship-prompt][spaceship zsh
+  theme]]
+** Custom packages
+- [[https://github.com/alrayyes/st][st]]
