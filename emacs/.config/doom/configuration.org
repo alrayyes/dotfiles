@@ -140,3 +140,9 @@ Setup mu4e with multiple profiles
                                             (mu4e-refile-folder . "/andthensome/Inbox"))))))
 (add-hook 'mu4e-view-mode-hook 'visual-line-mode)
 #+END_SRC
+* [[https://github.com/bcbcarl/emacs-wttrin][wttrin.el]]
+Emacs frontend for weather web service wttr.in
+
+#+BEGIN_SRC emacs-lisp
+(setq wttrin-default-cities '("Amsterdam", "Volendam"))
+#+END_SRC
