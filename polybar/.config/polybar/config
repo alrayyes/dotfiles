@@ -56,16 +56,16 @@ font-0 = FuraCode Nerd Font:pixelsize=10
 [bar/laptop-bottom]
 inherit = bar/base-laptop
 bottom = true
-monitor = ${env:MONITOR:e-DP1}
+monitor = ${env:MONITOR:eDP1}
 
 modules-center = mpd player-mpris-tail
 
 [bar/laptop-top]
 inherit = bar/base-laptop
-monitor = ${env:MONITOR:e-DP1}
+monitor = ${env:MONITOR:eDP1}
 
 modules-left = bspwm
-modules-center = tun0 tun1 wlan bluetooth
+modules-center = wlan bluetooth
 modules-right = github updates-arch-combined battery xbacklight filesystem volume memory cpu temperature date
 
 tray-position = right
