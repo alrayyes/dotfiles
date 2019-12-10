@@ -52,7 +52,7 @@ shift + XF86Eject
 
 # scratchpad
 alt + {s,e}
-    tdrop -ma -w -4 {-s dropdown st -c scratchpad,emacs}
+    tdrop -ma -w -4 -y 26 {-s dropdown st -c scratchpad,emacs}
 
 #
 # BSPWM
