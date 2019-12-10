@@ -41,8 +41,8 @@ Connect to [[https://wiki.znc.in/ZNC][ZNC]]. Passwords are gotten from [[https:/
            :pass (lambda (&rest _) (+pass-get-secret "controlpanel/irc.higherlearning.eu"))
            :channels ("#islam"))
           ))
-  :hook (circe-channel-mode . enable-lui-autopaste)
   )
+(add-hook 'circe-channel-mode-hook 'enable-lui-autopaste)
 #+END_SRC
 
 * [[https://notmuchmail.org/notmuch-emacs/][Notmuch Emacs]]
@@ -79,9 +79,79 @@ When moving entries up and down in the buffer use `j` and `k` instead of `↑` a
       org-log-done 'note
       org-startup-with-inline-images t)
 #+END_SRC
-* Spotify
-Control Spotify with [[https://github.com/Lautaro-Garcia/counsel-spotify][Counsel Spotify]]
+* [[https://github.com/Lautaro-Garcia/counsel-spotify][Counsel Spotify]]
+Control Spotify with Counsel Spotify
 #+BEGIN_SRC emacs-lisp
 (setq counsel-spotify-client-id "03f9817b1b6946febf9a0573d28e3831"
       counsel-spotify-client-secret "d03c172f1497466a953026f001f1daeb")
+#+END_SRC
+* [[https://www.djcbsoftware.nl/code/mu/mu4e.html][mu4e]]
+Setup mu4e with multiple profiles
+#+BEGIN_SRC emacs-lisp
+(use-package! mu4e
+  :config
+(setq sendmail-program "/usr/bin/msmtp"
+      send-mail-function
+      'smtpmail-send-it
+      message-sendmail-f-is-evil
+      t
+      message-sendmail-extra-arguments
+      '("--read-envelope-from")
+      message-send-mail-function
+      'message-send-mail-with-sendmail)
+(setq mu4e-maildirs-extension-custom-list '("/ryankes/INBOX" "/ryankes/Sent" "/ryankes/Drafts"
+                                            "/ryankes/Archive" "/ryankes/Archive.quicknet"
+                                            "/gmail/INBOX" "/gmail/Sent" "/gmail/Drafts"
+                                            "/gmail/Archive" "/andthensome/INBOX" "/andthensome/Sent"
+                                            "/andthensome/Drafts" "/andthensome/Archive")))
+(setq mu4e-maildir "~/.local/share/mail"
+      mu4e-maildir-shortcuts
+      '(("/ryankes/INBOX" . ?r)
+        ("/gmail/INBOX" . ?g)
+        ("/andthensome/INBOX" . ?a))
+      mu4e-update-interval
+      300
+      mu4e-get-mail-command
+      "mailsync"
+      mu4e-enable-mode-line
+      t
+      mu4e-use-fancy-chars
+      t
+      mu4e-context-policy
+      'pick-first
+      mu4e-attachment-dir
+      "~/Downloads/")
+(after! mu4e
+  (setq mu4e-contexts
+        `(,(make-mu4e-context :name "Ryankes"
+                              :match-func (lambda (msg)
+                                            (when msg
+                                              (string-match-p "^/ryankes"
+                                                              (mu4e-message-field msg :maildir)))):vars'((user-mail-address . "ryan@ryankes.eu")
+                                            (user-full-name . "Ryan")
+                                            (mu4e-sent-folder . "/ryankes/Sent")
+                                            (mu4e-drafts-folder . "/ryankes/Drafts")
+                                            (mu4e-trash-folder . "/ryankes/Trash")
+                                            (mu4e-refile-folder . "/ryankes/Archive")))
+          ,(make-mu4e-context :name "Gmail"
+                              :match-func (lambda (msg)
+                                            (when msg
+                                              (string-match-p "^/gmail"
+                                                              (mu4e-message-field msg :maildir)))):vars'((user-mail-address . "alrayyes@gmail.com")
+                                            (user-full-name . "Ryan")
+                                            (mu4e-sent-folder . "/gmail/Sent")
+                                            (mu4e-drafts-folder . "/gmail/Drafts")
+                                            (mu4e-trash-folder . "/gmail/Trash")
+                                            (mu4e-refile-folder . "/gmail/Archive")))
+          ,(make-mu4e-context :name "Andthensome"
+                              :match-func (lambda (msg)
+                                            (when msg
+                                              (string-match-p "^/andthensome"
+                                                              (mu4e-message-field msg :maildir)))):vars'((user-mail-address . "ryan@andthensome.nl")
+                                            (user-full-name . "Ryan Kes")
+                                            (mu4e-sent-folder . "/andthensome/Sent")
+                                            (mu4e-drafts-folder . "/andthensome/Drafts")
+                                            (mu4e-trash-folder . "/andthensome/Trash")
+                                            (mu4e-refile-folder . "/andthensome/Archive"))))))
+(add-hook 'mu4e-view-mode-hook 'visual-line-mode)
 #+END_SRC
