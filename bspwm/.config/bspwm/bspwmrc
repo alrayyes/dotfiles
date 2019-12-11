@@ -70,6 +70,7 @@ bspc rule -a Gimp state=floating
 bspc rule -a Gpodder desktop='^4'
 bspc rule -a Spotify desktop='^4'
 bspc rule -a Emacs state=tiled
+bspc rule -a Zathura state=tiled
 bspc rule -a iceweasel desktop='^9'
 bspc rule -a firefox desktop='^9'
 bspc rule -a scratchpad sticky=on state=floating
