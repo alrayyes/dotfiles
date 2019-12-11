@@ -7,6 +7,18 @@ doom-molokai from [[https://github.com/hlissner/emacs-doom-themes][doom-themes]]
       doom-theme 'doom-molokai) ; Set theme
 #+END_SRC
 
+Fetch password from authinfo
+#+BEGIN_SRC emacs-lisp
+(defun my-fetch-password (&rest params)
+  (require 'auth-source)
+  (let ((match (car (apply #'auth-source-search params))))
+    (if match
+        (let ((secret (plist-get match :secret)))
+          (if (functionp secret)
+              (funcall secret)
+            secret))
+      (error "Password not found for %S" params))))
+#+END_SRC
 * [[https://www.projectile.mx/en/latest/][Projectile]]
 Set default paths [[https://www.projectile.mx/en/latest/][projectile]] should search
 
@@ -68,7 +80,7 @@ When moving entries up and down in the buffer use `j` and `k` instead of `↑` a
 Control Spotify with Counsel Spotify
 #+BEGIN_SRC emacs-lisp
 (setq counsel-spotify-client-id "03f9817b1b6946febf9a0573d28e3831"
-      counsel-spotify-client-secret "d03c172f1497466a953026f001f1daeb")
+      counsel-spotify-client-secret (my-fetch-password :user "03f9817b1b6946febf9a0573d28e3831" :host "spotify.el"))
 #+END_SRC
 * [[https://www.djcbsoftware.nl/code/mu/mu4e.html][mu4e]]
 Setup mu4e with multiple profiles
