@@ -8,3 +8,4 @@
 (package! counsel-spotify)
 (package! wttrin)
 (package! elfeed-protocol)
+(package! elfeed-goodies)

@@ -162,8 +162,7 @@ Emacs frontend for weather web service [[http://wttr.in/][wttr.in]]
 (setq wttrin-default-cities '("Amsterdam", "Volendam"))
 #+END_SRC
 * [[https://github.com/skeeto/elfeed][Elfeed]]
-Use elfeed with [[https://github.com/fasheng/elfeed-protocol][elfeed-protocol]] to read feeds.
-
+** elfeed and [[https://github.com/fasheng/elfeed-protocol][elfeed-protocol]] to read feeds.
 #+BEGIN_SRC emacs-lisp
 (use-package! elfeed
   :config
@@ -181,10 +180,16 @@ Use elfeed with [[https://github.com/fasheng/elfeed-protocol][elfeed-protocol]] 
                               :password (password-store-get "emacs/rss")
                               :autotags elfeed-protocol-tags)))))
 #+END_SRC
-
+** [[https://github.com/remyhonig/elfeed-org][elfeed-org]]
 #+BEGIN_SRC emacs-lisp
 (use-package! elfeed-org
   :config
   (setq rmh-elfeed-org-files '("~/Documents/org/elfeed.org"))
   )
+#+END_SRC
+** [[https://github.com/algernon/elfeed-goodies][elfeed-goodies]]
+#+BEGIN_SRC emacs-lisp
+(use-package! elfeed-goodies
+  :config
+  (elfeed-goodies/setup))
 #+END_SRC
