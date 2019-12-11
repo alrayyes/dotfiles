@@ -130,7 +130,7 @@ Setup mu4e with multiple profiles
                                             (mu4e-sent-folder . "/gmail/Sent")
                                             (mu4e-drafts-folder . "/gmail/Drafts")
                                             (mu4e-trash-folder . "/gmail/Trash")
-                                            (mu4e-refile-folder . "/gmail/Inbox")))
+                                            (mu4e-refile-folder . "/gmail/Archive")))
           ,(make-mu4e-context :name "Andthensome"
                               :match-func (lambda (msg)
                                             (when msg
@@ -140,7 +140,7 @@ Setup mu4e with multiple profiles
                                             (mu4e-sent-folder . "/andthensome/Sent")
                                             (mu4e-drafts-folder . "/andthensome/Drafts")
                                             (mu4e-trash-folder . "/andthensome/Trash")
-                                            (mu4e-refile-folder . "/andthensome/Inbox"))))))
+                                            (mu4e-refile-folder . "/andthensome/Archive"))))))
 (add-hook 'mu4e-view-mode-hook 'visual-line-mode)
 #+END_SRC
 * [[https://github.com/bcbcarl/emacs-wttrin][wttrin.el]]
