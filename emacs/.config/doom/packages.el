@@ -7,3 +7,4 @@
 ;; (package! builtin-package :disable t)
 (package! counsel-spotify)
 (package! wttrin)
+(package! elfeed-protocol)

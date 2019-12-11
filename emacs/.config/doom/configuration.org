@@ -156,8 +156,35 @@ Setup mu4e with multiple profiles
 (add-hook 'mu4e-view-mode-hook 'visual-line-mode)
 #+END_SRC
 * [[https://github.com/bcbcarl/emacs-wttrin][wttrin.el]]
-Emacs frontend for weather web service wttr.in
+Emacs frontend for weather web service [[http://wttr.in/][wttr.in]]
 
 #+BEGIN_SRC emacs-lisp
 (setq wttrin-default-cities '("Amsterdam", "Volendam"))
+#+END_SRC
+* [[https://github.com/skeeto/elfeed][Elfeed]]
+Use elfeed with [[https://github.com/fasheng/elfeed-protocol][elfeed-protocol]] to read feeds.
+
+#+BEGIN_SRC emacs-lisp
+(use-package! elfeed
+  :config
+  (setq elfeed-use-curl t)
+  (elfeed-set-timeout 36000)
+  (setq elfeed-protocol-ttrss-maxsize 200) ; bigger than 200 is invalid
+  (elfeed-protocol-enable)
+                                        ;
+  (defadvice elfeed (after configure-elfeed-feeds activate)
+    "Make elfeed-org autotags rules works with elfeed-protocol."
+    (defvar elfeed-protocol-tags)
+    (setq elfeed-protocol-tags elfeed-feeds)
+    (setq elfeed-feeds (list
+                        (list "ttrss+https://alrayyes@rss.higherlearning.eu"
+                              :password (password-store-get "emacs/rss")
+                              :autotags elfeed-protocol-tags)))))
+#+END_SRC
+
+#+BEGIN_SRC emacs-lisp
+(use-package! elfeed-org
+  :config
+  (setq rmh-elfeed-org-files '("~/Documents/org/elfeed.org"))
+  )
 #+END_SRC
