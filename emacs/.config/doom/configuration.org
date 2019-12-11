@@ -107,6 +107,9 @@ Setup mu4e with multiple profiles
       mu4e-attachment-dir
       "~/Downloads/")
 (after! mu4e
+  ;; load package to be able to capture emails for GTD
+  (require 'org-mu4e)
+
   (setq mu4e-contexts
         `(,(make-mu4e-context :name "Ryankes"
                               :match-func (lambda (msg)
