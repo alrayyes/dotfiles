@@ -75,20 +75,20 @@ Setup mu4e with multiple profiles
 #+BEGIN_SRC emacs-lisp
 (use-package! mu4e
   :config
-(setq sendmail-program "/usr/bin/msmtp"
-      send-mail-function
-      'smtpmail-send-it
-      message-sendmail-f-is-evil
-      t
-      message-sendmail-extra-arguments
-      '("--read-envelope-from")
-      message-send-mail-function
-      'message-send-mail-with-sendmail)
-(setq mu4e-maildirs-extension-custom-list '("/ryankes/INBOX" "/ryankes/Sent" "/ryankes/Drafts"
-                                            "/ryankes/Archive" "/ryankes/Archive.quicknet"
-                                            "/gmail/INBOX" "/gmail/Sent" "/gmail/Drafts"
-                                            "/gmail/Archive" "/andthensome/INBOX" "/andthensome/Sent"
-                                            "/andthensome/Drafts" "/andthensome/Archive")))
+  (setq sendmail-program "/usr/bin/msmtp"
+        send-mail-function
+        'smtpmail-send-it
+        message-sendmail-f-is-evil
+        t
+        message-sendmail-extra-arguments
+        '("--read-envelope-from")
+        message-send-mail-function
+        'message-send-mail-with-sendmail)
+  (setq mu4e-maildirs-extension-custom-list '("/ryankes/INBOX" "/ryankes/Sent" "/ryankes/Drafts"
+                                              "/ryankes/Archive" "/ryankes/Archive.quicknet"
+                                              "/gmail/INBOX" "/gmail/Sent" "/gmail/Drafts"
+                                              "/gmail/Archive" "/andthensome/INBOX" "/andthensome/Sent"
+                                              "/andthensome/Drafts" "/andthensome/Archive")))
 (setq mu4e-maildir "~/.local/share/mail"
       mu4e-maildir-shortcuts
       '(("/ryankes/INBOX" . ?r)
