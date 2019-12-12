@@ -9,3 +9,4 @@
 (package! wttrin)
 (package! elfeed-protocol)
 (package! elfeed-goodies)
+(package! org-protocol-capture-html :recipe (:host github :repo "alphapapa/org-protocol-capture-html"))

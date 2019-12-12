@@ -58,6 +58,7 @@ Connect to [[https://wiki.znc.in/ZNC][ZNC]]. Passwords are gotten from [[https:/
 #+END_SRC
 
 * [[https://orgmode.org/][Org mode]]
+** General settings
 When moving entries up and down in the buffer use `j` and `k` instead of `↑` and `↓`
 #+BEGIN_SRC emacs-lisp
 (after! org
@@ -67,14 +68,28 @@ When moving entries up and down in the buffer use `j` and `k` instead of `↑` a
   )
 #+END_SRC
 
-- Set default org directory
+- Set default org directories
 - When task is set to `DONE` [[https://orgmode.org/manual/Closing-items.html][add timestamp and give the opportunity to type in a note]]
 - Show images in buffers as default
 #+BEGIN_SRC emacs-lisp
 (setq org-directory "~/Documents/org"
-      org-agenda-files '("~/Documents/org")
+      org-agenda-files '("~Documents/org")
       org-log-done 'note
       org-startup-with-inline-images t)
+#+END_SRC
+** [[https://github.com/alphapapa/org-protocol-capture-html][org-protocol-capture-html]]
+Require package
+#+BEGIN_SRC emacs-lisp
+(require 'org-protocol-capture-html)
+#+END_SRC
+** org-capture-templates
+*** Capture web data for [[https://github.com/alphapapa/org-protocol-capture-html][org-protocol-capture-html]]
+#+BEGIN_SRC emacs-lisp
+(after! org
+  (add-to-list 'org-capture-templates '("w" "Web site" entry
+                                        (file+olp "~/Documents/org/web.org" "Web")
+ "* %c\n%U %?%:initial"))
+  )
 #+END_SRC
 * [[https://github.com/Lautaro-Garcia/counsel-spotify][Counsel Spotify]]
 Control Spotify with Counsel Spotify
