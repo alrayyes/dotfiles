@@ -80,7 +80,7 @@ When moving entries up and down in the buffer use `j` and `k` instead of `↑` a
 ** [[https://github.com/alphapapa/org-protocol-capture-html][org-protocol-capture-html]]
 Require package
 #+BEGIN_SRC emacs-lisp
-(require 'org-protocol-capture-html)
+(def-package! org-protocol-capture-html)
 #+END_SRC
 ** org-capture-templates
 *** Capture web data for [[https://github.com/alphapapa/org-protocol-capture-html][org-protocol-capture-html]]
