@@ -35,3 +35,11 @@ A repository of my personal configuration files.
   theme]]
 ** Custom packages
 - [[https://github.com/alrayyes/st][st]]
+
+** License
+:PROPERTIES:
+:CUSTOM_ID: license
+:END:
+
+This theme is released under the MIT License. For more information read
+the [[file:LICENSE.org][license]].
