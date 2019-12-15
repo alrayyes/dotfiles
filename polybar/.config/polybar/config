@@ -126,6 +126,7 @@ label-focused-underline= ${colors.primary}
 label-focused-padding = 2
 
 label-occupied-padding = 2
+label-empty =
 
 label-urgent-background = ${colors.alert}
 label-urgent-padding = 2
