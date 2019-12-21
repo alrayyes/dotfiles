@@ -10,3 +10,5 @@
 (package! elfeed-protocol)
 (package! elfeed-goodies)
 (package! org-protocol-capture-html :recipe (:host github :repo "alphapapa/org-protocol-capture-html"))
+(package! docker-compose-mode)
+(package! nginx-mode)
