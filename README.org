@@ -24,6 +24,7 @@ xdg-mime default org-protocol.desktop x-scheme-handler/org-protocol
 - [[https://www.musicpd.org/][mpd]]
 - [[https://neomutt.org/][neomutt]]
 - [[https://neovim.io/][neovim]]
+- [[https://github.com/muennich/physlock][physlock]]
 - [[http://jonls.dk/redshift/][redshift]]
 - [[https://github.com/baskerville/sxhkd][sxhkd]]
 - [[https://github.com/hlissner/doom-emacs][Doom Emacs]]
