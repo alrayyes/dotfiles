@@ -21,38 +21,42 @@ XF86MonBrightnessDown
   xbacklight -dec 20
 
 # lock screen
-super + x
+F1
   lock
 
-# dmenu calculator
-super + equal
-  =
-
 # dmenu password selector
-super + z
+F2
   passmenu
 
 # dmenu authenticator
-super + c
+F3
   yubikey-oath-dmenu --clipboard clipboard --notify
 
+# ssh shell
+F4
+  ssh-dmenu
+
+# scratchpad shell
+F5
+  tdrop -ma -w -4 -y 26 -s dropdown st -c scratchpad
+
+# scratchpad emacs
+F6
+  tdrop -ma -w -4 -y 26 emacs
+
 # Wireguard
-super + w
+F11
   vpn-switch
 
-# ssh shell
-super + s
-  ssh-dmenu
+# dmenu calculator
+F12
+  =
 
 # Shutdown / reboot
 XF86Eject 
   prompt "Shutdown computer?" "sudo -A shutdown -h now"
 shift + XF86Eject
   prompt "Reboot computer?" "sudo -A shutdown -r now"
-
-# scratchpad
-alt + {s,e}
-    tdrop -ma -w -4 -y 26 {-s dropdown st -c scratchpad,emacs}
 
 #
 # BSPWM
