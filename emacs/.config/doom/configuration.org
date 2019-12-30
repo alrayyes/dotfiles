@@ -33,7 +33,7 @@ Set default paths [[https://www.projectile.mx/en/latest/][projectile]] should se
 #+BEGIN_SRC emacs-lisp
 (use-package! projectile
   :config
-  (setq projectile-project-search-path '("~/devel/personal/" "~/devel/andthensome/" "~/Documents/"))) ; Default paths
+  (setq projectile-project-search-path '("~/devel/personal/" "~/devel/andthensome/" "~/Documents/" "~/dotfiles" "~/private-dotfiles"))) ; Default paths
 #+END_SRC
 
 * [[https://github.com/jorgenschaefer/circe][Circe]]
