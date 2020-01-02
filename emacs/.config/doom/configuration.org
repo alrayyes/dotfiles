@@ -88,7 +88,7 @@ When moving entries up and down in the buffer use `j` and `k` instead of `↑` a
 ** [[https://github.com/alphapapa/org-protocol-capture-html][org-protocol-capture-html]]
 Require package
 #+BEGIN_SRC emacs-lisp
-(def-package! org-protocol-capture-html)
+(use-package! org-protocol-capture-html)
 #+END_SRC
 ** org-capture-templates
 *** Capture web data for [[https://github.com/alphapapa/org-protocol-capture-html][org-protocol-capture-html]]
@@ -215,4 +215,11 @@ Emacs frontend for weather web service [[http://wttr.in/][wttr.in]]
 (use-package! elfeed-goodies
   :config
   (elfeed-goodies/setup))
+#+END_SRC
+* Spelling
+#+BEGIN_SRC emacs-lisp
+(after! ispell
+(setq ispell-dictionary "en_GB-large,nl_NL")
+  (ispell-set-spellchecker-params)
+  (ispell-hunspell-add-multi-dic "en_GB-large,nl_NL"))
 #+END_SRC
