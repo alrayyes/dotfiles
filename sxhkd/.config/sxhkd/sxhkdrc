@@ -26,7 +26,7 @@ F1
 
 # dmenu password selector
 F2
-  passmenu
+  passmenu -p Password:
 
 # dmenu authenticator
 F3
@@ -34,7 +34,7 @@ F3
 
 # ssh shell
 F4
-  ssh-dmenu
+  ssh-dmenu -p SSH:
 
 # scratchpad shell
 F5
