@@ -219,7 +219,7 @@ Emacs frontend for weather web service [[http://wttr.in/][wttr.in]]
 * Spelling
 #+BEGIN_SRC emacs-lisp
 (after! ispell
-(setq ispell-dictionary "en_GB-large,nl_NL")
+  (setq ispell-dictionary "en_GB-large,nl_NL")
   (ispell-set-spellchecker-params)
   (ispell-hunspell-add-multi-dic "en_GB-large,nl_NL"))
 #+END_SRC
