@@ -26,8 +26,7 @@ else
 	fi
 fi
 
-# lock screen after x minutes and on laptop close lid
-xautolock -time 10 -locker ~/.local/bin/lock &
+# lock screen
 xss-lock -- ~/.local/bin/lock &
 xcompmgr &
 
