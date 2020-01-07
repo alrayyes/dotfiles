@@ -26,8 +26,6 @@ else
 	fi
 fi
 
-# lock screen
-xss-lock -- ~/.local/bin/lock &
 xcompmgr &
 
 if [ -e ~/.cache/wall1.png ] && [ -e ~/.cache/wall2.png ]; then
