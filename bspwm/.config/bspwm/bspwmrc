@@ -7,8 +7,8 @@ SCREENCOUNT=$(xrandr | grep -c "\*")
 
 # If multi screen add special mode for monitor so it supports 1440p over HDMI
 if [ "$SCREENCOUNT" -eq 2 ]; then
-		bspc monitor DP-1 -d 2 3 4 5 6 7 8 9 10
-		bspc monitor HDMI-2 -d 1
+	bspc monitor DP-1 -d 2 3 4 5 6 7 8 9 10
+	bspc monitor HDMI-2 -d 1
 	if [ -f "$HOME/.local/bin/screen_desktop" ]; then
 		screen_desktop
 	fi
@@ -21,8 +21,8 @@ else
 		screen
 	fi
 	if [ -f "$HOME/.local/bin/polybar-laptop" ]; then
-        polybar laptop-top &
-        polybar laptop-bottom &
+		polybar laptop-top &
+		polybar laptop-bottom &
 	fi
 fi
 
@@ -46,8 +46,11 @@ redshift-gtk &
 nm-applet &
 syncthing-gtk &
 gpodder &
-
 spotify &
+
+# system lock
+xss-lock -n ~/.local/bin/lock -- ~/.local/bin/lock &
+xautolock -time 10 -locker ~/.local/bin/lock &
 
 if [ -e /usr/bin/firefox ]; then
 	firefox &
