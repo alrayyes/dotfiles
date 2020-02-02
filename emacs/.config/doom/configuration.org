@@ -1,12 +1,12 @@
 * General settings
 [[https://raw.githubusercontent.com/hlissner/emacs-doom-themes/screenshots/doom-molokai.png][doom-molokai screenshot]]
 
-Variable font sizes depending on screen width. Set font to a [[https://www.nerdfonts.com/][Nerd Fonts]] patched version of [[https://github.com/tonsky/FiraCode][Fira Code]]
+Variable font sizes depending on screen width. Set font to [[https://www.jetbrains.com/lp/mono/][JetBrains Mono]]
 #+BEGIN_SRC emacs-lisp
 (when window-system
   (if (> (x-display-pixel-width) 2560)
-      (setq doom-font (font-spec :family "FuraCode Nerd Font Mono" :size 12))
-    (setq doom-font (font-spec :family "FuraCode Nerd Font Mono" :size 16))))
+      (setq doom-font (font-spec :family "JetBrains Mono" :size 12))
+    (setq doom-font (font-spec :family "JetBrains Mono" :size 16))))
 
 #+END_SRC
 
