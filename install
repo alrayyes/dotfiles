@@ -1,15 +1,31 @@
 #!/usr/bin/env zsh
 
+# We need the environement to be able to symlink files accordingly
+case "$1" in
+desktop)
+	EXTENSION="desktop"
+	;;
+thinkpad)
+	EXTENSION="thinkpad"
+	;;
+esac
+
 for d in $(find -- */ -maxdepth 0 -type d | cut -f1 -d '/'); do
 	echo "Linking $d..."
 	(stow -t "$HOME" "$d")
 done
 
+# Install spaceship zsh theme if it doesn't exist
 if [ ! -d "$HOME/.oh-my-zsh/custom/themes/spaceship-prompt" ]; then
 	echo "Cloning spacehip-prompt..."
 	git clone https://github.com/denysdovhan/spaceship-prompt.git "$HOME/.oh-my-zsh/custom/themes/spaceship-prompt"
 fi
-if [ ! -d "$HOME/.oh-my-zsh/custom/themes/spaceship.zsh-theme" ]; then
+if [ ! -f "$HOME/.oh-my-zsh/custom/themes/spaceship.zsh-theme" ]; then
 	echo "Linking spacehip-prompt..."
 	ln -s "$HOME/.oh-my-zsh/custom/themes/spaceship-prompt/spaceship.zsh-theme" "$HOME/.oh-my-zsh/custom/themes/spaceship.zsh-theme"
+fi
+
+if [ ! -z "$EXTENSION" ]; then
+	echo "\n\nDon't forget to symlink these files:\n\n"
+	find ~ \( -type l -o -type f \) -name "*.$EXTENSION" -exec ls -al {} \;
 fi
