@@ -18,7 +18,7 @@ notify() { notify-send "mutt" "📬 $2 new mail(s) in \`$1\` account." ;}
 syncandnotify() {
     acc="$(echo "$account" | sed "s/.*\///")"
     mbsync "$acc"
-    new=$(find "$HOME/.local/share/mail/$acc/INBOX/new/" "$HOME/.local/share/mail/$acc/Inbox/new/" "$HOME/.local/share/mail/$acc/inbox/new/" -type f -newer "$HOME/.config/mutt/.mailsynclastrun" 2> /dev/null)
+    new=$(find "$HOME/.local/share/mail/$acc/INBOX/new/" "$HOME/.local/share/mail/$acc/Inbox/new/" "$HOME/.local/share/mail/$acc/inbox/new/" -type f -newer "/tmp/.mailsynclastrun" 2> /dev/null)
     newcount=$(echo "$new" | sed '/^\s*$/d' | wc -l)
     if [ "$newcount" -gt "0" ]; then
         notify "$acc" "$newcount" &
@@ -49,4 +49,4 @@ wait
 mu index --muhome=~/.cache/mu --maildir=~/.local/share/mail 2>/dev/null
 
 #Create a touch file that indicates the time of the last run of mailsync
-touch "$HOME/.config/mutt/.mailsynclastrun"
+touch "/tmp/.mailsynclastrun"
