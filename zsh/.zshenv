@@ -64,7 +64,7 @@ then
 fi
 
 # Set default terminal
-export TERMINAL="st"
+export TERMINAL="alacritty"
 
 # pkg editor
 export VISUAL="nvim"
