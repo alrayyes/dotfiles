@@ -38,7 +38,7 @@ F4
 
 # scratchpad shell
 F5
-  tdrop -ma -w -4 -y 26 -s dropdown st -c scratchpad
+  tdrop -ma -w -4 -y 26 -s dropdown alacritty --class scratchpad
 
 # scratchpad emacs
 F6
