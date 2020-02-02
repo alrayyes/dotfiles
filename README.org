@@ -14,7 +14,9 @@ xdg-mime default org-protocol.desktop x-scheme-handler/org-protocol
 ./clean-dead-symlinks
 #+END_SRC
 ** Configured Packages
+- [[https://github.com/alacritty/][alacritty]]
 - [[https://github.com/baskerville/bspwm][bspwm]]
+- [[https://github.com/hlissner/doom-emacs][Doom Emacs]]
 - [[https://dunst-project.org/][dunst]]
 - [[https://firejail.wordpress.com/][firejail]]
 - [[https://git-scm.com/][git]]
@@ -25,18 +27,15 @@ xdg-mime default org-protocol.desktop x-scheme-handler/org-protocol
 - [[https://neomutt.org/][neomutt]]
 - [[https://neovim.io/][neovim]]
 - [[http://jonls.dk/redshift/][redshift]]
+- [[https://github.com/denysdovhan/spaceship-prompt][spaceship zsh
 - [[https://github.com/baskerville/sxhkd][sxhkd]]
-- [[https://github.com/hlissner/doom-emacs][Doom Emacs]]
 - [[https://tmux.github.io/][tmux]]
 - [[https://vifm.info/][vifm]]
+- [[https://weechat.org/][weechat]]
 - [[https://github.com/freedesktop/xcompmgr][xcompmgr]]
 - [[https://github.com/stoeckmann/xwallpaper][xwallpaper]]
-- [[https://weechat.org/][weechat]]
 - [[https://www.zsh.org/][zsh]]
-- [[https://github.com/denysdovhan/spaceship-prompt][spaceship zsh
   theme]]
-** Custom packages
-- [[https://github.com/alrayyes/st][st]]
 
 ** License
 :PROPERTIES:
