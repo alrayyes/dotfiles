@@ -1,3 +1,3 @@
 #!/bin/sh
 
-betterlockscreen -l dim -t "Walk away from the machine!"
+betterlockscreen -l blur -t "Walk away from the machine!"
