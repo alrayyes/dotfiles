@@ -47,11 +47,11 @@ wm-restack = bspwm
 
 [bar/base-laptop]
 inherit = "bar/base"
-font-0 = FuraCode Nerd Font:pixelsize=14
+font-0 = JetBrainsMono Nerd Font Mono:pixelsize=14
 
 [bar/base-desktop]
 inherit = "bar/base"
-font-0 = FuraCode Nerd Font:pixelsize=10
+font-0 = JetBrainsMono Nerd Font Mono:pixelsize=10
 
 [bar/laptop-bottom]
 inherit = bar/base-laptop
