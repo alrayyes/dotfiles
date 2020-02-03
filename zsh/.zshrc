@@ -14,8 +14,8 @@ alias vim="nvim"
 alias vi="nvim"
 
 # ls alias
-alias ls="lsd"
-alias l="lsd -al"
+alias ls="exa"
+alias l="exa -al"
 
 # vifm alias
 alias vifm="vifmrun"
@@ -38,3 +38,5 @@ export GPG_TTY="$(tty)"
 gpg-connect-agent updatestartuptty /bye >/dev/null
 
 neofetch
+
+source /home/alrayyes/.config/broot/launcher/bash/br

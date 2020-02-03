@@ -1,8 +1,52 @@
-* Dotfiles
+#+TITLE:   Dotfiles
+#+DATE:    February 4, 2020
+#+SINCE:   {replace with next tagged release version}
+#+STARTUP: inlineimages nofold
+
+* Table of Contents :TOC_3:noexport:
+- [[#description][Description]]
+  - [[#maintainers][Maintainers]]
+- [[#prerequisites][Prerequisites]]
+- [[#applications][Applications]]
+- [[#configuration][Configuration]]
+  - [[#installation][Installation]]
+  - [[#find--delete-orphaned-symlinks][Find & delete orphaned symlinks]]
+- [[#license][License]]
+
+* Description
 A repository of my personal configuration files.
 
-** Requirements
+** Maintainers
++ [[https://github.com/alrayyes][@alrayyes]]
+
+* Prerequisites
 - [[http://www.gnu.org/software/stow/][stow]]
+
+* Applications
+- [[https://github.com/alacritty/][alacritty]]
+- [[https://github.com/baskerville/bspwm][bspwm]]
+- [[https://github.com/hlissner/doom-emacs][Doom Emacs]]
+- [[https://dunst-project.org/][dunst]]
+- [[https://the.exa.website/][exa]]
+- [[https://firejail.wordpress.com/][firejail]]
+- [[https://git-scm.com/][git]]
+- [[https://gnupg.org/][gnupg]]
+- [[https://www.gtk.org/][gtk]]
+- [[https://github.com/gokcehan/lf][lf]]
+- [[https://www.musicpd.org/][mpd]]
+- [[https://neomutt.org/][neomutt]]
+- [[https://neovim.io/][neovim]]
+- [[http://jonls.dk/redshift/][redshift]]
+- [[https://github.com/denysdovhan/spaceship-prompt][spaceship zsh]]
+- [[https://github.com/baskerville/sxhkd][sxhkd]]
+- [[https://tmux.github.io/][tmux]]
+- [[https://vifm.info/][vifm]]
+- [[https://weechat.org/][weechat]]
+- [[https://github.com/freedesktop/xcompmgr][xcompmgr]]
+- [[https://github.com/stoeckmann/xwallpaper][xwallpaper]]
+- [[https://www.zsh.org/][zsh]]
+
+* Configuration
 ** Installation
 #+BEGIN_SRC shell
 ./install.sh
@@ -13,34 +57,10 @@ xdg-mime default org-protocol.desktop x-scheme-handler/org-protocol
 #+BEGIN_SRC shell
 ./clean-dead-symlinks
 #+END_SRC
-** Configured Packages
-- [[https://github.com/alacritty/][alacritty]]
-- [[https://github.com/baskerville/bspwm][bspwm]]
-- [[https://github.com/hlissner/doom-emacs][Doom Emacs]]
-- [[https://dunst-project.org/][dunst]]
-- [[https://firejail.wordpress.com/][firejail]]
-- [[https://git-scm.com/][git]]
-- [[https://gnupg.org/][gnupg]]
-- [[https://www.gtk.org/][gtk]]
-- [[https://github.com/gokcehan/lf][lf]]
-- [[https://www.musicpd.org/][mpd]]
-- [[https://neomutt.org/][neomutt]]
-- [[https://neovim.io/][neovim]]
-- [[http://jonls.dk/redshift/][redshift]]
-- [[https://github.com/denysdovhan/spaceship-prompt][spaceship zsh
-- [[https://github.com/baskerville/sxhkd][sxhkd]]
-- [[https://tmux.github.io/][tmux]]
-- [[https://vifm.info/][vifm]]
-- [[https://weechat.org/][weechat]]
-- [[https://github.com/freedesktop/xcompmgr][xcompmgr]]
-- [[https://github.com/stoeckmann/xwallpaper][xwallpaper]]
-- [[https://www.zsh.org/][zsh]]
-  theme]]
 
-** License
+* License
 :PROPERTIES:
 :CUSTOM_ID: license
 :END:
-
 This theme is released under the MIT License. For more information read
 the [[file:LICENSE.org][license]].
