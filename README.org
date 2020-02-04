@@ -24,6 +24,7 @@ A repository of my personal configuration files.
 
 * Applications
 - [[https://github.com/alacritty/][alacritty]]
+- [[https://brave.com/][brave]]
 - [[https://github.com/baskerville/bspwm][bspwm]]
 - [[https://github.com/hlissner/doom-emacs][Doom Emacs]]
 - [[https://dunst-project.org/][dunst]]
