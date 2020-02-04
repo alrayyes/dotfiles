@@ -48,19 +48,21 @@ ZSH_THEME="spaceship"
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
 
-# PATH 
+# PATH
 export PATH="$PATH:/home/alrayyes/.config/yarn/global/node_modules/.bin:/home/alrayyes/.local/bin:/home/alrayyes/.emacs.d/bin"
 
 # Set GPG TTY
 export GPG_TTY="$(tty)"
 
 # Set default browser
- if [ -e "/usr/bin/firefox" ]
-then
-    export BROWSER="firefox"
-elif [ -e "/usr/bin/iceweasel" ]
-then
-    export BROWSER="iceweasel"
+if [ -e "/usr/bin/brave" ]; then
+	export BROWSER="brave"
+else
+	if [ -e "/usr/bin/firefox" ]; then
+		export BROWSER="firefox"
+	elif [ -e "/usr/bin/iceweasel" ]; then
+		export BROWSER="iceweasel"
+	fi
 fi
 
 # Set default terminal
@@ -86,9 +88,9 @@ export MU_HOME="/home/alrayyes/.cache/mu"
 
 # Needed to get zsh to play nice with emacs vterm
 if [[ "$INSIDE_EMACS" = 'vterm' ]]; then
-    alias clear='printf "\e]51;Evterm-clear-scrollback\e\\";tput clear'
+	alias clear='printf "\e]51;Evterm-clear-scrollback\e\\";tput clear'
 fi
 vterm_prompt_end() {
-    printf "\e]51;A$(whoami)@$(hostname):$(pwd)\e\\";
+	printf "\e]51;A$(whoami)@$(hostname):$(pwd)\e\\"
 }
 PROMPT=$PROMPT'%{$(vterm_prompt_end)%}'

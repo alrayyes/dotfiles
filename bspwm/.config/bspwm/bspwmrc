@@ -52,10 +52,14 @@ spotify &
 xss-lock -n ~/.local/bin/lock -- ~/.local/bin/lock &
 xautolock -time 10 -locker ~/.local/bin/lock &
 
-if [ -e /usr/bin/firefox ]; then
-	firefox &
-elif [ -e /usr/bin/iceweasel ]; then
-	iceweasel &
+if [ -e /usr/bin/brave ]; then
+	brave &
+else
+	if [ -e /usr/bin/firefox ]; then
+		firefox &
+	elif [ -e /usr/bin/iceweasel ]; then
+		iceweasel &
+	fi
 fi
 
 bspc config border_width 2
@@ -71,7 +75,6 @@ bspc rule -a Gpodder desktop='^4'
 bspc rule -a Spotify desktop='^4'
 bspc rule -a Emacs state=tiled
 bspc rule -a Zathura state=tiled
-bspc rule -a iceweasel desktop='^9'
-bspc rule -a firefox desktop='^9'
+bspc rule -a Brave-browser desktop='^9'
 bspc rule -a scratchpad sticky=on state=floating
 bspc rule -a scratchmacs sticky=on state=floating
