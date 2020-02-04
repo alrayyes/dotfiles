@@ -1,3 +1,21 @@
+* Table of Contents :TOC_3:noexport:
+- [[#general-settings][General settings]]
+- [[#projectile][Projectile]]
+- [[#circe][Circe]]
+- [[#org-mode][Org mode]]
+  - [[#general-settings-1][General settings]]
+  - [[#org-protocol-capture-html][org-protocol-capture-html]]
+  - [[#org-capture-templates][org-capture-templates]]
+    - [[#capture-web-data-for-org-protocol-capture-html][Capture web data for org-protocol-capture-html]]
+- [[#counsel-spotify][Counsel Spotify]]
+- [[#mu4e][mu4e]]
+- [[#wttrinel][wttrin.el]]
+- [[#elfeed][Elfeed]]
+  - [[#elfeed-and-elfeed-protocol-to-read-feeds][elfeed and elfeed-protocol to read feeds.]]
+  - [[#elfeed-org][elfeed-org]]
+  - [[#elfeed-goodies][elfeed-goodies]]
+- [[#spelling][Spelling]]
+
 * General settings
 [[https://raw.githubusercontent.com/hlissner/emacs-doom-themes/screenshots/doom-molokai.png][doom-molokai screenshot]]
 
@@ -9,7 +27,6 @@ Variable font sizes depending on screen width. Set font to [[https://www.jetbrai
     (setq doom-font (font-spec :family "JetBrains Mono" :size 16))))
 
 #+END_SRC
-
 Theme is set to doom-molokai from [[https://github.com/hlissner/emacs-doom-themes][doom-themes]]
 #+BEGIN_SRC emacs-lisp
 (setq doom-theme 'doom-molokai)
