@@ -46,7 +46,7 @@ redshift-gtk &
 nm-applet &
 syncthing-gtk &
 gpodder &
-spotify &
+alacritty --class Spt,Spt -e spt &
 
 # system lock
 xss-lock -n ~/.local/bin/lock -- ~/.local/bin/lock &
@@ -73,6 +73,7 @@ bspc rule -a "Syncthing GTK" state=floating
 bspc rule -a Gimp state=floating
 bspc rule -a Gpodder desktop='^4'
 bspc rule -a Spotify desktop='^4'
+bspc rule -a Spt desktop='^4'
 bspc rule -a Emacs state=tiled
 bspc rule -a Zathura state=tiled
 bspc rule -a Brave-browser desktop='^9'
