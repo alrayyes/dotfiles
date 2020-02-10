@@ -20,6 +20,7 @@ zplug "plugins/composer", from:oh-my-zsh
 zplug "plugins/docker", from:oh-my-zsh
 zplug "plugins/docker-compose", from:oh-my-zsh
 zplug "plugins/extract", from:oh-my-zsh
+zplug "plugins/fzf", from:oh-my-zsh
 zplug "plugins/git", from:oh-my-zsh
 zplug "plugins/gitignore", from:oh-my-zsh
 zplug "plugins/pass", from:oh-my-zsh
@@ -76,7 +77,5 @@ gpg-connect-agent updatestartuptty /bye >/dev/null
 
 # Needed for broot
 source /home/alrayyes/.config/broot/launcher/bash/br
-
-source_if_exists /usr/share/fzf/key-bindings.zsh
 
 neofetch

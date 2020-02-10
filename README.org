@@ -60,6 +60,7 @@ A repository of my personal configuration files.
 - [[https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/docker][docker]]
 - [[https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/docker-compose][docker-compose]]
 - [[https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/extract][extract]]
+- [[https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/fzf][fzf]]
 - [[https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/git][git]]
 - [[https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/gitignore][gitignore]]
 - [[https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/pass][pass]]
