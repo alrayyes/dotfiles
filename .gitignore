@@ -12,8 +12,6 @@ mpd/.config/mpd/sticker.sql
 vifm/.config/vifm/vifm-help.txt
 vifm/.config/vifm/vifminfo
 
-dunst/.config/dunst/dunstrc
-
 newsboat/.newsboat/cache.db
 newsboat/.newsboat/cache.db.lock
 newsboat/.newsboat/history.cmdline
