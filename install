@@ -1,4 +1,4 @@
-#!/usr/bin/env zsh
+#!/usr/bin/env sh
 
 # We need the environment to be able to symlink files accordingly
 case "$1" in
@@ -15,6 +15,23 @@ for d in $(find -- */ -maxdepth 0 -type d | cut -f1 -d '/'); do
 	(stow -t "$HOME" "$d")
 done
 
+# Refresh xgd
+update-desktop-database ~/.local/share/applications/
+xdg-mime default org-protocol.desktop x-scheme-handler/org-protocol
+
+# Install vim plugins & requirements
+if [ ! "$(pip list --user | grep 'pynvim' | wc -l)" -ge 1 ]; then
+	pip install --user pynvim
+fi
+nvim +PlugInstall +qall
+
+# Create nvim config directory if it doesn't exist
+if [ ! -d ~/.config/nvim ]; then
+	echo "Creating ~/.config/nvim"
+	mkdir -p ~/.config/nvim
+fi
+
+# Notify user to manually symlink files
 if [ ! -z "$EXTENSION" ]; then
 	echo "\n\nDon't forget to symlink these files:\n\n"
 	find ~ \( -type l -o -type f \) -name "*.$EXTENSION" -exec ls -al {} \;

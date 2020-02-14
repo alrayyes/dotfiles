@@ -7,11 +7,18 @@
 - [[#description][Description]]
   - [[#maintainers][Maintainers]]
 - [[#prerequisites][Prerequisites]]
-- [[#applications][Applications]]
+- [[#configured-applications][Configured Applications]]
 - [[#zsh][Zsh]]
   - [[#theme][Theme]]
   - [[#plugin-manager][Plugin Manager]]
   - [[#plugins][Plugins]]
+- [[#neovim][Neovim]]
+  - [[#theme-1][Theme]]
+  - [[#plugin-manager-1][Plugin Manager]]
+  - [[#plugins-1][Plugins]]
+    - [[#general][General]]
+    - [[#programming][Programming]]
+    - [[#ui][UI]]
 - [[#configuration][Configuration]]
   - [[#installation][Installation]]
   - [[#find--delete-orphaned-symlinks][Find & delete orphaned symlinks]]
@@ -25,8 +32,9 @@ A repository of my personal configuration files.
 
 * Prerequisites
 - [[http://www.gnu.org/software/stow/][stow]]
+- [[https://www.python.org/][Python]]
 
-* Applications
+* Configured Applications
 - [[https://github.com/alacritty/][alacritty]]
 - [[https://brave.com/][brave]]
 - [[https://github.com/baskerville/bspwm][bspwm]]
@@ -73,12 +81,44 @@ A repository of my personal configuration files.
 - [[https://github.com/zsh-users/zsh-autosuggestions][zsh-autosuggestions]]
 - [[https://github.com/zsh-users/zsh-syntax-highlighting][zsh-syntax-highlighting]]
 
+* Neovim
+** Theme
+- [[https://github.com/morhetz/gruvbox][gruvbox]]
+** Plugin Manager
+- [[https://github.com/junegunn/vim-plug][vim-plug]]
+** Plugins
+*** General
+- [[https://github.com/bling/vim-bufferline][bling/vim-bufferline]]
+- [[easymotion/vim-easymotion]]
+- [[https://github.com/farmergreg/vim-lastplace][farmergreg/vim-lastplace]]
+- [[https://github.com/jiangmiao/auto-pairs][jiangmiao/auto-pairs]]
+- [[https://github.com/kien/ctrlp.vim][kien/ctrlp.vim]]
+- [[https://github.com/mbbill/undotree][mbbill/undotree]]
+- [[https://github.com/mhinz/vim-signify][mhinz/vim-signify]]
+- [[https://github.com/myusuf3/numbers.vim][myusuf3/numbers.vim]]
+- [[https://github.com/nathanaelkane/vim-indent-guides][nathanaelkane/vim-indent-guides]]
+- [[https://github.com/preservim/nerdtree][preservim/nerdtree]]
+- [[https://github.com/rhysd/conflict-marker.vim][rhysd/conflict-marker.vim]]
+- [[https://github.com/terryma/vim-multiple-cursors][terryma/vim-multiple-cursors]]
+- [[https://github.com/tpope/vim-abolish][tpope/vim-abolish]]
+- [[https://github.com/tpope/vim-surround][tpope/vim-surround]]
+- [[https://github.com/vim-airline/vim-airline][vim-airline/vim-airline]]
+*** Programming
+- [[https://github.com/autozimu/LanguageClient-neovim][autozimu/LanguageClient-neovim]]
+- [[https://github.com/godlygeek/tabular][godlygeek/tabular]]
+- [[https://github.com/majutsushi/tagbar][majutsushi/tagbar]]
+- [[https://github.com/preservim/nerdcommenter][preservim/nerdcommenter]]
+- [[https://github.com/Shougo/deoplete.nvim][Shougo/deoplete.nvim]]
+- [[https://github.com/tpope/vim-fugitive][tpope/vim-fugitive]]
+- [[https://github.com/Xuyuanp/nerdtree-git-plugin][Xuyuanp/nerdtree-git-plugin]]
+*** UI
+- [[https://github.com/morhetz/gruvbox][morhetz/gruvbox]]
+- [[https://github.com/ryanoasis/vim-devicons][ryanoasis/vim-devicons]]
+
 * Configuration
 ** Installation
 #+BEGIN_SRC shell
-./install.sh
-update-desktop-database ~/.local/share/applications/
-xdg-mime default org-protocol.desktop x-scheme-handler/org-protocol
+./install
 #+END_SRC
 ** Find & delete orphaned symlinks
 #+BEGIN_SRC shell
