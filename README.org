@@ -131,3 +131,5 @@ A repository of my personal configuration files.
 :END:
 This theme is released under the MIT License. For more information read
 the [[file:LICENSE.org][license]].
+
+#  LocalWords:  Neovim

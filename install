@@ -10,6 +10,12 @@ thinkpad)
 	;;
 esac
 
+# Create nvim config directory if it doesn't exist
+if [ ! -d ~/.config/nvim ]; then
+	echo "Creating ~/.config/nvim"
+	mkdir -p ~/.config/nvim
+fi
+
 for d in $(find -- */ -maxdepth 0 -type d | cut -f1 -d '/'); do
 	echo "Linking $d..."
 	(stow -t "$HOME" "$d")
@@ -19,17 +25,25 @@ done
 update-desktop-database ~/.local/share/applications/
 xdg-mime default org-protocol.desktop x-scheme-handler/org-protocol
 
+# Install zplug if it doesn't exist yet
+if [ ! -d ~/.zplug ]; then
+	echo "Installing zplug"
+	curl -sL --proto-redir -all,https https://raw.githubusercontent.com/zplug/installer/master/installer.zsh | zsh
+fi
+
 # Install vim plugins & requirements
 if [ ! "$(pip list --user | grep 'pynvim' | wc -l)" -ge 1 ]; then
 	pip install --user pynvim
 fi
-nvim +PlugInstall +qall
 
-# Create nvim config directory if it doesn't exist
-if [ ! -d ~/.config/nvim ]; then
-	echo "Creating ~/.config/nvim"
-	mkdir -p ~/.config/nvim
+# Install plug package manager if it doesn't exist
+if [ ! -d ~/.config/nvim/plugged ]; then
+	curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
+		https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 fi
+
+# Install Neovim plugins
+nvim +PlugInstall +qall
 
 # Notify user to manually symlink files
 if [ ! -z "$EXTENSION" ]; then
