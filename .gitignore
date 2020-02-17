@@ -1,14 +1,3 @@
-/weechat/.weechat/irc.conf
-/weechat/.weechat/logs
-/weechat/.weechat/urls.log
-/weechat/.weechat/weechat.log
-/weechat/.weechat/weechat_crash_*.log
-
-mpd/.config/mpd/database
-mpd/.config/mpd/log
-mpd/.config/mpd/state
-mpd/.config/mpd/sticker.sql
-
 vifm/.config/vifm/vifm-help.txt
 vifm/.config/vifm/vifminfo
 
@@ -21,7 +10,4 @@ mutt/.config/mutt/.mailsynclastrun
 
 gtk/.config/gtk-3.0/bookmarks
 
-mpd/.config/mpd/pid
 emacs/.config/doom/configuration.el
-
-alacritty/.config/alacritty/alacritty.yml
