@@ -8,14 +8,14 @@
   - [[#maintainers][Maintainers]]
 - [[#prerequisites][Prerequisites]]
 - [[#configured-applications][Configured Applications]]
-- [[#zsh][Zsh]]
-  - [[#theme][Theme]]
-  - [[#plugin-manager][Plugin Manager]]
-  - [[#plugins][Plugins]]
+- [[#fish][Fish]]
+    - [[#theme][Theme]]
+    - [[#package-manager][Package Manager]]
+    - [[#packages][Packages]]
 - [[#neovim][Neovim]]
   - [[#theme-1][Theme]]
-  - [[#plugin-manager-1][Plugin Manager]]
-  - [[#plugins-1][Plugins]]
+  - [[#plugin-manager][Plugin Manager]]
+  - [[#plugins][Plugins]]
     - [[#general][General]]
     - [[#programming][Programming]]
     - [[#ui][UI]]
@@ -31,17 +31,25 @@ A repository of my personal configuration files.
 + [[https://github.com/alrayyes][@alrayyes]]
 
 * Prerequisites
+- [[https://brave.com/][brave]]
+- [[https://github.com/baskerville/bspwm][bspwm]]
+- [[https://the.exa.website/][exa]]
+- [[https://github.com/junegunn/fzf][fzf]]
+- [[https://git-scm.com/][git]]
 - [[http://www.gnu.org/software/stow/][stow]]
 - [[https://www.python.org/][Python]]
+- [[https://fishshell.com/][fish]]
+- [[https://github.com/baskerville/sxhkd][sxhkd]]
+- [[https://github.com/freedesktop/xcompmgr][xcompmgr]]
+- [[https://github.com/stoeckmann/xwallpaper][xwallpaper]]
 
 * Configured Applications
 - [[https://github.com/alacritty/][alacritty]]
-- [[https://brave.com/][brave]]
 - [[https://github.com/baskerville/bspwm][bspwm]]
 - [[https://github.com/hlissner/doom-emacs][Doom Emacs]]
 - [[https://dunst-project.org/][dunst]]
-- [[https://the.exa.website/][exa]]
 - [[https://firejail.wordpress.com/][firejail]]
+- [[https://fishshell.com/][fish]]
 - [[https://git-scm.com/][git]]
 - [[https://gnupg.org/][gnupg]]
 - [[https://www.gtk.org/][gtk]]
@@ -54,32 +62,20 @@ A repository of my personal configuration files.
 - [[https://tmux.github.io/][tmux]]
 - [[https://vifm.info/][vifm]]
 - [[https://weechat.org/][weechat]]
-- [[https://github.com/freedesktop/xcompmgr][xcompmgr]]
-- [[https://github.com/stoeckmann/xwallpaper][xwallpaper]]
 
-* Zsh
-** Theme
-- [[https://github.com/denysdovhan/spaceship-prompt][spaceship zsh]]
-** Plugin Manager
-- [[https://github.com/zplug/zplug][zplug]]
-** Plugins
-- [[https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/archlinux][archlinux]]
-- [[https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/composer][composer]]
-- [[https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/docker][docker]]
-- [[https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/docker-compose][docker-compose]]
-- [[https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/extract][extract]]
-- [[https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/fzf][fzf]]
-- [[https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/git][git]]
-- [[https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/gitignore][gitignore]]
-- [[https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/pass][pass]]
-- [[https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/ripgrep][ripgrep]]
-- [[https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/rsync][rsync]]
-- [[https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/sudo][sudo]]
-- [[https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/systemd][systemd]]
-- [[https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/tmux][tmux]]
-- [[https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/vi-mode][vi-mode]]
-- [[https://github.com/zsh-users/zsh-autosuggestions][zsh-autosuggestions]]
-- [[https://github.com/zsh-users/zsh-syntax-highlighting][zsh-syntax-highlighting]]
+* Fish
+*** Theme
+- [[https://github.com/oh-my-fish/theme-bobthefish][bobthefish]]
+*** Package Manager
+- [[https://github.com/oh-my-fish/oh-my-fish][oh-my-fish]]
+*** Packages
+- [[https://github.com/patrickf3139/Colored-Man-Pages][colored-man-pages]]
+- [[https://github.com/oh-my-fish/plugin-extract][extract]]
+- [[https://github.com/jethrokuan/fzf][fzf]]
+- [[https://github.com/oh-my-fish/plugin-gi][gi]]
+- [[https://github.com/oh-my-fish/plugin-git-flow][git-flow]]
+- [[https://github.com/oh-my-fish/plugin-sudope.git][sudope]]
+- [[https://github.com/oh-my-fish/plugin-wttr][wttr]]
 
 * Neovim
 ** Theme

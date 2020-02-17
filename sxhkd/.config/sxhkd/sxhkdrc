@@ -64,7 +64,7 @@ shift + XF86Eject
 
 # terminal emulator
 super + Return
-        $TERMINAL
+        alacritty
 
 # program launcher
 super + @space

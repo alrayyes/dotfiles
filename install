@@ -1,52 +1,78 @@
-#!/usr/bin/env sh
+#!/usr/bin/env fish
 
-# We need the environment to be able to symlink files accordingly
-case "$1" in
-desktop)
-	EXTENSION="desktop"
-	;;
-thinkpad)
-	EXTENSION="thinkpad"
-	;;
-esac
+function mkdir_if_not_exist
+    if [ ! -d "$argv" ]
+        echo "Creating directory $argv"
+        mkdir -p "$argv"
+    end
+end
 
-# Create nvim config directory if it doesn't exist
-if [ ! -d ~/.config/nvim ]; then
-	echo "Creating ~/.config/nvim"
-	mkdir -p ~/.config/nvim
-fi
+function install_omf_package_if_not_exist
+    if test (omf list | grep -c "$argv") -eq 0
+        omf install "$argv"
+    end
+end
 
-for d in $(find -- */ -maxdepth 0 -type d | cut -f1 -d '/'); do
-	echo "Linking $d..."
-	(stow -t "$HOME" "$d")
-done
+# Create directories that  need to exist
+mkdir_if_not_exist ~/.cache/mpd
+mkdir_if_not_exist ~/.config/alacritty
+mkdir_if_not_exist ~/.config/nvim
+mkdir_if_not_exist ~/.config/fish
+mkdir_if_not_exist ~/.config/omf
+mkdir_if_not_exist ~/.config/mpd
+mkdir_if_not_exist ~/.weechat
+
+for d in (find -- */ -maxdepth 0 -type d | cut -f1 -d '/')
+    echo "Linking $d..."
+    stow -t "$HOME" "$d"
+end
 
 # Refresh xgd
-update-desktop-database ~/.local/share/applications/
-xdg-mime default org-protocol.desktop x-scheme-handler/org-protocol
+if test (grep -c 'x-scheme-handler/org-protocol=org-protocol.desktop' ~/.config/mimeapps.list) -eq 0
+    echo "Refreshing xgd to handle org-protocol"
+    update-desktop-database ~/.local/share/applications/
+    xdg-mime default org-protocol.desktop x-scheme-handler/org-protocol
+end
 
-# Install zplug if it doesn't exist yet
-if [ ! -d ~/.zplug ]; then
-	echo "Installing zplug"
-	curl -sL --proto-redir -all,https https://raw.githubusercontent.com/zplug/installer/master/installer.zsh | zsh
-fi
+# Install oh-my-fish if it isn't installed
+if [ ! -d ~/.local/share/omf ]
+    curl -L https://get.oh-my.fish | fish
+end
+
+# Install oh-my-fish plugins
+install_omf_package_if_not_exist bobthefish
+install_omf_package_if_not_exist colored-man-pages
+install_omf_package_if_not_exist extract
+install_omf_package_if_not_exist fzf
+install_omf_package_if_not_exist gi
+install_omf_package_if_not_exist git-flow
+install_omf_package_if_not_exist sudope
+install_omf_package_if_not_exist wttr
 
 # Install vim plugins & requirements
-if [ ! "$(pip list --user | grep 'pynvim' | wc -l)" -ge 1 ]; then
-	pip install --user pynvim
-fi
+if test (pip list --user | grep -c 'pynvim') -ne 1
+    pip install --user pynvim
+end
 
 # Install plug package manager if it doesn't exist
-if [ ! -d ~/.config/nvim/plugged ]; then
-	curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
-		https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-fi
+if [ ! -d ~/.config/nvim/plugged ]
+    curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
+        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+end
 
 # Install Neovim plugins
 nvim +PlugInstall +qall
 
+# Setup broot if not done already
+if [ ! -d ~/.local/share/broot ]
+    broot --install
+end
+
+# Update fish completions (auto generated from man pages)
+fish_update_completions
+
 # Notify user to manually symlink files
-if [ ! -z "$EXTENSION" ]; then
-	echo "\n\nDon't forget to symlink these files:\n\n"
-	find ~ \( -type l -o -type f \) -name "*.$EXTENSION" -exec ls -al {} \;
-fi
+if [ -n "$argv[1]" ]
+    printf "\n\nDon't forget to symlink these files:\n\n"
+    find ~ \( -type l -o -type f \) -name "*.$argv[1]" -exec ls -al {} \;
+end

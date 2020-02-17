@@ -1,38 +1,37 @@
-#! /bin/sh
+#!/usr/bin/env fish
 
 sxhkd &
 
 # Set screen orientation if second monitor is connected
-SCREENCOUNT=$(xrandr | grep -c "\*")
+set SCREENCOUNT (xrandr | grep -c "\*")
 
 # If multi screen add special mode for monitor so it supports 1440p over HDMI
-if [ "$SCREENCOUNT" -eq 2 ]; then
-	bspc monitor DP-1 -d 2 3 4 5 6 7 8 9 10
-	bspc monitor HDMI-2 -d 1
-	if [ -f "$HOME/.local/bin/screen_desktop" ]; then
-		screen_desktop
-	fi
-	if [ -f "$HOME/.local/bin/polybar-desktop" ]; then
-		polybar-desktop
-	fi
+if [ "$SCREENCOUNT" -eq 2 ]
+    bspc monitor DP-1 -d 2 3 4 5 6 7 8 9 10
+    bspc monitor HDMI-2 -d 1
+    if [ -f "$HOME/.local/bin/screen_desktop" ]
+        screen_desktop
+    end
+    if [ -f "$HOME/.local/bin/polybar-desktop" ]
+        polybar-desktop
+    end
 else
-	bspc monitor -d 1 2 3 4 5 6 7 8 9 0
-	if [ -f "$HOME/.local/bin/screen" ]; then
-		screen
-	fi
-	if [ -f "$HOME/.local/bin/polybar-laptop" ]; then
-		polybar laptop-top &
-		polybar laptop-bottom &
-	fi
-fi
+    bspc monitor -d 1 2 3 4 5 6 7 8 9 0
+    if [ -f "$HOME/.local/bin/screen" ]
+        screen
+    end
+    if [ -f "$HOME/.local/bin/polybar-laptop" ]
+        polybar-laptop
+    end
+end
 
 xcompmgr &
 
-if [ -e ~/.cache/wall1.png ] && [ -e ~/.cache/wall2.png ]; then
-	xwallpaper --output HDMI-2 --zoom ~/.cache/wall2.png --output DP-1 --zoom ~/.cache/wall1.png &
-elif [ -e ~/.cache/wall1.png ]; then
-	xwallpaper --output eDP1 --zoom ~/.cache/wall1.png &
-fi
+if [ -e ~/.cache/wall1.png ] && [ -e ~/.cache/wall2.png ]
+    xwallpaper --output HDMI-2 --zoom ~/.cache/wall2.png --output DP-1 --zoom ~/.cache/wall1.png &
+else if [ -e ~/.cache/wall1.png ]
+    xwallpaper --output eDP1 --zoom ~/.cache/wall1.png &
+end
 
 # switch off microphones
 amixer -c 2 set Mic nocap
@@ -52,15 +51,15 @@ alacritty --class Spt,Spt -e spt &
 xss-lock -n ~/.local/bin/lock -- ~/.local/bin/lock &
 xautolock -time 10 -locker ~/.local/bin/lock &
 
-if [ -e /usr/bin/brave ]; then
-	brave &
+if [ -e /usr/bin/brave ]
+    brave &
 else
-	if [ -e /usr/bin/firefox ]; then
-		firefox &
-	elif [ -e /usr/bin/iceweasel ]; then
-		iceweasel &
-	fi
-fi
+    if [ -e /usr/bin/firefox ]
+        firefox &
+    else if [ -e /usr/bin/iceweasel ]
+        iceweasel &
+    end
+end
 
 bspc config border_width 2
 bspc config window_gap 12
