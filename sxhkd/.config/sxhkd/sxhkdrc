@@ -26,11 +26,11 @@ F1
 
 # dmenu password selector
 F2
-  passmenu -p Password:
+  pass-dmenu
 
 # dmenu authenticator
 F3
-  yubikey-oath-dmenu --clipboard clipboard --notify
+  oath-dmenu
 
 # ssh shell
 F4

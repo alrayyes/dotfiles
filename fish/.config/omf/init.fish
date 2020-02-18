@@ -105,3 +105,5 @@ if set -q FZF_COMPLETE
         bind -M insert \t '__fzf_complete'
     end
 end
+
+cat ~/.cache/wal/sequences

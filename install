@@ -20,6 +20,7 @@ mkdir_if_not_exist ~/.config/nvim
 mkdir_if_not_exist ~/.config/fish
 mkdir_if_not_exist ~/.config/omf
 mkdir_if_not_exist ~/.config/mpd
+mkdir_if_not_exist ~/.config/wal
 mkdir_if_not_exist ~/.weechat
 
 for d in (find -- */ -maxdepth 0 -type d | cut -f1 -d '/')

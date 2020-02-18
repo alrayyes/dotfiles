@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env sh
 
 clear
 
@@ -22,6 +22,7 @@ convert "${OUTPUT_IMAGE}" -resize "${WIDTH}x${HEIGHT}^" -gravity center -extent 
 echo "Setting background images...."
 if [ -e ~/.cache/wall1.png ] && [ -e ~/.cache/wall2.png ]; then
 	xwallpaper --output HDMI-2 --zoom ~/.cache/wall2.png --output DP-1 --zoom ~/.cache/wall1.png &
+	wal -i ~/.cache/wall1.png
 elif [ -e ~/.cache/wall1.png ]; then
 	xwallpaper --output eDP1 --zoom ~/.cache/wall1.png &
 fi
