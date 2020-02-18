@@ -36,6 +36,7 @@ A repository of my personal configuration files.
 - [[https://the.exa.website/][exa]]
 - [[https://github.com/junegunn/fzf][fzf]]
 - [[https://git-scm.com/][git]]
+- [[https://github.com/dylanaraps/pywal][pywal]]
 - [[http://www.gnu.org/software/stow/][stow]]
 - [[https://www.python.org/][Python]]
 - [[https://fishshell.com/][fish]]
