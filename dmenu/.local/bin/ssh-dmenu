@@ -11,8 +11,8 @@ mapfile -t params < <(echo "$ssh_host" | awk -F ":" '{print $1} {if ($2) print $
 if [ -n "$ssh_host" ]; then
 	# If array size is two then second parameter is port number
 	if [ ${#params[@]} -eq 2 ]; then
-		$TERMINAL -e ssh "${params[0]}" -p "${params[1]}"
+		alacritty -e ssh "${params[0]}" -p "${params[1]}"
 	else
-		$TERMINAL -e ssh "${params[0]}"
+		alacritty -e ssh "${params[0]}"
 	fi
 fi
