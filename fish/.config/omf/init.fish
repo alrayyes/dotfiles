@@ -77,6 +77,8 @@ alias vifm="vifmrun"
 # pacman aliases
 alias pacrmorphans="sudo pacman -Rs (pacman -Qtdq)"
 alias pacrem="sudo pacman -Rns"
+
+# git alaises
 alias gpoat="git push origin --all && git push origin --tags"
 
 # Refresh gpg-agent tty in case user switches into an X session
