@@ -6,17 +6,10 @@
 # if a music file or pdf, it will download,
 # otherwise it opens link in browser.
 
-# Set default browser
- if [ -e "/usr/bin/firefox" ]
-then
-    export BROWSER="firefox"
-elif [ -e "/usr/bin/iceweasel" ]
-then
-    export BROWSER="iceweasel"
-fi
+export BROWSER="brave"
 
 # Set default terminal
-export TERMINAL="st"
+export TERMINAL="alacritty"
 
 case "$1" in
 	*mkv|*webm|*mp4|*youtube.com*|*youtu.be*|*hooktube.com*|*bitchute.com*)
