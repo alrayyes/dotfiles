@@ -7,9 +7,7 @@
   - [[#org-protocol-capture-html][org-protocol-capture-html]]
   - [[#org-capture-templates][org-capture-templates]]
     - [[#capture-web-data-for-org-protocol-capture-html][Capture web data for org-protocol-capture-html]]
-- [[#counsel-spotify][Counsel Spotify]]
 - [[#mu4e][mu4e]]
-- [[#wttrinel][wttrin.el]]
 - [[#elfeed][Elfeed]]
   - [[#elfeed-and-elfeed-protocol-to-read-feeds][elfeed and elfeed-protocol to read feeds.]]
   - [[#elfeed-org][elfeed-org]]
@@ -116,12 +114,6 @@ Require package
                                         "* %c\n%U %?%:initial"))
   )
 #+END_SRC
-* [[https://github.com/Lautaro-Garcia/counsel-spotify][Counsel Spotify]]
-Control Spotify with Counsel Spotify
-#+BEGIN_SRC emacs-lisp
-(setq counsel-spotify-client-id "03f9817b1b6946febf9a0573d28e3831"
-      counsel-spotify-client-secret (my-fetch-password :user "03f9817b1b6946febf9a0573d28e3831" :host "spotify.el"))
-#+END_SRC
 * [[https://www.djcbsoftware.nl/code/mu/mu4e.html][mu4e]]
 Setup mu4e with multiple profiles
 #+BEGIN_SRC emacs-lisp
@@ -194,12 +186,6 @@ Setup mu4e with multiple profiles
                                             (mu4e-trash-folder . "/andthensome/Trash")
                                             (mu4e-refile-folder . "/andthensome/Archive"))))))
 (add-hook 'mu4e-view-mode-hook 'visual-line-mode)
-#+END_SRC
-* [[https://github.com/bcbcarl/emacs-wttrin][wttrin.el]]
-Emacs frontend for weather web service [[http://wttr.in/][wttr.in]]
-
-#+BEGIN_SRC emacs-lisp
-(setq wttrin-default-cities '("Amsterdam", "Volendam"))
 #+END_SRC
 * [[https://github.com/skeeto/elfeed][Elfeed]]
 ** elfeed and [[https://github.com/fasheng/elfeed-protocol][elfeed-protocol]] to read feeds.

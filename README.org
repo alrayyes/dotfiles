@@ -7,6 +7,8 @@
 - [[#description][Description]]
   - [[#maintainers][Maintainers]]
 - [[#prerequisites][Prerequisites]]
+  - [[#applications][Applications]]
+  - [[#lsp-backends][LSP Backends]]
 - [[#configured-applications][Configured Applications]]
 - [[#fish][Fish]]
     - [[#theme][Theme]]
@@ -31,6 +33,7 @@ A repository of my personal configuration files.
 + [[https://github.com/alrayyes][@alrayyes]]
 
 * Prerequisites
+** Applications
 - [[https://brave.com/][brave]]
 - [[https://github.com/baskerville/bspwm][bspwm]]
 - [[https://the.exa.website/][exa]]
@@ -43,6 +46,15 @@ A repository of my personal configuration files.
 - [[https://github.com/baskerville/sxhkd][sxhkd]]
 - [[https://github.com/freedesktop/xcompmgr][xcompmgr]]
 - [[https://github.com/stoeckmann/xwallpaper][xwallpaper]]
+** LSP Backends
+- [[https://github.com/mads-hartmann/bash-language-server][bash-language-server]]
+- [[https://github.com/MaskRay/ccls][ccls]]
+- [[https://github.com/felixfbecker/php-language-server][php-language-server]]
+- [[https://github.com/Microsoft/python-language-server][python-language-server]]
+- [[https://github.com/theia-ide/typescript-language-server][typescript-language-server]]
+- [[https://github.com/vscode-langservers/vscode-css-languageserver][vscode-css-languageserver]]
+- [[https://github.com/vscode-langservers/vscode-html-languageserver][vscode-html-languageserver]]
+- [[https://github.com/bmewburn/vscode-intelephense][vscode-intelephense]]
 
 * Configured Applications
 - [[https://github.com/alacritty/][alacritty]]

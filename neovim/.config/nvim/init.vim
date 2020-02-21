@@ -17,6 +17,7 @@
         Plug 'easymotion/vim-easymotion'
         Plug 'farmergreg/vim-lastplace'
         Plug 'jiangmiao/auto-pairs'
+        Plug 'junegunn/fzf'
         Plug 'kien/ctrlp.vim'
         Plug 'mbbill/undotree'
         Plug 'mhinz/vim-signify'
@@ -30,7 +31,6 @@
         Plug 'vim-airline/vim-airline'
     " }
     
-
     " Programming {
         Plug 'autozimu/LanguageClient-neovim', {
             \ 'branch': 'next',
@@ -110,6 +110,11 @@
     vnoremap < <gv
     vnoremap > >gv
 
+    " LanguageClient-neovim
+    nnoremap <silent> K :call LanguageClient#textDocument_hover()<CR>
+    nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
+    nnoremap <silent> <F2> :call LanguageClient#textDocument_rename()<CR>
+
     " For when you forget to sudo.. Really Write the file.
     cmap w!! w !sudo tee % >/dev/null
 " }
@@ -155,5 +160,29 @@
     " Deoplete {
         " Load deoplete on startup
         let g:deoplete#enable_at_startup = 1
+    " }
+    
+    " LanguageClient-neovim {
+        " Required for operations modifying multiple buffers like rename.
+        set hidden
+
+        " Needed for tsx files to work with typescript-language-server
+        " https://github.com/theia-ide/typescript-language-server/issues/90
+        autocmd BufNewFile,BufRead *.tsx setlocal filetype=typescript.tsx.
+
+        let g:LanguageClient_serverCommands = {
+            \ 'c': ['/usr/bin/ccls'],
+            \ 'javascript': ['/usr/bin/typescript-language-server', '--stdio'],
+            \ 'javascript.tsx': ['/usr/bin/typescript-language-server', '--stdio'],
+            \ 'typescript': ['/usr/bin/typescript-language-server', '--stdio'],
+            \ 'typescript.tsx': ['/usr/bin/typescript-language-server', '-gg/-stdio'],
+            \ 'php': ['/usr/bin/php-language-server'],
+            \ 'python': ['/usr/bin/pyls'],
+            \ 'sh': ['/usr/bin/bash-language-server'],
+            \ 'css': ['/usr/bin/css-languageserver', '--stdio'],
+            \ 'scss': ['/usr/bin/css-languageserver', '--stdio'],
+            \ 'sass': ['/usr/bin/css-languageserver', '--stdio'],
+            \ 'html': ['/usr/bin/html-languageserver', '--stdio']
+            \ }
     " }
 " }
