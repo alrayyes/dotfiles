@@ -43,3 +43,5 @@ color info                  color236  yellow    bold
 highlight article "^(Title):.*$" blue default
 highlight article "https?://[^ ]+" red default
 highlight article "\\[image\\ [0-9]+\\]" green default
+
+browser linkhandler
