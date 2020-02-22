@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env fish
 
 khal list
 read -s -n 1

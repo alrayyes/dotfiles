@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env fish
 
 #Backup original
 cp config.h config.h.bak

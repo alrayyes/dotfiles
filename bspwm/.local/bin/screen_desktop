@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env sh
 
 xrandr --newmode "2560x1440_40" 201.00 2560 2720 2984 3408 1440 1443 1448 1476 -hsync +vsync
 xrandr --addmode HDMI-2 2560x1440_40

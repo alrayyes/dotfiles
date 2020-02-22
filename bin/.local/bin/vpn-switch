@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env sh
 
 ###
 # Switch wireguard vpns up/down
@@ -7,12 +7,12 @@
 STATUS="$(nmcli device status | grep -c wg0)"
 
 case $STATUS in
-	1)
-        sudo wg-quick down wg0 
-        notify-send 'Wireguard Down'
-		;;
-	*)
-        sudo wg-quick up wg0
-        notify-send 'Wireguard Up'
-		;;
-  esac
+1)
+	sudo wg-quick down wg0
+	notify-send 'Wireguard Down'
+	;;
+*)
+	sudo wg-quick up wg0
+	notify-send 'Wireguard Up'
+	;;
+esac
