@@ -64,6 +64,13 @@ end
 # Install Neovim plugins
 nvim +PlugInstall +qall
 
+# Install vifm dependencies
+curl https://raw.githubusercontent.com/cirala/vifmimg/master/vifmimg --output vifm/.local/bin/vifmimg
+chmod 700 vifm/.local/bin/vifmimg
+curl https://raw.githubusercontent.com/cirala/vifmimg/master/vifmrun --output vifm/.local/bin/vifmrun
+chmod 700 vifm/.local/bin/vifmrun
+curl https://raw.githubusercontent.com/cirala/vifm_devicons/master/SETUP --output vifm/.config/vifm/SETUP
+
 # Setup broot if not done already
 if [ ! -d ~/.local/share/broot ]
     broot --install

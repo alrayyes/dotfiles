@@ -11,3 +11,7 @@ mutt/.config/mutt/.mailsynclastrun
 gtk/.config/gtk-3.0/bookmarks
 
 emacs/.config/doom/configuration.el
+
+# vifm
+vifm/.config/vifm/vifmimgpdffile
+vifm/.config/vifm/vifmimgpdfpage
