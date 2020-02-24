@@ -34,6 +34,7 @@ A repository of my personal configuration files.
 
 * Prerequisites
 ** Applications
+- [[https://github.com/sharkdp/bat][bat]]
 - [[https://brave.com/][brave]]
 - [[https://github.com/baskerville/bspwm][bspwm]]
 - [[https://the.exa.website/][exa]]
