@@ -394,6 +394,7 @@ label = " %notifications%"
 type = custom/script
 exec = /bin/sh ~/.config/polybar/bin/updates-arch-combined/updates-arch-combined.sh
 interval = 600
+click-left = alacritty -e yay
 
 [module/player-mpris-tail]
 type = custom/script
