@@ -10,7 +10,7 @@ show-read-articles no
 auto-reload yes
 reload-time 10
 external-url-viewer "urlscan -dc -r 'linkhandler {}'"
-notify-program "~/.local/bin/notify-rss"
+notify-program "notify-rss"
 
 bind-key ^R reload-all
 bind-key j down
