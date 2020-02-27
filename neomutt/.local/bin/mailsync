@@ -1,4 +1,4 @@
-#!/usr/bin/env sh
+#!/usr/bin/env fish
 # Sync mail and give notification if there is new mail.
 
 # Run only if user logged in (prevent cron errors)
@@ -6,43 +6,33 @@ pgrep -u "$USER" >/dev/null || exit
 # Run only if not already running in other instance
 pgrep -x mbsync >/dev/null && exit
 
-# Checks for internet connection and set notification script.
-ping -q -c 1 1.1.1.1 > /dev/null || exit
-command -v notify-send >/dev/null || echo "Note that \`libnotify\` or \`libnotify-send\` should be installed for pop-up mail notifications with this script."
-
-export DISPLAY=:0.0
-
-notify() { notify-send "mutt" "📬 $2 new mail(s) in \`$1\` account." ;}
-
-# Check account for new mail. Notify if there is new content.
-syncandnotify() {
-    acc="$(echo "$account" | sed "s/.*\///")"
-    mbsync "$acc"
-    new=$(find "$HOME/.local/share/mail/$acc/INBOX/new/" "$HOME/.local/share/mail/$acc/Inbox/new/" "$HOME/.local/share/mail/$acc/inbox/new/" -type f -newer "/tmp/.mailsynclastrun" 2> /dev/null)
-    newcount=$(echo "$new" | sed '/^\s*$/d' | wc -l)
-    if [ "$newcount" -gt "0" ]; then
-        notify "$acc" "$newcount" &
-        for file in $new; do
-            # Extract subject and sender from mail.
-            from=$(awk '/^From: / && ++n ==1,/^\<.*\>:/' "$file" | perl -CS -MEncode -ne 'print decode("MIME-Header", $_)' | awk '{ $1=""; if (NF>=3)$NF=""; print $0 }' | sed 's/^[[:blank:]]*[\"'\''\<]*//;s/[\"'\''\>]*[[:blank:]]*$//')
-            subject=$(awk '/^Subject: / && ++n == 1,/^\<.*\>: / && ++i == 2' "$file" | head -n-1 | perl -CS -MEncode -ne 'print decode("MIME-Header", $_)' | sed 's/^Subject: //' | sed 's/^{[[:blank:]]*[\"'\''\<]*//;s/[\"'\''\>]*[[:blank:]]*$//' | tr -d '\n')
-            notify-send "﯍ $from:" "$subject" &
-        done
-    fi
-}
+# Needed fo notify-send to work properly when called fron cronjob
+set -x DISPLAY ":0.0"
 
 # Sync accounts passed as argument or all.
-if [ "$#" -eq "0" ]; then
-    accounts="$(awk '/^Group/ {print $2}' "$HOME/.mbsyncrc")"
+if count $argv >/dev/null
+    set accounts $argv[1]
 else
-    accounts=$*
-fi
+    set accounts (awk '/^Group/ {print $2}' "$HOME/.mbsyncrc")
+end
 
 # Parallelize multiple accounts
 for account in $accounts
-do
-    syncandnotify &
-done
+    # Check account for new mail. Notify if there is new content.
+    set acc (echo "$account" | sed "s/.*\///")
+    mbsync "$acc"
+    set new (find "$HOME/.local/share/mail/$acc/INBOX/new/" "$HOME/.local/share/mail/$acc/Inbox/new/" "$HOME/.local/share/mail/$acc/inbox/new/" -type f -newer "/tmp/.mailsynclastrun" 2> /dev/null)
+    set newcount (echo "$new" | sed '/^\s*$/d' | wc -l)
+    if [ $newcount -gt "0" ]
+        notify-send -i mutt "Mail" "$newcount new mail(s) in \`$acc\` account." &
+        for file in $new
+            # Extract subject and sender from mail.
+            set from (awk '/^From: / && ++n ==1,/^\<.*\>:/' "$file" | perl -CS -MEncode -ne 'print decode("MIME-Header", $_)' | awk '{ $1=""; if (NF>=3)$NF=""; print $0 }' | sed 's/^[[:blank:]]*[\"'\''\<]*//;s/[\"'\''\>]*[[:blank:]]*$//')
+            set subject (awk '/^Subject: / && ++n == 1,/^\<.*\>: / && ++i == 2' "$file" | head -n-1 | perl -CS -MEncode -ne 'print decode("MIME-Header", $_)' | sed 's/^Subject: //' | sed 's/^{[[:blank:]]*[\"'\''\<]*//;s/[\"'\''\>]*[[:blank:]]*$//' | tr -d '\n')
+            notify-send -i mutt "$from:" "$subject" &
+        end
+    end
+end
 
 wait
 
