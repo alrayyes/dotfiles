@@ -1,4 +1,4 @@
 #!/usr/bin/env fish
 
 . ~/.cache/wal/colors.fish
-yubikey-oath-dmenu --clipboard --notify -nb "$color0" -nf "$color15" -sb "$color1" -sf "$color15"
+yubikey-oath-dmenu --clipboard clipboard --notify -nb "$color0" -nf "$color15" -sb "$color1" -sf "$color15"
