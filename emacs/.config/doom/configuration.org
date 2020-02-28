@@ -138,6 +138,8 @@ Setup mu4e with multiple profiles
       '(("/ryankes/INBOX" . ?r)
         ("/gmail/INBOX" . ?g)
         ("/andthensome/INBOX" . ?a))
+      mu4e-mu-home
+      "~/.cache/mu"
       mu4e-update-interval
       300
       mu4e-get-mail-command
