@@ -9,7 +9,6 @@
 
 [colors]
 background = ${xrdb:color0:#222}
-background-alt = ${xrdb:color0:#222}
 foreground = ${xrdb:color7:#222}
 foreground-alt = ${xrdb:color7:#222}
 primary = ${xrdb:color1:#222}
@@ -17,23 +16,8 @@ secondary = ${xrdb:color2:#222}
 alert = ${xrdb:color3:#222}
 
 [bar/base]
-width = 100%
-
-height = 27
-radius = 6.0
-fixed-center = false
-
 background = ${colors.background}
 foreground = ${colors.foreground}
-
-line-size = 3
-line-color = #f00
-
-border-size = 0
-border-color = #00000000
-
-padding-left = 0
-padding-right = 2
 
 module-margin-left = 1
 module-margin-right = 2
@@ -63,11 +47,10 @@ inherit = bar/base-laptop
 monitor = ${env:MONITOR:eDP1}
 
 modules-left = bspwm
-modules-center = wlan bluetooth
-modules-right = github updates-arch-combined battery xbacklight filesystem volume memory cpu temperature date
+modules-center = battery0 battery1 wlan bluetooth
+modules-right = github updates-arch-combined xbacklight volume memory cpu temperature filesystem date
 
 tray-position = right
-tray-padding = 0
 
 [bar/monitor1]
 inherit = bar/base-desktop
@@ -75,10 +58,9 @@ monitor = ${env:MONITOR:DP-1}
 
 modules-left = bspwm
 modules-center = mpd player-mpris-tail
-modules-right = github updates-arch-combined bluetooth eth filesystem volume memory cpu temperature date
+modules-right = eth bluetooth github updates-arch-combined volume memory cpu temperature filesystem date
 
 tray-position = right
-tray-padding = 0
 
 [bar/monitor2]
 inherit = bar/base-desktop
@@ -107,22 +89,20 @@ label-indicator-underline = ${colors.secondary}
 
 [module/filesystem]
 type = internal/fs
-interval = 25
 
 mount-0 = /
 mount-1 = /home
 
-label-mounted = %{F#0a81f5}%mountpoint%%{F-}: %percentage_used%%
-label-unmounted = %mountpoint% not mounted
-label-unmounted-foreground = ${colors.foreground-alt}
+label-mounted = %mountpoint%: %percentage_used%%
+label-unmounted-background = ${colors.alert}
 
 [module/bspwm]
 type = internal/bspwm
 
-label-focused-background = ${colors.background-alt}
-label-focused-underline= ${colors.primary}
+label-focused-background = ${colors.primary}
 label-focused-padding = 2
 
+label-occupied-background = ${colors.background}
 label-occupied-padding = 2
 label-empty =
 
@@ -136,16 +116,32 @@ pin-workspaces = true
 
 [module/mpd]
 type = internal/mpd
-format-online = <label-song>  <icon-prev> <icon-stop> <toggle> <icon-next>
 
-icon-prev = 
-icon-stop = 
-icon-play = 
-icon-pause = 
-icon-next = 
+format-online = <icon-prev> <icon-seekb> <icon-stop> <toggle> <icon-seekf> <icon-next>  <icon-repeat> <icon-random>  <bar-progress> <label-time>  <label-song>
+
+label-song = 𝄞 %artist% - %title%
+
+icon-play = ⏵
+icon-pause = ⏸
+icon-stop = ⏹
+icon-prev = ⏮
+icon-next = ⏭
+icon-seekb = ⏪
+icon-seekf = ⏩
+icon-random = 
+icon-repeat = 🔁
+icon-repeatone = 🔂
+icon-single = 🔂
+icon-consume = ✀
 
 label-song-maxlen = 25
 label-song-ellipsis = true
+
+; Only applies if <bar-progress> is used
+bar-progress-width = 45
+bar-progress-indicator = |
+bar-progress-fill = ─
+bar-progress-empty = ─
 
 [module/xbacklight]
 type = internal/xbacklight
@@ -171,11 +167,8 @@ card = intel_backlight
 
 [module/cpu]
 type = internal/cpu
-interval = 2
 format-prefix = " "
-format-prefix-foreground = ${colors.foreground-alt}
-format-underline = #f90000
-label = %percentage:2%%
+label = %percentage%%
 format = <label> <ramp-coreload>
 
 ramp-coreload-0 = ▁
@@ -189,10 +182,7 @@ ramp-coreload-7 = █
 
 [module/memory]
 type = internal/memory
-interval = 2
 format-prefix = " "
-format-prefix-foreground = ${colors.foreground-alt}
-format-underline = #4bffdc
 label = %percentage_used%%
 
 ramp-used-0 = ▁
@@ -209,22 +199,14 @@ type = internal/network
 interface = wlp4s0
 interval = 3.0
 
-format-connected = <ramp-signal> <label-connected>
+format-connected = <label-connected>
 format-packetloss = <animation-packetloss> <label-connected>
 format-disconnected =
-format-connected-underline = #55aa55
-format-connected-prefix = " "
+format-connected-prefix = "直 "
+format-disconnected-prefix = "睊 "
 
-label-connected = "%essid% %signal% %downspeed:8% %upspeed:8%"
-
-ramp-signal-0 = ▁
-ramp-signal-1 = ▂
-ramp-signal-2 = ▃
-ramp-signal-3 = ▄
-ramp-signal-4 = ▅
-ramp-signal-5 = ▆
-ramp-signal-6 = ▇
-ramp-signal-7 = █
+label-connected = "%signal%% %essid% %downspeed:6% %upspeed:0%"
+label-disconnected =
 
 animation-packetloss-0 = ⚠
 animation-packetloss-1 = 📶
@@ -252,22 +234,15 @@ label-connected = "%ifname%"
 [module/eth]
 type = internal/network
 interface = eno1
-interval = 3.0
 
-format-connected-underline = #55aa55
-format-connected-prefix = " "
-format-connected-prefix-foreground = ${colors.foreground-alt}
-label-connected = "%local_ip% %downspeed% %upspeed%"
+format-connected-prefix = " "
+format-disconnected-prefix = " "
 
-format-disconnected =
-;format-disconnected = <label-disconnected>
-;format-disconnected-underline = ${self.format-connected-underline}
-;label-disconnected = %ifname% disconnected
-;label-disconnected-foreground = ${colors.foreground-alt}
+label-connected = "%local_ip%  %downspeed%  %upspeed%"
+
 
 [module/date]
 type = internal/date
-interval = 5
 
 date =
 date-alt = " %d-%m-%Y"
@@ -276,10 +251,9 @@ time = %H:%M
 time-alt = %H:%M:%S
 
 format-prefix = 
-format-prefix-foreground = ${colors.foreground-alt}
-format-underline = #0a6cf5
 
 label = %date% %time%
+label-padding-right=1
 
 [module/volume]
 type = internal/alsa
@@ -309,51 +283,63 @@ bar-volume-empty = ─
 bar-volume-empty-font = 2
 bar-volume-empty-foreground = ${colors.foreground-alt}
 
-[module/battery]
+[module/battery0]
 type = internal/battery
 battery = BAT0
-adapter = ADP1
-full-at = 98
+adapter = AC
+full-at = 70
 
 format-charging = <animation-charging> <label-charging>
-format-charging-underline = #ffb52a
+format-discharging = <animation-discharging> <label-discharging>
 
-format-discharging = <ramp-capacity> <label-discharging>
-format-discharging-underline = ${self.format-charging-underline}
-
-format-full-prefix = " "
+format-full-prefix = " "
 format-full-prefix-foreground = ${colors.foreground-alt}
-format-full-underline = ${self.format-charging-underline}
 
-ramp-capacity-0 = 
-ramp-capacity-1 = 
-ramp-capacity-2 = 
-ramp-capacity-foreground = ${colors.foreground-alt}
-
-animation-charging-0 = 
-animation-charging-1 = 
-animation-charging-2 = 
-animation-charging-foreground = ${colors.foreground-alt}
+animation-charging-0 = 
+animation-charging-1 = 
+animation-charging-2 = 
+animation-charging-3 = 
+animation-charging-4 = 
 animation-charging-framerate = 750
+
+animation-discharging-0 = 
+animation-discharging-1 = 
+animation-discharging-2 = 
+animation-discharging-3 = 
+animation-discharging-4 = 
+animation-discharging-framerate = 500
+
+[module/battery1]
+type = internal/battery
+battery = BAT1
+adapter = AC
+full-at = 70
+
+format-charging = <animation-charging> <label-charging>
+format-discharging = <animation-discharging> <label-discharging>
+
+format-full-prefix = " "
+format-full-prefix-foreground = ${colors.foreground-alt}
+
+animation-charging-0 = 
+animation-charging-1 = 
+animation-charging-2 = 
+animation-charging-3 = 
+animation-charging-4 = 
+animation-charging-framerate = 750
+
+animation-discharging-0 = 
+animation-discharging-1 = 
+animation-discharging-2 = 
+animation-discharging-3 = 
+animation-discharging-4 = 
+animation-discharging-framerate = 500
 
 [module/temperature]
 type = internal/temperature
-thermal-zone = 0
-warn-temperature = 60
 
-format = <ramp> <label>
-format-underline = #f50a4d
-format-warn = <ramp> <label-warn>
-format-warn-underline = ${self.format-underline}
-
-label = %temperature-c%
-label-warn = %temperature-c%
-label-warn-foreground = ${colors.secondary}
-
-ramp-0 = 
-ramp-1 = 
-ramp-2 = 
-ramp-foreground = ${colors.foreground-alt}
+format-prefix = " "
+label-warn-foreground = ${colors.alert}
 
 [module/powermenu]
 type = custom/menu
@@ -386,27 +372,33 @@ menu-2-1-exec = menu-open-0
 
 [module/github]
 type = internal/github
+
 token = ${file:~/.github-access-token}
-format = <label>
-label = " %notifications%"
+format-prefix = " "
+format-prefix-foreground=${colors.alert}
+label-foreground = ${colors.alert}
 
 [module/updates-arch-combined]
 type = custom/script
 exec = /bin/sh ~/.config/polybar/bin/updates-arch-combined/updates-arch-combined.sh
 interval = 600
-click-left = alacritty -e yay
+click-left = alacritty -e update-arch
+label-foreground = ${colors.alert}
 
 [module/player-mpris-tail]
 type = custom/script
-exec = python ~/.config/polybar/bin/player-mpris-tail/player-mpris-tail.py
+
+exec = python ~/.config/polybar/bin/player-mpris-tail/player-mpris-tail.py -f '{:title: on {icon} {artist} - {title}:}' --icon-playing '契' --icon-paused '' --icon-stop '栗'
 tail = true
-click-left = /bin/sh ~/.config/polybar/bin/player-mpris-tail/player-ctrl.sh previous
-click-right = /bin/sh ~/.config/polybar/bin/player-mpris-tail/player-ctrl.sh next
-click-middle = /bin/sh ~/.config/polybar/bin/player-mpris-tail/player-ctrl.sh play-pause
+click-left = python ~/.config/polybar/bin/player-mpris-tail/player-mpris-tail.py previous &
+click-right = python ~/.config/polybar/bin/player-mpris-tail/player-mpris-tail.py next &
+click-middle = python ~/.config/polybar/bin/player-mpris-tail/player-mpris-tail.py play-pause &
 
 [module/bluetooth]
 type = custom/script
+
 exec = /bin/sh ~/.config/polybar/bin/isactive-bluetooth/isactive-bluetooth.sh
+label-foreground = ${colors.alert}
 
 [settings]
 screenchange-reload = true
