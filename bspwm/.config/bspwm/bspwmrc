@@ -12,6 +12,11 @@ sxhkd &
 # Set screen orientation if second monitor is connected
 set SCREENCOUNT (xrandr | grep -c "\*")
 
+# Make sure Jetbrains stuff works
+set _JAVA_AWT_WM_NONREPARTENTING 1
+set AWT_TOOLKIT MToolkit
+wmname LG3d &
+
 # If multi screen add special mode for monitor so it supports 1440p over HDMI
 if [ "$SCREENCOUNT" -eq 2 ]
     bspc monitor DP-1 -d 2 3 4 5 6 7 8 9 10
