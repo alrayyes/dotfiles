@@ -10,6 +10,11 @@ end
 # Map keys
 setxkbmap -option caps:escape
 
+# Enable numberlock
+if [ -x /usr/bin/numlockx ]
+    /usr/bin/numlockx on
+end
+
 # Keybindings
 sxhkd &
 
