@@ -68,3 +68,5 @@ xss-lock -n ~/.local/bin/lock -- ~/.local/bin/lock &
 pkill -f xautolock
 xautolock -time 10 -locker ~/.local/bin/lock &
 
+# Needed for Jetbrains products to work
+wmname LG3D &

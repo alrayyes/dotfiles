@@ -8,6 +8,5 @@ sxhkd &
 wal -R
 ~/.local/bin/wallpaper
 picom -b
-wmname LG3D &
 
 exec bspwm
