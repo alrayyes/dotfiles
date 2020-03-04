@@ -7,6 +7,15 @@ function start_if_not_running
     end
 end
 
+# Keybindings
+sxhkd &
+
+# Make things pretty
+wal -R
+~/.local/bin/wallpaper
+picom -b
+
+e
 # Load wal colours
 . ~/.cache/wal/colors.fish
 bspc config normal_border_color "$color1"
