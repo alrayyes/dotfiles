@@ -13,6 +13,7 @@ if status is-login
 end
 
 function fish_greeting
+    cat ~/.cache/wal/sequences &
     neofetch
 end
 

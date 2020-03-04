@@ -3,8 +3,7 @@
 # Start program if it's not running to avoid multiple instances running on bspwm reload
 function start_if_not_running
     if [ (pgrep -u (id -u) -x $argv[1] | wc -l) -lt 1 ]
-        echo $argv[1]
-        eval $argv[1] &
+        eval "$argv[1] &"
     end
 end
 
@@ -31,18 +30,12 @@ bspc rule -a Brave-browser desktop='^9'
 bspc rule -a scratchpad sticky=on state=floating
 bspc rule -a scratchmacs sticky=on state=floating
 
-# Start sxhkd here so it still works if things break further down the line
-start_if_not_running sxhkd
-
 # Set screen orientation if second monitor is connected
 set SCREENCOUNT (xrandr | grep -c "\*")
 
-# Make sure Jetbrains stuff works
-wmname LG3D &
-
 # If multi screen add special mode for monitor so it supports 1440p over HDMI
 if [ "$SCREENCOUNT" -eq 2 ]
-    bspc monitor DP-1 -d 2 3 4 5 6 7 8 9 10
+    bspc monitor DP-1 -d 2 3 4 5 6 7 8 9 0
     bspc monitor HDMI-2 -d 1
     if [ -f "$HOME/.local/bin/screen_desktop" ]
         screen_desktop
@@ -60,21 +53,14 @@ else
     end
 end
 
-start_if_not_running xcompmgr
-
-if [ -e ~/.cache/wall1.png ] && [ -e ~/.cache/wall2.png ]
-    xwallpaper --output HDMI-2 --zoom ~/.cache/wall2.png --output DP-1 --zoom ~/.cache/wall1.png &
-else if [ -e ~/.cache/wall1.png ]
-    xwallpaper --output eDP1 --zoom ~/.cache/wall1.png &
-end
-
+# Start apps
 start_if_not_running unclutter
-start_if_not_running dunst
 start_if_not_running redshift-gtk
 start_if_not_running syncthing-gtk
 start_if_not_running gpodder
+start_if_not_running brave
 pkill -f spt
-alacritty --class Spt,Spt -e spt &
+alacritty --class Spt,Spt -e ~/.local/bin/spotify-command-line &
 
 # system lock
 pkill -f xss-lock
@@ -82,12 +68,3 @@ xss-lock -n ~/.local/bin/lock -- ~/.local/bin/lock &
 pkill -f xautolock
 xautolock -time 10 -locker ~/.local/bin/lock &
 
-if [ -e /usr/bin/brave ]
-    start_if_not_running brave
-else
-    if [ -e /usr/bin/firefox ]
-        start_if_not_running firefox
-    else if [ -e /usr/bin/iceweasel ]
-        start_if_not_running iceweasel
-    end
-end

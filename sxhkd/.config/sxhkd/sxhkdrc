@@ -21,35 +21,35 @@ XF86MonBrightnessDown
   xbacklight -dec 20
 
 # lock screen
-F1
-  lock
+super + F1
+  ~/.local/bin/lock
 
 # dmenu password selector
-F2
-  pass-dmenu
+super + F2
+  ~/.local/bin/pass-dmenu
 
 # dmenu authenticator
-F3
-  oath-dmenu
+super + F3
+  ~/.local/bin/oath-dmenu
 
 # ssh shell
-F4
-  ssh-dmenu -p SSH:
+super + F4
+  ~/.local/bin/ssh-dmenu -p SSH:
 
 # scratchpad shell
-F5
+super + F5
   tdrop -ma -w -4 -y 26 -s dropdown alacritty --class scratchpad
 
 # scratchpad emacs
-F6
+super + F6
   tdrop -ma -w -4 -y 26 emacs
 
 # Wireguard
-F11
+super + F11
   vpn-switch
 
 # dmenu calculator
-F12
+super + F12
   =
 
 # Shutdown / reboot
