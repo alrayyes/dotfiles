@@ -13,6 +13,11 @@ if status is-login
 end
 
 function fish_greeting
+    # Enable numberlock
+    if [ -x /usr/bin/numlockx ]
+        /usr/bin/numlockx on
+    end
+
     setxkbmap -option caps:escape
     cat ~/.cache/wal/sequences &
     neofetch
