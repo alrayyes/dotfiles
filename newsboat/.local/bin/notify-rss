@@ -1,3 +1,3 @@
 #!/usr/bin/env fish
 
-notify-send -i application-rss+xml "$argv"
+notify-send.py -a Newsboat --replaces-process newsboat -i rssowl "$argv[1]" "$argv[2]"
