@@ -7,6 +7,8 @@ function start_if_not_running
     end
 end
 
+set -U SXHKD_SHELL sh
+
 # Map keys
 setxkbmap -option caps:escape
 
