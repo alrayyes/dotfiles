@@ -9,10 +9,10 @@ STATUS="$(nmcli device status | grep -c wg0)"
 case $STATUS in
 1)
 	sudo wg-quick down wg0
-	notify-send 'Wireguard Down'
+    notify-send.py -a wireguard -i network-vpn-offline-symbolic Wireguard "Connection down"
 	;;
 *)
 	sudo wg-quick up wg0
-	notify-send 'Wireguard Up'
+    notify-send.py -a wireguard -i network-vpn-symbolic Wireguard "Connection up"
 	;;
 esac
