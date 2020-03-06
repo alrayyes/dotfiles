@@ -73,7 +73,6 @@ else
 end
 
 # Start apps
-start_if_not_running deadd-notification-center
 start_if_not_running unclutter
 start_if_not_running nm-applet
 start_if_not_running pasystray
