@@ -41,6 +41,7 @@ A repository of my personal configuration files.
 - [[https://github.com/junegunn/fzf][fzf]]
 - [[https://git-scm.com/][git]]
 - [[https://github.com/cylgom/ly][Ly]]
+- [[https://github.com/dylanaraps/pfetch][pfetch]]
 - [[https://github.com/dylanaraps/pywal][pywal]]
 - [[http://www.gnu.org/software/stow/][stow]]
 - [[https://www.python.org/][Python]]
