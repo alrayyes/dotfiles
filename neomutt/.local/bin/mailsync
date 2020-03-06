@@ -24,12 +24,12 @@ for account in $accounts
     set new (find "$HOME/.local/share/mail/$acc/INBOX/new/" "$HOME/.local/share/mail/$acc/Inbox/new/" "$HOME/.local/share/mail/$acc/inbox/new/" -type f -newer "/tmp/.mailsynclastrun" 2> /dev/null)
     set newcount (echo "$new" | sed '/^\s*$/d' | wc -l)
     if [ $newcount -gt "0" ]
-        notify-send.py -i mutt -c mailtotal "Mail" "$newcount new mail(s) in \`$acc\` account." &
+        # notify-send.py -i mutt -c mailtotal "Mail" "$newcount new mail(s) in \`$acc\` account." &
         for file in $new
             # Extract subject and sender from mail.
             set from (awk '/^From: / && ++n ==1,/^\<.*\>:/' "$file" | perl -CS -MEncode -ne 'print decode("MIME-Header", $_)' | awk '{ $1=""; if (NF>=3)$NF=""; print $0 }' | sed 's/^[[:blank:]]*[\"'\''\<]*//;s/[\"'\''\>]*[[:blank:]]*$//')
             set subject (awk '/^Subject: / && ++n == 1,/^\<.*\>: / && ++i == 2' "$file" | head -n-1 | perl -CS -MEncode -ne 'print decode("MIME-Header", $_)' | sed 's/^Subject: //' | sed 's/^{[[:blank:]]*[\"'\''\<]*//;s/[\"'\''\>]*[[:blank:]]*$//' | tr -d '\n')
-            notify-send.py -i mutt -c mailsingle "$from:" "$subject" &
+            notify-send.py -i mutt "$from:" "$subject" &
         end
     end
 end
@@ -38,5 +38,5 @@ wait
 
 mu index --muhome=~/.cache/mu --maildir=~/.local/share/mail 2>/dev/null
 
-#Create a touch file that indicates the time of the last run of mailsync
+# Create a touch file that indicates the time of the last run of mailsync
 touch "/tmp/.mailsynclastrun"
