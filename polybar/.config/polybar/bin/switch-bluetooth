@@ -1,0 +1,9 @@
+#!/usr/bin/env sh
+
+if [ "$(systemctl is-active bluetooth.service)" = "active" ]; then
+	doas systemctl stop bluetooth.service
+	notify-send.py -i bluetooth-disabled-symbolic --replaces-process bluetooth Bluetooth "Off"
+else
+	doas systemctl start bluetooth.service
+	notify-send.py -i bluetooth-active-symbolic --replaces-process bluetooth Bluetooth "On"
+fi

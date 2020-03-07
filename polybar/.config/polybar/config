@@ -29,7 +29,7 @@ wm-restack = bspwm
 
 [bar/base-laptop]
 inherit = "bar/base"
-font-0 = FuraCode Nerd Font:pixelsize=14
+font-0 = FuraCode Nerd Font:pixelsize=16
 
 [bar/base-desktop]
 inherit = "bar/base"
@@ -57,7 +57,7 @@ inherit = bar/base-desktop
 monitor = ${env:MONITOR:DP-1}
 
 modules-left = bspwm
-modules-center = mpd player-mpris-tail
+modules-center = player-mpris-tail
 modules-right = eth bluetooth github updates-arch-combined volume memory cpu temperature filesystem date
 
 tray-position = right
@@ -205,7 +205,7 @@ format-disconnected =
 format-connected-prefix = "直 "
 format-disconnected-prefix = "睊 "
 
-label-connected = "%signal%% %essid% %downspeed:6% %upspeed:0%"
+label-connected = "%local_ip%  %downspeed%  %upspeed%"
 label-disconnected =
 
 animation-packetloss-0 = ⚠
@@ -213,12 +213,12 @@ animation-packetloss-1 = 📶
 ; Framerate in milliseconds
 animation-packetloss-framerate = 500
 
-[module/tun0]
+[module/wireguard]
 type = internal/network
-interface = tun0
+interface = wg0
 interval = 3.0
+unknown-as-up = true
 
-format-connected-underline = #55aa55
 format-connected-prefix = "嬨 "
 label-connected = "%ifname%"
 
@@ -239,7 +239,6 @@ format-connected-prefix = " "
 format-disconnected-prefix = " "
 
 label-connected = "%local_ip%  %downspeed%  %upspeed%"
-
 
 [module/date]
 type = internal/date
@@ -307,7 +306,7 @@ animation-discharging-1 = 
 animation-discharging-2 = 
 animation-discharging-3 = 
 animation-discharging-4 = 
-animation-discharging-framerate = 500
+animation-discharging-framerate = 5000
 
 [module/battery1]
 type = internal/battery
@@ -333,7 +332,7 @@ animation-discharging-1 = 
 animation-discharging-2 = 
 animation-discharging-3 = 
 animation-discharging-4 = 
-animation-discharging-framerate = 500
+animation-discharging-framerate = 5000
 
 [module/temperature]
 type = internal/temperature
@@ -388,7 +387,7 @@ label-foreground = ${colors.alert}
 [module/player-mpris-tail]
 type = custom/script
 
-exec = python ~/.config/polybar/bin/player-mpris-tail/player-mpris-tail.py -f '{:title: on {icon} {artist} - {title}:}' --icon-playing '契' --icon-paused '' --icon-stop '栗'
+exec = python ~/.config/polybar/bin/player-mpris-tail/player-mpris-tail.py -f '{:title: {icon} {artist} - {title}:}' --icon-playing '契' --icon-paused '' --icon-stop '栗'
 tail = true
 click-left = python ~/.config/polybar/bin/player-mpris-tail/player-mpris-tail.py previous &
 click-right = python ~/.config/polybar/bin/player-mpris-tail/player-mpris-tail.py next &
@@ -397,8 +396,8 @@ click-middle = python ~/.config/polybar/bin/player-mpris-tail/player-mpris-tail.
 [module/bluetooth]
 type = custom/script
 
-exec = /bin/sh ~/.config/polybar/bin/isactive-bluetooth/isactive-bluetooth.sh
-label-foreground = ${colors.alert}
+exec = /bin/sh ~/.config/polybar/bin/isactive-bluetooth
+click-left = ~/.config/polybar/bin/switch-bluetooth
 
 [settings]
 screenchange-reload = true
