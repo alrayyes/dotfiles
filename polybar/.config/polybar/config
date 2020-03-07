@@ -48,7 +48,7 @@ monitor = ${env:MONITOR:eDP1}
 
 modules-left = bspwm
 modules-center = battery0 battery1 wlan bluetooth
-modules-right = github updates-arch-combined xbacklight volume memory cpu temperature filesystem date
+modules-right = github updates-arch-combined xbacklight volume memory cpu temperature filesystem rss date
 
 tray-position = right
 
@@ -58,7 +58,7 @@ monitor = ${env:MONITOR:DP-1}
 
 modules-left = bspwm
 modules-center = player-mpris-tail
-modules-right = eth bluetooth github updates-arch-combined volume memory cpu temperature filesystem date
+modules-right = eth bluetooth github updates-arch-combined volume memory cpu temperature filesystem rss date
 
 tray-position = right
 
@@ -398,6 +398,13 @@ type = custom/script
 
 exec = /bin/sh ~/.config/polybar/bin/isactive-bluetooth
 click-left = ~/.config/polybar/bin/switch-bluetooth
+
+[module/rss]
+type = custom/script
+
+interval = 300
+format-prefix = "參 "
+exec = /bin/sh ~/.local/bin/rsscount
 
 [settings]
 screenchange-reload = true
