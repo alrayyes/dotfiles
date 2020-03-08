@@ -380,43 +380,46 @@ empty-notificaitons = false
 
 [module/updates-arch-combined]
 type = custom/script
-exec = /bin/sh ~/.config/polybar/bin/updates-arch-combined/updates-arch-combined.sh
+
+exec = sh ~/.local/share/polybar-scripts/polybar-scripts/updates-arch-combined/updates-arch-combined.sh  | tr -d "\#\ "
 interval = 600
 click-left = alacritty -e update-arch
 label-foreground = ${colors.alert}
+format-prefix = " "
+format-prefix-foreground=${colors.alert}
 
 [module/player-mpris-tail]
 type = custom/script
 
-exec = python ~/.config/polybar/bin/player-mpris-tail/player-mpris-tail.py -f '{:title: {icon} {artist} - {title}:}' --icon-playing '契' --icon-paused '' --icon-stop '栗'
+exec = python ~/.local/share/polybar-scripts/polybar-scripts/player-mpris-tail/player-mpris-tail.py -f '{:title: {icon} {artist} - {title}:}' --icon-playing '契' --icon-paused '' --icon-stop '栗'
 tail = true
-click-left = python ~/.config/polybar/bin/player-mpris-tail/player-mpris-tail.py previous &
-click-right = python ~/.config/polybar/bin/player-mpris-tail/player-mpris-tail.py next &
-click-middle = python ~/.config/polybar/bin/player-mpris-tail/player-mpris-tail.py play-pause &
+click-left = python ~/.local/share/polybar-scripts/polybar-scripts/player-mpris-tail/player-mpris-tail.py previous &
+click-right = python ~/.local/share/polybar-scripts/polybar-scripts/player-mpris-tail/player-mpris-tail.py next &
+click-middle = python ~/.local/share/polybar-scripts/polybar-scripts/player-mpris-tail/player-mpris-tail.py play-pause &
 
 [module/bluetooth]
 type = custom/script
 
-exec = /bin/sh ~/.config/polybar/bin/isactive-bluetooth
+exec = ~/.config/polybar/bin/isactive-bluetooth
 click-left = ~/.config/polybar/bin/switch-bluetooth
 
 [module/rss]
 type = custom/script
 
-exec = /bin/sh ~/.local/bin/rsscount
+exec = ~/.local/bin/rsscount
 click-left = alacritty --class newsboat -e newsboat
 click-middle = newsup &
 
 [module/mail]
 type = custom/script
 
-exec = /bin/sh ~/.local/bin/mailcount
+exec = ~/.config/polybar/bin/mailcount
 click-left = alacritty -e neomutt
 click-middle = mailsync &
 
 [module/docker]
 type = custom/script
-exec = dockerstatus
+ebinxec = ~./local/share/polybar-scripts/polybar-scripts/dockerstatus
 interval = 1
 label =  %output%
 

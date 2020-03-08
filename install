@@ -61,8 +61,7 @@ if [ ! -d ~/.config/nvim/plugged ]
         https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 end
 
-# Install Neovim plugins
-nvim +PlugInstall +qall
+# Install Neovim plugins nvim +PlugInstall +qall
 
 # Install vifm dependencies
 curl https://raw.githubusercontent.com/cirala/vifmimg/master/vifmimg --output vifm/.local/bin/vifmimg
@@ -74,6 +73,13 @@ curl https://raw.githubusercontent.com/cirala/vifm_devicons/master/SETUP --outpu
 # Setup broot if not done already
 if [ ! -d ~/.local/share/broot ]
     broot --install
+end
+
+# Polybar scripts if not installed already
+if [ ! -d ~/.local/share/polybar-scripts ]
+    git clone https://github.com/polybar/polybar-scripts ~/.local/share/polybar-scripts
+else
+    git --work-tree=$HOME/.local/share/polybar-scripts pull
 end
 
 # Update fish completions (auto generated from man pages)
