@@ -384,9 +384,7 @@ type = custom/script
 exec = sh ~/.local/share/polybar-scripts/polybar-scripts/updates-arch-combined/updates-arch-combined.sh  | tr -d "\#\ "
 interval = 600
 click-left = alacritty -e update-arch
-label-foreground = ${colors.alert}
 format-prefix = " "
-format-prefix-foreground=${colors.alert}
 
 [module/player-mpris-tail]
 type = custom/script
