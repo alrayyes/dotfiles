@@ -3,7 +3,7 @@ Description=Update rss feeds timer
 
 [Timer]
 OnBootSec=2m
-OnUnitActiveSec=10m
+OnUnitActiveSec=5m
 Unit=newsup.service
 
 [Install]
