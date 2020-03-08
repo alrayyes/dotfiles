@@ -417,8 +417,7 @@ click-middle = mailsync &
 
 [module/docker]
 type = custom/script
-ebinxec = ~./local/share/polybar-scripts/polybar-scripts/dockerstatus
-interval = 1
+exec = ~/.config/polybar/bin/dockerstatus
 label =  %output%
 
 [settings]
