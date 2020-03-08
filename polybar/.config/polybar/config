@@ -48,7 +48,7 @@ monitor = ${env:MONITOR:eDP1}
 
 modules-left = bspwm
 modules-center = battery0 battery1 wlan bluetooth
-modules-right = updates-arch-combined xbacklight volume memory cpu temperature filesystem docker mail rss github date
+modules-right = xbacklight volume memory cpu temperature filesystem docker updates-arch-combined mail rss github date
 
 tray-position = right
 
@@ -58,7 +58,7 @@ monitor = ${env:MONITOR:DP-1}
 
 modules-left = bspwm
 modules-center = player-mpris-tail
-modules-right = eth bluetooth updates-arch-combined volume memory cpu temperature filesystem docker mail rss github date
+modules-right = eth bluetooth volume memory cpu temperature filesystem docker updates-arch-combined mail rss github date
 
 tray-position = right
 
