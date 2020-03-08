@@ -8,17 +8,17 @@ Print
 
 # Audio controls
 XF86AudioRaiseVolume 
-    pactl set-sink-volume @DEFAULT_SINK@ +5%
+    ~/.local/bin/volume inc
 XF86AudioLowerVolume
-    pactl set-sink-volume @DEFAULT_SINK@ -5%
+    ~/.local/bin/volume dec
 XF86AudioMute
-    pactl set-sink-mute @DEFAULT_SINK@ toggle
+    ~/.local/bin/volume mute
 
 # Screen brightness controls
-XF86MonBrightnessUp 
-    xbacklight -inc 20
-XF86MonBrightnessDown 
-    xbacklight -dec 20
+XF86MonBrightnessUp
+    ~/.local/bin/brightness inc
+XF86MonBrightnessDown
+    ~/.local/bin/brightness dec
 
 # lock screen
 super + F1
