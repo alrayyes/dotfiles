@@ -1,0 +1,9 @@
+#!/usr/bin/env sh
+
+count=$(docker ps -q | wc -l)
+
+if [ ! "$count" -eq 0  ]; then
+    echo "$count"
+else
+    echo ""
+fi
