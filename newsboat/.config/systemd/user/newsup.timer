@@ -1,0 +1,10 @@
+[Unit]
+Description=Update rss feeds timer
+
+[Timer]
+OnBootSec=2m
+OnUnitActiveSec=10m
+Unit=newsup.service
+
+[Install]
+WantedBy=timers.target

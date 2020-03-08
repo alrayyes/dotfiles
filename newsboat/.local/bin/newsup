@@ -1,0 +1,10 @@
+#!/usr/bin/env sh
+
+# Needed for notify-send to work
+export DISPLAY=:0.0
+
+notify-send.py --replaces-process update-feeds -a Newsboat -i rssowl "Rss" "Updating feeds" &
+
+newsboat -x reload
+
+notify-send.py --replaces-process update-feeds -a Newsboat -i rssowl "Rss" "Feed update copmlete" &

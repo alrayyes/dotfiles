@@ -1,0 +1,6 @@
+[Unit]
+Description=Sync Rss feeds
+
+[Service]
+Type=oneshot
+ExecStart=newsboat -x reload

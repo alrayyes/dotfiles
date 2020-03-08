@@ -7,7 +7,7 @@ ttrss-passwordeval "getpassword rss"
 
 show-read-feeds no
 show-read-articles no
-auto-reload yes
+auto-reload no
 reload-time 10
 external-url-viewer "urlscan -dc -r 'linkhandler {}'"
 notify-program "notify-rss"
