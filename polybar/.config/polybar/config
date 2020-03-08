@@ -48,7 +48,7 @@ monitor = ${env:MONITOR:eDP1}
 
 modules-left = bspwm
 modules-center = battery0 battery1 wlan bluetooth
-modules-right = github updates-arch-combined xbacklight volume memory cpu temperature filesystem mail rss date
+modules-right = updates-arch-combined xbacklight volume memory cpu temperature filesystem mail rss github date
 
 tray-position = right
 
@@ -58,7 +58,7 @@ monitor = ${env:MONITOR:DP-1}
 
 modules-left = bspwm
 modules-center = player-mpris-tail
-modules-right = eth bluetooth github updates-arch-combined volume memory cpu temperature filesystem mail rss date
+modules-right = eth bluetooth updates-arch-combined volume memory cpu temperature filesystem mail rss github date
 
 tray-position = right
 
@@ -376,6 +376,7 @@ token = ${file:~/.github-access-token}
 format-prefix = " "
 format-prefix-foreground=${colors.alert}
 label-foreground = ${colors.alert}
+empty-notificaitons = false
 
 [module/updates-arch-combined]
 type = custom/script
@@ -402,16 +403,16 @@ click-left = ~/.config/polybar/bin/switch-bluetooth
 [module/rss]
 type = custom/script
 
-interval = 300
-format-prefix = "參 "
 exec = /bin/sh ~/.local/bin/rsscount
+click-left = alacritty --class newsboat -e newsboat
+click-middle = newsup &
 
 [module/mail]
 type = custom/script
 
 exec = /bin/sh ~/.local/bin/mailcount
 click-left = alacritty -e neomutt
-click-middle = setsid mailsync
+click-middle = mailsync &
 
 [settings]
 screenchange-reload = true
