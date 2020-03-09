@@ -37,6 +37,7 @@ A repository of my personal configuration files.
 - [[https://github.com/sharkdp/bat][bat]]
 - [[https://brave.com/][brave]]
 - [[https://github.com/baskerville/bspwm][bspwm]]
+- [[https://github.com/caffeine-ng/caffeine-ng][caffeine-ng]]
 - [[https://the.exa.website/][exa]]
 - [[https://github.com/junegunn/fzf][fzf]]
 - [[https://git-scm.com/][git]]
