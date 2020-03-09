@@ -48,7 +48,7 @@ monitor = ${env:MONITOR:eDP1}
 
 modules-left = bspwm
 modules-center = battery0 battery1 wlan bluetooth
-modules-right = xbacklight volume memory cpu temperature filesystem docker updates-arch-combined mail rss github date
+modules-right = xbacklight volume memory cpu temperature filesystem docker updates-arch-combined mail reddit github rss date
 
 tray-position = right
 
@@ -58,7 +58,7 @@ monitor = ${env:MONITOR:DP-1}
 
 modules-left = bspwm
 modules-center = player-mpris-tail
-modules-right = eth bluetooth volume memory cpu temperature filesystem docker updates-arch-combined mail rss github date
+modules-right = eth bluetooth volume memory cpu temperature filesystem docker updates-arch-combined mail reddit github rss date
 
 tray-position = right
 
@@ -423,6 +423,13 @@ click-middle = mailsync &
 type = custom/script
 exec = ~/.config/polybar/bin/dockerstatus
 label =  %output%
+
+[module/reddit]
+type = custom/script
+exec = ~/.config/polybar/bin/notification-reddit.sh
+interval = 300
+label =  %output%
+click-left = brave https://www.reddit.com/message/unread
 
 [settings]
 screenchange-reload = true
