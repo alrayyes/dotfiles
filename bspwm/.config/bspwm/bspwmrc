@@ -40,7 +40,6 @@ bspc config gapless_monocle true
 
 bspc rule -a "Syncthing GTK" state=floating
 bspc rule -a Gimp state=floating
-bspc rule -a Gpodder desktop='^4'
 bspc rule -a Spotify desktop='^4'
 bspc rule -a Spt desktop='^4'
 bspc rule -a Emacs state=tiled
