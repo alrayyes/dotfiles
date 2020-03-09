@@ -14,7 +14,7 @@ fi
 
 
 AMIXER=$(amixer sget Master)
-VOLUME=$(echo "$AMIXER" | grep 'Mono:' | awk -F'[][]' '{ print $2 }' | tr -d "%")
+VOLUME=$(echo "$AMIXER" | grep 'Mono\|Front Right:' | awk -F'[][]' '{ print $2 }' | tr -d "%")
 MUTE=$(echo "$AMIXER" | grep -o '\[off\]' | tail -n 1)
 if [ "$MUTE" == "[off]" ]; then
     ICON=audio-volume-muted
