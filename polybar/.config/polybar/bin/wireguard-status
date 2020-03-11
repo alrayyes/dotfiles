@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+
+interfaces="$(sudo wg show | grep interface | awk -F ' ' '{print $2}')"
+
+interfaces=(${interfaces// / })
+
+# Make sure to toggle spaces between interfaces for legibility
+spaceToggle=
+space=
+
+for interface in "${interfaces[@]}"
+do
+    if [ ! $spaceToggle ]; then 
+        space=""
+        spaceToggle=true
+    else
+        space=" "
+    fi 
+       
+echo -n "$space"嬨 "$interface"
+done

@@ -46,7 +46,7 @@ super + F6
 
 # Wireguard
 super + F11
-    vpn-switch
+    ~/.local/bin/wireguard-switch
 
 # dmenu calculator
 super + F12

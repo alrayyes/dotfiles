@@ -47,8 +47,8 @@ inherit = bar/base-laptop
 monitor = ${env:MONITOR:eDP1}
 
 modules-left = bspwm
-modules-center = battery0 battery1 wlan bluetooth
-modules-right = xbacklight volume memory cpu temperature filesystem docker updates-arch-combined mail reddit github rss date
+modules-center = battery0 battery1 wlan wireguard bluetooth
+modules-right = xbacklight volume-laptop memory cpu temperature filesystem docker updates-arch-combined mail reddit github rss date
 
 tray-position = right
 
@@ -58,7 +58,7 @@ monitor = ${env:MONITOR:DP-1}
 
 modules-left = bspwm
 modules-center = player-mpris-tail
-modules-right = eth bluetooth volume memory cpu temperature filesystem docker updates-arch-combined mail reddit github rss date
+modules-right = eth wireguard bluetooth volume memory cpu temperature system-usb-udev filesystem docker updates-arch-combined mail reddit github rss date
 
 tray-position = right
 
@@ -213,15 +213,6 @@ animation-packetloss-1 = 📶
 ; Framerate in milliseconds
 animation-packetloss-framerate = 500
 
-[module/wireguard]
-type = internal/network
-interface = wg0
-interval = 3.0
-unknown-as-up = true
-
-format-connected-prefix = "嬨 "
-label-connected = "%ifname%"
-
 [module/tun1]
 type = internal/network
 interface = tun1
@@ -285,6 +276,17 @@ bar-volume-empty-foreground = ${colors.foreground-alt}
 ramp-volume-0 = 
 ramp-volume-1 = 
 ramp-volume-2 = 
+
+[module/volume-laptop]
+type = internal/pulseaudio
+
+sink = alsa_output.pci-0000_00_1f.3.analog-stereo
+
+label-volume = 蓼 %percentage%%
+label-muted = "遼"
+label-muted-foreground = #666
+
+click-right = pavucontrol &
 
 [module/battery0]
 type = internal/battery
@@ -387,7 +389,7 @@ type = custom/script
 
 exec = sh ~/.local/share/polybar-scripts/polybar-scripts/updates-arch-combined/updates-arch-combined.sh  | tr -d "\#\ "
 interval = 600
-click-left = alacritty -e update-arch
+click-left = setsid alacritty -e update-arch
 format-prefix = " "
 
 [module/player-mpris-tail]
@@ -409,14 +411,14 @@ click-left = ~/.config/polybar/bin/switch-bluetooth
 type = custom/script
 
 exec = ~/.config/polybar/bin/rsscount
-click-left = alacritty --class newsboat -e newsboat
+click-left = setsid alacritty --class newsboat -e newsboat
 click-middle = newsup &
 
 [module/mail]
 type = custom/script
 
 exec = ~/.config/polybar/bin/mailcount
-click-left = alacritty -e neomutt
+click-left = setsid alacritty -e neomutt
 click-middle = mailsync &
 
 [module/docker]
@@ -430,6 +432,18 @@ exec = ~/.config/polybar/bin/notification-reddit.sh
 interval = 300
 label =  %output%
 click-left = brave https://www.reddit.com/message/unread
+
+[module/system-usb-udev]
+type = custom/script
+exec = sh ~/.config/polybar/bin/system-usb-udev
+tail = true
+click-left = sh ~/.config/polybar/bin/system-usb-udev --mount &
+click-right = sh ~/.config/polybar/bin/system-usb-udev --unmount &
+
+[module/wireguard]
+type = custom/script
+exec = ~/.config/polybar/bin/wireguard-status
+click-left = ~/.local/bin/wireguard-switch
 
 [settings]
 screenchange-reload = true
