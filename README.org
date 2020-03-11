@@ -42,6 +42,7 @@ A repository of my personal configuration files.
 - [[https://github.com/junegunn/fzf][fzf]]
 - [[https://git-scm.com/][git]]
 - [[https://github.com/cylgom/ly][Ly]]
+- [[https://mpv.io/][mpv]]
 - [[https://github.com/dylanaraps/pfetch][pfetch]]
 - [[https://github.com/dylanaraps/pywal][pywal]]
 - [[http://www.gnu.org/software/stow/][stow]]
@@ -62,6 +63,7 @@ A repository of my personal configuration files.
 * Configured Applications
 - [[https://github.com/alacritty/][alacritty]]
 - [[https://github.com/baskerville/bspwm][bspwm]]
+- [[https://github.com/xgi/castero][castero]]
 - [[https://github.com/hlissner/doom-emacs][Doom Emacs]]
 - [[https://firejail.wordpress.com/][firejail]]
 - [[https://fishshell.com/][fish]]
