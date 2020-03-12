@@ -443,6 +443,7 @@ click-right = sh ~/.config/polybar/bin/system-usb-udev --unmount &
 [module/wireguard]
 type = custom/script
 exec = ~/.config/polybar/bin/wireguard-status
+;This doesn't work when run in the background for some reason
 click-left = ~/.local/bin/wireguard-switch
 
 [settings]
