@@ -1,12 +1,9 @@
 #!/usr/bin/env bash
 
-updown="$(sudo wg show $1 2> /dev/null)"
+updown="$(sudo wg show "$1" 2> /dev/null)"
 
 if [ "$updown" ]; then 
-    spaceToggle=true
-    icon="嬨"
+    echo "嬨 $1"
 else
-    icon=""
+    echo "%{F#666}嬨 $1%{F-}"
 fi 
-       
-echo "$icon" "$1"
