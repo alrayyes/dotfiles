@@ -48,7 +48,7 @@ monitor = ${env:MONITOR:eDP1}
 
 modules-left = bspwm
 modules-center = battery0 battery1 wlan wireguard bluetooth
-modules-right = xbacklight volume-laptop memory cpu temperature filesystem docker updates-arch-combined mail reddit github rss date
+modules-right = xbacklight volume-laptop memory cpu temperature filesystem docker updates-arch-combined mail reddit github rss weather date
 
 tray-position = right
 
@@ -58,7 +58,7 @@ monitor = ${env:MONITOR:DP-1}
 
 modules-left = bspwm
 modules-center = player-mpris-tail
-modules-right = eth bluetooth volume memory cpu temperature system-usb-udev filesystem docker updates-arch-combined mail reddit github rss date
+modules-right = eth bluetooth volume memory cpu temperature system-usb-udev filesystem docker updates-arch-combined mail reddit github rss weather date
 
 tray-position = right
 
@@ -445,6 +445,12 @@ type = custom/script
 exec = ~/.config/polybar/bin/wireguard-status
 ;This doesn't work when run in the background for some reason
 click-left = ~/.local/bin/wireguard-switch
+
+[module/weather]
+type = custom/script
+exec = curl --silent "https://wttr.in/?format=2"
+click-left = setsid alacritty --class wttr,wttr -e ~/.config/polybar/bin/wttr-and-wait
+interval = 900
 
 [settings]
 screenchange-reload = true
