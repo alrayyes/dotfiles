@@ -58,7 +58,7 @@ monitor = ${env:MONITOR:DP-1}
 
 modules-left = bspwm
 modules-center = player-mpris-tail
-modules-right = eth wireguard bluetooth volume memory cpu temperature system-usb-udev filesystem docker updates-arch-combined mail reddit github rss date
+modules-right = eth bluetooth volume memory cpu temperature system-usb-udev filesystem docker updates-arch-combined mail reddit github rss date
 
 tray-position = right
 
