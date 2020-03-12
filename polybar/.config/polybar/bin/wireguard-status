@@ -1,21 +1,12 @@
 #!/usr/bin/env bash
 
-interfaces="$(sudo wg show | grep interface | awk -F ' ' '{print $2}')"
+updown="$(sudo wg show $1 2> /dev/null)"
 
-interfaces=(${interfaces// / })
-
-# Make sure to toggle spaces between interfaces for legibility
-spaceToggle=
-space=
-
-for interface in "${interfaces[@]}"
-do
-    if [ ! $spaceToggle ]; then 
-        space=""
-        spaceToggle=true
-    else
-        space=" "
-    fi 
+if [ "$updown" ]; then 
+    spaceToggle=true
+    icon="嬨"
+else
+    icon=""
+fi 
        
-echo -n "$space"嬨 "$interface"
-done
+echo "$icon" "$1"

@@ -48,7 +48,7 @@ inherit = bar/base-laptop
 monitor = ${env:MONITOR:eDP1}
 
 modules-left = bspwm
-modules-center = battery0 battery1 wlan wireguard bluetooth
+modules-center = battery0 battery1 wlan wg0 wg1 bluetooth
 modules-right = xbacklight volume-laptop memory cpu temperature filesystem docker updates-arch-combined mail reddit github rss weather date
 
 tray-position = right
@@ -392,7 +392,7 @@ type = custom/script
 
 exec = ~/.config/polybar/bin/rsscount
 click-left = setsid alacritty --class newsboat,newsboat -e /usr/bin/newsboat
-click-middle = setsid newsup
+click-middle = setsid ~/.local/bin/newsup
 
 [module/mail]
 type = custom/script
@@ -420,11 +420,17 @@ tail = true
 click-left = sh ~/.config/polybar/bin/system-usb-udev --mount &
 click-right = sh ~/.config/polybar/bin/system-usb-udev --unmount &
 
-[module/wireguard]
+[module/wg0]
 type = custom/script
-exec = ~/.config/polybar/bin/wireguard-status
+exec = ~/.config/polybar/bin/wireguard-status wg0
 ;This doesn't work when run in the background for some reason
-click-left = ~/.local/bin/wireguard-switch
+click-left = ~/.local/bin/wireguard-switch wg0
+
+[module/wg1]
+type = custom/script
+exec = ~/.config/polybar/bin/wireguard-status wg1
+;This doesn't work when run in the background for some reason
+click-left = ~/.local/bin/wireguard-switch wg1
 
 [module/weather]
 type = custom/script

@@ -1,18 +1,19 @@
-#!/usr/bin/env sh
+#!/usr/bin/env bash
 
 ###
 # Switch wireguard vpns up/down
 ###
 
-STATUS="$(nmcli device status | grep -c wg0)"
+STATUS="$(nmcli device status | grep -c $1)"
 
 case $STATUS in
 1)
-	wg-quick down wg0
-    notify-send.py -a wireguard --replaces-process wireguard-status -i network-vpn-offline-symbolic Wireguard "Connection down" &
+    wg-quick down "$1"
+    notify-send.py -a wireguard --replaces-process wireguard-status-"$1" -i network-vpn-offline-symbolic "Wireguard $1" "Connection down" &
 	;;
 *)
-	wg-quick up wg0
-    notify-send.py -a wireguard --replaces-process wireguard-status -i network-vpn-symbolic Wireguard "Connection up" &
+	wg-quick up "$1"
+    notify-send.py -a wireguard --replaces-process wireguard-status-"$1" -i network-vpn-symbolic "Wireguard $1" "Connection up" &
 	;;
 esac
+
