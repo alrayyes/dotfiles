@@ -14,6 +14,7 @@ foreground-alt = ${xrdb:color7:#222}
 primary = ${xrdb:color1:#222}
 secondary = ${xrdb:color2:#222}
 alert = ${xrdb:color3:#222}
+disabled = #666
 
 [bar/base]
 background = ${colors.background}
@@ -246,36 +247,15 @@ label = %date% %time%
 label-padding-right=1
 
 [module/volume]
-type = internal/alsa
+type = internal/pulseaudio
 
-format-volume = <label-volume>
+sink = alsa_output.pci-0000_00_1b.0.iec958-stereo
+
 label-volume = 蓼 %percentage%%
-label-volume-foreground = ${root.foreground}
-
-format-muted-prefix =
-format-muted-foreground = ${colors.foreground-alt}
 label-muted = "遼"
+label-muted-foreground = ${colors.disabled}
 
-bar-volume-width = 10
-bar-volume-foreground-0 = #55aa55
-bar-volume-foreground-1 = #55aa55
-bar-volume-foreground-2 = #55aa55
-bar-volume-foreground-3 = #55aa55
-bar-volume-foreground-4 = #55aa55
-bar-volume-foreground-5 = #f5a70a
-bar-volume-foreground-6 = #ff5555
-bar-volume-gradient = false
-bar-volume-indicator = |
-bar-volume-indicator-font = 2
-bar-volume-fill = ─
-bar-volume-fill-font = 2
-bar-volume-empty = ─
-bar-volume-empty-font = 2
-bar-volume-empty-foreground = ${colors.foreground-alt}
-
-ramp-volume-0 = 
-ramp-volume-1 = 
-ramp-volume-2 = 
+click-right = pavucontrol &
 
 [module/volume-laptop]
 type = internal/pulseaudio
@@ -284,7 +264,7 @@ sink = alsa_output.pci-0000_00_1f.3.analog-stereo
 
 label-volume = 蓼 %percentage%%
 label-muted = "遼"
-label-muted-foreground = #666
+label-muted-foreground = ${colors.disabled}
 
 click-right = pavucontrol &
 

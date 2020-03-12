@@ -1,32 +1,35 @@
 #!/usr/bin/env bash
 
+# This is a very hacky way of doing this. Default sink for desktop is 0 and for laptop is 3. Kies de eerste de beste die werkt
+if pamixer --list-sinks | grep -q "^0"; then
+	sink=0
+elif pamixer --list-sinks | grep -q "^3"; then
+	sink=3
+fi
+
 if [ "$1" == "inc" ]; then
-   amixer -q sset Master 5%+
+	pactl -- set-sink-volume "$sink" +5%
 fi
 
 if [ "$1" == "dec" ]; then
-   amixer -q sset Master 5%-
+	pactl -- set-sink-volume "$sink" -5%
 fi
 
 if [ "$1" == "mute" ]; then
-   amixer -q sset Master toggle
+	pactl -- set-sink-mute "$sink" toggle
 fi
 
-
-AMIXER=$(amixer sget Master)
-VOLUME=$(echo "$AMIXER" | grep 'Mono\|Front Right:' | awk -F'[][]' '{ print $2 }' | tr -d "%")
-MUTE=$(echo "$AMIXER" | grep -o '\[off\]' | tail -n 1)
-if [ "$MUTE" == "[off]" ]; then
-    ICON=audio-volume-muted
+VOLUME=$(pamixer --sink "$sink" --get-volume)
+if [ "$(pamixer --sink "$sink" --get-mute)" == "true" ]; then
+	ICON=audio-volume-muted
 elif [ "$VOLUME" -le 20 ]; then
-    ICON=audio-volume-low
+	ICON=audio-volume-low
 elif [ "$VOLUME" -le 60 ]; then
-   ICON=audio-volume-medium
-else 
-    ICON=audio-volume-high
-fi 
-
+	ICON=audio-volume-medium
+else
+	ICON=audio-volume-high
+fi
 
 notify-send.py "Volume" "$VOLUME/100" \
-    --hint string:image-path:$ICON boolean:transient:true \
-    --replaces-process "volume-popup"
+	--hint string:image-path:$ICON boolean:transient:true \
+	--replaces-process "volume-popup" &
