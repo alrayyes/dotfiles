@@ -205,7 +205,7 @@ format-disconnected =
 format-connected-prefix = "直 "
 format-disconnected-prefix = "睊 "
 
-label-connected = "%local_ip%  %downspeed%  %upspeed%"
+label-connected = " %downspeed%  %upspeed%"
 label-disconnected =
 
 animation-packetloss-0 = ⚠
