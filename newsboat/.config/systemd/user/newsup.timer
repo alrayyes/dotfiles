@@ -1,5 +1,5 @@
 [Unit]
-Description=Update rss feeds timer
+Description=Newsboat RSS Feed Update Timer
 
 [Timer]
 OnBootSec=2m

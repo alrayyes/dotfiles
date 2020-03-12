@@ -411,8 +411,8 @@ click-left = ~/.config/polybar/bin/switch-bluetooth
 type = custom/script
 
 exec = ~/.config/polybar/bin/rsscount
-click-left = setsid alacritty --class newsboat -e newsboat
-click-middle = newsup &
+click-left = setsid alacritty --class newsboat -e /usr/bin/newsboat
+click-middle = setsid newsup
 
 [module/mail]
 type = custom/script

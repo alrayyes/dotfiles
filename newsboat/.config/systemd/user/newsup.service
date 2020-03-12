@@ -1,6 +1,5 @@
 [Unit]
-Description=Sync Rss feeds
+Description=Newsboat RSS Feed Update Daemon
 
 [Service]
-Type=oneshot
-ExecStart=newsboat -x reload
+ExecStart=%h/.local/bin/newsup
