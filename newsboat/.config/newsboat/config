@@ -3,7 +3,7 @@ ttrss-url "https://rss.higherlearning.eu/
 ttrss-flag-star "s"
 ttrss-flag-publish "p"
 ttrss-login "alrayyes"
-ttrss-passwordeval "getpassword rss"
+ttrss-passwordeval "~/.local/bin/getpassword rss"
 
 show-read-feeds no
 show-read-articles no

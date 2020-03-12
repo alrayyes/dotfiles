@@ -6,8 +6,4 @@ pgrep -f newsboat > /dev/null && exit
 # Needed for notify-send to work
 export DISPLAY=":0.0"
 
-notify-send.py --replaces-process update-feeds -a Newsboat -i rssowl "Rss" "Updating feeds" &
-
 /usr/bin/newsboat -x reload
-
-notify-send.py --replaces-process update-feeds -a Newsboat -i rssowl "Rss" "Feed update copmlete" &
