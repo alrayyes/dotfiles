@@ -1,62 +1,29 @@
 #!/usr/bin/env fish
 
-# Start program if it's not running to avoid multiple instances running on bspwm reload
+###---Functions---###
 function start_if_not_running
     if [ (pgrep -u (id -u) -x $argv[1] | wc -l) -lt 1 ]
         eval "$argv[1] &"
     end
 end
 
-set -U SXHKD_SHELL sh
+###---Flush rules---###
+bspc rule -r "*"
 
-# Map keys
+###---Sxhkd---###
+set -U SXHKD_SHELL sh
+sxhkd &
+
+###---Keyboard---###
 setxkbmap -option caps:escape
 
-# Enable numberlock
 if [ -x /usr/bin/numlockx ]
     /usr/bin/numlockx on
 end
 
-# Keybindings
-sxhkd &
-
-# Make things pretty
-wal -R
-~/.local/bin/wallpaper
-picom -b
-
-e
-# Load wal colours
-. ~/.cache/wal/colors.fish
-bspc config normal_border_color "$color1"
-bspc config active_border_color "$color2"
-bspc config focused_border_color "$color15"
-bspc config presel_feedback_color "$color1"
-bspc config border_width 2
-bspc config window_gap 12
-bspc config split_ratio 0.52
-bspc config borderless_monocle true
-bspc config gapless_monocle true
-
-bspc rule -a "Syncthing GTK" state=floating
-bspc rule -a Gimp state=floating
-bspc rule -a wttr state=floating
-bspc rule -a neomutt state=floating
-bspc rule -a newsboat state=floating
-bspc rule -a updatearch state=floating
-bspc rule -a lf state=floating
-bspc rule -a Spotify desktop='^4'
-bspc rule -a Spt desktop='^4'
-bspc rule -a Emacs state=tiled
-bspc rule -a Zathura state=tiled
-bspc rule -a Brave-browser desktop='^9'
-bspc rule -a scratchpad sticky=on state=floating
-bspc rule -a scratchmacs sticky=on state=floating
-
-# Set screen orientation if second monitor is connected
+###---Monitors---###
 set SCREENCOUNT (xrandr | grep -c "\*")
 
-# If multi screen add special mode for monitor so it supports 1440p over HDMI
 if [ "$SCREENCOUNT" -eq 2 ]
     bspc monitor DP-1 -d 2 3 4 5 6 7 8 9 0
     bspc monitor HDMI-2 -d 1
@@ -76,7 +43,42 @@ else
     end
 end
 
-# Start apps
+###---Wallpaper & opacity---###
+wal -R
+~/.local/bin/wallpaper
+picom -b
+
+###---Global Settings---###
+. ~/.cache/wal/colors.fish
+bspc config normal_border_color "$color1"
+bspc config active_border_color "$color2"
+bspc config focused_border_color "$color15"
+bspc config presel_feedback_color "$color1"
+
+bspc config automatic_scheme alternate
+bspc config initial_polarity second_child
+
+###---Desktop Settings----###
+bspc config border_width 2
+bspc config window_gap 10
+
+###---Rules---###
+bspc rule -a "Syncthing GTK" state=floating
+bspc rule -a Gimp state=floating
+bspc rule -a wttr state=floating
+bspc rule -a neomutt state=floating
+bspc rule -a newsboat state=floating
+bspc rule -a updatearch state=floating
+bspc rule -a lf state=floating
+bspc rule -a Spotify desktop='^4'
+bspc rule -a Spt desktop='^4'
+bspc rule -a Emacs state=tiled
+bspc rule -a Zathura state=tiled
+bspc rule -a Brave-browser desktop='^9'
+bspc rule -a scratchpad sticky=on state=floating
+bspc rule -a scratchmacs sticky=on state=floating
+
+###---Autostart---###
 start_if_not_running unclutter
 start_if_not_running nm-applet
 start_if_not_running pasystray
@@ -84,14 +86,19 @@ start_if_not_running redshift-gtk
 start_if_not_running syncthing-gtk
 start_if_not_running caffeine
 start_if_not_running brave
+
+killall cleanfullscreen
+~/.local/bin/cleanfullscreen &
+
 pkill -f spt
 alacritty --class Spt,Spt -e ~/.local/bin/spotify-command-line &
 
-# system lock
+###---System lock---###
 pkill -f xss-lock
 xss-lock -n ~/.local/bin/lock -- ~/.local/bin/lock &
 pkill -f xautolock
 xautolock -time 10 -locker ~/.local/bin/lock &
 
+###---Misc---###
 # Needed for Jetbrains products to work
 wmname LG3D &
