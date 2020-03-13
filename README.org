@@ -8,6 +8,7 @@
   - [[#maintainers][Maintainers]]
 - [[#prerequisites][Prerequisites]]
   - [[#applications][Applications]]
+  - [[#fonts][Fonts]]
   - [[#lsp-backends][LSP Backends]]
 - [[#configured-applications][Configured Applications]]
 - [[#fish][Fish]]
@@ -50,6 +51,10 @@ A repository of my personal configuration files.
 - [[https://www.python.org/][Python]]
 - [[https://www.freedesktop.org/wiki/Software/udisks/][udisks]]
 - [[https://github.com/stoeckmann/xwallpaper][xwallpaper]]
+** Fonts
+- [[https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/FiraCode][Fira Code Nerd Patched]]
+- [[https://www.google.com/get/noto/][Noto]]
+- [[https://savannah.gnu.org/projects/unifont/][Unifont]]
 ** LSP Backends
 - [[https://github.com/mads-hartmann/bash-language-server][bash-language-server]]
 - [[https://github.com/MaskRay/ccls][ccls]]
