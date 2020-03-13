@@ -22,6 +22,8 @@ secondary = ${xrdb:color2:#222}
 alert = ${xrdb:color3:#222}
 disabled = #666
 
+;== Bars ========================================================
+
 [bar/base]
 background = ${colors.background}
 foreground = ${colors.foreground}
@@ -61,8 +63,8 @@ inherit = bar/base-laptop
 monitor = ${env:MONITOR:eDP1}
 
 modules-left = bspwm
-modules-center = battery0 battery1 wlan wg0 wg1 bluetooth
-modules-right = xbacklight volume-laptop memory cpu temperature docker updates-arch-combined mail reddit github rss weather date
+modules-center = battery0 battery1 seperator wlan wg0 wg1 bluetooth
+modules-right = seperator xbacklight volume-laptop seperator memory cpu temperature seperator docker updates-arch-combined mail reddit github rss seperator weather seperator date
 
 tray-position = right
 
@@ -72,7 +74,7 @@ monitor = ${env:MONITOR:DP-1}
 
 modules-left = bspwm
 modules-center = mpd player-mpris-tail
-modules-right = eth bluetooth volume memory cpu temperature system-usb-udev filesystem docker updates-arch-combined mail reddit github rss weather date
+modules-right = eth bluetooth seperator volume seperator memory cpu temperature seperator system-usb-udev filesystem seperator docker updates-arch-combined mail reddit github rss seperator weather seperator date
 
 tray-position = right
 
@@ -80,6 +82,8 @@ tray-position = right
 inherit = bar/base-desktop
 monitor = ${env:MONITOR:HDMI-2}
 modules-left = bspwm
+
+;== Modules ========================================================
 
 [module/filesystem]
 type = internal/fs
@@ -389,6 +393,13 @@ exec = curl --silent "https://wttr.in/?format=2"
 interval = 900
 
 click-left = setsid alacritty --class wttr,wttr -e ~/.config/polybar/bin/wttr-and-wait
+
+[module/seperator]
+type = custom/text
+content = "|"
+content-foreground = ${colors.primary}
+
+;== Other Settings ========================================================
 
 [settings]
 screenchange-reload = true
