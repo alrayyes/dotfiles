@@ -69,26 +69,6 @@ inherit = bar/base-desktop
 monitor = ${env:MONITOR:HDMI-2}
 modules-left = bspwm
 
-[module/xwindow]
-type = internal/xwindow
-label = %title:0:30:...%
-
-[module/xkeyboard]
-type = internal/xkeyboard
-blacklist-0 = num lock
-
-format-prefix = " "
-format-prefix-foreground = ${colors.foreground-alt}
-format-prefix-underline = ${colors.secondary}
-
-label-layout = %layout%
-label-layout-underline = ${colors.secondary}
-
-label-indicator-padding = 2
-label-indicator-margin = 1
-label-indicator-background = ${colors.secondary}
-label-indicator-underline = ${colors.secondary}
-
 [module/filesystem]
 type = internal/fs
 
@@ -103,14 +83,11 @@ type = internal/bspwm
 
 label-focused-background = ${colors.primary}
 label-focused-padding = 2
-
 label-occupied-background = ${colors.background}
 label-occupied-padding = 2
 label-empty =
-
 label-urgent-background = ${colors.alert}
 label-urgent-padding = 2
-
 label-empty-foreground = ${colors.foreground-alt}
 label-empty-padding = 2
 
@@ -122,6 +99,8 @@ type = internal/mpd
 format-online = <icon-prev> <icon-seekb> <icon-stop> <toggle> <icon-seekf> <icon-next>  <icon-repeat> <icon-random>  <bar-progress> <label-time>  <label-song>
 
 label-song = 𝄞 %artist% - %title%
+label-song-maxlen = 25
+label-song-ellipsis = true
 
 icon-play = ⏵
 icon-pause = ⏸
@@ -136,10 +115,6 @@ icon-repeatone = 🔂
 icon-single = 🔂
 icon-consume = ✀
 
-label-song-maxlen = 25
-label-song-ellipsis = true
-
-; Only applies if <bar-progress> is used
 bar-progress-width = 45
 bar-progress-indicator = |
 bar-progress-fill = ─
@@ -162,16 +137,13 @@ bar-empty = ─
 bar-empty-font = 2
 bar-empty-foreground = ${colors.foreground-alt}
 
-[module/backlight-acpi]
-inherit = module/xbacklight
-type = internal/backlight
-card = intel_backlight
-
 [module/cpu]
 type = internal/cpu
-format-prefix = " "
-label = %percentage%%
+
 format = <label> <ramp-coreload>
+format-prefix = " "
+
+label = %percentage%%
 
 ramp-coreload-0 = ▁
 ramp-coreload-1 = ▂
@@ -184,7 +156,9 @@ ramp-coreload-7 = █
 
 [module/memory]
 type = internal/memory
+
 format-prefix = " "
+
 label = %percentage_used%%
 
 ramp-used-0 = ▁
@@ -212,17 +186,7 @@ label-disconnected =
 
 animation-packetloss-0 = ⚠
 animation-packetloss-1 = 📶
-; Framerate in milliseconds
 animation-packetloss-framerate = 500
-
-[module/tun1]
-type = internal/network
-interface = tun1
-interval = 3.0
-
-format-connected-underline = #55aa55
-format-connected-prefix = "嬨 "
-label-connected = "%ifname%"
 
 [module/eth]
 type = internal/network
@@ -235,10 +199,8 @@ label-connected = "%local_ip%  %downspeed%  %upspeed%"
 
 [module/date]
 type = internal/date
-
 date =
 date-alt = " %d-%m-%Y"
-
 time = %H:%M
 time-alt = %H:%M:%S
 
@@ -249,7 +211,6 @@ label-padding-right=1
 
 [module/volume]
 type = internal/pulseaudio
-
 sink = alsa_output.pci-0000_00_1b.0.iec958-stereo
 
 label-volume = 蓼 %percentage%%
@@ -260,7 +221,6 @@ click-right = pavucontrol &
 
 [module/volume-laptop]
 type = internal/pulseaudio
-
 sink = alsa_output.pci-0000_00_1f.3.analog-stereo
 
 label-volume = 蓼 %percentage%%
@@ -277,7 +237,6 @@ full-at = 70
 
 format-charging = <animation-charging> <label-charging>
 format-discharging = <animation-discharging> <label-discharging>
-
 format-full-prefix = " "
 format-full-prefix-foreground = ${colors.foreground-alt}
 
@@ -303,7 +262,6 @@ full-at = 70
 
 format-charging = <animation-charging> <label-charging>
 format-discharging = <animation-discharging> <label-discharging>
-
 format-full-prefix = " "
 format-full-prefix-foreground = ${colors.foreground-alt}
 
@@ -325,126 +283,103 @@ animation-discharging-framerate = 5000
 type = internal/temperature
 
 format-prefix = " "
+
 label-warn-foreground = ${colors.alert}
-
-[module/powermenu]
-type = custom/menu
-
-expand-right = true
-
-format-spacing = 1
-
-label-open = 
-label-open-foreground = ${colors.secondary}
-label-close =  cancel
-label-close-foreground = ${colors.secondary}
-label-separator = |
-label-separator-foreground = ${colors.foreground-alt}
-
-menu-0-0 = reboot
-menu-0-0-exec = menu-open-1
-menu-0-1 = power off
-menu-0-1-exec = menu-open-2
-
-menu-1-0 = cancel
-menu-1-0-exec = menu-open-0
-menu-1-1 = reboot
-menu-1-1-exec = sudo reboot
-
-menu-2-0 = power off
-menu-2-0-exec = sudo poweroff
-menu-2-1 = cancel
-menu-2-1-exec = menu-open-0
 
 [module/github]
 type = internal/github
-
 token = ${file:~/.github-access-token}
+empty-notificaitons = false
+
 format-prefix = " "
 format-prefix-foreground=${colors.alert}
+
 label-foreground = ${colors.alert}
-empty-notificaitons = false
 
 [module/updates-arch-combined]
 type = custom/script
-
 exec = sh ~/.local/share/polybar-scripts/polybar-scripts/updates-arch-combined/updates-arch-combined.sh  | tr -d "\#\ "
 interval = 600
+
 click-left = setsid alacritty --class=updatearch,updatearch -e update-arch
+
 format-prefix = " "
 
 [module/player-mpris-tail]
 type = custom/script
-
 exec = python ~/.local/share/polybar-scripts/polybar-scripts/player-mpris-tail/player-mpris-tail.py -f '{:title: {icon} {artist} - {title}:}' --icon-playing '契' --icon-paused '' --icon-stop '栗'
 tail = true
+
 click-left = python ~/.local/share/polybar-scripts/polybar-scripts/player-mpris-tail/player-mpris-tail.py previous &
 click-right = python ~/.local/share/polybar-scripts/polybar-scripts/player-mpris-tail/player-mpris-tail.py next &
 click-middle = python ~/.local/share/polybar-scripts/polybar-scripts/player-mpris-tail/player-mpris-tail.py play-pause &
 
 [module/bluetooth]
 type = custom/script
-
 exec = ~/.config/polybar/bin/isactive-bluetooth
+
 click-left = ~/.config/polybar/bin/switch-bluetooth
 
 [module/rss]
 type = custom/script
-
 exec = ~/.config/polybar/bin/rsscount
+
 click-left = setsid alacritty --class newsboat,newsboat -e /usr/bin/newsboat
 click-middle = setsid ~/.local/bin/newsup
 
 [module/mail]
 type = custom/script
-
 exec = ~/.config/polybar/bin/mailcount
+
 click-left = setsid alacritty --class neomutt,neomutt -e neomutt
 click-middle = mailsync &
 
 [module/docker]
 type = custom/script
 exec = ~/.config/polybar/bin/dockerstatus
+
 label =  %output%
 
 [module/reddit]
 type = custom/script
 exec = ~/.config/polybar/bin/notification-reddit.sh
 interval = 300
+
 label =  %output%
+
 click-left = brave https://www.reddit.com/message/unread
 
 [module/system-usb-udev]
 type = custom/script
 exec = sh ~/.config/polybar/bin/system-usb-udev
 tail = true
+
 click-left = sh ~/.config/polybar/bin/system-usb-udev --mount &
 click-right = sh ~/.config/polybar/bin/system-usb-udev --unmount &
 
 [module/wg0]
 type = custom/script
 exec = ~/.config/polybar/bin/wireguard-status wg0
+
 ;This doesn't work when run in the background for some reason
 click-left = ~/.local/bin/wireguard-switch wg0
 
 [module/wg1]
 type = custom/script
 exec = ~/.config/polybar/bin/wireguard-status wg1
+
 ;This doesn't work when run in the background for some reason
 click-left = ~/.local/bin/wireguard-switch wg1
 
 [module/weather]
 type = custom/script
 exec = curl --silent "https://wttr.in/?format=2"
-click-left = setsid alacritty --class wttr,wttr -e ~/.config/polybar/bin/wttr-and-wait
 interval = 900
+
+click-left = setsid alacritty --class wttr,wttr -e ~/.config/polybar/bin/wttr-and-wait
 
 [settings]
 screenchange-reload = true
-;compositing-background = xor
-;compositing-background = screen
-;compositing-foreground = source
-;compositing-border = over
 
 [global/wm]
 margin-top = 5
