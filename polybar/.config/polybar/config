@@ -218,8 +218,8 @@ label-connected = "%local_ip%  %downspeed%  %upspeed%"
 type = internal/date
 date =
 date-alt = " %d-%m-%Y"
-time = %H:%M
-time-alt = %H:%M:%S
+time = "%H:%M"
+time-alt =
 
 format-prefix = 
 
