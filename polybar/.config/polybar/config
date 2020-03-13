@@ -58,7 +58,7 @@ inherit = bar/base-desktop
 monitor = ${env:MONITOR:DP-1}
 
 modules-left = bspwm
-modules-center = player-mpris-tail
+modules-center = mpd player-mpris-tail
 modules-right = eth bluetooth volume memory cpu temperature system-usb-udev filesystem docker updates-arch-combined mail reddit github rss weather date
 
 tray-position = right
