@@ -87,7 +87,7 @@ start_if_not_running syncthing-gtk
 start_if_not_running caffeine
 start_if_not_running brave
 
-killall cleanfullscreen
+pkill -f cleanfullscreen
 ~/.local/bin/cleanfullscreen &
 
 pkill -f spt
