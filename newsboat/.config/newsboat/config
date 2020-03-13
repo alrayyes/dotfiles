@@ -10,7 +10,7 @@ show-read-articles no
 auto-reload false
 reload-time 10
 external-url-viewer "urlscan -dc -r 'linkhandler {}'"
-notify-program "notify-rss"
+notify-program "~/.local/bin/notify-rss"
 cache-file "~/.cache/newsboat/cache.db"
 
 bind-key ^R reload-all
