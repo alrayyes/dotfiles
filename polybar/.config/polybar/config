@@ -307,9 +307,11 @@ label-warn-foreground = ${colors.alert}
 type = internal/github
 token = ${file:~/.github-access-token}
 empty-notificaitons = false
+interval = 300
 
 format-prefix = " "
 format-prefix-foreground=${colors.alert}
+format-offline =
 
 label-foreground = ${colors.alert}
 
