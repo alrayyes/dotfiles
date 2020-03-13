@@ -44,6 +44,7 @@ bspc rule -a wttr state=floating
 bspc rule -a neomutt state=floating
 bspc rule -a newsboat state=floating
 bspc rule -a updatearch state=floating
+bspc rule -a lf state=floating
 bspc rule -a Spotify desktop='^4'
 bspc rule -a Spt desktop='^4'
 bspc rule -a Emacs state=tiled

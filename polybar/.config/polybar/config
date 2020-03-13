@@ -41,6 +41,7 @@ inherit = bar/base-laptop
 bottom = true
 monitor = ${env:MONITOR:eDP1}
 
+modules-right = system-usb-udev filesystem
 modules-center = mpd player-mpris-tail
 
 [bar/laptop-top]
@@ -49,7 +50,7 @@ monitor = ${env:MONITOR:eDP1}
 
 modules-left = bspwm
 modules-center = battery0 battery1 wlan wg0 wg1 bluetooth
-modules-right = xbacklight volume-laptop memory cpu temperature filesystem docker updates-arch-combined mail reddit github rss weather date
+modules-right = xbacklight volume-laptop memory cpu temperature docker updates-arch-combined mail reddit github rss weather date
 
 tray-position = right
 
