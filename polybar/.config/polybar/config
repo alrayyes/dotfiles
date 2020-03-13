@@ -113,6 +113,7 @@ pin-workspaces = true
 type = internal/mpd
 
 format-online = <icon-prev> <icon-seekb> <icon-stop> <toggle> <icon-seekf> <icon-next>  <icon-repeat> <icon-random>  <bar-progress> <label-time>  <label-song>
+format-stopped =
 
 label-song = 𝄞 %artist% - %title%
 label-song-maxlen = 25
