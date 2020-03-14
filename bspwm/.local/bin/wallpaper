@@ -1,7 +1,0 @@
-#!/usr/bin/env fish
-
-if [ -e ~/.cache/wall1.png ] && [ -e ~/.cache/wall2.png ]
-    xwallpaper --output HDMI-2 --zoom ~/.cache/wall2.png --output DP-1 --zoom ~/.cache/wall1.png &
-else if [ -e ~/.cache/wall1.png ]
-    xwallpaper --output eDP1 --zoom ~/.cache/wall1.png &
-end
