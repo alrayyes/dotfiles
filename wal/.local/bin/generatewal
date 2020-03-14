@@ -1,3 +1,2 @@
 #!/usr/bin/env sh
-
-grep file  ~/.config/nitrogen/bg-saved.cfg | head -1 | awk -F '=' '{ print $2 }' | xargs wal -n -i
+sed -n '/xin_0/{n;p;}' ~/.config/nitrogen/bg-saved.cfg | awk -F '=' '{ print $2 }' | xargs wal -n -i
