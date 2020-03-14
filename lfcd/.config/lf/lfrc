@@ -24,7 +24,7 @@ cmd mkdir ${{
 cmd mkfile ${{
   printf "File Name: "
   read ans
-  $EDITOR $ans
+  nvim $ans
 }}
 
 cmd chmod ${{
@@ -37,20 +37,10 @@ cmd chmod ${{
   done
 }}
 
-cmd sudomkfile ${{
+cmd doasmkfile ${{
   printf "File Name: "
   read ans
-  sudo $EDITOR $ans
-}}
-
-cmd fzf_jump ${{
-  res="$(find . -maxdepth 3 | fzf --reverse --header='Jump to location')"
-  if [ -f "$res" ]; then
-    cmd="select"
-  elif [ -d "$res" ]; then
-    cmd="cd"
-  fi
-  lf -remote "send $id $cmd \"$res\""
+  doas nvim $ans
 }}
 
 cmd broot_jump ${{
@@ -76,7 +66,7 @@ cmd extract ${{
   esac
 }}
 
-# Archive bindings
+# View image
 cmd viewimage ${{
   if [ -d "$f" ]; then
     sxiv -q -f -t "$f"
@@ -85,10 +75,44 @@ cmd viewimage ${{
   fi
 }}
 
+# Show progress bar for file copies
+cmd paste &{{
+    load=$(lf -remote 'load')
+    mode=$(echo "$load" | sed -n '1p')
+    list=$(echo "$load" | sed '1d')
+    if [ $mode = 'copy' ]; then
+        rsync -av --ignore-existing --progress $list . \
+        | stdbuf -i0 -o0 -e0 tr '\r' '\n' \
+        | while read line; do
+            lf -remote "send $id echo $line"
+        done
+    elif [ $mode = 'move' ]; then
+        mv -n $list .
+    fi
+    lf -remote 'send load'
+    lf -remote 'send clear'
+}}
+
 cmd zip %zip -r "$f" "$f"
 cmd tar %tar cvf "$f.tar" "$f"
 cmd targz %tar cvzf "$f.tar.gz" "$f"
 cmd tarbz2 %tar cjvf "$f.tar.bz2" "$f"
+
+# Trash cli bindings
+cmd trash ${{
+  files=$(echo "$fx" | sed "s/ /\\\ /g;s/\[/\\\[/g;s/\]/\\\]/g")
+  IFS=$'\n'
+  for file in $files
+  do
+    trash-put "$(basename "$file")"
+  done
+}}
+
+cmd clear_trash %trash-empty
+
+cmd restore_trash ${{
+  trash-restore
+}}
 
 # Bindings
 # Remove some defaults
@@ -103,7 +127,7 @@ map e
 map f
 
 # File Openers
-map ee $$EDITOR "$f"
+map ee nvim "$f"
 
 # Archive Mappings
 map az zip
@@ -111,6 +135,11 @@ map at tar
 map ag targz
 map ab targz
 map ae extract
+
+# Trash Mappings
+map dd trash
+map tc clear_trash
+map tr restore_trash
 
 # Broot Mapping
 map f broot_jump
@@ -123,7 +152,7 @@ map x cut
 map y copy
 map <enter> open
 map mf mkfile
-map mr sudomkfile
+map mr doasmkfile
 map md mkdir
 map ch chmod
 map o open_config
