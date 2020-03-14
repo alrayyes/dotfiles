@@ -76,6 +76,15 @@ cmd extract ${{
   esac
 }}
 
+# Archive bindings
+cmd viewimage ${{
+  if [ -d "$res" ]; then
+    sxiv -q -f -t "$f"
+  else
+    sxiv -q -f "$f"
+  fi
+}}
+
 cmd zip %zip -r "$f" "$f"
 cmd tar %tar cvf "$f.tar" "$f"
 cmd targz %tar cvzf "$f.tar.gz" "$f"
@@ -124,6 +133,7 @@ map L bottom
 map R reload
 map C clear
 map U unselect
+map i viewimage
 
 # Movement
 map gd. cd ~/Documents

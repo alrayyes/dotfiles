@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+
+while read -r file
+do
+        case "$1" in
+        "C-c")
+                echo -n "$file" | xclip -selection clipboard
+                notify-send.py --hint string:image-path:"$file" -a sxiv "Added to clipboard" &
+                ;;
+        "C-l")
+                generate-lock-image "$file"
+                notify-send.py --hint string:image-path:"$file" -a sxiv "Set lock image" &
+                ;;
+        "C-w")
+                nitrogen --save --set-zoom-fill "$file"
+                notify-send.py --hint string:image-path:"$file" -a sxiv "Set wallpaper" &
+                ;;
+        esac
+done
