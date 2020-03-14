@@ -78,7 +78,7 @@ cmd extract ${{
 
 # Archive bindings
 cmd viewimage ${{
-  if [ -d "$res" ]; then
+  if [ -d "$f" ]; then
     sxiv -q -f -t "$f"
   else
     sxiv -q -f "$f"
