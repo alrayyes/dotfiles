@@ -320,7 +320,7 @@ type = custom/script
 exec = sh ~/.local/share/polybar-scripts/polybar-scripts/updates-arch-combined/updates-arch-combined.sh  | tr -d "\#\ "
 interval = 600
 
-click-left = setsid alacritty --class=updatearch,updatearch -e update-arch
+click-left = setsid alacritty --class=float,float -e update-arch
 
 format-prefix = " "
 
@@ -343,14 +343,14 @@ click-left = ~/.config/polybar/bin/switch-bluetooth
 type = custom/script
 exec = ~/.config/polybar/bin/rsscount
 
-click-left = setsid alacritty --class newsboat,newsboat -e /usr/bin/newsboat
+click-left = setsid alacritty --class float,float -e /usr/bin/newsboat
 click-middle = setsid ~/.local/bin/newsup
 
 [module/mail]
 type = custom/script
 exec = ~/.config/polybar/bin/mailcount
 
-click-left = setsid alacritty --class neomutt,neomutt -e neomutt
+click-left = setsid alacritty --class float,float -e neomutt
 click-middle = mailsync &
 
 [module/docker]
@@ -395,7 +395,7 @@ type = custom/script
 exec = curl --silent "https://wttr.in/?format=2"
 interval = 900
 
-click-left = setsid alacritty --class wttr,wttr -e ~/.config/polybar/bin/wttr-and-wait
+click-left = setsid alacritty --class float,float -e ~/.config/polybar/bin/wttr-and-wait
 
 [module/seperator]
 type = custom/text

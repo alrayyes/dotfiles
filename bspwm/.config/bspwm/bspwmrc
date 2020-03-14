@@ -45,7 +45,7 @@ end
 
 ###---Wallpaper & opacity---###
 wal -R
-nitrogen --restore &
+nitrogen --restore
 picom -b
 
 ###---Global Settings---###
@@ -65,11 +65,7 @@ bspc config window_gap 10
 ###---Rules---###
 bspc rule -a "Syncthing GTK" state=floating
 bspc rule -a Gimp state=floating
-bspc rule -a wttr state=floating
-bspc rule -a neomutt state=floating
-bspc rule -a newsboat state=floating
-bspc rule -a updatearch state=floating
-bspc rule -a lf state=floating
+bspc rule -a float state=floating
 bspc rule -a Spotify desktop='^4'
 bspc rule -a Spt desktop='^4'
 bspc rule -a Emacs state=tiled

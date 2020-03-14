@@ -1,25 +1,4 @@
-:
-shift + Print
-    maimpick
-
-# desktop screenshot
-Print
-    TIMESTAMP=$(date '+%Y-%m-%d-%H%M%S'); maim ~/Pictures/Screenshots/pic-full-$TIMESTAMP.png && notify-send -i ~/Pictures/Screenshots/pic-full-$TIMESTAMP.png "Desktop Screenshot pic-full-$TIMESTAMP.png"
-
-# Audio controls
-XF86AudioRaiseVolume 
-    ~/.local/bin/volume inc
-XF86AudioLowerVolume
-    ~/.local/bin/volume dec
-XF86AudioMute
-    ~/.local/bin/volume mute
-
-# Screen brightness controls
-XF86MonBrightnessUp
-    ~/.local/bin/brightness inc
-XF86MonBrightnessDown
-    ~/.local/bin/brightness dec
-
+#-----------------------------------------------------------Functions--------------------------------------------------------------
 # lock screen
 super + F1
   ~/.local/bin/lock
@@ -52,23 +31,44 @@ super + F11
 super + F12
     =
 
+#-----------------------------------------------------------Audio & screen brightness & shutdown--------------------------------------------------------------
+# Audio controls
+XF86AudioRaiseVolume
+    ~/.local/bin/volume inc
+XF86AudioLowerVolume
+    ~/.local/bin/volume dec
+XF86AudioMute
+    ~/.local/bin/volume mute
+
+# Screen brightness controls
+XF86MonBrightnessUp
+    ~/.local/bin/brightness inc
+XF86MonBrightnessDown
+    ~/.local/bin/brightness dec
+
 # Shutdown / reboot
-XF86Eject 
+XF86Eject
     prompt "Shutdown computer?" "sudo -A shutdown -h now"
 shift + XF86Eject
     prompt "Reboot computer?" "sudo -A reboot"
 
+#-----------------------------------------------------------Screenshots--------------------------------------------------------------
+shift + Print
+    maimpick
+
+# desktop screenshot
+Print
+    TIMESTAMP=$(date '+%Y-%m-%d-%H%M%S'); maim ~/Pictures/Screenshots/pic-full-$TIMESTAMP.png && notify-send -i ~/Pictures/Screenshots/pic-full-$TIMESTAMP.png "Desktop Screenshot pic-full-$TIMESTAMP.png"
+
+
+#-----------------------------------------------------------App shortcuts--------------------------------------------------------------
 # Notification center
 super + e 
     ~/.local/bin/deadd-switch
 
-#
-# BSPWM
-#
-
 # terminal emulator
 super + Return
-    alacritty
+      alacritty
 
 # program launcher
 super + @space
@@ -78,10 +78,13 @@ super + @space
 super + Escape
    pkill -USR1 -x sxhkd
 
-#
-# bspwm hotkeys
-#
+# Misc apps
+ctrl + alt + {l, n, r, w, s, c, v}
+    alacritty --class float,float -e {lf, neomutt, /usr/bin/newsboat, ~/.config/polybar/bin/wttr-and-wait, spt, castero, nvim}
+ctrl + alt + {b, e, S, N}
+    {brave, emacs, spotify, nitrogen}
 
+#-----------------------------------------------------------Bspwm--------------------------------------------------------------
 # quit/restart bspwm
 super + alt + {q,r}
    bspc {quit,wm -r}
@@ -102,10 +105,6 @@ super + y
 super + g
    bspc node -s biggest
 
-#
-# state/flags
-#
-
 # set the window state
 super + {t,shift + t,s,f}
    bspc node -t {tiled,pseudo_tiled,floating,fullscreen}
@@ -113,10 +112,6 @@ super + {t,shift + t,s,f}
 # set the node flags
 super + ctrl + {m,x,y,z}
    bspc node -g {marked,locked,sticky,private}
-
-#
-# focus/swap
-#
 
 # focus the node in the given direction
 super + {_,shift + }{h,j,k,l}
@@ -148,10 +143,6 @@ super + {o,i}
 super + {_,shift + }{1-9,0}
    bspc {desktop -f,node -d} '^{1-9,10}'
 
-#
-# preselect
-#
-
 # preselect the direction
 super + ctrl + {h,j,k,l}
    bspc node -p {west,south,north,east}
@@ -167,10 +158,6 @@ super + ctrl + space
 # cancel the preselection for the focused desktop
 super + ctrl + shift + space
     bspc query -N -d | xargs -I id -n 1 bspc node id -p cancel
-
-#
-# move/resize
-#
 
 # expand a window by moving one of its side outward
 super + alt + {h,j,k,l}
