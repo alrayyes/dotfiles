@@ -42,6 +42,7 @@ A repository of my personal configuration files.
 - [[https://github.com/junegunn/fzf][fzf]]
 - [[https://github.com/internalfx/mailcap][mailcap]]
 - [[https://mpv.io/][mpv]]
+- [[https://github.com/l3ib/nitrogen/][nitrogen]]
 - [[https://github.com/phuhl/notify-send.py][notify-send.py]]
 - [[https://github.com/cdemoulins/pamixer][pamixer]]
 - [[https://github.com/dylanaraps/pfetch][pfetch]]

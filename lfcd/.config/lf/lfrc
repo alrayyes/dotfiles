@@ -43,9 +43,6 @@ cmd sudomkfile ${{
   sudo $EDITOR $ans
 }}
 
-cmd wallpaperone switch-background-image "$f" 1 2> /dev/null
-cmd wallpapertow switch-background-image "$f" 2 2> /dev/null
-
 cmd fzf_jump ${{
   res="$(find . -maxdepth 3 | fzf --reverse --header='Jump to location')"
   if [ -f "$res" ]; then
@@ -120,7 +117,6 @@ map mf mkfile
 map mr sudomkfile
 map md mkdir
 map ch chmod
-map bg setwallpaper
 map o open_config
 map r rename
 map H top
