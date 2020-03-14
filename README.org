@@ -36,6 +36,7 @@ A repository of my personal configuration files.
 * Prerequisites
 ** Applications
 - [[https://github.com/sharkdp/bat][bat]]
+- [[https://dystroy.org/broot/][broot]]
 - [[https://brave.com/][brave]]
 - [[https://github.com/caffeine-ng/caffeine-ng][caffeine-ng]]
 - [[https://the.exa.website/][exa]]
