@@ -1,17 +1,5 @@
-vifm/.config/vifm/vifm-help.txt
-vifm/.config/vifm/vifminfo
-
-newsboat/.newsboat/cache.db
-newsboat/.newsboat/cache.db.lock
-newsboat/.newsboat/history.cmdline
-newsboat/.newsboat/history.search
-
 mutt/.config/mutt/.mailsynclastrun
 
 gtk/.config/gtk-3.0/bookmarks
 
 emacs/.config/doom/configuration.el
-
-# vifm
-vifm/.config/vifm/vifmimgpdffile
-vifm/.config/vifm/vifmimgpdfpage
