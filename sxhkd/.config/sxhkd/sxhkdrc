@@ -79,7 +79,7 @@ super + Escape
    pkill -USR1 -x sxhkd
 
 # Misc apps
-ctrl + alt + {l, n, r, w, s, c, v, k}
+ctrl + alt + {l, n, r, w, s, p, v, k}
     alacritty --class float,float -e {lf, neomutt, /usr/bin/newsboat, ~/.config/polybar/bin/wttr-and-wait, spt, castero, nvim, ~/.local/bin/calendar-and-wait}
 ctrl + alt + {b, e, S, N}
     {brave, emacs, spotify, nitrogen}
