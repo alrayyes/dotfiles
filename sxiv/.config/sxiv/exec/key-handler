@@ -8,6 +8,8 @@ function generateWallpaper() {
 	if [ "$1" == 0 ]; then
 		notify-send.py --hint string:image-path:"$2" --replaces-process setwallpaper -a sxiv "Generating wal color scheme" &
 		~/.local/bin/generatewal
+		notify-send.py --hint string:image-path:"$2" --replaces-process setwallpaper -a sxiv "Generating LightDM wallpaper" &
+        doas convert "$2" /usr/share/pixmaps/wallpaper.png
 	fi
 
 	notify-send.py --hint string:image-path:"$2" --replaces-process setwallpaper -a sxiv "Wallpaper set" &

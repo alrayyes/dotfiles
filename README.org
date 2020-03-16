@@ -41,6 +41,8 @@ A repository of my personal configuration files.
 - [[https://github.com/caffeine-ng/caffeine-ng][caffeine-ng]]
 - [[https://the.exa.website/][exa]]
 - [[https://github.com/junegunn/fzf][fzf]]
+- [[https://imagemagick.org/index.php][ImageMagick]]
+- [[https://github.com/canonical/lightdm][LightDM]]
 - [[https://github.com/internalfx/mailcap][mailcap]]
 - [[https://mpv.io/][mpv]]
 - [[https://github.com/l3ib/nitrogen/][nitrogen]]
