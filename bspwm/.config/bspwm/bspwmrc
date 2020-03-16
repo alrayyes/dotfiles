@@ -86,9 +86,6 @@ start_if_not_running brave
 pkill -f cleanfullscreen
 ~/.local/bin/cleanfullscreen &
 
-pkill -f spt
-alacritty --class Spt,Spt -e ~/.local/bin/spotify-command-line &
-
 ###---System lock---###
 pkill -f xss-lock
 xss-lock -n ~/.local/bin/lock -- ~/.local/bin/lock &
