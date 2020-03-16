@@ -18,7 +18,7 @@
         Plug 'farmergreg/vim-lastplace'
         Plug 'jiangmiao/auto-pairs'
         Plug 'junegunn/fzf'
-        Plug 'kien/ctrlp.vim'
+        Plug 'ctrlpvim/ctrlp.vim'
         Plug 'mbbill/undotree'
         Plug 'mhinz/vim-signify'
         Plug 'myusuf3/numbers.vim'
@@ -41,6 +41,7 @@
             Plug 'majutsushi/tagbar'
         endif
         Plug 'preservim/nerdcommenter'
+        Plug 'rrethy/vim-hexokinase', { 'do': 'make hexokinase' }
         Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
         Plug 'tpope/vim-fugitive'
         Plug 'Xuyuanp/nerdtree-git-plugin'
@@ -184,5 +185,9 @@
             \ 'sass': ['/usr/bin/css-languageserver', '--stdio'],
             \ 'html': ['/usr/bin/html-languageserver', '--stdio']
             \ }
+    " }
+    
+    " hexokinase {
+        set termguicolors
     " }
 " }
