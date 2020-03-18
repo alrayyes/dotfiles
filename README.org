@@ -46,7 +46,6 @@ A repository of my personal configuration files.
 - [[https://github.com/canonical/lightdm][LightDM]]
 - [[https://github.com/internalfx/mailcap][mailcap]]
 - [[https://mpv.io/][mpv]]
-- [[https://github.com/l3ib/nitrogen/][nitrogen]]
 - [[https://github.com/phuhl/notify-send.py][notify-send.py]]
 - [[https://github.com/cdemoulins/pamixer][pamixer]]
 - [[https://github.com/dylanaraps/pfetch][pfetch]]
@@ -56,6 +55,7 @@ A repository of my personal configuration files.
 - [[http://www.gnu.org/software/stow/][stow]]
 - [[https://github.com/muennich/sxiv][sxiv]]
 - [[https://www.freedesktop.org/wiki/Software/udisks/][udisks]]
+- [[https://github.com/stoeckmann/xwallpaper][xwallpaper]]
 - [[https://pwmt.org/projects/zathura/][zathura]]
 ** Fonts
 - [[https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/FiraCode][Fira Code Nerd Patched]]

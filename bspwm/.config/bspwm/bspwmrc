@@ -45,7 +45,7 @@ end
 
 ###---Wallpaper & opacity---###
 wal -R
-nitrogen --restore
+~/.local/bin/wallpaper
 picom -b
 
 ###---Global Settings---###

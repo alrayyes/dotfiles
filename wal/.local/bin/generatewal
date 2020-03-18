@@ -1,2 +1,5 @@
 #!/usr/bin/env sh
-sed -n '/xin_0/{n;p;}' ~/.config/nitrogen/bg-saved.cfg | awk -F '=' '{ print $2 }' | xargs wal -n -i
+
+if [ -e ~/.cache/wall1.png ]; then
+    wal -n -i ~/.cache/wall1.png
+fi
