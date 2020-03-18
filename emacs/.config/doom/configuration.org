@@ -91,6 +91,11 @@ When moving entries up and down in the buffer use `j` and `k` instead of `↑` a
   )
 #+END_SRC
 
+Auto save org-mode files
+#+BEGIN_SRC emacs-lisp
+(add-hook 'auto-save-hook 'org-save-all-org-buffers)
+#+END_SRC
+
 - Set default org directories
 - When task is set to `DONE` [[https://orgmode.org/manual/Closing-items.html][add timestamp and give the opportunity to type in a note]]
 - Show images in buffers as default
