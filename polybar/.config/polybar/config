@@ -74,7 +74,7 @@ monitor = ${env:MONITOR:DP-1}
 
 modules-left = bspwm
 modules-center = mpd player-mpris-tail
-modules-right = eth bluetooth seperator volume seperator docker memory cpu temperature seperator system-usb-udev filesystem seperator updates-arch-combined mail reddit github rss seperator weather date
+modules-right = corona seperator eth bluetooth seperator volume seperator docker memory cpu temperature seperator system-usb-udev filesystem seperator updates-arch-combined mail reddit github rss seperator weather date
 
 tray-position = right
 
@@ -401,6 +401,10 @@ click-left = setsid alacritty --class float,float -e ~/.config/polybar/bin/wttr-
 type = custom/text
 content = "|"
 content-foreground = ${colors.primary}
+
+[module/corona]
+type = custom/script
+exec = curl --silent "https://corona-stats.online/Netherlands?minimal=true" | sed -n '2p' | awk '{ print $6, $7"%", $9$10, $11$12 }'
 
 ;== Other Settings ========================================================
 
