@@ -11,3 +11,4 @@
 (package! docker-compose-mode)
 (package! nginx-mode)
 (package! fish-mode)
+(package! salt-mode)
