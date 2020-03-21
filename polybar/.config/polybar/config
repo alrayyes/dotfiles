@@ -404,7 +404,8 @@ content-foreground = ${colors.primary}
 
 [module/corona]
 type = custom/script
-exec = curl --silent "https://corona-stats.online/Netherlands?minimal=true" | sed -n '2p' | awk '{ print $6, $7"%", $9$10, $11$12 }'
+exec = curl --silent "https://corona-stats.online/Netherlands?minimal=true" | sed -n '2p' | sed  's/\x1b\[[0-9;]*m//g' | awk '{ print "😷" $6, "💀" $7"%", $9$10, $11$12 }'
+interval = 900
 
 ;== Other Settings ========================================================
 
