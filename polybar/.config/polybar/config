@@ -55,7 +55,7 @@ inherit = bar/base-laptop
 bottom = true
 monitor = ${env:MONITOR:eDP1}
 
-modules-right = system-usb-udev
+modules-right = corona seperator system-usb-udev
 modules-left = mpd player-mpris-tail
 
 [bar/laptop-top]
