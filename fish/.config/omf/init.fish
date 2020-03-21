@@ -33,6 +33,7 @@ end
 path_if_exists ~/.config/yarn/global/node_modules/.bin
 path_if_exists ~/.local/bin
 path_if_exists ~/.emacs.d/bin
+path_if_exists ~/go/bin
 
 # Set GPG TTY
 set GPG_TTY (tty)
