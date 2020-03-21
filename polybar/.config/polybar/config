@@ -407,6 +407,9 @@ type = custom/script
 exec = curl --silent "https://corona-stats.online/Netherlands?minimal=true" | sed -n '2p' | sed  's/\x1b\[[0-9;]*m//g' | awk '{ print "😷" $6, "💀" $7"%", $9$10, $11$12 }'
 interval = 900
 
+click-left = brave https://corona-stats.online/Netherlands
+click-right = brave https://corona-stats.online
+
 ;== Other Settings ========================================================
 
 [settings]
