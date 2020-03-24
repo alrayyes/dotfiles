@@ -11,6 +11,7 @@
   - [[#fonts][Fonts]]
   - [[#lsp-backends][LSP Backends]]
 - [[#configured-applications][Configured Applications]]
+- [[#configured-locales][Configured Locales]]
 - [[#fish][Fish]]
     - [[#theme][Theme]]
     - [[#package-manager][Package Manager]]
@@ -93,6 +94,12 @@ A repository of my personal configuration files.
 - [[https://tmux.github.io/][tmux]]
 - [[https://gitlab.com/ajak/tuir][tuir]]
 - [[https://weechat.org/][weechat]]
+
+* Configured Locales
+- [[https://ftp.gnu.org/gnu/aspell/dict/en][aspell-en]]
+- hunspell-en_GB
+- hunspell-en_US
+- hunspell_nl
 
 * Fish
 *** Theme

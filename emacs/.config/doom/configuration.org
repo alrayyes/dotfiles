@@ -227,3 +227,13 @@ Setup mu4e with multiple profiles
   (elfeed-goodies/setup))
 #+END_SRC
 * Spelling
+Set dictionaries for languages I use
+#+BEGIN_SRC emacs-lisp
+(with-eval-after-load "ispell"
+    (setq ispell-program-name "hunspell")
+    ;; ispell-set-spellchecker-params has to be called
+    ;; before ispell-hunspell-add-multi-dic will work
+    (ispell-set-spellchecker-params)
+    (ispell-hunspell-add-multi-dic "en_GB,nl_NL,en_US")
+    (setq ispell-dictionary "en_GB,nl_NL,en_US"))
+#+END_SRC
