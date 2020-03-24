@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+
+. $HOME/.cache/wal/colors.sh
+
+localServices=$(netstat -ltpn 2>/dev/null | grep "node" | awk '{ print "http://"$4 }')
+url="$(echo -e "$localServices\nOther" | dmenu -i -nb "$color0" -nf "$color15" -sb "$color1" -sf "$color15" "$@")"
+
+if [ "$url" == "Other" ]; then
+	read -r -p "Url: " url
+fi
+
+rm -f "$HOME"/Downloads/lighthouse.html
+env CHROME_PATH=/usr/local/bin/brave lighthouse --output-path="$HOME"/Downloads/lighthouse.html "$url"
+
+if [ -f "$HOME"/Downloads/lighthouse.html ]; then
+	setsid /usr/local/bin/brave ~/Downloads/lighthouse.html
+else
+	read -r -n 1 -p "Something went wrong. Press any key to exit."
+fi

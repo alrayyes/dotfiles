@@ -23,6 +23,8 @@
     - [[#general][General]]
     - [[#programming][Programming]]
     - [[#ui][UI]]
+- [[#npm][NPM]]
+  - [[#packages-1][Packages]]
 - [[#configuration][Configuration]]
   - [[#installation][Installation]]
   - [[#find--delete-orphaned-symlinks][Find & delete orphaned symlinks]]
@@ -48,6 +50,7 @@ A repository of my personal configuration files.
 - [[https://github.com/internalfx/mailcap][mailcap]]
 - [[https://mpv.io/][mpv]]
 - [[https://github.com/phuhl/notify-send.py][notify-send.py]]
+- [[https://www.npmjs.com/get-npm][npm]]
 - [[https://github.com/cdemoulins/pamixer][pamixer]]
 - [[https://github.com/dylanaraps/pfetch][pfetch]]
 - [[https://www.freedesktop.org/wiki/Software/PulseAudio/][Pulseaudio]]
@@ -149,6 +152,9 @@ A repository of my personal configuration files.
 *** UI
 - [[https://github.com/morhetz/gruvbox][morhetz/gruvbox]]
 - [[https://github.com/ryanoasis/vim-devicons][ryanoasis/vim-devicons]]
+* NPM
+** Packages
+- [[https://github.com/GoogleChrome/lighthouse][lighthouse]]
 
 * Configuration
 ** Installation

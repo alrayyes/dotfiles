@@ -9,7 +9,15 @@ end
 
 function install_omf_package_if_not_exist
     if test (omf list | grep -c "$argv") -eq 0
+        echo "Installing omf package $argv"
         omf install "$argv"
+    end
+end
+
+function install_npm_package_if_not_exist
+    if ! npm -g list --depth 1 lighthouse >/dev/null 2>&1
+        echo "Installing npm package $argv"
+        sudo npm install -g "$argv"
     end
 end
 
@@ -64,6 +72,9 @@ end
 
 # Install Neovim plugins 
 nvim +PlugInstall +qall
+
+# Install npm packages
+install_npm_package_if_not_exist lighthouse
 
 # Setup broot if not done already
 if [ ! -d ~/.local/share/broot ]
