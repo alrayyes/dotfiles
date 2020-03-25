@@ -1,5 +1,5 @@
 #!/usr/bin/env sh
 
-xrdb -merge -I$HOME ~/.Xresources
+xrdb -load ~/.config/X11/xresources -merge -I$HOME ~/.Xresources
 
 exec bspwm
