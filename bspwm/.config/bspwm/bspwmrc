@@ -7,6 +7,9 @@ function start_if_not_running
     end
 end
 
+###---Load xresources---###
+xrdb -load ~/.config/X11/xresources
+
 ###---Flush rules---###
 bspc rule -r "*"
 
