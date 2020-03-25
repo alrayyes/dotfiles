@@ -1,0 +1,3 @@
+#!/usr/bin/env sh
+
+curl --silent "https://wttr.in/?format=2" | sed 's/️//g'
