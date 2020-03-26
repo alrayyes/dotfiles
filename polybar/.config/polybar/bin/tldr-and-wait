@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+tldr "$@"
+read -n 1 -r -p ""

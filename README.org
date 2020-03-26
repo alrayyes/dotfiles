@@ -58,6 +58,7 @@ A repository of my personal configuration files.
 - [[https://github.com/dylanaraps/pywal][pywal]]
 - [[http://www.gnu.org/software/stow/][stow]]
 - [[https://github.com/muennich/sxiv][sxiv]]
+- [[https://github.com/tldr-pages/tldr][tldr]]
 - [[https://www.freedesktop.org/wiki/Software/udisks/][udisks]]
 - [[https://github.com/stoeckmann/xwallpaper][xwallpaper]]
 - [[https://pwmt.org/projects/zathura/][zathura]]
