@@ -54,6 +54,7 @@ A repository of my personal configuration files.
 - [[https://github.com/cdemoulins/pamixer][pamixer]]
 - [[https://github.com/dylanaraps/pfetch][pfetch]]
 - [[https://www.freedesktop.org/wiki/Software/PulseAudio/][Pulseaudio]]
+- [[https://github.com/GeorgeFilipkin/pulsemixer][pulsemixer]]
 - [[https://www.python.org/][Python]]
 - [[https://github.com/dylanaraps/pywal][pywal]]
 - [[http://www.gnu.org/software/stow/][stow]]

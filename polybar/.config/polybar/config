@@ -234,7 +234,7 @@ label-volume = 蓼 %percentage%%
 label-muted = "遼"
 label-muted-foreground = ${colors.disabled}
 
-click-right = pavucontrol &
+click-right = setsid alacritty --class=float,float -e pulsemixer
 
 [module/volume-laptop]
 type = internal/pulseaudio
@@ -244,7 +244,7 @@ label-volume = 蓼 %percentage%%
 label-muted = "遼"
 label-muted-foreground = ${colors.disabled}
 
-click-right = pavucontrol &
+click-right = setsid alacritty --class=float,float -e pulsemixer
 
 [module/battery0]
 type = internal/battery
