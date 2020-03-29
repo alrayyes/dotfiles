@@ -1,5 +1,12 @@
 #!/usr/bin/env fish
 
+# Prerequisite & inistalled apps
+set prerequisiteApps bat broot brave caffeine-ng exa fzf go imagemagick lightdm-gtk-greeter mailcap mpv deadd-notification-center-bin npm pamixer pfetch pulseaudio pulsemixer python pywal stow sxiv tldr udisks xwallpaper zathura
+set prerequisiteFonts otf-nerd-fonts-fira-code noto-fonts ttf-unifont
+set prerequisiteLsp bash-language-server ccls php-language-server python-language-server typescript-language-server vscode-css-languageserver vscode-html-languageserver nodejs-intelephense
+set configuredApps alacritty bspwm castero emacs firejail git gnupg gtk lf deadd-notification-center-bin mpd neomutt neovim picom redshift sxhkd tmux tuir weechat
+set locales aspell-en hunspell-en_GB hunspell-en_US hunspell-nl
+
 function mkdir_if_not_exist
     if [ ! -d "$argv" ]
         echo "Creating directory $argv"
@@ -19,6 +26,33 @@ function install_npm_package_if_not_exist
         echo "Installing npm package $argv"
         sudo npm install -g "$argv"
     end
+end
+
+function install_app_if_not_exist
+    if test (pacman -Q | grep -c "$argv") -eq 0
+        echo "Installing missing package $argv"
+        yay -S --noconfirm "$argv"
+    end
+end
+
+for app in $prerequisiteApps
+    install_app_if_not_exist "$app"
+end
+
+for font in $prerequisiteFonts
+    install_app_if_not_exist "$font"
+end
+
+for lsp in $prerequisiteLsp
+    install_app_if_not_exist "$lsp"
+end
+
+for app in $configuredApps
+    install_app_if_not_exist "$app"
+end
+
+for locale in $locales
+    install_app_if_not_exist "$locale"
 end
 
 # Create directories that  need to exist

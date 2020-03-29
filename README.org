@@ -7,6 +7,7 @@
 - [[#description][Description]]
   - [[#maintainers][Maintainers]]
 - [[#prerequisites][Prerequisites]]
+- [[#applications-installed-by-script][Applications installed by script]]
   - [[#applications][Applications]]
   - [[#fonts][Fonts]]
   - [[#lsp-backends][LSP Backends]]
@@ -37,6 +38,11 @@ A repository of my personal configuration files.
 + [[https://github.com/alrayyes][@alrayyes]]
 
 * Prerequisites
+- [[https://www.archlinux.org/][Arch Linux]]
+- [[https://fishshell.com/][fish shell]]
+- [[https://github.com/Jguer/yay][yay]]
+
+* Applications installed by script
 ** Applications
 - [[https://github.com/sharkdp/bat][bat]]
 - [[https://dystroy.org/broot/][broot]]
@@ -49,7 +55,6 @@ A repository of my personal configuration files.
 - [[https://github.com/canonical/lightdm][LightDM]]
 - [[https://github.com/internalfx/mailcap][mailcap]]
 - [[https://mpv.io/][mpv]]
-- [[https://github.com/phuhl/notify-send.py][notify-send.py]]
 - [[https://www.npmjs.com/get-npm][npm]]
 - [[https://github.com/cdemoulins/pamixer][pamixer]]
 - [[https://github.com/dylanaraps/pfetch][pfetch]]
@@ -93,7 +98,6 @@ A repository of my personal configuration files.
 - [[https://neomutt.org/][neomutt]]
 - [[https://neovim.io/][neovim]]
 - [[https://github.com/yshui/picom][picom]]
-- [[https://github.com/doronbehar/pistol][pistol]]
 - [[http://jonls.dk/redshift/][redshift]]
 - [[https://github.com/baskerville/sxhkd][sxhkd]]
 - [[https://tmux.github.io/][tmux]]
