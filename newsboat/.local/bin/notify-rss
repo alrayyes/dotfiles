@@ -1,3 +1,3 @@
 #!/usr/bin/env sh
 
-notify-send.py --replaces-process rsscount -a Newsboat -i rssowl Rss "$1" &
+notify-send.py -a Newsboat -i rssowl Rss "$1" &
