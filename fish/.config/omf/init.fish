@@ -61,8 +61,20 @@ set -g EDITOR "nvim"
 # Enable password store extensions
 set -g PASSWORD_STORE_ENABLE_EXTENSIONS "true"
 
+# Make sure pass uses the proper directory
+set -g PASSWORD_STORE_DIR ~/.local/share/pass
+
 # Use alternative muhome
-set -g MU_HOME "/home/alrayyes/.cache/mu"
+set -g MU_HOME ~/.cache/mu
+
+# Load xinit from the proper directory
+set -g XINITRC ~/X11/xinitrc
+
+# Make sure rust uses the proper directory
+set -g RUSTUP_HOME ~/.local/share/rustup
+
+# Set custom nprmrc path
+set -g NPM_CONFIG_USERCONFIG ~/.config/npm/npmrc
 
 # bobthefish
 set -g theme_nerd_fonts yes
@@ -70,6 +82,9 @@ set -g theme_color_scheme gruvbox
 
 # sudope
 set -g sudope_sequence \e\e
+
+# Set tmux tmpdir to proper directory
+set -g TMUX_TMPDIR "$XDG_RUNTIME_DIR"
 
 # nvim alias
 alias v="nvim"
@@ -81,6 +96,18 @@ alias l="exa -al"
 
 # vifm alias
 alias vifm="vifmrun"
+
+# wget alias
+alias wget='wget --hsts-file="~/.config/wget-hsts"'
+
+# weechat
+alias weechat="weechat -d ~/.config/weechat"
+
+# tmux
+alias tmux="tmux -f ~/.config/tmux/tmux.conf"
+
+# pass
+alias pass="PASSWORD_STORE_DIR=$PASSWORD_STORE_DIR /usr/bin/pass"
 
 # pacman aliases
 alias pacrmorphans="sudo pacman -Rs (pacman -Qtdq)"

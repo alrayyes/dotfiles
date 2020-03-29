@@ -305,7 +305,7 @@ label-warn-foreground = ${colors.alert}
 
 [module/github]
 type = internal/github
-token = ${file:~/.github-access-token}
+token = ${file:~/.local/share/github/github-access-token}
 empty-notificaitons = false
 interval = 300
 

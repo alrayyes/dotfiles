@@ -4,9 +4,9 @@ set realname = "Ryan"
 set from = "alrayyes@gmail.com"
 set sendmail = "msmtp -a gmail"
 alias me Ryan <alrayyes@gmail.com>
-set folder = "/home/alrayyes/.local/share/mail/gmail"
-set header_cache = /home/alrayyes/.cache/mutt/gmail/headers
-set message_cachedir = /home/alrayyes/.cache/mutt/gmail/bodies
+set folder = ~/.local/share/mail/gmail
+set header_cache = ~/.cache/mutt/gmail/headers
+set message_cachedir = ~/.cache/mutt/gmail/bodies
 set mbox_type = Maildir
 
 bind index,pager gg noop

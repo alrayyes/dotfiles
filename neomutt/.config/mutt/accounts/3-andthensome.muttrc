@@ -4,9 +4,9 @@ set realname = "Ryan Kes"
 set from = "ryan@andthensome.nl"
 set sendmail = "msmtp -a andthensome"
 alias me Ryan Kes <ryan@andthensome.nl>
-set folder = "/home/alrayyes/.local/share/mail/andthensome"
-set header_cache = /home/alrayyes/.cache/mutt/andthensome/headers
-set message_cachedir = /home/alrayyes/.cache/mutt/andthensome/bodies
+set folder = ~/.local/share/mail/andthensome
+set header_cache = ~/.cache/mutt/andthensome/headers
+set message_cachedir = ~/.cache/mutt/andthensome/bodies
 set mbox_type = Maildir
 
 bind index,pager gg noop
