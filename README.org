@@ -142,15 +142,23 @@ A repository of my personal configuration files.
 - [[https://github.com/tpope/vim-abolish][tpope/vim-abolish]]
 - [[https://github.com/tpope/vim-surround][tpope/vim-surround]]
 - [[https://github.com/vim-airline/vim-airline][vim-airline/vim-airline]]
+**** Navigation
+- [[https://github.com/unblevable/quick-scope][unblevable/quick-scope]]
 *** Programming
 - [[https://github.com/autozimu/LanguageClient-neovim][autozimu/LanguageClient-neovim]]
 - [[https://github.com/godlygeek/tabular][godlygeek/tabular]]
-- [[https://github.com/majutsushi/tagbar][majutsushi/tagbar]]
 - [[https://github.com/preservim/nerdcommenter][preservim/nerdcommenter]]
 - [[https://github.com/RRethy/vim-hexokinase][RRethy/vim-hexokinase]]
 - [[https://github.com/Shougo/deoplete.nvim][Shougo/deoplete.nvim]]
 - [[https://github.com/tpope/vim-fugitive][tpope/vim-fugitive]]
 - [[https://github.com/Xuyuanp/nerdtree-git-plugin][Xuyuanp/nerdtree-git-plugin]]
+**** Syntax Highlighting
+- [[https://github.com/HerringtonDarkholme/yats.vim][HerringtonDarkholme/yats.vim]]
+- [[https://github.com/MaxMEllon/vim-jsx-pretty][maxmellon/vim-jsx-pretty]]
+- [[https://github.com/vim-pandoc/vim-pandoc-syntax][vim-pandoc/vim-pandoc-syntax]]
+- [[https://github.com/yuezk/vim-js][yuezk/vim-js]]
+**** Tags
+- [[https://github.com/majutsushi/tagbar][majutsushi/tagbar]]
 *** UI
 - [[https://github.com/morhetz/gruvbox][morhetz/gruvbox]]
 - [[https://github.com/ryanoasis/vim-devicons][ryanoasis/vim-devicons]]

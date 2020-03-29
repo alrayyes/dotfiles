@@ -13,6 +13,9 @@
     call plug#begin()
 
     " General {
+        " Navigation {
+            Plug 'unblevable/quick-scope'
+        " }
         Plug 'bling/vim-bufferline'
         Plug 'easymotion/vim-easymotion'
         Plug 'farmergreg/vim-lastplace'
@@ -30,23 +33,32 @@
         Plug 'tpope/vim-surround'
         Plug 'vim-airline/vim-airline'
     " }
-    
+
     " Programming {
+        " Syntax Highlighting {
+            Plug 'HerringtonDarkholme/yats.vim'
+            Plug 'maxmellon/vim-jsx-pretty'
+            Plug 'vim-pandoc/vim-pandoc-syntax'
+            Plug 'yuezk/vim-js'
+        " }
+        " Tags {
+            Plug 'alvan/vim-closetag'
+            if executable('ctags')
+                Plug 'majutsushi/tagbar'
+            endif
+        " }
         Plug 'autozimu/LanguageClient-neovim', {
             \ 'branch': 'next',
             \ 'do': 'bash install.sh',
             \ }
         Plug 'godlygeek/tabular'
-        if executable('ctags')
-            Plug 'majutsushi/tagbar'
-        endif
         Plug 'preservim/nerdcommenter'
         Plug 'rrethy/vim-hexokinase', { 'do': 'make hexokinase' }
         Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
         Plug 'tpope/vim-fugitive'
         Plug 'Xuyuanp/nerdtree-git-plugin'
     " }
-    
+
     " UI {
         Plug 'morhetz/gruvbox'
         " This has to be loaded last to work
@@ -147,7 +159,7 @@
             map <Leader>tt :TagbarToggle<CR>
         endif
     " }
-    
+
     " NerdCommenter {
         " Add spaces after comment delimiters by default
         let g:NERDSpaceDelims = 1
@@ -162,7 +174,7 @@
         " Load deoplete on startup
         let g:deoplete#enable_at_startup = 1
     " }
-    
+
     " LanguageClient-neovim {
         " Required for operations modifying multiple buffers like rename.
         set hidden
@@ -186,7 +198,7 @@
             \ 'html': ['/usr/bin/html-languageserver', '--stdio']
             \ }
     " }
-    
+
     " hexokinase {
         set termguicolors
     " }
