@@ -52,6 +52,7 @@ A repository of my personal configuration files.
 - [[https://github.com/junegunn/fzf][fzf]]
 - [[https://gnupg.org/][gnupg]]
 - [[https://golang.org/][golang]]
+- [[https://graphviz.org/][graphviz]]
 - [[https://imagemagick.org/index.php][ImageMagick]]
 - [[http://isync.sourceforge.net/mbsync.html][isync]]
 - [[https://github.com/canonical/lightdm][LightDM]]

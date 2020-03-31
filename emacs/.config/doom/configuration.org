@@ -1,23 +1,31 @@
 * Table of Contents :TOC_3:noexport:
 - [[#general-settings][General settings]]
+  - [[#variable-font-sizes-depending-on-screen-width-set-font-to-jetbrains-mono][Variable font sizes depending on screen width. Set font to JetBrains Mono]]
+  - [[#theme-is-set-to-doom-molokai-from-doom-themes][Theme is set to doom-molokai from doom-themes]]
+  - [[#fetch-password-from-authinfo][Fetch password from authinfo]]
 - [[#projectile][Projectile]]
+  - [[#set-default-paths-projectile-should-search][Set default paths projectile should search]]
 - [[#circe][Circe]]
+  - [[#connect-to-znc-passwords-are-gotten-from-password-store][Connect to ZNC. Passwords are gotten from Password Store.]]
 - [[#org-mode][Org mode]]
   - [[#general-settings-1][General settings]]
+    - [[#when-moving-entries-up-and-down-in-the-buffer-use-j-and-k-instead-of--and-][When moving entries up and down in the buffer use `j` and `k` instead of `↑` and `↓`]]
+    - [[#auto-save-org-mode-files][Auto save org-mode files]]
   - [[#org-protocol-capture-html][org-protocol-capture-html]]
+    - [[#require-package][Require package]]
   - [[#org-capture-templates][org-capture-templates]]
     - [[#capture-web-data-for-org-protocol-capture-html][Capture web data for org-protocol-capture-html]]
 - [[#mu4e][mu4e]]
+  - [[#setup-mu4e-with-multiple-profiles][Setup mu4e with multiple profiles]]
 - [[#elfeed][Elfeed]]
   - [[#elfeed-and-elfeed-protocol-to-read-feeds][elfeed and elfeed-protocol to read feeds.]]
   - [[#elfeed-org][elfeed-org]]
   - [[#elfeed-goodies][elfeed-goodies]]
 - [[#spelling][Spelling]]
+  -  [[#set-dictionaries-for-languages-i-use][Set dictionaries for languages I use]]
 
 * General settings
-[[https://raw.githubusercontent.com/hlissner/emacs-doom-themes/screenshots/doom-molokai.png][doom-molokai screenshot]]
-
-Variable font sizes depending on screen width. Set font to [[https://www.jetbrains.com/lp/mono/][JetBrains Mono]]
+** Variable font sizes depending on screen width. Set font to [[https://www.jetbrains.com/lp/mono/][JetBrains Mono]]
 #+BEGIN_SRC emacs-lisp
 (when window-system
   (if (> (x-display-pixel-width) 2560)
@@ -25,12 +33,11 @@ Variable font sizes depending on screen width. Set font to [[https://www.jetbrai
     (setq doom-font (font-spec :family "JetBrains Mono" :size 16))))
 
 #+END_SRC
-Theme is set to doom-molokai from [[https://github.com/hlissner/emacs-doom-themes][doom-themes]]
+** Theme is set to doom-molokai from [[https://github.com/hlissner/emacs-doom-themes][doom-themes]]
 #+BEGIN_SRC emacs-lisp
 (setq doom-theme 'doom-molokai)
 #+END_SRC
-
-Fetch password from authinfo
+** Fetch password from authinfo
 #+BEGIN_SRC emacs-lisp
 (defun my-fetch-password (&rest params)
   (require 'auth-source)
@@ -43,17 +50,14 @@ Fetch password from authinfo
       (error "Password not found for %S" params))))
 #+END_SRC
 * [[https://www.projectile.mx/en/latest/][Projectile]]
-Set default paths [[https://www.projectile.mx/en/latest/][projectile]] should search
-
+** Set default paths [[https://www.projectile.mx/en/latest/][projectile]] should search
 #+BEGIN_SRC emacs-lisp
 (use-package! projectile
   :config
   (setq projectile-project-search-path '("~/devel/personal/" "~/devel/andthensome/" "~/Documents/" "~/dotfiles" "~/private-dotfiles"))) ; Default paths
 #+END_SRC
-
 * [[https://github.com/jorgenschaefer/circe][Circe]]
-Connect to [[https://wiki.znc.in/ZNC][ZNC]]. Passwords are gotten from [[https://www.passwordstore.org/][Password Store]].
-
+** Connect to [[https://wiki.znc.in/ZNC][ZNC]]. Passwords are gotten from [[https://www.passwordstore.org/][Password Store]].
 #+BEGIN_SRC emacs-lisp
 (use-package! circe
   :config
@@ -79,10 +83,9 @@ Connect to [[https://wiki.znc.in/ZNC][ZNC]]. Passwords are gotten from [[https:/
   )
 (add-hook 'circe-channel-mode-hook 'enable-lui-autopaste)
 #+END_SRC
-
 * [[https://orgmode.org/][Org mode]]
 ** General settings
-When moving entries up and down in the buffer use `j` and `k` instead of `↑` and `↓`
+*** When moving entries up and down in the buffer use `j` and `k` instead of `↑` and `↓`
 #+BEGIN_SRC emacs-lisp
 (after! org
   (map! :map org-mode-map
@@ -90,8 +93,7 @@ When moving entries up and down in the buffer use `j` and `k` instead of `↑` a
         :n "M-k" #'org-metaup)
   )
 #+END_SRC
-
-Auto save org-mode files
+*** Auto save org-mode files
 #+BEGIN_SRC emacs-lisp
 (add-hook 'auto-save-hook 'org-save-all-org-buffers)
 #+END_SRC
@@ -106,7 +108,7 @@ Auto save org-mode files
       org-startup-with-inline-images t)
 #+END_SRC
 ** [[https://github.com/alphapapa/org-protocol-capture-html][org-protocol-capture-html]]
-Require package
+*** Require package
 #+BEGIN_SRC emacs-lisp
 (use-package! org-protocol-capture-html)
 #+END_SRC
@@ -120,7 +122,7 @@ Require package
   )
 #+END_SRC
 * [[https://www.djcbsoftware.nl/code/mu/mu4e.html][mu4e]]
-Setup mu4e with multiple profiles
+** Setup mu4e with multiple profiles
 #+BEGIN_SRC emacs-lisp
 (use-package! mu4e
   :config
@@ -227,7 +229,7 @@ Setup mu4e with multiple profiles
   (elfeed-goodies/setup))
 #+END_SRC
 * Spelling
-Set dictionaries for languages I use
+**  Set dictionaries for languages I use
 #+BEGIN_SRC emacs-lisp
 (with-eval-after-load "ispell"
     (setq ispell-program-name "hunspell")
