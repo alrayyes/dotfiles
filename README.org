@@ -49,6 +49,7 @@ A repository of my personal configuration files.
 - [[https://brave.com/][brave]]
 - [[https://github.com/caffeine-ng/caffeine-ng][caffeine-ng]]
 - [[https://the.exa.website/][exa]]
+- [[https://github.com/pixelb/fslint][fslint]]
 - [[https://github.com/junegunn/fzf][fzf]]
 - [[https://gnupg.org/][gnupg]]
 - [[https://golang.org/][golang]]
