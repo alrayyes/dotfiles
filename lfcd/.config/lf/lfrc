@@ -1,7 +1,7 @@
 # Basic settings
 set shell sh
 set preview false
-set icons on
+set icons true
 set hidden true
 set drawbox true
 set ignorecase true
