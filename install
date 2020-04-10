@@ -87,7 +87,7 @@ if [ ! -d ~/.local/share/omf ]
 end
 
 # Install oh-my-fish plugins
-install_omf_package_if_not_exist bobthefish
+install_omf_package_if_not_exist spacefish
 install_omf_package_if_not_exist colored-man-pages
 install_omf_package_if_not_exist extract
 install_omf_package_if_not_exist fzf

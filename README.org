@@ -115,7 +115,7 @@ A repository of my personal configuration files.
 
 * Fish
 *** Theme
-- [[https://github.com/oh-my-fish/theme-bobthefish][bobthefish]]
+- [[https://github.com/matchai/spacefish][spacefish]]
 *** Package Manager
 - [[https://github.com/oh-my-fish/oh-my-fish][oh-my-fish]]
 *** Packages
