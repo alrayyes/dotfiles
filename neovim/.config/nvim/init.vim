@@ -40,6 +40,7 @@
             Plug 'maxmellon/vim-jsx-pretty'
             Plug 'vim-pandoc/vim-pandoc-syntax'
             Plug 'yuezk/vim-js'
+            Plug 'Yggdroot/indentLine'
         " }
         " Tags {
             Plug 'alvan/vim-closetag'
@@ -91,6 +92,7 @@
     highlight clear LineNr     " Current line number row will have same background color in relative mode
 
     set ignorecase             " Ignore case on search
+    set smartcase              " Don't ignore upper case characters on search
     set scrolljump=5           " Lines to scroll when cursor leaves screen
     set scrolloff=3            " Minimum lines to keep above and below cursor
     set foldenable             " Auto fold code
