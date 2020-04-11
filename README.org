@@ -62,6 +62,7 @@ A repository of my personal configuration files.
 - [[https://www.npmjs.com/get-npm][npm]]
 - [[https://github.com/cdemoulins/pamixer][pamixer]]
 - [[https://github.com/dylanaraps/pfetch][pfetch]]
+- [[https://github.com/altdesktop/playerctl][Playerctl]]
 - [[https://www.freedesktop.org/wiki/Software/PulseAudio/][Pulseaudio]]
 - [[https://github.com/GeorgeFilipkin/pulsemixer][pulsemixer]]
 - [[https://www.python.org/][Python]]

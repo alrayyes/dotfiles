@@ -1,7 +1,7 @@
 #!/usr/bin/env fish
 
 # Prerequisite & inistalled apps
-set prerequisiteApps bat broot brave caffeine-ng exa fslint fzf go graphviz isync imagemagick lightdm-gtk-greeter mailcap mpv deadd-notification-center-bin npm pamixer pfetch pulseaudio pulsemixer python pywal stow sxiv tldr udisks xwallpaper zathura
+set prerequisiteApps bat broot brave caffeine-ng exa fslint fzf go graphviz isync imagemagick lightdm-gtk-greeter mailcap mpv deadd-notification-center-bin npm pamixer pfetch playerctl pulseaudio pulsemixer python pywal stow sxiv tldr udisks xwallpaper zathura
 set prerequisiteFonts otf-nerd-fonts-fira-code noto-fonts ttf-unifont
 set prerequisiteLsp bash-language-server ccls php-language-server python-language-server typescript-language-server vscode-css-languageserver vscode-html-languageserver nodejs-intelephense
 set configuredApps alacritty bspwm castero emacs firejail git gnupg gtk lf deadd-notification-center-bin mpd ncmpcpp neomutt neovim picom redshift sxhkd tmux tuir weechat
