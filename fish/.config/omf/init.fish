@@ -1,7 +1,7 @@
 # Start X at login
 if status is-login
     if test -z "$DISPLAY" -a $XDG_VTNR = 1
-        set -g -x SXHKD_SHELL '/usr/bin/sh'
+        set -x -x SXHKD_SHELL '/usr/bin/sh'
 
         # Enable numberlock
         if [ -x "/usr/bin/numlockx" ]
@@ -40,51 +40,51 @@ set GPG_TTY (tty)
 
 # Set default browser
 if [ -e "/usr/bin/brave" ]
-    set -g BROWSER "brave"
+    set -x BROWSER "brave"
 else
     if [ -e "/usr/bin/firefox" ]
-        set -g BROWSER "firefox"
+        set -x BROWSER "firefox"
     else if [ -e "/usr/bin/iceweasel" ]
-        set -g BROWSER "iceweasel"
+        set -x BROWSER "iceweasel"
     end
 end
 
 # Set default terminal
-set -g TERMINAL "alacritty"
+set -x TERMINAL "alacritty"
 
 # pkg editor
-set -g VISUAL "nvim"
+set -x VISUAL "nvim"
 
 # editor
-set -g EDITOR "nvim"
+set -x EDITOR "nvim"
 
 # Enable password store extensions
-set -g PASSWORD_STORE_ENABLE_EXTENSIONS "true"
+set -x PASSWORD_STORE_ENABLE_EXTENSIONS "true"
 
 # Make sure pass uses the proper directory
-set -g PASSWORD_STORE_DIR ~/.local/share/pass
+set -x PASSWORD_STORE_DIR ~/.local/share/pass
 
 # Use alternative muhome
-set -g MU_HOME ~/.cache/mu
+set -x MU_HOME ~/.cache/mu
 
 # Load xinit from the proper directory
-set -g XINITRC ~/X11/xinitrc
+set -x XINITRC ~/X11/xinitrc
 
 # Make sure rust uses the proper directory
-set -g RUSTUP_HOME ~/.local/share/rustup
+set -x RUSTUP_HOME ~/.local/share/rustup
 
 # Set custom nprmrc path
-set -g NPM_CONFIG_USERCONFIG ~/.config/npm/npmrc
+set -x NPM_CONFIG_USERCONFIG ~/.config/npm/npmrc
 
 # bobthefish
-set -g theme_nerd_fonts yes
-set -g theme_color_scheme gruvbox
+set -x theme_nerd_fonts yes
+set -x theme_color_scheme gruvbox
 
 # sudope
-set -g sudope_sequence \e\e
+set -x sudope_sequence \e\e
 
 # Set tmux tmpdir to proper directory
-set -g TMUX_TMPDIR "$XDG_RUNTIME_DIR"
+set -x TMUX_TMPDIR "$XDG_RUNTIME_DIR"
 
 # nvim alias
 alias v="nvim"
@@ -115,6 +115,13 @@ alias pacrem="sudo pacman -Rns"
 
 # git alaises
 alias gpoat="git push origin --all && git push origin --tags"
+alias gs="git status"
+alias gd="git diff"
+alias g="git"
+
+# Prevent mv & rm oopsies
+alias mv="mv -i"
+alias rm="rm -i"
 
 # Load lfcd wiith proper icons
 function lf
