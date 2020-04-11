@@ -63,11 +63,11 @@ bspc config initial_polarity second_child
 
 ###---Desktop Settings----###
 bspc config border_width 2
-bspc config window_gap 10
+bspc config window_gap 4
 
 ###---Rules---###
 bspc rule -a "Syncthing GTK" state=floating
-bspc rule -a Gimp state=floating
+bspc rule -a Gimp state=floating follow=on
 bspc rule -a float state=floating
 bspc rule -a Spotify desktop='^4'
 bspc rule -a Spt desktop='^4'
