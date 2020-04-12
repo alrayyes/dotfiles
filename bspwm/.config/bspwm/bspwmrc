@@ -69,6 +69,7 @@ bspc config window_gap 4
 bspc rule -a "Syncthing GTK" state=floating
 bspc rule -a Gimp state=floating follow=on
 bspc rule -a float state=floating
+bspc rule -a fullscreen state=fullscreen
 bspc rule -a Spotify desktop='^4'
 bspc rule -a Spt desktop='^4'
 bspc rule -a Emacs state=tiled
