@@ -100,7 +100,6 @@ install_omf_package_if_not_exist extract
 install_omf_package_if_not_exist fzf
 install_omf_package_if_not_exist gi
 install_omf_package_if_not_exist git-flow
-install_omf_package_if_not_exist sudope
 install_omf_package_if_not_exist wttr
 
 # Install vim plugins & requirements

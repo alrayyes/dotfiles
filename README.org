@@ -126,7 +126,6 @@ A repository of my personal configuration files.
 - [[https://github.com/jethrokuan/fzf][fzf]]
 - [[https://github.com/oh-my-fish/plugin-gi][gi]]
 - [[https://github.com/oh-my-fish/plugin-git-flow][git-flow]]
-- [[https://github.com/oh-my-fish/plugin-sudope.git][sudope]]
 - [[https://github.com/oh-my-fish/plugin-wttr][wttr]]
 
 * Neovim
