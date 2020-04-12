@@ -1,10 +1,10 @@
 #!/usr/bin/env fish
 
 # Prerequisite & inistalled apps
-set prerequisiteApps bat broot brave caffeine-ng exa fslint fzf go graphviz isync imagemagick lightdm-gtk-greeter mailcap mpv deadd-notification-center-bin npm pamixer pfetch playerctl pulseaudio pulsemixer python pywal stow sxiv tldr udisks xwallpaper zathura
+set prerequisiteApps bat broot brave caffeine-ng exa fslint fzf go graphviz isync imagemagick lightdm-gtk-greeter mailcap deadd-notification-center-bin npm pamixer pfetch playerctl pulseaudio pulsemixer python pywal stow sxiv tldr udisks2 xwallpaper zathura
 set prerequisiteFonts otf-nerd-fonts-fira-code noto-fonts ttf-unifont
 set prerequisiteLsp bash-language-server ccls php-language-server python-language-server typescript-language-server vscode-css-languageserver vscode-html-languageserver nodejs-intelephense
-set configuredApps alacritty bspwm castero emacs firejail git gnupg gtk lf deadd-notification-center-bin mpd ncmpcpp neomutt neovim picom redshift sxhkd tmux tuir weechat
+set configuredApps alacritty bspwm castero emacs firejail git gnupg gtk lf deadd-notification-center-bin mpd mpv mpv-mpris ncmpcpp neomutt neovim picom redshift sxhkd tmux tuir weechat
 set locales aspell-en hunspell-en_GB hunspell-en_US hunspell-nl
 
 function mkdir_if_not_exist
@@ -68,6 +68,13 @@ mkdir_if_not_exist ~/.config/wal
 mkdir_if_not_exist ~/.config/weechat
 mkdir_if_not_exist ~/.config/X11
 mkdir_if_not_exist ~/.gnupg
+mkdir_if_not_exist ~/.config/mpv/scripts
+
+# Link mpv plugins if they don't exist
+if [ ! -h ~/.config/mpv/scripts/mpris.so ]
+    echo "Linking mpris.so"
+    ln -s /usr/lib/mpv/mpris.so ~/.config/mpv/scripts/mpris.so
+end
 
 for d in (find -- */ -maxdepth 0 -type d | cut -f1 -d '/')
     echo "Linking $d..."

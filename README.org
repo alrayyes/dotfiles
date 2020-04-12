@@ -98,6 +98,7 @@ A repository of my personal configuration files.
 - [[https://github.com/gokcehan/lf][lf]]
 - [[https://github.com/phuhl/linux_notification_center][Lintux Notification Center]]
 - [[https://www.musicpd.org/][mpd]]
+- [[https://mpv.io/][mpv]]
 - [[https://rybczak.net/ncmpcpp/][ncmpcpp]]
 - [[https://neomutt.org/][neomutt]]
 - [[https://neovim.io/][neovim]]
