@@ -128,8 +128,6 @@ end
 # Polybar scripts if not installed already
 if [ ! -d ~/.local/share/polybar-scripts ]
     git clone https://github.com/polybar/polybar-scripts ~/.local/share/polybar-scripts
-else
-    git --work-tree=$HOME/.local/share/polybar-scripts pull
 end
 
 # Update fish completions (auto generated from man pages)
