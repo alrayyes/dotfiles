@@ -59,10 +59,10 @@ set -x VISUAL "nvim"
 set -x EDITOR "nvim"
 
 # Enable password store extensions
-set -x PASSWORD_STORE_ENABLE_EXTENSIONS "true"
+set -g PASSWORD_STORE_ENABLE_EXTENSIONS "true"
 
 # Make sure pass uses the proper directory
-set -x PASSWORD_STORE_DIR ~/.local/share/pass
+set -g PASSWORD_STORE_DIR ~/.local/share/pass
 
 # Use alternative muhome
 set -x MU_HOME ~/.cache/mu
