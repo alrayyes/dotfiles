@@ -61,9 +61,11 @@ mkdir_if_not_exist ~/.config/alacritty
 mkdir_if_not_exist ~/.config/nvim
 mkdir_if_not_exist ~/.config/fish
 mkdir_if_not_exist ~/.config/git
+mkdir_if_not_exist ~/.config/msmtp
 mkdir_if_not_exist ~/.config/omf
 mkdir_if_not_exist ~/.config/polybar/bin
 mkdir_if_not_exist ~/.config/mpd
+mkdir_if_not_exist ~/.config/systemd/user
 mkdir_if_not_exist ~/.config/wal
 mkdir_if_not_exist ~/.config/weechat
 mkdir_if_not_exist ~/.config/X11
