@@ -67,6 +67,7 @@ A repository of my personal configuration files.
 - [[https://github.com/GeorgeFilipkin/pulsemixer][pulsemixer]]
 - [[https://www.python.org/][Python]]
 - [[https://github.com/dylanaraps/pywal][pywal]]
+- [[https://github.com/Spotifyd/spotifyd][Spotifyd]]
 - [[http://www.gnu.org/software/stow/][stow]]
 - [[https://github.com/muennich/sxiv][sxiv]]
 - [[https://github.com/tldr-pages/tldr][tldr]]

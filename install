@@ -4,7 +4,7 @@
 set prerequisiteApps bat broot brave caffeine-ng exa fslint fzf go graphviz isync imagemagick lightdm-gtk-greeter mailcap deadd-notification-center-bin npm pamixer pfetch playerctl pulseaudio pulsemixer python pywal stow sxiv tldr udisks2 xwallpaper zathura
 set prerequisiteFonts otf-nerd-fonts-fira-code noto-fonts ttf-unifont
 set prerequisiteLsp bash-language-server ccls php-language-server python-language-server typescript-language-server vscode-css-languageserver vscode-html-languageserver nodejs-intelephense
-set configuredApps alacritty bspwm castero emacs firejail git gnupg gtk lf deadd-notification-center-bin mpd mpv mpv-mpris ncmpcpp neomutt neovim picom redshift sxhkd tmux tuir weechat
+set configuredApps alacritty bspwm castero emacs firejail git gnupg gtk lf deadd-notification-center-bin mpd mpv mpv-mpris ncmpcpp neomutt neovim picom redshift spotifyd-dbus-mpris sxhkd tmux tuir weechat
 set locales aspell-en hunspell-en_GB hunspell-en_US hunspell-nl
 
 function mkdir_if_not_exist
