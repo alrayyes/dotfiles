@@ -40,17 +40,17 @@ set GPG_TTY (tty)
 
 # Set default browser
 if [ -e "/usr/bin/brave" ]
-    set -x BROWSER "brave"
+    set -g BROWSER "brave"
 else
     if [ -e "/usr/bin/firefox" ]
-        set -x BROWSER "firefox"
+        set -g BROWSER "firefox"
     else if [ -e "/usr/bin/iceweasel" ]
-        set -x BROWSER "iceweasel"
+        set -g BROWSER "iceweasel"
     end
 end
 
 # Set default terminal
-set -x TERMINAL "alacritty"
+set -g TERMINAL "alacritty"
 
 # pkg editor
 set -x VISUAL "nvim"
