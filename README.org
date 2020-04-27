@@ -154,6 +154,7 @@ A repository of my personal configuration files.
 **** Navigation
 - [[https://github.com/unblevable/quick-scope][unblevable/quick-scope]]
 *** Programming
+- [[https://github.com/airblade/vim-gitgutter][airblade/vim-gitgutter]]
 - [[https://github.com/autozimu/LanguageClient-neovim][autozimu/LanguageClient-neovim]]
 - [[https://github.com/godlygeek/tabular][godlygeek/tabular]]
 - [[https://github.com/preservim/nerdcommenter][preservim/nerdcommenter]]

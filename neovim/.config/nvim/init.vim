@@ -52,6 +52,7 @@
             \ 'branch': 'next',
             \ 'do': 'bash install.sh',
             \ }
+        Plug 'airblade/vim-gitgutter'
         Plug 'godlygeek/tabular'
         Plug 'preservim/nerdcommenter'
         Plug 'rrethy/vim-hexokinase', { 'do': 'make hexokinase' }
