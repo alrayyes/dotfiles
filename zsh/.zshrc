@@ -45,7 +45,7 @@ fi
 
 zplug load
 
-# vim alias
+# nvim alias
 alias v="nvim"
 alias sv="sudo nvim"
 
@@ -55,6 +55,32 @@ alias l="exa -al"
 
 # vifm alias
 alias vifm="vifmrun"
+
+# wget alias
+alias wget='wget --hsts-file="~/.config/wget-hsts"'
+
+# weechat
+alias weechat="weechat -d ~/.config/weechat"
+
+# tmux
+alias tmux="tmux -f ~/.config/tmux/tmux.conf"
+
+# pass
+alias pass="PASSWORD_STORE_DIR=$PASSWORD_STORE_DIR /usr/bin/pass"
+
+# pacman aliases
+alias pacrmorphans="sudo pacman -Rs (pacman -Qtdq)"
+alias pacrem="sudo pacman -Rns"
+
+# git alaises
+alias gpoat="git push origin --all && git push origin --tags"
+alias gs="git status"
+alias gd="git diff"
+alias g="git"
+
+# Prevent mv & rm oopsies
+alias mv="mv -i"
+alias rm="rm -i"
 
 # Use lf to switch directories and bind it to ctrl-o
 lfcd() {
