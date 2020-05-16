@@ -26,6 +26,10 @@
     - [[#ui][UI]]
 - [[#npm][NPM]]
   - [[#packages-1][Packages]]
+- [[#zsh][Zsh]]
+  - [[#theme-2][Theme]]
+  - [[#plugin-manager-1][Plugin Manager]]
+  - [[#plugins-1][Plugins]]
 - [[#configuration][Configuration]]
   - [[#installation][Installation]]
   - [[#find--delete-orphaned-symlinks][Find & delete orphaned symlinks]]
@@ -154,6 +158,7 @@ A repository of my personal configuration files.
 **** Navigation
 - [[https://github.com/unblevable/quick-scope][unblevable/quick-scope]]
 *** Programming
+- [[https://github.com/airblade/vim-gitgutter][airblade/vim-gitgutter]]
 - [[https://github.com/autozimu/LanguageClient-neovim][autozimu/LanguageClient-neovim]]
 - [[https://github.com/godlygeek/tabular][godlygeek/tabular]]
 - [[https://github.com/preservim/nerdcommenter][preservim/nerdcommenter]]
@@ -174,6 +179,30 @@ A repository of my personal configuration files.
 * NPM
 ** Packages
 - [[https://github.com/GoogleChrome/lighthouse][lighthouse]]
+
+* Zsh
+** Theme
+- [[https://github.com/denysdovhan/spaceship-prompt][spaceship zsh]]
+** Plugin Manager
+- [[https://github.com/zplug/zplug][zplug]]
+** Plugins
+- [[https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/archlinux][archlinux]]
+- [[https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/composer][composer]]
+- [[https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/docker][docker]]
+- [[https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/docker-compose][docker-compose]]
+- [[https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/extract][extract]]
+- [[https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/fzf][fzf]]
+- [[https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/git][git]]
+- [[https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/gitignore][gitignore]]
+- [[https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/pass][pass]]
+- [[https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/ripgrep][ripgrep]]
+- [[https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/rsync][rsync]]
+- [[https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/sudo][sudo]]
+- [[https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/systemd][systemd]]
+- [[https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/tmux][tmux]]
+- [[https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/vi-mode][vi-mode]]
+- [[https://github.com/zsh-users/zsh-autosuggestions][zsh-autosuggestions]]
+- [[https://github.com/zsh-users/zsh-syntax-highlighting][zsh-syntax-highlighting]]
 
 * Configuration
 ** Installation
