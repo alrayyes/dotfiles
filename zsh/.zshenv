@@ -46,7 +46,7 @@ export PASSWORD_STORE_DIR=~/.local/share/pass
 export MU_HOME=~/.cache/mu
 
 # Load xinit from the proper directory
-export XINITRC=~/X11/xinitrc
+export XINITRC=~/.config/X11/xinitrc
 
 # This needs to be set for bspwm to see config
 export XDG_CONFIG_HOME="$HOME/.config"

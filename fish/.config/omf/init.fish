@@ -1,7 +1,7 @@
 # Start X at login
 if status is-login
     if test -z "$DISPLAY" -a $XDG_VTNR = 1
-        set -x -x SXHKD_SHELL '/usr/bin/sh'
+        set -xg -x SXHKD_SHELL '/usr/bin/sh'
 
         # Enable numberlock
         if [ -x "/usr/bin/numlockx" ]
@@ -53,10 +53,10 @@ end
 set -g TERMINAL "alacritty"
 
 # pkg editor
-set -x VISUAL "nvim"
+set -xg VISUAL "nvim"
 
 # editor
-set -x EDITOR "nvim"
+set -xg EDITOR "nvim"
 
 # Enable password store extensions
 set -g PASSWORD_STORE_ENABLE_EXTENSIONS "true"
@@ -65,26 +65,26 @@ set -g PASSWORD_STORE_ENABLE_EXTENSIONS "true"
 set -g PASSWORD_STORE_DIR ~/.local/share/pass
 
 # Use alternative muhome
-set -x MU_HOME ~/.cache/mu
+set -xg MU_HOME ~/.cache/mu
 
 # Load xinit from the proper directory
-set -x XINITRC ~/X11/xinitrc
+set -xgg XINITRC ~/.config/X11/xinitrc
 
 # Make sure rust uses the proper directory
-set -x RUSTUP_HOME ~/.local/share/rustup
+set -xg RUSTUP_HOME ~/.local/share/rustup
 
 # Set custom nprmrc path
-set -x NPM_CONFIG_USERCONFIG ~/.config/npm/npmrc
+set -xg NPM_CONFIG_USERCONFIG ~/.config/npm/npmrc
 
 # bobthefish
-set -x theme_nerd_fonts yes
-set -x theme_color_scheme gruvbox
+set -xg theme_nerd_fonts yes
+set -xg theme_color_scheme gruvbox
 
 # sudope
-set -x sudope_sequence \e\e
+set -xg sudope_sequence \e\e
 
 # Set tmux tmpdir to proper directory
-set -x TMUX_TMPDIR "$XDG_RUNTIME_DIR"
+set -xg TMUX_TMPDIR "$XDG_RUNTIME_DIR"
 
 # nvim alias
 alias v="nvim"
