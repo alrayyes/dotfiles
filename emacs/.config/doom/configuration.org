@@ -23,6 +23,10 @@
   - [[#elfeed-goodies][elfeed-goodies]]
 - [[#spelling][Spelling]]
   -  [[#set-dictionaries-for-languages-i-use][Set dictionaries for languages I use]]
+- [[#markdown][Markdown]]
+  - [[#open-mdx-files-in-markdown-mode][Open mdx files in markdown-mode]]
+- [[#haskell][Haskell]]
+  - [[#auto-format-haskell-code-on-save][Auto format Haskell code on save]]
 
 * General settings
 ** Variable font sizes depending on screen width. Set font to [[https://www.jetbrains.com/lp/mono/][JetBrains Mono]]
