@@ -243,3 +243,14 @@
     (ispell-hunspell-add-multi-dic "en_GB,nl_NL,en_US")
     (setq ispell-dictionary "en_GB,nl_NL,en_US"))
 #+END_SRC
+* Markdown
+** Open mdx files in markdown-mode
+#+BEGIN_SRC emacs-lisp
+   (add-to-list 'auto-mode-alist '("\\.mdx\\'" . markdown-mode))
+#+END_SRC
+* Haskell
+** Auto format Haskell code on save
+#+BEGIN_SRC emacs-lisp
+(custom-set-variables
+ '(haskell-stylish-on-save t))
+#+END_SRC

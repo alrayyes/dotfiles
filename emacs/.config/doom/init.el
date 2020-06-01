@@ -76,6 +76,8 @@
          +lsp)
        ledger            ; an accounting system in Emacs
        markdown          ; writing docs for people to ignore
+       (haskell          ; Haskell support
+        + lsp)
        (org              ; organize your plain life in plain text
         +roam
         +dragndrop       ; drag & drop files/images into org buffers
