@@ -163,12 +163,12 @@ A repository of my personal configuration files.
 *** Programming
 - [[https://github.com/airblade/vim-gitgutter][airblade/vim-gitgutter]]
 - [[https://github.com/godlygeek/tabular][godlygeek/tabular]]
+- [[https://github.com/neoclide/coc.nvim][neoclice/coc.nvim]]
 - [[https://github.com/preservim/nerdcommenter][preservim/nerdcommenter]]
 - [[https://github.com/RRethy/vim-hexokinase][RRethy/vim-hexokinase]]
+- [[https://github.com/sheerun/vim-polyglot][sheerun/vim-polyglot]]
 - [[https://github.com/tpope/vim-fugitive][tpope/vim-fugitive]]
 - [[https://github.com/Xuyuanp/nerdtree-git-plugin][Xuyuanp/nerdtree-git-plugin]]
-**** Syntax Highlighting
-- [[https://github.com/neoclide/coc.nvim][neoclice/coc.nvim]]
 -[[https://github.com/Yggdroot/indentLine][ Yggdroot/indentLine]]
 *** UI
 - [[https://github.com/morhetz/gruvbox][morhetz/gruvbox]]

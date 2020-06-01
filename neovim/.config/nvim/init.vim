@@ -33,16 +33,15 @@
     " }
 
     " Programming {
-        " Syntax Highlighting {
-            Plug 'neoclide/coc.nvim', {'branch': 'release'}
-            Plug 'Yggdroot/indentLine'
-        " }
         Plug 'airblade/vim-gitgutter'
         Plug 'godlygeek/tabular'
+        Plug 'neoclide/coc.nvim', {'branch': 'release'}
         Plug 'preservim/nerdcommenter'
         Plug 'rrethy/vim-hexokinase', { 'do': 'make hexokinase' }
+        Plug 'sheerun/vim-polyglot'
         Plug 'tpope/vim-fugitive'
         Plug 'Xuyuanp/nerdtree-git-plugin'
+        Plug 'Yggdroot/indentLine'
     " }
 
     " UI {
@@ -181,3 +180,4 @@
         " Init jest in current cwd, require global jest command exists
         command! JestInit :call CocAction('runCommand', 'jest.init')
     " }
+" }
