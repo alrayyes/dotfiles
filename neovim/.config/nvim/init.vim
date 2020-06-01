@@ -17,15 +17,13 @@
             Plug 'unblevable/quick-scope'
         " }
         Plug 'bling/vim-bufferline'
-        Plug 'easymotion/vim-easymotion'
         Plug 'farmergreg/vim-lastplace'
-        Plug 'jiangmiao/auto-pairs'
         Plug 'junegunn/fzf'
+        Plug 'justinmk/vim-sneak'
         Plug 'ctrlpvim/ctrlp.vim'
         Plug 'mbbill/undotree'
         Plug 'mhinz/vim-signify'
         Plug 'myusuf3/numbers.vim'
-        Plug 'nathanaelkane/vim-indent-guides'
         Plug 'preservim/nerdtree'
         Plug 'rhysd/conflict-marker.vim'
         Plug 'terryma/vim-multiple-cursors'
@@ -36,27 +34,13 @@
 
     " Programming {
         " Syntax Highlighting {
-            Plug 'HerringtonDarkholme/yats.vim'
-            Plug 'maxmellon/vim-jsx-pretty'
-            Plug 'vim-pandoc/vim-pandoc-syntax'
-            Plug 'yuezk/vim-js'
+            Plug 'neoclide/coc.nvim', {'branch': 'release'}
             Plug 'Yggdroot/indentLine'
         " }
-        " Tags {
-            Plug 'alvan/vim-closetag'
-            if executable('ctags')
-                Plug 'majutsushi/tagbar'
-            endif
-        " }
-        Plug 'autozimu/LanguageClient-neovim', {
-            \ 'branch': 'next',
-            \ 'do': 'bash install.sh',
-            \ }
         Plug 'airblade/vim-gitgutter'
         Plug 'godlygeek/tabular'
         Plug 'preservim/nerdcommenter'
         Plug 'rrethy/vim-hexokinase', { 'do': 'make hexokinase' }
-        Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
         Plug 'tpope/vim-fugitive'
         Plug 'Xuyuanp/nerdtree-git-plugin'
     " }
@@ -127,9 +111,14 @@
     vnoremap > >gv
 
     " LanguageClient-neovim
-    nnoremap <silent> K :call LanguageClient#textDocument_hover()<CR>
-    nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
-    nnoremap <silent> <F2> :call LanguageClient#textDocument_rename()<CR>
+    nnoremap <F5> :call LanguageClient_contextMenu()<CR>
+    map <Leader>lk :call LanguageClient#textDocument_hover()<CR>
+    map <Leader>lg :call LanguageClient#textDocument_definition()<CR>
+    map <Leader>lr :call LanguageClient#textDocument_rename()<CR>
+    map <Leader>lf :call LanguageClient#textDocument_formatting()<CR>
+    map <Leader>lb :call LanguageClient#textDocument_references()<CR>
+    map <Leader>la :call LanguageClient#textDocument_codeAction()<CR>
+    map <Leader>ls :call LanguageClient#textDocument_documentSymbol()<CR>
 
     " For when you forget to sudo.. Really Write the file.
     cmap w!! w !sudo tee % >/dev/null
@@ -156,13 +145,6 @@
         map <C-e> :NERDTreeToggle<CR>
     " }
 
-    " Tagbar {
-        if executable('ctags')
-            " Tagbar panel
-            map <Leader>tt :TagbarToggle<CR>
-        endif
-    " }
-
     " NerdCommenter {
         " Add spaces after comment delimiters by default
         let g:NERDSpaceDelims = 1
@@ -173,36 +155,29 @@
         let g:airline_powerline_fonts=1
     " }
 
-    " Deoplete {
-        " Load deoplete on startup
-        let g:deoplete#enable_at_startup = 1
-    " }
-
-    " LanguageClient-neovim {
-        " Required for operations modifying multiple buffers like rename.
-        set hidden
-
-        " Needed for tsx files to work with typescript-language-server
-        " https://github.com/theia-ide/typescript-language-server/issues/90
-        autocmd BufNewFile,BufRead *.tsx setlocal filetype=typescript.tsx.
-
-        let g:LanguageClient_serverCommands = {
-            \ 'c': ['/usr/bin/ccls'],
-            \ 'javascript': ['/usr/bin/typescript-language-server', '--stdio'],
-            \ 'javascript.tsx': ['/usr/bin/typescript-language-server', '--stdio'],
-            \ 'typescript': ['/usr/bin/typescript-language-server', '--stdio'],
-            \ 'typescript.tsx': ['/usr/bin/typescript-language-server', '-gg/-stdio'],
-            \ 'php': ['/usr/bin/php-language-server'],
-            \ 'python': ['/usr/bin/pyls'],
-            \ 'sh': ['/usr/bin/bash-language-server'],
-            \ 'css': ['/usr/bin/css-languageserver', '--stdio'],
-            \ 'scss': ['/usr/bin/css-languageserver', '--stdio'],
-            \ 'sass': ['/usr/bin/css-languageserver', '--stdio'],
-            \ 'html': ['/usr/bin/html-languageserver', '--stdio']
-            \ }
-    " }
-
     " hexokinase {
         set termguicolors
     " }
-" }
+
+    " haskell {
+        autocmd BufWrite *.hs :%!stylish-haskell
+    " }
+
+    " coc {
+        command! -nargs=0 Prettier :CocCommand prettier.formatFile
+
+        vmap <leader>f  <Plug>(coc-format-selected)
+        nmap <leader>f  <Plug>(coc-format-selected)
+
+        " Run jest for current project
+        command! -nargs=0 Jest :call  CocAction('runCommand', 'jest.projectTest')
+
+        " Run jest for current file
+        command! -nargs=0 JestCurrent :call  CocAction('runCommand', 'jest.fileTest', ['%'])
+
+        " Run jest for current test
+        nnoremap <leader>te :call CocAction('runCommand', 'jest.singleTest')<CR>
+
+        " Init jest in current cwd, require global jest command exists
+        command! JestInit :call CocAction('runCommand', 'jest.init')
+    " }

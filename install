@@ -1,10 +1,10 @@
 #!/usr/bin/env fish
 
 # Prerequisite & inistalled apps
-set prerequisiteApps bat broot brave caffeine-ng exa fslint fzf go graphviz isync imagemagick lightdm-gtk-greeter mailcap deadd-notification-center-bin npm pamixer pfetch playerctl pulseaudio pulsemixer python pywal stow sxiv tldr udisks2 xwallpaper zathura
+set prerequisiteApps bat broot brave caffeine-ng exa fslint fzf go graphviz isync imagemagick lightdm-gtk-greeter mailcap deadd-notification-center-bin npm pamixer pfetch playerctl pulseaudio pulsemixer python pywal stack stow sxiv tldr trayer udisks2 xwallpaper zathura
 set prerequisiteFonts otf-nerd-fonts-fira-code noto-fonts ttf-unifont
-set prerequisiteLsp bash-language-server ccls php-language-server python-language-server typescript-language-server vscode-css-languageserver vscode-html-languageserver nodejs-intelephense
-set configuredApps alacritty bspwm castero emacs firejail git gnupg gtk lf deadd-notification-center-bin mpd mpv mpv-mpris ncmpcpp neomutt neovim picom redshift spotifyd-dbus-mpris sxhkd tmux tuir weechat
+set prerequisiteLsp bash-language-server ccls haskell-ide-engine php-language-server python-language-server typescript-language-server vscode-css-languageserver vscode-html-languageserver nodejs-intelephense
+set configuredApps alacritty bspwm castero emacs firejail git gnupg gtk lf deadd-notification-center-bin mpd mpv mpv-mpris ncmpcpp neomutt neovim picom redshift spotifyd-dbus-mpris sxhkd tmux tuir weechat xmobar xmonad xmonad-contrib
 set locales aspell-en hunspell-en_GB hunspell-en_US hunspell-nl
 
 function mkdir_if_not_exist
@@ -71,6 +71,12 @@ mkdir_if_not_exist ~/.config/weechat
 mkdir_if_not_exist ~/.config/X11
 mkdir_if_not_exist ~/.gnupg
 mkdir_if_not_exist ~/.config/mpv/scripts
+mkdir_if_not_exist ~/.config/coc/extensions
+
+# Create xmonad directories
+mkdir_if_not_exist ~/.config/xmonad
+mkdir_if_not_exist ~/.cache/xmonad
+mkdir_if_not_exist ~/.local/share/xmonad
 
 # Link mpv plugins if they don't exist
 if [ ! -h ~/.config/mpv/scripts/mpris.so ]
@@ -117,6 +123,9 @@ end
 
 # Install Neovim plugins 
 nvim +PlugInstall +qall
+
+# Install Neovim coc extensions
+yarn --cwd ~/.config/coc/extensions install
 
 # Install npm packages
 install_npm_package_if_not_exist lighthouse
