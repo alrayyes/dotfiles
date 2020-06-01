@@ -53,9 +53,6 @@ alias sv="sudo nvim"
 alias ls="exa"
 alias l="exa -al"
 
-# vifm alias
-alias vifm="vifmrun"
-
 # wget alias
 alias wget='wget --hsts-file="~/.config/wget-hsts"'
 

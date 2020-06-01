@@ -86,6 +86,9 @@ set -xg sudope_sequence \e\e
 # Set tmux tmpdir to proper directory
 set -xg TMUX_TMPDIR "$XDG_RUNTIME_DIR"
 
+# Haskell
+set -xg STACK_ROOT ~/.local/share/stack
+
 # nvim alias
 alias v="nvim"
 alias sv="sudo nvim"
@@ -93,9 +96,6 @@ alias sv="sudo nvim"
 # ls alias
 alias ls="exa"
 alias l="exa -al"
-
-# vifm alias
-alias vifm="vifmrun"
 
 # wget alias
 alias wget='wget --hsts-file="~/.config/wget-hsts"'

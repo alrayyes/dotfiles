@@ -51,6 +51,9 @@ export XINITRC=~/.config/X11/xinitrc
 # This needs to be set for bspwm to see config
 export XDG_CONFIG_HOME="$HOME/.config"
 
+# Haskell
+export STACK_ROOT=~/.local/share/stack
+
 # Enable icons in lf
 export LF_ICONS="\
 tw=:\
