@@ -13,6 +13,7 @@
   - [[#lsp-backends][LSP Backends]]
 - [[#configured-applications-also-installed-by-script][Configured Applications (also installed by script)]]
 - [[#configured-locales][Configured Locales]]
+- [[#golang][Golang]]
 - [[#fish][Fish]]
     - [[#theme][Theme]]
     - [[#package-manager][Package Manager]]
@@ -56,7 +57,6 @@ A repository of my personal configuration files.
 - [[https://github.com/pixelb/fslint][fslint]]
 - [[https://github.com/junegunn/fzf][fzf]]
 - [[https://gnupg.org/][gnupg]]
-- [[https://golang.org/][golang]]
 - [[https://graphviz.org/][graphviz]]
 - [[https://imagemagick.org/index.php][ImageMagick]]
 - [[http://isync.sourceforge.net/mbsync.html][isync]]
@@ -71,16 +71,12 @@ A repository of my personal configuration files.
 - [[https://github.com/GeorgeFilipkin/pulsemixer][pulsemixer]]
 - [[https://www.python.org/][Python]]
 - [[https://github.com/dylanaraps/pywal][pywal]]
-- [[https://docs.haskellstack.org/en/stable/README/][stack]]
 - [[https://github.com/Spotifyd/spotifyd][Spotifyd]]
 - [[http://www.gnu.org/software/stow/][stow]]
 - [[https://github.com/muennich/sxiv][sxiv]]
 - [[https://github.com/tldr-pages/tldr][tldr]]
 - [[https://github.com/sargon/trayer-srg][trayer-srg]]
 - [[https://www.freedesktop.org/wiki/Software/udisks/][udisks]]
-- [[https://xmobar.org/][xmobar]]
-- [[https://hackage.haskell.org/package/xmonad-contrib][xmonad-contrib]]
-- [[https://xmonad.org/][xmonad]]
 - [[https://github.com/stoeckmann/xwallpaper][xwallpaper]]
 - [[https://pwmt.org/projects/zathura/][zathura]]
 ** Fonts
@@ -90,7 +86,6 @@ A repository of my personal configuration files.
 ** LSP Backends
 - [[https://github.com/mads-hartmann/bash-language-server][bash-language-server]]
 - [[https://github.com/MaskRay/ccls][ccls]]
-- [[https://github.com/haskell/haskell-ide-engine][haskell-ide-engine]]
 - [[https://github.com/felixfbecker/php-language-server][php-language-server]]
 - [[https://github.com/Microsoft/python-language-server][python-language-server]]
 - [[https://github.com/theia-ide/typescript-language-server][typescript-language-server]]
@@ -125,6 +120,10 @@ A repository of my personal configuration files.
 - hunspell-en_GB
 - hunspell-en_US
 - hunspell_nl
+
+* Golang
+- [[https://golang.org/][golang]]
+- [[https://github.com/golangci/golangci-lint][golangci-lint]]
 
 * Fish
 *** Theme
