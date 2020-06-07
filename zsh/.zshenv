@@ -11,7 +11,8 @@ TERM="xterm-256color"
 path_if_exists ~/.config/yarn/global/node_modules/.bin
 path_if_exists ~/.local/bin
 path_if_exists ~/.emacs.d/bin
-path_if_exists ~/go/bin
+path_if_exists ~/.local/share/go/bin 
+path_if_exists ~/.local/share/cargo/bin
 
 # Set GPG TTY
 export GPG_TTY="$(tty)"
@@ -51,8 +52,12 @@ export XINITRC=~/.config/X11/xinitrc
 # This needs to be set for bspwm to see config
 export XDG_CONFIG_HOME="$HOME/.config"
 
-# Haskell
-export STACK_ROOT=~/.local/share/stack
+# Rust
+export CARGO_HOME=~/.local/share/cargo
+export RUSTUP_HOME=~/.local/share/rustup
+
+# Golang
+export GOPATH=~/.local/share/go
 
 # Enable icons in lf
 export LF_ICONS="\

@@ -76,8 +76,6 @@
          +lsp)
        ledger            ; an accounting system in Emacs
        markdown          ; writing docs for people to ignore
-       (haskell          ; Haskell support
-        + lsp)
        (org              ; organize your plain life in plain text
         +roam
         +dragndrop       ; drag & drop files/images into org buffers
@@ -87,6 +85,8 @@
          +lsp)               ; perl's insecure younger brother
        (python
          +lsp)            ; beautiful is better than ugly
+       (rust
+        +lsp)             ; rust support
        (sh 
          +lsp)               ; she sells {ba,z,fi}sh shells on the C xor
        (web

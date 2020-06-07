@@ -179,5 +179,9 @@
 
         " Init jest in current cwd, require global jest command exists
         command! JestInit :call CocAction('runCommand', 'jest.init')
+
+        " use <Tab> and <S_tab> to navigate completion list
+        inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+        inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
     " }
 " }

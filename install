@@ -1,11 +1,12 @@
 #!/usr/bin/env fish
 
 # Prerequisite & inistalled apps
-set prerequisiteApps bat broot brave caffeine-ng exa fslint fzf go graphviz isync imagemagick lightdm-gtk-greeter mailcap deadd-notification-center-bin npm pamixer pfetch playerctl pulseaudio pulsemixer python pywal stack stow sxiv tldr trayer udisks2 xwallpaper yarn zathura
+set prerequisiteApps bat broot brave caffeine-ng exa fslint fzf graphviz isync imagemagick lightdm-gtk-greeter mailcap deadd-notification-center-bin npm pamixer pfetch playerctl pulseaudio pulsemixer python pywal stow sxiv tldr trayer udisks2 xwallpaper yarn zathura
 set prerequisiteFonts otf-nerd-fonts-fira-code noto-fonts ttf-unifont
-set prerequisiteLsp bash-language-server ccls haskell-ide-engine php-language-server python-language-server typescript-language-server vscode-css-languageserver vscode-html-languageserver nodejs-intelephense
-set configuredApps alacritty bspwm castero emacs firejail git gnupg gtk lf deadd-notification-center-bin mpd mpv mpv-mpris ncmpcpp neomutt neovim picom redshift spotifyd-dbus-mpris sxhkd tmux tuir weechat xmobar xmonad xmonad-contrib
+set prerequisiteLsp bash-language-server ccls php-language-server python-language-server typescript-language-server-bin vscode-css-languageserver-bin vscode-html-languageserver-bin nodejs-intelephense
+set configuredApps alacritty bspwm castero emacs firejail git gnupg gtk lf deadd-notification-center-bin mpd mpv mpv-mpris ncmpcpp neomutt neovim picom redshift spotifyd-dbus-mpris sxhkd tmux tuir weechat
 set locales aspell-en hunspell-en_GB hunspell-en_US hunspell-nl
+set golang go golangci-lint-bin
 
 function mkdir_if_not_exist
     if [ ! -d "$argv" ]
@@ -21,10 +22,10 @@ function install_omf_package_if_not_exist
     end
 end
 
-function install_npm_package_if_not_exist
-    if ! npm -g list --depth 1 lighthouse >/dev/null 2>&1
-        echo "Installing npm package $argv"
-        sudo npm install -g "$argv"
+function install_yarn_package_if_not_exist
+    if ! yarn global list lighthouse >/dev/null 2>&1
+        echo "Installing yarn package $argv"
+        yarn global add "$argv"
     end
 end
 
@@ -53,6 +54,10 @@ end
 
 for locale in $locales
     install_app_if_not_exist "$locale"
+end
+
+for go in $golang
+    install_app_if_not_exist "$go"
 end
 
 # Create directories that  need to exist
@@ -127,8 +132,8 @@ nvim +PlugInstall +qall
 # Install Neovim coc extensions
 yarn --cwd ~/.config/coc/extensions install
 
-# Install npm packages
-install_npm_package_if_not_exist lighthouse
+# Install yarn packages
+install_yarn_package_if_not_exist lighthouse
 
 # Setup broot if not done already
 if [ ! -d ~/.local/share/broot ]

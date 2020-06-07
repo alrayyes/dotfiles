@@ -33,7 +33,8 @@ end
 path_if_exists ~/.config/yarn/global/node_modules/.bin
 path_if_exists ~/.local/bin
 path_if_exists ~/.emacs.d/bin
-path_if_exists ~/go/bin
+path_if_exists ~/.local/share/go/bin
+path_if_exists ~/.local/share/cargo/bin
 
 # Set GPG TTY
 set GPG_TTY (tty)
@@ -70,12 +71,6 @@ set -xg MU_HOME ~/.cache/mu
 # Load xinit from the proper directory
 set -xgg XINITRC ~/.config/X11/xinitrc
 
-# Make sure rust uses the proper directory
-set -xg RUSTUP_HOME ~/.local/share/rustup
-
-# Set custom nprmrc path
-set -xg NPM_CONFIG_USERCONFIG ~/.config/npm/npmrc
-
 # bobthefish
 set -xg theme_nerd_fonts yes
 set -xg theme_color_scheme gruvbox
@@ -86,8 +81,12 @@ set -xg sudope_sequence \e\e
 # Set tmux tmpdir to proper directory
 set -xg TMUX_TMPDIR "$XDG_RUNTIME_DIR"
 
-# Haskell
-set -xg STACK_ROOT ~/.local/share/stack
+# Rust
+set -xg CARGO_HOME ~/.local/share/cargo
+set -xg RUSTUP_HOME ~/.local/share/rustup
+
+# Golang
+set -xg GOPATH ~/.local/share/go
 
 # nvim alias
 alias v="nvim"
