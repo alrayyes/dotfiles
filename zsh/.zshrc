@@ -22,6 +22,7 @@ zplug "plugins/docker-compose", from:oh-my-zsh
 zplug "plugins/extract", from:oh-my-zsh
 zplug "plugins/fzf", from:oh-my-zsh
 zplug "plugins/git", from:oh-my-zsh
+zplug "plugins/git-flow", from:oh-my-zsh
 zplug "plugins/gitignore", from:oh-my-zsh
 zplug "plugins/pass", from:oh-my-zsh
 zplug "plugins/ripgrep", from:oh-my-zsh
