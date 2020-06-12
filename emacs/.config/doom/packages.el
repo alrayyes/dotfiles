@@ -12,3 +12,4 @@
 (package! nginx-mode)
 (package! fish-mode)
 (package! salt-mode)
+(package! fountain-mode)
