@@ -226,6 +226,9 @@ ex=:\
 # Save history file in proper place
 HISTFILE=~/.cache/zsh/history
 
+# Load config files from their proper place
+ZDOTDIR=~/.config/zsh
+
 # Use alternative muhome
 export MU_HOME="/home/alrayyes/.cache/mu"
 

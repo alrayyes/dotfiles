@@ -35,6 +35,9 @@ zplug "plugins/yarn", from:oh-my-zsh
 zplug "zsh-users/zsh-autosuggestions", from:github, defer:3
 zplug "zsh-users/zsh-syntax-highlighting", from:github, defer:3
 
+# Let zplug manage itself
+zplug 'zplug/zplug', hook-build:'zplug --self-manage'
+
 # Install packages
 if ! zplug check --verbose; then
 	printf "Install zplug plugins? [y/N]: "
