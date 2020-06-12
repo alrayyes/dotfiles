@@ -161,6 +161,7 @@ A repository of my personal configuration files.
 - [[https://github.com/vim-airline/vim-airline][vim-airline/vim-airline]]
 *** Programming
 - [[https://github.com/airblade/vim-gitgutter][airblade/vim-gitgutter]]
+- [[https://github.com/dense-analysis/ale][dense-analysis/ale]]
 - [[https://github.com/godlygeek/tabular][godlygeek/tabular]]
 - [[https://github.com/neoclide/coc.nvim][neoclice/coc.nvim]]
 - [[https://github.com/preservim/nerdcommenter][preservim/nerdcommenter]]

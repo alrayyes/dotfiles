@@ -34,6 +34,7 @@
 
     " Programming {
         Plug 'airblade/vim-gitgutter'
+        Plug 'dense-analysis/ale'
         Plug 'godlygeek/tabular'
         Plug 'neoclide/coc.nvim', {'branch': 'release'}
         Plug 'preservim/nerdcommenter'
@@ -163,8 +164,6 @@
     " }
 
     " coc {
-        command! -nargs=0 Prettier :CocCommand prettier.formatFile
-
         vmap <leader>f  <Plug>(coc-format-selected)
         nmap <leader>f  <Plug>(coc-format-selected)
 
@@ -183,5 +182,20 @@
         " use <Tab> and <S_tab> to navigate completion list
         inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
         inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+    " }
+
+    " ale {
+        " Shortcuts jump between linting errors
+        map <silent> [c <Plug>(ale_previous_wrap)
+        nmap <silent> ]c <Plug>(ale_next_wrap)
+
+        let g:ale_sign_error = '❌'
+        let g:ale_sign_warning = '⚠️'
+
+        " Fix files
+        let g:ale_fixers = {'javascript': ['prettier', 'eslint']}
+
+        " Fix files automatically on save
+        let g:ale_fix_on_save = 1
     " }
 " }
