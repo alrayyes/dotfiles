@@ -55,7 +55,7 @@ inherit = bar/base-laptop
 bottom = true
 monitor = ${env:MONITOR:eDP1}
 
-modules-right = corona seperator system-usb-udev
+modules-right = system-usb-udev
 modules-left = mpd player-mpris-tail
 
 [bar/laptop-top]
@@ -74,7 +74,7 @@ monitor = ${env:MONITOR:DP-1}
 
 modules-left = bspwm
 modules-center = mpd player-mpris-tail
-modules-right = corona seperator eth bluetooth seperator volume seperator docker memory cpu temperature seperator system-usb-udev filesystem seperator updates-arch-combined mail reddit github rss seperator weather date
+modules-right = eth bluetooth seperator volume seperator docker memory cpu temperature seperator system-usb-udev filesystem seperator updates-arch-combined mail reddit github rss seperator weather date
 
 tray-position = right
 
