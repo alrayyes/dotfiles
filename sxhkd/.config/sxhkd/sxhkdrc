@@ -79,15 +79,15 @@ super + Escape
    pkill -USR1 -x sxhkd
 
 # Misc apps
-alt + {l, n, r, s, c, v, k, a, u}
+ctrl + alt + {l, n, r, s, c, v, k, a, u}
     alacritty --class float,float -e {lf, neomutt, /usr/bin/newsboat, spt, castero, nvim, ~/.local/bin/calendar-and-wait, ~/.local/bin/audit, ~/.local/bin/update-arch}
-alt + {b, e, S}
+ctrl + alt + {b, e, S}
     {brave, emacs, spotify}
-alt + {t}
+ctrl + alt + {t}
     ~/.local/bin/tldr-dmenu
-alt + {p}
+ctrl + alt + {p}
     playerctl play-pause
-alt + {w}
+ctrl + alt + {w}
     alacritty --class fullscreen,fullscreen -e ~/.config/polybar/bin/wttr-and-wait
 
 #-----------------------------------------------------------Bspwm--------------------------------------------------------------
