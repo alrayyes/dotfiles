@@ -7,6 +7,8 @@
   - [[#set-default-paths-projectile-should-search][Set default paths projectile should search]]
 - [[#circe][Circe]]
   - [[#connect-to-znc-passwords-are-gotten-from-password-store][Connect to ZNC. Passwords are gotten from Password Store.]]
+  - [[#deft][Deft]]
+    - [[#deft-should-use-org-roam-directory][Deft should use org-roam directory]]
 - [[#org-mode][Org mode]]
   - [[#general-settings-1][General settings]]
     - [[#when-moving-entries-up-and-down-in-the-buffer-use-j-and-k-instead-of--and-][When moving entries up and down in the buffer use `j` and `k` instead of `↑` and `↓`]]
@@ -15,6 +17,10 @@
     - [[#require-package][Require package]]
   - [[#org-capture-templates][org-capture-templates]]
     - [[#capture-web-data-for-org-protocol-capture-html][Capture web data for org-protocol-capture-html]]
+  - [[#org-roam][org-roam]]
+    - [[#set-directory][Set directory]]
+  - [[#org-journal][org-journal]]
+    - [[#get-org-journal-to-work-nicely-with-org-roam][Get org-journal to work nicely with org-roam]]
 - [[#mu4e][mu4e]]
   - [[#setup-mu4e-with-multiple-profiles][Setup mu4e with multiple profiles]]
 - [[#elfeed][Elfeed]]
@@ -25,8 +31,6 @@
   -  [[#set-dictionaries-for-languages-i-use][Set dictionaries for languages I use]]
 - [[#markdown][Markdown]]
   - [[#open-mdx-files-in-markdown-mode][Open mdx files in markdown-mode]]
-- [[#haskell][Haskell]]
-  - [[#auto-format-haskell-code-on-save][Auto format Haskell code on save]]
 
 * General settings
 ** Variable font sizes depending on screen width. Set font to [[https://www.jetbrains.com/lp/mono/][JetBrains Mono]]
@@ -87,6 +91,12 @@
   )
 (add-hook 'circe-channel-mode-hook 'enable-lui-autopaste)
 #+END_SRC
+
+** [[https://jblevins.org/projects/deft/][Deft]]
+*** Deft should use org-roam directory
+#+BEGIN_SRC emacs-lisp
+(setq deft-directory "~/Documents/org-roam")
+#+END_SRC
 * [[https://orgmode.org/][Org mode]]
 ** General settings
 *** When moving entries up and down in the buffer use `j` and `k` instead of `↑` and `↓`
@@ -124,6 +134,19 @@
                                         (file+olp "~/Documents/org/web.org" "Web")
                                         "* %c\n%U %?%:initial"))
   )
+#+END_SRC
+** [[https://github.com/org-roam/org-roam][org-roam]]
+*** Set directory
+#+BEGIN_SRC emacs-lisp
+(setq org-roam-directory "~/Documents/org-roam")
+#+END_SRC
+** [[https://github.com/bastibe/org-journal][org-journal]]
+*** Get org-journal to work nicely with org-roam
+#+BEGIN_SRC emacs-lisp
+(setq org-journal-dir "~/Documents/org-roam")
+(setq org-journal-date-prefix "#+title: ")
+(setq org-journal-file-format "%Y-%m-%d.org")
+(setq org-journal-date-format "%A, %d %B %Y"))
 #+END_SRC
 * [[https://www.djcbsoftware.nl/code/mu/mu4e.html][mu4e]]
 ** Setup mu4e with multiple profiles
@@ -247,10 +270,4 @@
 ** Open mdx files in markdown-mode
 #+BEGIN_SRC emacs-lisp
    (add-to-list 'auto-mode-alist '("\\.mdx\\'" . markdown-mode))
-#+END_SRC
-* Haskell
-** Auto format Haskell code on save
-#+BEGIN_SRC emacs-lisp
-(custom-set-variables
- '(haskell-stylish-on-save t))
 #+END_SRC

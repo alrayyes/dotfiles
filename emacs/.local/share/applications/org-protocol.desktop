@@ -1,6 +1,7 @@
 [Desktop Entry]
-Name=org-protocol
+Name=Org-protocol
 Exec=emacsclient %u
+Icon=emacs-icon
 Type=Application
 Terminal=false
 Categories=System;

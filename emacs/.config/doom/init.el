@@ -13,6 +13,7 @@
        ivy               ; a search engine for love and life
 
        :ui
+       deft
        doom              ; what makes DOOM look the way it does
        doom-dashboard    ; a nifty splash screen for Emacs
        hl-todo           ; highlight TODO/FIXME/NOTE/DEPRECATED/HACK/REVIEW
@@ -33,7 +34,7 @@
        (evil +everywhere); come to the dark side, we have cookies
        file-templates    ; auto-snippets for empty files
        fold              ; (nigh) universal code folding
-       (format +onsave)  ; automated prettiness
+       (format +onsave +format-with-lsp)  ; automated prettiness
        multiple-cursors  ; editing in many places at once
        rotate-text       ; cycle region at point between text candidates
        snippets          ; my elves. They type so I don't have to
@@ -77,6 +78,8 @@
        ledger            ; an accounting system in Emacs
        markdown          ; writing docs for people to ignore
        (org              ; organize your plain life in plain text
+        +noter
+        +journal
         +roam
         +dragndrop       ; drag & drop files/images into org buffers
         +pandoc          ; export-with-pandoc support
