@@ -11,7 +11,7 @@ TERM="xterm-256color"
 path_if_exists ~/.config/yarn/global/node_modules/.bin
 path_if_exists ~/.local/bin
 path_if_exists ~/.emacs.d/bin
-path_if_exists ~/.local/share/go/bin 
+path_if_exists ~/.local/share/go/bin
 path_if_exists ~/.local/share/cargo/bin
 
 # Set GPG TTY
