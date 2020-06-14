@@ -159,10 +159,6 @@
         set termguicolors
     " }
 
-    " haskell {
-        autocmd BufWrite *.hs :%!stylish-haskell
-    " }
-
     " coc {
         vmap <leader>f  <Plug>(coc-format-selected)
         nmap <leader>f  <Plug>(coc-format-selected)
