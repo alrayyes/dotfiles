@@ -140,7 +140,7 @@ A repository of my personal configuration files.
 
 * Neovim
 ** Theme
-- [[https://github.com/morhetz/gruvbox][gruvbox]]
+- [[https://github.com/gruvbox-community/gruvbox][gruvbox]]
 ** Plugin Manager
 - [[https://github.com/junegunn/vim-plug][vim-plug]]
 ** Plugins

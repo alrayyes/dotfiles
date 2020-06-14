@@ -46,11 +46,12 @@
     " }
 
     " UI {
-        Plug 'morhetz/gruvbox'
+        Plug 'gruvbox-community/gruvbox'
         " This has to be loaded last to work
         Plug 'ryanoasis/vim-devicons'
     " }
-        call plug#end()
+
+    call plug#end()
 " }
 
 " General {
