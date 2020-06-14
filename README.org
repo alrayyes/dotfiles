@@ -173,6 +173,7 @@ A repository of my personal configuration files.
 *** UI
 - [[https://github.com/morhetz/gruvbox][morhetz/gruvbox]]
 - [[https://github.com/ryanoasis/vim-devicons][ryanoasis/vim-devicons]]
+
 * NPM
 ** Packages
 - [[https://github.com/GoogleChrome/lighthouse][lighthouse]]
