@@ -99,3 +99,6 @@ xautolock -time 10 -locker ~/.local/bin/lock &
 ###---Misc---###
 # Needed for Jetbrains products to work
 wmname LG3D &
+
+# Enable bspswallow
+pidof bspswallow || bash bspswallow &
