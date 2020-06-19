@@ -1,0 +1,12 @@
+" Enable plugins
+set easymotion
+set commentary
+set surround
+
+" Ignore case on search
+set ic
+
+" Line numbers are relative
+set rnu
+
+source ~/.config/nvim/init.vim
