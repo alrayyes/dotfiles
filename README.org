@@ -14,6 +14,7 @@
 - [[#configured-applications-also-installed-by-script][Configured Applications (also installed by script)]]
 - [[#configured-locales][Configured Locales]]
 - [[#golang][Golang]]
+- [[#shell][Shell]]
 - [[#fish][Fish]]
     - [[#theme][Theme]]
     - [[#package-manager][Package Manager]]
@@ -77,7 +78,9 @@ A repository of my personal configuration files.
 - [[https://github.com/tldr-pages/tldr][tldr]]
 - [[https://github.com/sargon/trayer-srg][trayer-srg]]
 - [[https://www.freedesktop.org/wiki/Software/udisks/][udisks]]
+- [[https://www.x.org/releases/X11R7.5/doc/man/man1/xprop.1.html][xprop]]
 - [[https://github.com/stoeckmann/xwallpaper][xwallpaper]]
+- [[https://yarnpkg.com/][yarn]]
 - [[https://pwmt.org/projects/zathura/][zathura]]
 ** Fonts
 - [[https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/FiraCode][Fira Code Nerd Patched]]
@@ -124,6 +127,10 @@ A repository of my personal configuration files.
 * Golang
 - [[https://golang.org/][golang]]
 - [[https://github.com/golangci/golangci-lint][golangci-lint]]
+
+* Shell
+- [[https://github.com/mvdan/sh][shfmt]]
+- [[https://www.shellcheck.net/][shellcheck]]
 
 * Fish
 *** Theme
