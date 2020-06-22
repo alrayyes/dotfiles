@@ -89,38 +89,38 @@ set -xg RUSTUP_HOME ~/.local/share/rustup
 set -xg GOPATH ~/.local/share/go
 
 # nvim alias
-alias v="nvim"
-alias sv="sudo nvim"
+abbr --add v 'nvim'
+abbr --add sv 'sudo nvim'
 
 # ls alias
-alias ls="exa"
-alias l="exa -al"
+abbr --add ls 'exa'
+abbr --add l 'exa -al'
 
 # wget alias
-alias wget='wget --hsts-file="~/.config/wget-hsts"'
+abbr --add wget 'wget --hsts-file="~/.config/wget-hsts"'
 
 # weechat
-alias weechat="weechat -d ~/.config/weechat"
+abbr --add weechat "weechat -d ~/.config/weechat"
 
 # tmux
-alias tmux="tmux -f ~/.config/tmux/tmux.conf"
+abbr --add tmux "tmux -f ~/.config/tmux/tmux.conf"
 
 # pass
-alias pass="PASSWORD_STORE_DIR=$PASSWORD_STORE_DIR /usr/bin/pass"
+abbr --add pass "PASSWORD_STORE_DIR=$PASSWORD_STORE_DIR /usr/bin/pass"
 
 # pacman aliases
-alias pacrmorphans="sudo pacman -Rs (pacman -Qtdq)"
-alias pacrem="sudo pacman -Rns"
+abbr --add pacrmorphans "sudo pacman -Rs (pacman -Qtdq)"
+abbr --add pacrem "sudo pacman -Rns"
 
 # git alaises
-alias gpoat="git push origin --all && git push origin --tags"
-alias gs="git status"
-alias gd="git diff"
-alias g="git"
+abbr --add gpoat "git push origin --all && git push origin --tags"
+abbr --add gs "git status"
+abbr --add gd "git diff"
+abbr --add g "git"
 
 # Prevent mv & rm oopsies
-alias mv="mv -i"
-alias rm="rm -i"
+abbr --add mv "mv -i"
+abbr --add rm "rm -i"
 
 # Load lfcd wiith proper icons
 function lf
