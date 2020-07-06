@@ -10,6 +10,8 @@
 - [[#applications-installed-by-script][Applications installed by script]]
   - [[#applications][Applications]]
   - [[#fonts][Fonts]]
+  - [[#libraries][Libraries]]
+    - [[#python][Python]]
   - [[#lsp-backends][LSP Backends]]
 - [[#configured-applications-also-installed-by-script][Configured Applications (also installed by script)]]
 - [[#configured-locales][Configured Locales]]
@@ -66,6 +68,7 @@ A repository of my personal configuration files.
 - [[https://mpv.io/][mpv]]
 - [[https://www.npmjs.com/get-npm][npm]]
 - [[https://github.com/cdemoulins/pamixer][pamixer]]
+- [[https://pandoc.org/][Pandoc]]
 - [[https://github.com/dylanaraps/pfetch][pfetch]]
 - [[https://github.com/altdesktop/playerctl][Playerctl]]
 - [[https://www.freedesktop.org/wiki/Software/PulseAudio/][Pulseaudio]]
@@ -86,6 +89,9 @@ A repository of my personal configuration files.
 - [[https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/FiraCode][Fira Code Nerd Patched]]
 - [[https://www.google.com/get/noto/][Noto]]
 - [[https://savannah.gnu.org/projects/unifont/][Unifont]]
+** Libraries
+*** Python
+- [[http://scorreia.com/software/panflute/][Panflute]]
 ** LSP Backends
 - [[https://github.com/mads-hartmann/bash-language-server][bash-language-server]]
 - [[https://github.com/MaskRay/ccls][ccls]]
