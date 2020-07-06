@@ -8,10 +8,14 @@ set ignorecase true
 
 # Custom functions
 cmd open ${{
-    case $(file --mime-type "$f" -bL) in
-        text/*|application/json) nvim "$f";;
-        video/*|image/*/application/pdf) xdg-open "$f" & disown;;
-        *) xdg-open "$f" ;;
+    case "${f##*.}" in
+    org) emacsclient -c "$f";;
+    *)
+        case $(file --mime-type "$f" -bL) in
+            text/*|application/json) nvim "$f";;
+            video/*|image/*/application/pdf) xdg-open "$f" & disown;;
+            *) xdg-open "$f" ;;
+        esac
     esac
 }}
 
