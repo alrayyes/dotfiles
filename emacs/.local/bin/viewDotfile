@@ -1,0 +1,18 @@
+#!/bin/bash
+
+# Check if parameter is passed
+if [ ! $# -eq 1 ]; then
+    echo "Error: no parameter passed!"
+    exit 1
+else
+    # Check if a valid dot file is passed
+    if [[ $1 = /tmp/graph*.dot ]]; then
+        # Check that file exists
+        if [[ -f $1 ]]; then
+            dot -T pdf <"$1" | zathura - && rm "$1"
+        else
+            echo "File $1 doesn't exist!"
+            exit 1
+        fi
+    fi
+fi

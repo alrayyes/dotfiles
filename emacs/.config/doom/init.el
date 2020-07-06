@@ -58,6 +58,7 @@
        grammar
 
        :tools
+       biblio
        docker
        editorconfig      ; let someone else argue about tabs vs spaces
        (eval +overlay)     ; run code, run (also, repls)
@@ -82,7 +83,7 @@
         +journal
         +roam
         +dragndrop       ; drag & drop files/images into org buffers
-        +pandoc          ; export-with-pandoc support
+        +pandoc
         +present)        ; using org-mode for presentations
        (php
          +lsp)               ; perl's insecure younger brother

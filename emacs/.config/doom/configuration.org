@@ -3,6 +3,7 @@
   - [[#variable-font-sizes-depending-on-screen-width-set-font-to-jetbrains-mono][Variable font sizes depending on screen width. Set font to JetBrains Mono]]
   - [[#theme-is-set-to-doom-molokai-from-doom-themes][Theme is set to doom-molokai from doom-themes]]
   - [[#fetch-password-from-authinfo][Fetch password from authinfo]]
+  - [[#set-relative-line-numbers][Set relative line numbers]]
 - [[#projectile][Projectile]]
   - [[#set-default-paths-projectile-should-search][Set default paths projectile should search]]
 - [[#circe][Circe]]
@@ -19,8 +20,10 @@
     - [[#capture-web-data-for-org-protocol-capture-html][Capture web data for org-protocol-capture-html]]
   - [[#org-roam][org-roam]]
     - [[#set-directory][Set directory]]
+    - [[#set-org-roam-viewer][Set org-roam-viewer]]
   - [[#org-journal][org-journal]]
     - [[#get-org-journal-to-work-nicely-with-org-roam][Get org-journal to work nicely with org-roam]]
+  - [[#publishing][Publishing]]
 - [[#mu4e][mu4e]]
   - [[#setup-mu4e-with-multiple-profiles][Setup mu4e with multiple profiles]]
 - [[#elfeed][Elfeed]]
@@ -56,6 +59,10 @@
               (funcall secret)
             secret))
       (error "Password not found for %S" params))))
+#+END_SRC
+** Set relative line numbers
+#+BEGIN_SRC emacs-lisp
+(setq display-line-numbers-type `relative)
 #+END_SRC
 * [[https://www.projectile.mx/en/latest/][Projectile]]
 ** Set default paths [[https://www.projectile.mx/en/latest/][projectile]] should search
@@ -140,13 +147,27 @@
 #+BEGIN_SRC emacs-lisp
 (setq org-roam-directory "~/Documents/org-roam")
 #+END_SRC
+*** Set org-roam-viewer
+#+BEGIN_SRC emacs-lisp
+(setq org-roam-graph-viewer "~/.local/bin/viewDotfile")
+#+END_SRC
 ** [[https://github.com/bastibe/org-journal][org-journal]]
 *** Get org-journal to work nicely with org-roam
 #+BEGIN_SRC emacs-lisp
 (setq org-journal-dir "~/Documents/org-roam")
 (setq org-journal-date-prefix "#+title: ")
 (setq org-journal-file-format "%Y-%m-%d.org")
-(setq org-journal-date-format "%A, %d %B %Y"))
+(setq org-journal-date-format "%A, %d %B %Y")
+#+END_SRC
+** Publishing
+#+BEGIN_SRC emacs-lisp
+(setq org-publish-project-alist
+      '(("wiki"
+         :base-directory "~/Documents/org-roam/"
+         :publishing-directory "~/devel/personal/Ryankes.eu/wiki/content/"
+         :publishing-function org-pandoc-export-to-markdown_mmd
+         :select-tags ("export-blog")
+         )))
 #+END_SRC
 * [[https://www.djcbsoftware.nl/code/mu/mu4e.html][mu4e]]
 ** Setup mu4e with multiple profiles

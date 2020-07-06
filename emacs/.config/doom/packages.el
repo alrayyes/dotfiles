@@ -13,3 +13,4 @@
 (package! fish-mode)
 (package! salt-mode)
 (package! fountain-mode)
+(package! org-ref)
