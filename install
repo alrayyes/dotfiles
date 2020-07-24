@@ -88,11 +88,8 @@ mkdir_if_not_exist ~/.config/X11
 mkdir_if_not_exist ~/.gnupg
 mkdir_if_not_exist ~/.config/mpv/scripts
 mkdir_if_not_exist ~/.config/coc/extensions
+mkdir_if_not_exist ~/.config/dmenu-frecency
 
-# Create xmonad directories
-mkdir_if_not_exist ~/.config/xmonad
-mkdir_if_not_exist ~/.cache/xmonad
-mkdir_if_not_exist ~/.local/share/xmonad
 
 # Link mpv plugins if they don't exist
 if [ ! -h ~/.config/mpv/scripts/mpris.so ]

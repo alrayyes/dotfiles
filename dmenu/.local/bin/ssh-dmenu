@@ -4,15 +4,15 @@
 . ~/.cache/wal/colors.sh
 
 # get hostnames from ~/.ssh/known_hosts
-ssh_host="$(awk -F "[ ,]+" '{print $1}' ~/.ssh/known_hosts | tr -d '[]' | uniq | sort -n | dmenu -nb "$color0" -nf "$color15" -sb "$color1" -sf "$color15" "$@")"
+ssh_host="$(awk -F "[ ,]+" '{print $1}' ~/.ssh/known_hosts | tr -d '[]' | uniq | sort -n | dmenu -fn "FuraCode Nerd Font" -nb "$color0" -nf "$color15" -sb "$color1" -sf "$color15" "$@")"
 # split hostnames into array { hostname, port }
 mapfile -t params < <(echo "$ssh_host" | awk -F ":" '{print $1} {if ($2) print $2}')
 
 if [ -n "$ssh_host" ]; then
-	# If array size is two then second parameter is port number
-	if [ ${#params[@]} -eq 2 ]; then
-		alacritty -e ssh "${params[0]}" -p "${params[1]}"
-	else
-		alacritty -e ssh "${params[0]}"
-	fi
+    # If array size is two then second parameter is port number
+    if [ ${#params[@]} -eq 2 ]; then
+        alacritty -e ssh "${params[0]}" -p "${params[1]}"
+    else
+        alacritty -e ssh "${params[0]}"
+    fi
 fi
