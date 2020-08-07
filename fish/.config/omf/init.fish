@@ -20,7 +20,7 @@ function fish_greeting
 
     setxkbmap -option caps:escape
     cat ~/.cache/wal/sequences &
-    pfetch
+    neofetch
 end
 
 function path_if_exists
