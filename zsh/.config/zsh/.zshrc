@@ -105,4 +105,4 @@ gpg-connect-agent updatestartuptty /bye >/dev/null
 # Needed for broot
 source /home/alrayyes/.config/broot/launcher/bash/br
 
-pfetch
+neofetch
