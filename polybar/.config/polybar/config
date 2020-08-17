@@ -317,7 +317,7 @@ label-foreground = ${colors.alert}
 
 [module/updates-arch-combined]
 type = custom/script
-exec = sh ~/.local/share/polybar-scripts/polybar-scripts/updates-arch-combined/updates-arch-combined.sh  | tr -d "\#\ "
+exec = sh ~/.local/share/polybar-scripts/polybar-scripts/updates-pacman-aurhelper/updates-pacman-aurhelper.sh | tr -d "\#\ "
 interval = 600
 
 click-left = setsid alacritty --class=float,float -e update-arch
