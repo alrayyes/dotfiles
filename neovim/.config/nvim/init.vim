@@ -34,6 +34,7 @@
 
     " Programming {
         Plug 'airblade/vim-gitgutter'
+        Plug 'alvan/vim-closetag'
         Plug 'dense-analysis/ale'
         Plug 'godlygeek/tabular'
         Plug 'neoclide/coc.nvim', {'branch': 'release'}
