@@ -160,9 +160,9 @@ A repository of my personal configuration files.
 *** General
 - [[https://github.com/bling/vim-bufferline][bling/vim-bufferline]]
 - [[https://github.com/ctrlpvim/ctrlp.vim][ctrlp/ctrlp.vim]]
+- [[https://github.com/easymotion/vim-easymotion][easymotion/vim-easymotion]]
 - [[https://github.com/farmergreg/vim-lastplace][farmergreg/vim-lastplace]]
--[[https://github.com/junegunn/fzf][ junegunn/fzf]]
-- [[https://github.com/justinmk/vim-sneak][justinmk/vim-sneak]]
+- [[https://github.com/junegunn/fzf][ junegunn/fzf]]
 - [[https://github.com/mbbill/undotree][mbbill/undotree]]
 - [[https://github.com/mhinz/vim-signify][mhinz/vim-signify]]
 - [[https://github.com/myusuf3/numbers.vim][myusuf3/numbers.vim]]

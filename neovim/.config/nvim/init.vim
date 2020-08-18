@@ -17,9 +17,9 @@
             Plug 'unblevable/quick-scope'
         " }
         Plug 'bling/vim-bufferline'
+        Plug 'easymotion/vim-easymotion'
         Plug 'farmergreg/vim-lastplace'
         Plug 'junegunn/fzf'
-        Plug 'justinmk/vim-sneak'
         Plug 'ctrlpvim/ctrlp.vim'
         Plug 'mbbill/undotree'
         Plug 'mhinz/vim-signify'
@@ -194,5 +194,24 @@
 
         " Fix files automatically on save
         let g:ale_fix_on_save = 1
+    " }
+
+    " easymotion {
+        let g:EasyMotion_do_mapping = 0 " Disable default mappings
+
+        " Jump to anywhere you want with minimal keystrokes, with just one key binding.
+        " `s{char}{label}`
+        nmap s <Plug>(easymotion-overwin-f)
+        " or
+        " `s{char}{char}{label}`
+        " Need one more keystroke, but on average, it may be more comfortable.
+        nmap s <Plug>(easymotion-overwin-f2)
+
+        " Turn on case-insensitive feature
+        let g:EasyMotion_smartcase = 1
+
+        " JK motions: Line motions
+        map <Leader>j <Plug>(easymotion-j)
+        map <Leader>k <Plug>(easymotion-k)
     " }
 " }
