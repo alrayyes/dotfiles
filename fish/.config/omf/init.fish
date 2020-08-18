@@ -312,3 +312,9 @@ if set -q FZF_COMPLETE
         bind -M insert \t '__fzf_complete'
     end
 end
+
+# Make fzf use ripgrep if available
+if type rg &> /dev/null
+  export FZF_DEFAULT_COMMAND='rg --files'
+  export FZF_DEFAULT_OPTS='-m --height 50% --border'
+end

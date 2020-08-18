@@ -19,8 +19,7 @@
         Plug 'bling/vim-bufferline'
         Plug 'easymotion/vim-easymotion'
         Plug 'farmergreg/vim-lastplace'
-        Plug 'junegunn/fzf'
-        Plug 'ctrlpvim/ctrlp.vim'
+        Plug 'junegunn/fzf.vim'
         Plug 'mbbill/undotree'
         Plug 'mhinz/vim-signify'
         Plug 'myusuf3/numbers.vim'
@@ -214,5 +213,20 @@
         " JK motions: Line motions
         map <Leader>j <Plug>(easymotion-j)
         map <Leader>k <Plug>(easymotion-k)
+    " }
+
+    " fzf {
+        nnoremap <silent> <C-f> :Files<CR>
+        nnoremap <silent> <Leader>f :Rg<CR>
+
+        nnoremap <silent> <Leader>f :Rg<CR>
+        nnoremap <silent> <Leader>/ :BLines<CR>
+        nnoremap <silent> <Leader>' :Marks<CR>
+        nnoremap <silent> <Leader>g :Commits<CR>
+        nnoremap <silent> <Leader>H :Helptags<CR>
+        nnoremap <silent> <Leader>hh :History<CR>
+        nnoremap <silent> <Leader>h: :History:<CR>
+        nnoremap <silent> <Leader>h/ :History/<CR> 
+
     " }
 " }

@@ -240,3 +240,9 @@ vterm_prompt_end() {
 	printf "\e]51;A$(whoami)@$(hostname):$(pwd)\e\\"
 }
 PROMPT=$PROMPT'%{$(vterm_prompt_end)%}'
+
+# Make fzf use ripgrep if available
+if type rg &> /dev/null; then
+  export FZF_DEFAULT_COMMAND='rg --files'
+  export FZF_DEFAULT_OPTS='-m --height 50% --border'
+fi
