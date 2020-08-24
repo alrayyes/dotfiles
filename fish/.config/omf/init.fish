@@ -122,6 +122,9 @@ abbr --add g "git"
 abbr --add mv "mv -i"
 abbr --add rm "rm -i"
 
+# Colorize diff
+abbr --add diff "diff --color"
+
 # Load lfcd wiith proper icons
 function lf
     set -lx LF_ICONS "\

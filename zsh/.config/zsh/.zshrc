@@ -83,6 +83,9 @@ alias g="git"
 alias mv="mv -i"
 alias rm="rm -i"
 
+# Colorize diff
+alias diff="diff --color"
+
 # Use lf to switch directories and bind it to ctrl-o
 lfcd() {
 	tmp="$(mktemp)"
