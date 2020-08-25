@@ -35,6 +35,7 @@ path_if_exists ~/.local/bin
 path_if_exists ~/.emacs.d/bin
 path_if_exists ~/.local/share/go/bin
 path_if_exists ~/.local/share/cargo/bin
+path_if_exists ~/.local/share/go/bin
 
 # Set GPG TTY
 set GPG_TTY (tty)
