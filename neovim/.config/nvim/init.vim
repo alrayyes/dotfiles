@@ -190,7 +190,7 @@
         let g:ale_sign_warning = '⚠️'
 
         " Fix files
-        let g:ale_fixers = {'javascript': ['prettier', 'eslint'], 'sh': ['shfmt'], 'json': ['prettier']}
+        let g:ale_fixers = {'*': ['remove_trailing_lines', 'trim_whitespace'], 'javascript': ['prettier', 'eslint'], 'sh': ['shfmt'], 'json': ['prettier'], 'go': ['gofmt', 'goimports']}
 
         " Fix files automatically on save
         let g:ale_fix_on_save = 1
