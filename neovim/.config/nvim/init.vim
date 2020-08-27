@@ -98,9 +98,9 @@
 
 " Key Mappings {
     " Switch between different windows by their direction
-    no <C-j> <C-w>j| "switching to below window 
+    no <C-j> <C-w>j| "switching to below window
     no <C-k> <C-w>k| "switching to above window
-    no <C-l> <C-w>l| "switching to right window 
+    no <C-l> <C-w>l| "switching to right window
     no <C-h> <C-w>h| "switching to left window
 
     " More convenient leaders
@@ -190,7 +190,7 @@
         let g:ale_sign_warning = '⚠️'
 
         " Fix files
-        let g:ale_fixers = {'*': ['remove_trailing_lines', 'trim_whitespace'], 'javascript': ['prettier', 'eslint'], 'sh': ['shfmt'], 'json': ['prettier'], 'go': ['gofmt', 'goimports']}
+        let g:ale_fixers = {'*': ['remove_trailing_lines', 'trim_whitespace'], 'javascript': ['importjs', 'prettier', 'eslint'], 'sh': ['shfmt'], 'json': ['prettier'], 'go': ['gofmt', 'goimports'], 'markdown': ['prettier', 'remark-lint', 'textlint'], 'rust': ['rustfmt']}
 
         " Fix files automatically on save
         let g:ale_fix_on_save = 1
@@ -226,6 +226,6 @@
         nnoremap <silent> <Leader>H :Helptags<CR>
         nnoremap <silent> <Leader>hh :History<CR>
         nnoremap <silent> <Leader>h: :History:<CR>
-        nnoremap <silent> <Leader>h/ :History/<CR> 
+        nnoremap <silent> <Leader>h/ :History/<CR>
     " }
 " }
