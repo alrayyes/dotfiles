@@ -190,7 +190,7 @@
         let g:ale_sign_warning = '⚠️'
 
         " Fix files
-        let g:ale_fixers = {'*': ['remove_trailing_lines', 'trim_whitespace'], 'javascript': ['importjs', 'prettier', 'eslint'], 'sh': ['shfmt'], 'json': ['prettier'], 'go': ['gofmt', 'goimports'], 'markdown': ['prettier', 'remark-lint', 'textlint'], 'rust': ['rustfmt']}
+        let g:ale_fixers = {'*': ['remove_trailing_lines', 'trim_whitespace'], 'vue': ['importjs', 'prettier', 'eslint'], 'javascript': ['importjs', 'prettier', 'eslint'], 'sh': ['shfmt'], 'json': ['prettier'], 'go': ['gofmt', 'goimports'], 'markdown': ['prettier', 'remark-lint', 'textlint'], 'rust': ['rustfmt']}
 
         " Fix files automatically on save
         let g:ale_fix_on_save = 1
@@ -227,5 +227,9 @@
         nnoremap <silent> <Leader>hh :History<CR>
         nnoremap <silent> <Leader>h: :History:<CR>
         nnoremap <silent> <Leader>h/ :History/<CR>
+    " }
+
+    " closetag {
+        let g:closetag_filetypes = 'html,xhtml,phtml,vue'
     " }
 " }
