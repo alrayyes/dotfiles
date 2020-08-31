@@ -35,6 +35,7 @@
         Plug 'airblade/vim-gitgutter'
         Plug 'alvan/vim-closetag'
         Plug 'dense-analysis/ale'
+        Plug 'fatih/vim-go'
         Plug 'godlygeek/tabular'
         Plug 'neoclide/coc.nvim', {'branch': 'release'}
         Plug 'preservim/nerdcommenter'
@@ -69,6 +70,7 @@
     set iskeyword-=.                                                               " '.' is an end of word designator
     set iskeyword-=#                                                               " '#' is an end of word designator
     set iskeyword-=-                                                               " '-' is an end of word designator
+    set cmdheight=2                                                                " Better display for messages
 " }
 
 " Vim UI {
