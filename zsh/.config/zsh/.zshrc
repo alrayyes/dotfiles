@@ -70,7 +70,7 @@ alias tmux="tmux -f ~/.config/tmux/tmux.conf"
 alias pass="PASSWORD_STORE_DIR=$PASSWORD_STORE_DIR /usr/bin/pass"
 
 # pacman aliases
-alias pacrmorphans="sudo pacman -Rs (pacman -Qtdq)"
+alias pacrmorphans="sudo pacman -Rs $(pacman -Qtdq)"
 alias pacrem="sudo pacman -Rns"
 
 # git alaises

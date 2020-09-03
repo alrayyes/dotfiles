@@ -1,4 +1,4 @@
 #!/usr/bin/env sh
 
 yay
-sudo pacman -Rs (pacman -Qtdq)
+sudo pacman -Rs $(pacman -Qtdq)

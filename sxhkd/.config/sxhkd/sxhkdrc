@@ -63,7 +63,7 @@ Print
 
 #-----------------------------------------------------------App shortcuts--------------------------------------------------------------
 # Notification center
-super + e 
+super + e
     ~/.local/bin/deadd-switch
 
 # terminal emulator
