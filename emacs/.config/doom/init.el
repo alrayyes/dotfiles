@@ -10,7 +10,7 @@
 
 (doom! :completion
        company           ; the ultimate code completion backend
-       ivy               ; a search engine for love and life
+       (ivy +icons)               ; a search engine for love and life
 
        :ui
        deft
@@ -23,7 +23,7 @@
        (popup            ; tame sudden yet inevitable temporary windows
         +all             ; catch all popups that start with an asterix
         +defaults)       ; default popup rules
-       pretty-code       ; replace bits of code with pretty symbols
+       ligatures
        treemacs          ; a project drawer, like neotree but cooler
        vc-gutter         ; vcs diff in the fringe
        vi-tilde-fringe   ; fringe tildes to mark beyond EOB
@@ -44,8 +44,9 @@
        (dired +icons
               +ranger)   ; making dired pretty [functional]
        electric          ; smarter, keyword-based electric-indent
-       ibuffer           ; interactive buffer management
+       (ibuffer +icons)           ; interactive buffer management
        vc                ; version-control and Emacs, sitting in a tree
+       (undo +tree)
 
        :term
        ;;eshell            ; a consistent, cross-platform shell (WIP)
@@ -59,7 +60,7 @@
 
        :tools
        biblio
-       docker
+       (docker +lsp)
        editorconfig      ; let someone else argue about tabs vs spaces
        (eval +overlay)     ; run code, run (also, repls)
        lsp
@@ -77,13 +78,14 @@
        (javascript        ; all(hope(abandon(ye(who(enter(here))))))
          +lsp)
        ledger            ; an accounting system in Emacs
-       markdown          ; writing docs for people to ignore
+       (markdown +grip)          ; writing docs for people to ignore
        (org              ; organize your plain life in plain text
         +noter
         +journal
         +roam
         +dragndrop       ; drag & drop files/images into org buffers
         +pandoc
+        +pretty
         +present)        ; using org-mode for presentations
        (php
          +lsp)               ; perl's insecure younger brother
@@ -92,9 +94,12 @@
        (rust
         +lsp)             ; rust support
        (sh 
-         +lsp)               ; she sells {ba,z,fi}sh shells on the C xor
+        +lsp
+        +fish)               ; she sells {ba,z,fi}sh shells on the C xor
        (web
          +lsp)               ; the tubes
+       (yaml +lsp)
+       (json +lsp)
 
        :email
        mu4e
