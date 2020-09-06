@@ -5,7 +5,7 @@ set prerequisiteApps bat broot brave caffeine-ng exa fslint fzf graphviz isync i
 set prerequisiteFonts otf-nerd-fonts-fira-code noto-fonts ttf-unifont
 set prerequisiteLibraries python-panflute
 set prerequisiteLsp bash-language-server ccls php-language-server python-language-server typescript-language-server-bin vscode-css-languageserver-bin vscode-html-languageserver-bin nodejs-intelephense
-set configuredApps alacritty bspwm castero emacs firejail git gnupg gtk lf deadd-notification-center-bin mpd mpv mpv-mpris ncmpcpp neomutt neovim picom redshift sxhkd tmux tuir weechat
+set configuredApps alacritty bspwm castero emacs-native-comp firejail git gnupg gtk lf deadd-notification-center-bin mpd mpv mpv-mpris ncmpcpp neomutt neovim picom redshift sxhkd tmux tuir weechat
 set locales aspell-en hunspell-en_GB hunspell-en_US hunspell-nl
 set golang go golangci-lint-bin
 set shell shfmt shellcheck
