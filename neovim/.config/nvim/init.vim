@@ -38,10 +38,10 @@
         Plug 'fatih/vim-go'
         Plug 'godlygeek/tabular'
         Plug 'neoclide/coc.nvim', {'branch': 'release'}
-        Plug 'preservim/nerdcommenter'
         Plug 'rrethy/vim-hexokinase', { 'do': 'make hexokinase' }
-        Plug 'sheerun/vim-polyglot'
+        Plug 'tpope/vim-commentary'
         Plug 'tpope/vim-fugitive'
+        Plug 'tpope/vim-unimpaired'
         Plug 'Xuyuanp/nerdtree-git-plugin'
         Plug 'Yggdroot/indentLine'
     " }
@@ -146,11 +146,6 @@
 
         " Toggle nerdtree
         map <C-e> :NERDTreeToggle<CR>
-    " }
-
-    " NerdCommenter {
-        " Add spaces after comment delimiters by default
-        let g:NERDSpaceDelims = 1
     " }
 
     " Airline {
