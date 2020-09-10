@@ -18,7 +18,7 @@
        doom-dashboard    ; a nifty splash screen for Emacs
        hl-todo           ; highlight TODO/FIXME/NOTE/DEPRECATED/HACK/REVIEW
        modeline          ; snazzy, Atom-inspired modeline, plus API
-       nav-flash         ; blink the current line after jumping
+       ;;nav-flash         ; blink the current line after jumping
        ophints           ; highlight the region an operation acts on
        (popup            ; tame sudden yet inevitable temporary windows
         +all             ; catch all popups that start with an asterix
@@ -35,17 +35,16 @@
        file-templates    ; auto-snippets for empty files
        fold              ; (nigh) universal code folding
        (format +onsave +format-with-lsp)  ; automated prettiness
-       multiple-cursors  ; editing in many places at once
-       rotate-text       ; cycle region at point between text candidates
-       snippets          ; my elves. They type so I don't have to
+       ;multiple-cursors  ; editing in many places at once
+       ;rotate-text       ; cycle region at point between text candidates
+       ;snippets          ; my elves. They type so I don't have to
        word-wrap         ; soft wrapping with language-aware indent
 
        :emacs
-       (dired +icons
-              +ranger)   ; making dired pretty [functional]
-       electric          ; smarter, keyword-based electric-indent
-       (ibuffer +icons)           ; interactive buffer management
-       vc                ; version-control and Emacs, sitting in a tree
+       (dired +icons +ranger)
+       electric
+       (ibuffer +icons)
+       vc
        (undo +tree)
 
        :term
@@ -55,51 +54,44 @@
        ;;vterm             ; another terminals in Emacs
 
        :checkers
-       spell
+       syntax
+       (spell +aspell)
        grammar
 
        :tools
        biblio
        (docker +lsp)
-       editorconfig      ; let someone else argue about tabs vs spaces
-       (eval +overlay)     ; run code, run (also, repls)
+       editorconfig
+       (eval +overlay)
        lsp
-       magit             ; a git porcelain for Emacs
-       make              ; run make tasks from Emacs
-       pass              ; password manager for nerds
-       pdf               ; pdf enhancements
+       magit
+       make
+       pass
+       pdf
 
        :lang
-       (cc +lsp)         ; C/C++/Obj-C madness
-       data              ; config/data formats
-       emacs-lisp        ; drown in parentheses
-       (go
-        +lsp)
-       (javascript        ; all(hope(abandon(ye(who(enter(here))))))
-         +lsp)
-       ledger            ; an accounting system in Emacs
-       (markdown +grip)          ; writing docs for people to ignore
-       (org              ; organize your plain life in plain text
+       (cc +lsp)
+       data
+       emacs-lisp
+       (go +lsp)
+       (javascript +lsp)
+       ledger
+       (markdown +grip)
+       (org
         +noter
         +journal
         +roam
-        +dragndrop       ; drag & drop files/images into org buffers
+        +dragndrop
         +pandoc
         +pretty
-        +present)        ; using org-mode for presentations
-       (php
-         +lsp)               ; perl's insecure younger brother
-       (python
-         +lsp)            ; beautiful is better than ugly
-       (rust
-        +lsp)             ; rust support
-       (sh 
-        +lsp
-        +fish)               ; she sells {ba,z,fi}sh shells on the C xor
-       (web
-         +lsp)               ; the tubes
-       (yaml +lsp)
+        +present)
        (json +lsp)
+       (php +lsp)
+       (python +lsp)
+       (rust +lsp)
+       (sh +lsp +fish)
+       (web +lsp)
+       (yaml +lsp)
 
        :email
        mu4e
@@ -108,6 +100,7 @@
        calendar
        irc               ; how neckbeards socialize
        (rss +org)        ; emacs as an RSS reader
+
 
        :config
        literate
