@@ -229,4 +229,13 @@
     " closetag {
         let g:closetag_filetypes = 'html,xhtml,phtml,vue'
     " }
+
+    " unimpaired {
+        " Move single lines
+        nmap <M-k> [e
+        nmap <M-j> ]e
+        " Move multiple selected lines
+        vmap <M-k> [egv
+        vmap <M-j> ]egv
+    " }
 " }
