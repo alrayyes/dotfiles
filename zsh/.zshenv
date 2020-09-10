@@ -59,6 +59,9 @@ export RUSTUP_HOME=~/.local/share/rustup
 # Golang
 export GOPATH=~/.local/share/go
 
+# Npm
+export NPM_CONFIG_USERCONFIG=$XDG_CONFIG_HOME/npm/npmrc
+
 # Enable icons in lf
 export LF_ICONS="\
 tw=:\
