@@ -110,4 +110,5 @@
        (rss +org)        ; emacs as an RSS reader
 
        :config
+       literate
        (default +bindings +smartparens))
