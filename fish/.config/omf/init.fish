@@ -89,10 +89,6 @@ set -xg RUSTUP_HOME ~/.local/share/rustup
 # Golang
 set -xg GOPATH ~/.local/share/go
 
-# System
-set -xg XDG_DATA_DIRS /usr/share /usr/local/share
-set -xg XDG_CONFIG_DIRS /etc/xdg
-
 # User
 set -xg XDG_CACHE_HOME $HOME/.cache
 set -xg XDG_CONFIG_HOME $HOME/.config
