@@ -39,6 +39,7 @@
         Plug 'godlygeek/tabular'
         Plug 'neoclide/coc.nvim', {'branch': 'release'}
         Plug 'rrethy/vim-hexokinase', { 'do': 'make hexokinase' }
+        Plug 'sheerun/vim-polyglot'
         Plug 'tpope/vim-commentary'
         Plug 'tpope/vim-fugitive'
         Plug 'tpope/vim-unimpaired'
