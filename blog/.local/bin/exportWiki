@@ -5,7 +5,7 @@ toDir="$HOME/devel/personal/Ryankes.eu/wiki"
 date=$(date)
 
 rm -rf "$toDir"/wiki/*
-grep -ril "^\#+tags:[\ a-zA-Z0-9]namepage" "$fromDir"*.org | while read -r line; do
+grep -ril "^\#+select_tags:[\ a-zA-Z0-9]namepage" "$fromDir"*.org | while read -r line; do
     baseName="$(basename "$line")"
     markdownFilename="$(echo "$baseName" | cut -f 1 -d '.').md"
     pandoc "$line" --filter convertLinks.py -t markdown_mmd+yaml_metadata_block -o "$toDir/wiki/$markdownFilename" -s
