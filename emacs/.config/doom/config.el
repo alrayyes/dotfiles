@@ -190,4 +190,4 @@
     (ispell-hunspell-add-multi-dic "en_GB,nl_NL,en_US")
     (setq ispell-dictionary "en_GB,nl_NL,en_US"))
 
-(add-to-list 'auto-mode-alist '("\\.mdx\\'" . markdown-mode))
+   (add-to-list 'auto-mode-alist '("\\.mdx\\'" . markdown-mode))
