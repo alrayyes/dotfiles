@@ -15,13 +15,15 @@ super + F3
 super + F4
     ~/.local/bin/ssh-dmenu -p SSH:
 
-# scratchpad shell
+# player controls
 super + F5
-    tdrop -ma -w -4 -y 26 -s dropdown alacritty --class scratchpad
-
-# scratchpad emacs
+  playerctl stop
 super + F6
-    tdrop -ma -w -4 -y 26 emacs
+  playerctl previous
+super + F7
+  playerctl play-pause
+super + F8
+  playerctl next
 
 # Wireguard
 super + F11
