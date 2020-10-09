@@ -1,6 +1,6 @@
 #!/bin/sh
 
-fromDir="$HOME/Documents/org-roam/"
+fromDir="$HOME/Documents/slip-box/"
 toDir="$HOME/devel/personal/Ryankes.eu/wiki"
 date=$(date)
 
