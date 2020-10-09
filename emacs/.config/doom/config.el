@@ -19,7 +19,7 @@
 
 (use-package! projectile
   :config
-  (setq projectile-project-search-path '("~/devel/personal/" "~/devel/andthensome/" "~/Documents/" "~/dotfiles" "~/private-dotfiles"))) ; Default paths
+  (setq projectile-project-search-path '("~/devel/personal/" "~/devel/andthensome/" "~/Documents/" "~/dotfiles" "~/private-dotfiles", "~/devel/slip-box/"))) ; Default paths
 
 (use-package! circe
   :config
@@ -45,7 +45,7 @@
   )
 (add-hook 'circe-channel-mode-hook 'enable-lui-autopaste)
 
-(setq deft-directory "~/Documents/org-roam")
+(setq deft-directory "~/Documents/slip-box")
 
 (after! org
   (map! :map org-mode-map
@@ -68,18 +68,18 @@
                                         "* %c\n%U %?%:initial"))
   )
 
-(setq org-roam-directory "~/Documents/org-roam")
+(setq org-roam-directory "~/Documents/slip-box")
 
 (setq org-roam-graph-viewer "~/.local/bin/viewDotfile")
 
-(setq org-journal-dir "~/Documents/org-roam")
+(setq org-journal-dir "~/Documents/slip-box")
 (setq org-journal-date-prefix "#+title: ")
 (setq org-journal-file-format "%Y-%m-%d.org")
 (setq org-journal-date-format "%A, %d %B %Y")
 
 (setq org-publish-project-alist
       '(("wiki"
-         :base-directory "~/Documents/org-roam/"
+         :base-directory "~/Documents/slip-box/"
          :publishing-directory "~/devel/personal/Ryankes.eu/wiki/content/"
          :publishing-function org-pandoc-export-to-markdown_mmd
          :select-tags ("export-blog")
@@ -190,4 +190,4 @@
     (ispell-hunspell-add-multi-dic "en_GB,nl_NL,en_US")
     (setq ispell-dictionary "en_GB,nl_NL,en_US"))
 
-   (add-to-list 'auto-mode-alist '("\\.mdx\\'" . markdown-mode))
+(add-to-list 'auto-mode-alist '("\\.mdx\\'" . markdown-mode))
