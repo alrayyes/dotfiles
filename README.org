@@ -108,6 +108,7 @@ A repository of my personal configuration files.
 - [[https://github.com/baskerville/bspwm][bspwm]]
 - [[https://github.com/xgi/castero][castero]]
 - [[https://github.com/hlissner/doom-emacs][Doom Emacs]]
+- [[https://dunst-project.org/][dunst]]
 - [[https://firejail.wordpress.com/][firejail]]
 - [[https://fishshell.com/][fish]]
 - [[https://git-scm.com/][git]]

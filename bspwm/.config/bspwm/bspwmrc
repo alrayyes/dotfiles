@@ -79,6 +79,7 @@ bspc rule -a scratchpad sticky=on state=floating
 bspc rule -a scratchmacs sticky=on state=floating
 
 ###---Autostart---###
+start_if_not_running dunst
 start_if_not_running unclutter
 start_if_not_running nm-applet
 start_if_not_running pasystray
