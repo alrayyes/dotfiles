@@ -18,10 +18,12 @@
 (setq display-line-numbers-type `relative)
 
 (use-package! projectile
+  :defer t
   :config
   (setq projectile-project-search-path '("~/devel/personal/" "~/devel/andthensome/" "~/Documents/" "~/dotfiles" "~/private-dotfiles", "~/devel/slip-box/"))) ; Default paths
 
 (use-package! circe
+  :defer t
   :config
   (setq circe-network-options
         `(
@@ -60,7 +62,7 @@
       org-log-done 'note
       org-startup-with-inline-images t)
 
-(use-package! org-protocol-capture-html)
+(use-package! org-protocol-capture-html :defer t)
 
 (after! org
   (add-to-list 'org-capture-templates '("w" "Web site" entry
@@ -86,6 +88,7 @@
          )))
 
 (use-package! mu4e
+  :defer t
   :config
   (setq sendmail-program "/usr/bin/msmtp"
         send-mail-function
@@ -158,12 +161,12 @@
 (add-hook 'mu4e-view-mode-hook 'visual-line-mode)
 
 (use-package! elfeed
+  :defer t
   :config
   (setq elfeed-use-curl t)
   (elfeed-set-timeout 36000)
   (setq elfeed-protocol-ttrss-maxsize 200) ; bigger than 200 is invalid
   (elfeed-protocol-enable)
-                                        ;
   (defadvice elfeed (after configure-elfeed-feeds activate)
     "Make elfeed-org autotags rules works with elfeed-protocol."
     (defvar elfeed-protocol-tags)
@@ -174,11 +177,13 @@
                               :autotags elfeed-protocol-tags)))))
 
 (use-package! elfeed-org
+  :defer t
   :config
   (setq rmh-elfeed-org-files '("~/Documents/org/elfeed.org"))
   )
 
 (use-package! elfeed-goodies
+  :defer t
   :config
   (elfeed-goodies/setup))
 
