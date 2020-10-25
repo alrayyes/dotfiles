@@ -75,6 +75,7 @@
        data
        emacs-lisp
        (go +lsp)
+       (hugo +ox-hugo)
        (javascript +lsp)
        ledger
        (markdown +grip)
@@ -83,6 +84,7 @@
         +journal
         +roam
         +dragndrop
+        +hugo
         +pandoc
         +pretty
         +present)
