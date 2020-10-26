@@ -189,7 +189,7 @@
         let g:ale_sign_warning = '⚠️'
 
         " Fix files
-        let g:ale_fixers = {'*': ['remove_trailing_lines', 'trim_whitespace'], 'vue': ['importjs', 'prettier', 'eslint'], 'javascript': ['importjs', 'prettier', 'eslint'], 'sh': ['shfmt'], 'json': ['prettier'], 'go': ['gofmt', 'goimports'], 'markdown': ['prettier', 'remark-lint', 'textlint'], 'rust': ['rustfmt']}
+        let g:ale_fixers = {'*': ['remove_trailing_lines', 'trim_whitespace'], 'vue': ['importjs', 'prettier', 'eslint'], 'javascript': ['importjs', 'prettier', 'eslint'], 'sh': ['shfmt'], 'json': ['prettier'], 'go': ['gofmt', 'goimports'], 'markdown': ['prettier', 'remark-lint', 'textlint'], 'rust': ['rustfmt'], 'php': ['php_cs_fixer']}
 
         " Fix files automatically on save
         let g:ale_fix_on_save = 1
