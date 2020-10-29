@@ -56,7 +56,7 @@
 
        :checkers
        syntax
-       (spell +aspell)
+       (spell +enchant +everywhere)
        grammar
 
        :tools
@@ -103,7 +103,6 @@
        calendar
        irc               ; how neckbeards socialize
        (rss +org)        ; emacs as an RSS reader
-
 
        :config
        literate
