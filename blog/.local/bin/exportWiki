@@ -13,5 +13,5 @@ grep -ril "^\#+select_tags:[\ a-zA-Z0-9]namepage" "$fromDir"*.org | while read -
 done
 
 git -C "$toDir" add .
-git -C "$toDir" commit -m "Update $date"
+git -C "$toDir" commit -m "feat: update $date"
 git -C "$toDir" push origin master
