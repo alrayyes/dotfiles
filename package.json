@@ -1,7 +1,6 @@
 {
   "name": "dotfiles",
   "description": "My dotfiles",
-  "main": "commitlint.config.js",
   "dependencies": {},
   "devDependencies": {
     "@commitlint/cli": "^11.0.0",
