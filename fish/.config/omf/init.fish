@@ -30,7 +30,7 @@ function path_if_exists
 end
 
 # Add paths
-path_if_exists ~/.config/yarn/global/node_modules/.bin
+path_if_exists ~/.local/share/yarn/global/node_modules/.bin
 path_if_exists ~/.local/bin
 path_if_exists ~/.emacs.d/bin
 path_if_exists ~/.local/share/go/bin
