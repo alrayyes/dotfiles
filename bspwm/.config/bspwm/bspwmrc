@@ -1,9 +1,27 @@
 #!/usr/bin/env fish
 
-###---Functions---###
+###---Start app if not running already---###
 function start_if_not_running
+    ###---iceweasel/firefox is weird---###
+    if [ $argv[1] = "iceweasel" ]
+        set PROCESS_NAME "iceweasel|MainThread"
+    else
+        set PROCESS_NAME $argv[1]
+    end
+
+    if [ (pgrep -u (id -u) -x "$PROCESS_NAME" | wc -l) -lt 1 ]
+        if type -q $argv[1]
+            eval "$argv[1] &"
+        end
+    end
+end
+
+###---Start app in alacritty if not running already---###
+function start_shell_if_not_running
     if [ (pgrep -u (id -u) -x $argv[1] | wc -l) -lt 1 ]
-        eval "$argv[1] &"
+        if type -q $argv[1]
+            eval "alacritty --class $argv[1],$argv[1] -e $argv[1] &"
+        end
     end
 end
 
@@ -24,9 +42,10 @@ if [ -x /usr/bin/numlockx ]
     /usr/bin/numlockx on
 end
 
-###---Monitors---###
+###---Get monitor count---###
 set SCREENCOUNT (xrandr | grep -c "\*")
 
+###---Monitors---###
 if [ "$SCREENCOUNT" -eq 2 ]
     bspc monitor DP-1 -d 2 3 4 5 6 7 8 9 0
     bspc monitor HDMI-2 -d 1
@@ -68,13 +87,22 @@ bspc config window_gap 4
 ###---Rules---###
 bspc rule -a "Syncthing GTK" state=floating
 bspc rule -a Gimp state=floating follow=on
+
 bspc rule -a float state=floating
 bspc rule -a fullscreen state=fullscreen
-bspc rule -a Spotify desktop='^4'
-bspc rule -a Spt desktop='^4'
+
 bspc rule -a Emacs state=tiled
 bspc rule -a Zathura state=tiled
-bspc rule -a Brave-browser desktop='^9'
+
+bspc rule -a iceweasel desktop='^1'
+bspc rule -a Brave-browser desktop='^1'
+bspc rule -a Element desktop='^3'
+bspc rule -a weechat desktop='^3'
+bspc rule -a castero desktop='^4'
+bspc rule -a Spt desktop='^4'
+bspc rule -a jetbrains-webstorm desktop='^8'
+bspc rule -a Emacs desktop='^9'
+
 bspc rule -a scratchpad sticky=on state=floating
 bspc rule -a scratchmacs sticky=on state=floating
 
@@ -86,7 +114,15 @@ start_if_not_running pasystray
 start_if_not_running redshift-gtk
 start_if_not_running syncthing-gtk
 start_if_not_running caffeine
+
 start_if_not_running brave
+start_if_not_running iceweasel
+start_if_not_running emacs
+start_if_not_running element-desktop
+
+if [ "$SCREENCOUNT" -eq 2 ]
+    start_shell_if_not_running castero
+end
 
 pkill -f cleanfullscreen
 ~/.local/bin/cleanfullscreen &
