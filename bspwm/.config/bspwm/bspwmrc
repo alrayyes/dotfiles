@@ -97,6 +97,7 @@ bspc rule -a Zathura state=tiled
 bspc rule -a iceweasel desktop='^1'
 bspc rule -a Brave-browser desktop='^1'
 bspc rule -a Element desktop='^3'
+bspc rule -a Element-Nightly desktop='^3'
 bspc rule -a weechat desktop='^3'
 bspc rule -a castero desktop='^4'
 bspc rule -a Spt desktop='^4'
@@ -119,6 +120,7 @@ start_if_not_running brave
 start_if_not_running iceweasel
 start_if_not_running emacs
 start_if_not_running element-desktop
+start_if_not_running element-desktop-nightly
 
 if [ "$SCREENCOUNT" -eq 2 ]
     start_shell_if_not_running castero
