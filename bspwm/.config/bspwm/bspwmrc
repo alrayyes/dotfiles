@@ -96,6 +96,7 @@ bspc rule -a Zathura state=tiled
 
 bspc rule -a iceweasel desktop='^1'
 bspc rule -a Brave-browser desktop='^1'
+bspc rule -a bashtop desktop='^2'
 bspc rule -a Element desktop='^3'
 bspc rule -a Element-Nightly desktop='^3'
 bspc rule -a weechat desktop='^3'
@@ -125,6 +126,7 @@ start_if_not_running element-desktop-nightly
 if [ "$SCREENCOUNT" -eq 2 ]
     start_shell_if_not_running castero
 end
+start_shell_if_not_running bashtop
 
 pkill -f cleanfullscreen
 ~/.local/bin/cleanfullscreen &
