@@ -5,9 +5,12 @@ function start_if_not_running
     ###---iceweasel/firefox is weird---###
     if [ $argv[1] = "iceweasel" ]
         set PROCESS_NAME "iceweasel|MainThread"
+    else if [ $argv[1] = "element-desktop-nightly" ]
+        set PROCESS_NAME "element-desktop"
     else
         set PROCESS_NAME $argv[1]
     end
+
 
     if [ (pgrep -u (id -u) -x "$PROCESS_NAME" | wc -l) -lt 1 ]
         if type -q $argv[1]
