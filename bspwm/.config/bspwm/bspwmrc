@@ -129,7 +129,6 @@ start_if_not_running element-desktop-nightly
 if [ "$SCREENCOUNT" -eq 2 ]
     start_shell_if_not_running castero
 end
-start_shell_if_not_running bashtop
 
 pkill -f cleanfullscreen
 ~/.local/bin/cleanfullscreen &
