@@ -89,6 +89,7 @@ mkdir_if_not_exist ~/.gnupg
 mkdir_if_not_exist ~/.config/mpv/scripts
 mkdir_if_not_exist ~/.config/coc/extensions
 mkdir_if_not_exist ~/.config/dmenu-frecency
+mkdir_if_not_exist ~/.config/doom
 
 
 # Link mpv plugins if they don't exist
