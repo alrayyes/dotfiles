@@ -2,7 +2,7 @@
 
 # Prerequisite & inistalled apps
 set prerequisiteApps bat broot brave caffeine-ng exa fslint fzf graphviz isync imagemagick lightdm-gtk-greeter mailcap neofetch npm pandoc-bin pamixer playerctl pulseaudio pulsemixer python pywal ripgrep stow sxiv tldr trayer udisks2 xwallpaper yarn xprop zathura
-set prerequisiteFonts otf-nerd-fonts-fira-code noto-fonts ttf-unifont
+set prerequisiteFonts ttf-linux-libertine noto-fonts noto-fonts-emoji ttf-liberation nerd-fonts-hack
 set prerequisiteLibraries libxft-bgra
 set prerequisiteLsp bash-language-server ccls php-language-server python-language-server typescript-language-server-bin vscode-css-languageserver-bin vscode-html-languageserver-bin nodejs-intelephense
 set configuredApps alacritty bspwm castero emacs firejail git gnupg gtk lf dunst mpd mpv mpv-mpris ncmpcpp neomutt neovim picom redshift sxhkd tmux tuir weechat

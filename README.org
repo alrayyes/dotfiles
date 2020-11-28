@@ -87,9 +87,10 @@ A repository of my personal configuration files.
 - [[https://yarnpkg.com/][yarn]]
 - [[https://pwmt.org/projects/zathura/][zathura]]
 ** Fonts
-- [[https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/FiraCode][Fira Code Nerd Patched]]
-- [[https://www.google.com/get/noto/][Noto]]
-- [[https://savannah.gnu.org/projects/unifont/][Unifont]]
+- [[https://www.dafont.com/linux-libertine.font][Linux Libertine]]
+- [[https://www.google.com/get/noto/][Noto Fonts]]
+- [[https://www.google.com/get/noto/help/emoji/][Noto Color Emoji]]
+- Nerd patched [[https://sourcefoundry.org/hack/][Hack]]
 ** Libraries
 *** st / dmenu / dwm
 - [[#+title: https://aur.archlinux.org/packages/libxft-bgra/][libxft-bgra]]
