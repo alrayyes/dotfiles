@@ -270,3 +270,5 @@ typings/
 .yarn/cache
 .pnp.*
 
+# C
+.ccls-cache/
