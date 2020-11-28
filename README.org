@@ -91,8 +91,8 @@ A repository of my personal configuration files.
 - [[https://www.google.com/get/noto/][Noto]]
 - [[https://savannah.gnu.org/projects/unifont/][Unifont]]
 ** Libraries
-*** Python
-- [[http://scorreia.com/software/panflute/][Panflute]]
+*** st / dmenu / dwm
+- [[#+title: https://aur.archlinux.org/packages/libxft-bgra/][libxft-bgra]]
 ** LSP Backends
 - [[https://github.com/mads-hartmann/bash-language-server][bash-language-server]]
 - [[https://github.com/MaskRay/ccls][ccls]]
