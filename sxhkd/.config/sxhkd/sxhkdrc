@@ -1,7 +1,7 @@
 #-----------------------------------------------------------Functions--------------------------------------------------------------
 # lock screen
 super + F1
-  ~/.local/bin/lock
+    xset s activate
 
 # dmenu password selector
 super + F2

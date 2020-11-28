@@ -9,6 +9,7 @@ set configuredApps alacritty bspwm castero emacs firejail git gnupg gtk lf dunst
 set locales aspell-en hunspell-en_GB hunspell-en_US hunspell-nl
 set golang go golangci-lint-bin
 set shell shfmt shellcheck
+set screenlock xsecurelock xss-lock
 
 function mkdir_if_not_exist
     if [ ! -d "$argv" ]
@@ -70,6 +71,9 @@ for sh in $shell
     install_app_if_not_exist "$sh"
 end
 
+for lock in $screenlock
+    install_app_if_not_exist "$lock"
+end
 
 # Create directories that  need to exist
 mkdir_if_not_exist ~/.cache/mpd
