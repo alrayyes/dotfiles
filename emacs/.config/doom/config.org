@@ -1,6 +1,6 @@
 * Table of Contents :TOC_3:noexport:
 - [[#general-settings][General settings]]
-  - [[#variable-font-sizes-depending-on-screen-width-set-font-to-jetbrains-mono][Variable font sizes depending on screen width. Set font to JetBrains Mono]]
+  - [[#variable-font-sizes-depending-on-screen-width-set-font-to-hack][Variable font sizes depending on screen width. Set font to Hack.]]
   - [[#theme-is-set-to-doom-molokai-from-doom-themes][Theme is set to doom-molokai from doom-themes]]
   - [[#fetch-password-from-authinfo][Fetch password from authinfo]]
   - [[#set-relative-line-numbers][Set relative line numbers]]
@@ -36,13 +36,20 @@
   - [[#open-mdx-files-in-markdown-mode][Open mdx files in markdown-mode]]
 
 * General settings
-** Variable font sizes depending on screen width. Set font to [[https://www.jetbrains.com/lp/mono/][JetBrains Mono]]
+** Variable font sizes depending on screen width. Set font to [[https://sourcefoundry.org/hack/][Hack]].
 #+BEGIN_SRC emacs-lisp
+(defun set-font (font-size bigfont-size)
+  (setq doom-font (font-spec :family "Hack Nerd Font Mono" :size font-size))
+  (setq doom-big-font (font-spec :family "Hack Nerd Font Mono" :size bigfont-size))
+  (setq doom-variable-pitch-font (font-spec :family "Liberation Sans" :size font-size))
+  (setq doom-serif-font (font-spec :family "Liberation Serif" :size font-size))
+  (setq doom-unicode-font (font-spec :family "JoyPixels"))
+  )
+
 (when window-system
   (if (> (x-display-pixel-width) 2560)
-      (setq doom-font (font-spec :family "JetBrains Mono" :size 12))
-    (setq doom-font (font-spec :family "JetBrains Mono" :size 16))))
-
+      (set-font 12 24)
+    (set-font 16 28)))
 #+END_SRC
 ** Theme is set to doom-molokai from [[https://github.com/hlissner/emacs-doom-themes][doom-themes]]
 #+BEGIN_SRC emacs-lisp
