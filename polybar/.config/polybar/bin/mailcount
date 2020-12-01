@@ -3,13 +3,13 @@
 unread="$(find ~/.local/share/mail/*/INBOX/new/* -type f 2>/dev/null | wc -l)"
 
 if [ ! "$(pgrep -x mbsync)" ]; then
-	icon=""
+    icon="📬"
 else
-	icon="痢"
+    icon="🔃"
 fi
 
 if [ ! "$unread" -eq 0 ]; then
-	echo "$icon $unread"
+    echo "$icon $unread"
 else
     echo "%{F#666}%{F-}"
 fi

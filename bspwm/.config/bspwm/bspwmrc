@@ -137,9 +137,8 @@ pkill -f cleanfullscreen
 
 ###---System lock---###
 pkill -f xss-lock
-xss-lock -n ~/.local/bin/lock -- ~/.local/bin/lock &
-pkill -f xautolock
-xautolock -time 10 -locker ~/.local/bin/lock &
+xset s 300 5
+xss-lock -n /usr/lib/xsecurelock/dimmer -l -- xsecurelock
 
 ###---Misc---###
 # Needed for Jetbrains products to work

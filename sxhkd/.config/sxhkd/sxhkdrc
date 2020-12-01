@@ -47,7 +47,6 @@ XF86MonBrightnessUp
     ~/.local/bin/brightness inc
 XF86MonBrightnessDown
     ~/.local/bin/brightness dec
-
 # Shutdown / reboot
 XF86Eject
     prompt "Shutdown computer?" "sudo -A shutdown -h now"
@@ -66,7 +65,7 @@ Print
 #-----------------------------------------------------------App shortcuts--------------------------------------------------------------
 # terminal emulator
 super + Return
-      alacritty
+      st
 
 # program launcher
 super + @space

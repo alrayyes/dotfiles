@@ -41,16 +41,16 @@ wm-restack = bspwm
 [bar/base-laptop]
 inherit = "bar/base"
 font-0 = Hack Nerd Font:pixelsize=16
-font-1 = Noto Sans Symbols2:size=16
-font-2 = Unifont Upper:size=16
-font-3 = JoyPixels:size=16
+font-1 = JoyPixels:style=Regular:scale=6;1
+font-2 = Noto Sans Symbols2:size=16
+font-3 = Unifont Upper:size=16
 
 [bar/base-desktop]
 inherit = "bar/base"
 font-0 = Hack Nerd Font:size=10
-font-1 = Noto Sans Symbols2:size=10
-font-2 = Unifont Upper:size=10
-font-3 = JoyPixels:size=10
+font-1 = JoyPixels:style=Regular:scale=10;2
+font-2 = Noto Sans Symbols2:size=10
+font-3 = Unifont Upper:size=10
 
 [bar/laptop-bottom]
 inherit = bar/base-laptop
@@ -66,7 +66,7 @@ monitor = ${env:MONITOR:eDP1}
 
 modules-left = bspwm
 modules-center = battery0 battery1 seperator wlan wg0 wg1 bluetooth
-modules-right = seperator xbacklight volume-laptop seperator docker memory cpu temperature seperator filesystem seperator updates-arch-combined mail reddit github rss seperator weather date
+modules-right = seperator xbacklight volume-laptop seperator docker memory cpu-laptop temperature seperator filesystem seperator updates-arch-combined mail reddit github rss seperator weather seperator date seperator
 
 tray-position = right
 
@@ -76,7 +76,7 @@ monitor = ${env:MONITOR:DP-1}
 
 modules-left = bspwm
 modules-center = mpd player-mpris-tail
-modules-right = eth bluetooth seperator volume seperator docker memory cpu temperature seperator system-usb-udev filesystem seperator updates-arch-combined mail reddit github rss seperator weather date
+modules-right = seperator eth bluetooth seperator volume seperator docker memory cpu temperature seperator system-usb-udev filesystem seperator updates-arch-combined mail reddit github rss seperator weather seperator date seperator
 
 tray-position = right
 
@@ -143,7 +143,7 @@ bar-progress-empty = ─
 type = internal/xbacklight
 
 format = <label>
-label =  %percentage%%
+label = 💡 %percentage%%
 
 bar-width = 10
 bar-indicator = |
@@ -156,11 +156,27 @@ bar-empty = ─
 bar-empty-font = 2
 bar-empty-foreground = ${colors.foreground-alt}
 
+[module/cpu-laptop]
+type = internal/cpu
+
+format = <label> <ramp-load>
+format-prefix = "💻 "
+
+label =
+
+ramp-load-0 = ▁
+ramp-load-1 = ▂
+ramp-load-2 = ▃
+ramp-load-3 = ▄
+ramp-load-4 = ▅
+ramp-load-5 = ▆
+ramp-load-6 = ▇
+ramp-load-7 = █
 [module/cpu]
 type = internal/cpu
 
 format = <label> <ramp-coreload>
-format-prefix = " "
+format-prefix = "💻 "
 
 label = %percentage%%
 
@@ -194,24 +210,35 @@ type = internal/network
 interface = wlp4s0
 interval = 3.0
 
-format-connected = <label-connected>
+format-connected = <ramp-signal>
 format-packetloss = <animation-packetloss> <label-connected>
 format-disconnected =
-format-connected-prefix = "直 "
-format-disconnected-prefix = "睊 "
+format-connected-prefix = " "
+format-disconnected-prefix = "睊"
 
 label-connected = " %downspeed%  %upspeed%"
 label-disconnected =
 
+ramp-signal-0 = ▁
+ramp-signal-1 = ▂
+ramp-signal-2 = ▃
+ramp-signal-3 = ▄
+ramp-signal-4 = ▅
+ramp-signal-5 = ▆
+ramp-signal-6 = ▇
+ramp-signal-7 = █
+
 animation-packetloss-0 = ⚠
+animation-packetloss-0-foreground = #ffa64c
 animation-packetloss-1 = 📶
+animation-packetloss-1-foreground = #000000
 animation-packetloss-framerate = 500
 
 [module/eth]
 type = internal/network
 interface = eno1
 
-format-connected-prefix = " "
+format-connected-prefix = " "
 format-disconnected-prefix = " "
 
 label-connected = "%local_ip%  %downspeed%  %upspeed%"
@@ -223,7 +250,7 @@ date-alt = " %d-%m-%Y"
 time = "%H:%M"
 time-alt =
 
-format-prefix = 
+format-prefix = 📅
 
 label = %date% %time%
 label-padding-right=1
@@ -232,21 +259,31 @@ label-padding-right=1
 type = internal/pulseaudio
 sink = alsa_output.pci-0000_00_1b.0.iec958-stereo
 
-label-volume = 蓼 %percentage%%
-label-muted = "遼"
-label-muted-foreground = ${colors.disabled}
+format-volume = <ramp-volume>
+
+label-muted = 🔇 muted
+label-muted-foreground = #666
 
 click-right = setsid alacritty --class=float,float -e pulsemixer
+
+ramp-volume-0 = 🔈
+ramp-volume-1 = 🔉
+ramp-volume-2 = 🔊
 
 [module/volume-laptop]
 type = internal/pulseaudio
 sink = alsa_output.pci-0000_00_1f.3.analog-stereo
 
-label-volume = 蓼 %percentage%%
-label-muted = "遼"
-label-muted-foreground = ${colors.disabled}
+format-volume = <ramp-volume>
 
 click-right = setsid alacritty --class=float,float -e pulsemixer
+
+label-muted = 🔇 muted
+label-muted-foreground = #666
+
+ramp-volume-0 = 🔈
+ramp-volume-1 = 🔉
+ramp-volume-2 = 🔊
 
 [module/battery0]
 type = internal/battery
@@ -281,7 +318,7 @@ full-at = 70
 
 format-charging = <animation-charging> <label-charging>
 format-discharging = <animation-discharging> <label-discharging>
-format-full-prefix = " "
+format-full-prefix = "🔋 "
 format-full-prefix-foreground = ${colors.foreground-alt}
 
 animation-charging-0 = 
@@ -301,7 +338,7 @@ animation-discharging-framerate = 5000
 [module/temperature]
 type = internal/temperature
 
-format-prefix = " "
+format-prefix = "🌡 "
 
 label-warn-foreground = ${colors.alert}
 
@@ -328,7 +365,7 @@ format-prefix = " "
 
 [module/player-mpris-tail]
 type = custom/script
-exec = python ~/.local/share/polybar-scripts/polybar-scripts/player-mpris-tail/player-mpris-tail.py -f '{:title: {icon} {artist} - {title}:}' --icon-playing '契' --icon-paused '' --icon-stop '栗'
+exec = python ~/.local/share/polybar-scripts/polybar-scripts/player-mpris-tail/player-mpris-tail.py -f '{:title: {icon} {artist} - {title}:}' --icon-playing '▶' --icon-paused '' --icon-stop '栗'
 tail = true
 
 click-left = python ~/.local/share/polybar-scripts/polybar-scripts/player-mpris-tail/player-mpris-tail.py previous &
@@ -366,7 +403,7 @@ type = custom/script
 exec = ~/.config/polybar/bin/notification-reddit.sh
 interval = 300
 
-label =  %output%
+label =  %output%
 
 click-left = brave https://www.reddit.com/message/unread
 
