@@ -57,7 +57,7 @@ inherit = bar/base-laptop
 bottom = true
 monitor = ${env:MONITOR:eDP1}
 
-modules-right = system-usb-udev
+modules-right = system-usb-udev corona
 modules-left = mpd player-mpris-tail
 
 [bar/laptop-top]
@@ -213,7 +213,7 @@ interval = 3.0
 format-connected = <ramp-signal>
 format-packetloss = <animation-packetloss> <label-connected>
 format-disconnected =
-format-connected-prefix = " "
+format-connected-prefix = "📶 "
 format-disconnected-prefix = "睊"
 
 label-connected = " %downspeed%  %upspeed%"
