@@ -39,10 +39,10 @@
 ** Variable font sizes depending on screen width. Set font to [[https://sourcefoundry.org/hack/][Hack]].
 #+BEGIN_SRC emacs-lisp
 (defun set-font (font-size bigfont-size)
-  (setq doom-font (font-spec :family "Hack Nerd Font Mono" :size font-size))
-  (setq doom-big-font (font-spec :family "Hack Nerd Font Mono" :size bigfont-size))
-  (setq doom-variable-pitch-font (font-spec :family "Liberation Sans" :size font-size))
-  (setq doom-serif-font (font-spec :family "Liberation Serif" :size font-size))
+  (setq doom-font (font-spec :family "JetBrainsMono Nerd Font" :size font-size))
+  (setq doom-big-font (font-spec :family "JetBrainsMono Nerd Font" :size bigfont-size))
+  (setq doom-variable-pitch-font (font-spec :family "Noto Sans" :size font-size))
+  (setq doom-serif-font (font-spec :family "Noto Serif" :size font-size))
   (setq doom-unicode-font (font-spec :family "JoyPixels"))
   )
 
