@@ -138,7 +138,7 @@ pkill -f cleanfullscreen
 ###---System lock---###
 pkill -f xss-lock
 xset s 300 5
-xss-lock -n /usr/lib/xsecurelock/dimmer -l -- xsecurelock
+env XSECURELOCK_FONT="Hack Nerd Font" xss-lock -n /usr/lib/xsecurelock/dimmer -l -- xsecurelock &
 
 ###---Misc---###
 # Needed for Jetbrains products to work
