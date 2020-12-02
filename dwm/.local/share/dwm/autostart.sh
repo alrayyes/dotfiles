@@ -35,7 +35,7 @@ if [ "$SCREENCOUNT" -eq 2 ]; then
     if [ -f "$HOME/.local/bin/screen_desktop" ]; then
         screen_desktop &
         # Make sure mouse is on main screen so windows are launched there
-        xdotool mousemove 3360 1080 &
+        #xdotool mousemove 3360 1080 &
     fi
 else
     if [ -f "$HOME/.local/bin/screen" ]; then
