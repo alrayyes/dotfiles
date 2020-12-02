@@ -200,7 +200,7 @@ ramp-coreload-7 = █
 [module/memory]
 type = internal/memory
 
-format-prefix = " "
+format-prefix = "🧠 "
 
 label = %percentage_used%%
 
@@ -373,7 +373,7 @@ format-prefix = " "
 
 [module/player-mpris-tail]
 type = custom/script
-exec = python ~/.local/share/polybar-scripts/polybar-scripts/player-mpris-tail/player-mpris-tail.py -f '{:title: {icon} {artist} - {title}:}' --icon-playing '▶' --icon-paused '' --icon-stop '栗'
+exec = python ~/.local/share/polybar-scripts/polybar-scripts/player-mpris-tail/player-mpris-tail.py -f '{:title: {icon} {artist} - {title}:}' --icon-playing '▶' --icon-paused '⏸' --icon-stop '⏹'
 tail = true
 
 click-left = python ~/.local/share/polybar-scripts/polybar-scripts/player-mpris-tail/player-mpris-tail.py previous &
