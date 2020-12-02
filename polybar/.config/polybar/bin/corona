@@ -1,3 +1,3 @@
 #!/usr/bin/env sh
 
-curl --silent "https://corona-stats.online/Netherlands" | sed -n '4p' | sed 's/\x1b\[[0-9;]*m//g' | sed 's/[\ \t]//g' | awk -F '│' '{ print "😷" $3, "💀" $5, "" $8, "ﯭ" $9 }'
+curl --silent "https://corona-stats.online/Netherlands" | sed -n '4p' | sed 's/\x1b\[[0-9;]*m//g' | sed 's/[\ \t]//g' | awk -F '│' '{ print "😷 " $3, "💀 " $5, "🛌 " $8, "🏥 " $9 }'
