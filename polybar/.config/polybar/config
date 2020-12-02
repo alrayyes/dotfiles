@@ -66,7 +66,7 @@ monitor = ${env:MONITOR:eDP1}
 
 modules-left = bspwm
 modules-center = battery0 battery1 seperator wlan wg0 wg1 bluetooth
-modules-right = seperator xbacklight volume-laptop seperator docker memory cpu-laptop temperature seperator filesystem seperator updates-arch-combined mail reddit github rss seperator weather seperator date seperator
+modules-right = seperator xbacklight volume-laptop seperator docker memory cpu-laptop temperature seperator filesystem-root filesystem-home seperator updates-arch-combined mail reddit github rss seperator weather seperator date seperator
 
 tray-position = right
 
@@ -76,7 +76,7 @@ monitor = ${env:MONITOR:DP-1}
 
 modules-left = bspwm
 modules-center = mpd player-mpris-tail
-modules-right = seperator corona seperator eth bluetooth seperator volume seperator docker memory cpu temperature seperator system-usb-udev filesystem seperator updates-arch-combined mail reddit github rss seperator weather seperator date seperator
+modules-right = seperator corona seperator eth bluetooth seperator volume seperator docker memory cpu temperature seperator system-usb-udev filesystem-root filesystem-home seperator updates-arch-combined mail reddit github rss seperator weather seperator date seperator
 
 tray-position = right
 
@@ -87,14 +87,22 @@ modules-left = bspwm
 
 ;== Modules ========================================================
 
-[module/filesystem]
+[module/filesystem-home]
+type = internal/fs
+
+mount-0 = /home
+
+label-mounted =  🏠 %percentage_used%%
+label-unmounted-background = ${colors.alert}
+
+[module/filesystem-root]
 type = internal/fs
 
 mount-0 = /
-mount-1 = /home
 
-label-mounted = %mountpoint%: %percentage_used%%
+label-mounted = 💽 %percentage_used%%
 label-unmounted-background = ${colors.alert}
+
 
 [module/bspwm]
 type = internal/bspwm
