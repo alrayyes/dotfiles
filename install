@@ -1,7 +1,7 @@
 #!/usr/bin/env fish
 
 # Prerequisite & inistalled apps
-set prerequisiteApps bat broot brave caffeine-ng exa fslint fzf graphviz isync imagemagick lightdm-gtk-greeter mailcap neofetch npm pandoc-bin pamixer playerctl pulseaudio pulsemixer python pywal ripgrep stow sxiv tldr trayer udisks2 xwallpaper yarn xprop zathura
+set prerequisiteApps bat broot brave caffeine-ng exa fslint fzf graphviz isync imagemagick lightdm-gtk-greeter mailcap neofetch npm pandoc-bin pamixer playerctl pulseaudio pulsemixer python pywal ripgrep stow sxiv tldr trayer udisks2 unclutter xbanish xwallpaper yarn xprop zathura
 set prerequisiteFonts ttf-linux-libertine noto-fonts noto-fonts-emoji ttf-liberation nerd-fonts-hack
 set prerequisiteLibraries libxft-bgra
 set prerequisiteLsp bash-language-server ccls php-language-server python-language-server typescript-language-server-bin vscode-css-languageserver-bin vscode-html-languageserver-bin nodejs-intelephense
