@@ -69,11 +69,13 @@ amixer -c 3 set Mic nocap &
 ###---Autostart---###
 start_if_not_running dunst
 start_if_not_running unclutter
+start_if_not_running xbanish
 start_if_not_running nm-applet
 start_if_not_running pasystray
 start_if_not_running redshift-gtk
 start_if_not_running syncthing-gtk
 start_if_not_running caffeine
+start_if_not_running dwmblocks
 
 start_if_not_running brave
 start_if_not_running iceweasel
