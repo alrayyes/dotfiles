@@ -1,50 +1,43 @@
 #!/usr/bin/env bash
 
 function generateWallpaper() {
-	notify-send.py --hint string:image-path:"$2" --replaces-process setwallpaper -a sxiv "Setting wallpaper" &
+    notify-send.py --hint string:image-path:"$2" --replaces-process setwallpaper -a sxiv "Setting wallpaper" &
 
-	# Only generate wal color schemes for main monitor
-	if [ "$1" == 0 ]; then
-		OUTPUT_IMAGE="$HOME/.cache/wall1.png"
-		# Use tail -n 1 to get last monitor so this works with laptop as well
-		WIDTH=$(xrandr | grep '\*' | tail -n 1 | awk -F 'x' '{print $1}' | sed 's/ //g')
-		HEIGHT=$(xrandr | grep '\*' | tail -n 1 | awk -F 'x' '{print $2}' | awk '{print $1}' | sed 's/ //g')
-	elif [ "$1" == 1 ]; then
-		OUTPUT_IMAGE="$HOME/.cache/wall2.png"
-		WIDTH=$(xrandr | grep '\*' | sed -n '1p' | awk -F 'x' '{print $2}' | awk -F '_' '{print $1}' | sed 's/ //g')
-		HEIGHT=$(xrandr | grep '\*' | sed -n '1p' | awk -F 'x' '{print $1}' | sed 's/ //g')
-	fi
+    # Only generate wal color schemes for main monitor
+    if [ "$1" == 0 ]; then
+        OUTPUT_IMAGE="$HOME/.cache/wall1.png"
+        # Use tail -n 1 to get last monitor so this works with laptop as well
+        WIDTH=$(xrandr | grep '\*' | tail -n 1 | awk -F 'x' '{print $1}' | sed 's/ //g')
+        HEIGHT=$(xrandr | grep '\*' | tail -n 1 | awk -F 'x' '{print $2}' | awk '{print $1}' | sed 's/ //g')
+    elif [ "$1" == 1 ]; then
+        OUTPUT_IMAGE="$HOME/.cache/wall2.png"
+        WIDTH=$(xrandr | grep '\*' | sed -n '1p' | awk -F 'x' '{print $2}' | awk -F '_' '{print $1}' | sed 's/ //g')
+        HEIGHT=$(xrandr | grep '\*' | sed -n '1p' | awk -F 'x' '{print $1}' | sed 's/ //g')
+    fi
 
-	notify-send.py --hint string:image-path:"$2" --replaces-process setwallpaper -a sxiv "Converting wallpaper" &
-	convert "${2}" "${OUTPUT_IMAGE}"
-	notify-send.py --hint string:image-path:"$2" --replaces-process setwallpaper -a sxiv "Generating wal color scheme" &
-	~/.local/bin/generatewal
-	notify-send.py --hint string:image-path:"$2" --replaces-process setwallpaper -a sxiv "Generating LightDM wallpaper" &
-	doas convert "$2" /usr/share/pixmaps/wallpaper.png
-	notify-send.py --hint string:image-path:"$2" --replaces-process setwallpaper -a sxiv "Setting wallpaper" &
-	~/.local/bin/wallpaper
-	notify-send.py --hint string:image-path:"$2" --replaces-process setwallpaper -a sxiv "Wallpaper set" &
+    notify-send.py --hint string:image-path:"$2" --replaces-process setwallpaper -a sxiv "Converting wallpaper" &
+    convert "${2}" "${OUTPUT_IMAGE}"
+    notify-send.py --hint string:image-path:"$2" --replaces-process setwallpaper -a sxiv "Generating wal color scheme" &
+    ~/.local/bin/generatewal
+    notify-send.py --hint string:image-path:"$2" --replaces-process setwallpaper -a sxiv "Setting wallpaper" &
+    ~/.local/bin/wallpaper
+    notify-send.py --hint string:image-path:"$1" --replaces-process setwallpaper -a sxiv "Wallpaper set" &
 }
 
 while read -r file; do
-	case "$1" in
-	"C-c")
-		echo -n "$file" | xclip -selection clipboard
-		notify-send.py --hint string:image-path:"$file" -a sxiv "Added to clipboard" &
-		;;
-	"C-l")
-		notify-send.py --hint string:image-path:"$file" -a sxiv "Generating lock image" &
-		generate-lock-image "$file"
-		notify-send.py --hint string:image-path:"$file" -a sxiv "Lock image generated" &
-		;;
-	"C-w")
-		generateWallpaper 0 "$file"
-		;;
-	"C-1")
-		generateWallpaper 0 "$file"
-		;;
-	"C-2")
-		generateWallpaper 1 "$file"
-		;;
-	esac
+    case "$1" in
+    "C-c")
+        echo -n "$file" | xclip -selection clipboard
+        notify-send.py --hint string:image-path:"$file" -a sxiv "Added to clipboard" &
+        ;;
+    "C-w")
+        generateWallpaper 0 "$file"
+        ;;
+    "C-1")
+        generateWallpaper 0 "$file"
+        ;;
+    "C-2")
+        generateWallpaper 1 "$file"
+        ;;
+    esac
 done
