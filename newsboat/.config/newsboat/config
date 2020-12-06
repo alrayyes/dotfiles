@@ -26,7 +26,7 @@ bind-key d pagedown
 bind-key u pageup
 bind-key l open
 bind-key h quit
-bind-key a toggle-article-read
+bind-key m toggle-article-read
 bind-key n next-unread
 bind-key N prev-unread
 bind-key D pb-download
@@ -34,13 +34,7 @@ bind-key U show-urls
 bind-key x pb-delete
 bind-key ^t next-unread
 
-color background         default   default
-color listnormal         default   default
-color listnormal_unread  default   default
-color listfocus          black     yellow
-color listfocus_unread   black     yellow
-color info               default   black
-color article            default   default
+include /usr/share/doc/newsboat/contrib/colorschemes/solarized-dark
 
 # highlights
 highlight article "^(Title):.*$" blue default
@@ -48,3 +42,8 @@ highlight article "https?://[^ ]+" red default
 highlight article "\\[image\\ [0-9]+\\]" green default
 
 browser linkhandler
+
+# podboat
+download-path "~/Downloads/podcasts/%h/%n"
+max-downloads 5
+player "linkhandler"

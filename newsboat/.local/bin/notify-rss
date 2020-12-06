@@ -1,3 +1,4 @@
 #!/usr/bin/env sh
 
+pkill -RTMIN+4 "${STATUSBAR:-dwmblocks}"
 notify-send.py -a Newsboat -i rssowl Rss "$1" &
