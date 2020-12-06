@@ -42,17 +42,17 @@ set GPG_TTY (tty)
 
 # Set default browser
 if [ -e "/usr/bin/brave" ]
-    set -g BROWSER "brave"
+    set -xg BROWSER "brave"
 else
     if [ -e "/usr/bin/firefox" ]
-        set -g BROWSER "firefox"
+        set -xg BROWSER "firefox"
     else if [ -e "/usr/bin/iceweasel" ]
-        set -g BROWSER "iceweasel"
+        set -xg BROWSER "iceweasel"
     end
 end
 
 # Set default terminal
-set -g TERMINAL "alacritty"
+set -xg TERMINAL "st"
 
 # pkg editor
 set -xg VISUAL "nvim"
@@ -336,3 +336,6 @@ if type rg &> /dev/null
   export FZF_DEFAULT_COMMAND='rg --files'
   export FZF_DEFAULT_OPTS='-m --height 50% --border'
 end
+
+# Enable starfish prompt
+starship init fish | source

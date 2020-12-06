@@ -145,7 +145,7 @@ A repository of my personal configuration files.
 
 * Fish
 *** Theme
-- [[https://github.com/matchai/spacefish][spacefish]]
+- [[https://starship.rs/][starship]]
 *** Package Manager
 - [[https://github.com/oh-my-fish/oh-my-fish][oh-my-fish]]
 *** Packages
@@ -201,7 +201,7 @@ A repository of my personal configuration files.
 
 * Zsh
 ** Theme
-- [[https://github.com/denysdovhan/spaceship-prompt][spaceship zsh]]
+- [[https://starship.rs/][starship]]
 ** Plugin Manager
 - [[https://github.com/zplug/zplug][zplug]]
 ** Plugins

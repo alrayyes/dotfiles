@@ -10,9 +10,6 @@ if [[ ! -d ~/.zplug ]]; then
 fi
 source ~/.zplug/init.zsh
 
-# Spaceship theme
-zplug "denysdovhan/spaceship-prompt", use:spaceship.zsh, from:github, as:theme
-
 # Oh my zsh lugins
 # sudo must start after vi-mode for it to work properly
 zplug "plugins/archlinux", from:oh-my-zsh
@@ -107,5 +104,8 @@ gpg-connect-agent updatestartuptty /bye >/dev/null
 
 # Needed for broot
 source /home/alrayyes/.config/broot/launcher/bash/br
+
+# Enable starfish prompt
+eval "$(starship init zsh)"
 
 neofetch
