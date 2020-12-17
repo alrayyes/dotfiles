@@ -16,6 +16,7 @@
        deft
        doom              ; what makes DOOM look the way it does
        doom-dashboard    ; a nifty splash screen for Emacs
+       (emoji + unicode) ; ☺
        hl-todo           ; highlight TODO/FIXME/NOTE/DEPRECATED/HACK/REVIEW
        modeline          ; snazzy, Atom-inspired modeline, plus API
        ;;nav-flash         ; blink the current line after jumping
@@ -45,8 +46,8 @@
        (dired +icons +ranger)
        electric
        (ibuffer +icons)
-       vc
        (undo +tree)
+       vc
 
        :term
        ;;eshell            ; a consistent, cross-platform shell (WIP)
@@ -64,6 +65,7 @@
        (docker +lsp)
        editorconfig
        (eval +overlay)
+       lookup
        lsp
        magit
        make

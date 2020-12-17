@@ -1,6 +1,6 @@
 * Table of Contents :TOC_3:noexport:
 - [[#general-settings][General settings]]
-  - [[#variable-font-sizes-depending-on-screen-width-set-font-to-hack][Variable font sizes depending on screen width. Set font to Hack.]]
+  - [[#variable-font-sizes-depending-on-screen-width-set-font-to-jetbrains-mono][Variable font sizes depending on screen width. Set font to JetBrains Mono.]]
   - [[#theme-is-set-to-doom-molokai-from-doom-themes][Theme is set to doom-molokai from doom-themes]]
   - [[#fetch-password-from-authinfo][Fetch password from authinfo]]
   - [[#set-relative-line-numbers][Set relative line numbers]]
@@ -36,7 +36,7 @@
   - [[#open-mdx-files-in-markdown-mode][Open mdx files in markdown-mode]]
 
 * General settings
-** Variable font sizes depending on screen width. Set font to [[https://sourcefoundry.org/hack/][Hack]].
+** Variable font sizes depending on screen width. Set font to JetBrains Mono.
 #+BEGIN_SRC emacs-lisp
 (defun set-font (font-size bigfont-size)
   (setq doom-font (font-spec :family "JetBrainsMono Nerd Font" :size font-size))
@@ -77,7 +77,7 @@
 (use-package! projectile
   :defer t
   :config
-  (setq projectile-project-search-path '("~/devel/personal/" "~/devel/andthensome/" "~/Documents/" "~/dotfiles" "~/private-dotfiles", "~/devel/slip-box/"))) ; Default paths
+  (setq projectile-project-search-path '("~/devel/personal/" "~/devel/andthensome/" "~/Documents/" "~/dotfiles" "~/private-dotfiles", "~/devel/slip-box/", "~/devel/andthensome/clients/"))) ; Default paths
 #+END_SRC
 * [[https://github.com/jorgenschaefer/circe][Circe]]
 ** Connect to [[https://wiki.znc.in/ZNC][ZNC]]. Passwords are gotten from [[https://www.passwordstore.org/][Password Store]].
@@ -135,6 +135,7 @@
 (setq org-directory "~/Documents/org"
       org-agenda-files (directory-files-recursively "~/Documents/org/" "\.org$")
       org-log-done 'note
+      org-default-notes-file (expand-file-name "inbox.org" org-directory)
       org-startup-with-inline-images t)
 #+END_SRC
 ** [[https://github.com/alphapapa/org-protocol-capture-html][org-protocol-capture-html]]
