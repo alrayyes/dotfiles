@@ -2,16 +2,19 @@
 
 ###---Start app if not running already---###
 start_if_not_running() {
+    count=1
     ###---iceweasel/firefox is weird---###
     if [ "$1" = "iceweasel" ]; then
         PROCESS_NAME="iceweasel|MainThread"
     elif [ "$1" = "element-desktop-nightly" ]; then
         PROCESS_NAME="element-desktop"
+    elif [ "$1" = "emacs" ]; then
+        count=2
     else
         PROCESS_NAME=$1
     fi
 
-    if [ "$(pgrep -u "$(id -u)" -x "$PROCESS_NAME" | wc -l)" -lt 1 ]; then
+    if [ "$(pgrep -u "$(id -u)" -x "$PROCESS_NAME" | wc -l)" -lt $count ]; then
         if command -v "$1"; then
             eval "$1 &"
         fi
