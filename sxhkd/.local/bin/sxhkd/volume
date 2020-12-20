@@ -1,0 +1,17 @@
+#!/bin/sh
+
+if [ -n "$1" ]; then
+    case $1 in
+    inc)
+        pamixer --allow-boost -i 3
+        ;;
+    dec)
+        pamixer --allow-boost -d 3
+        ;;
+    mute)
+        pamixer -t
+        ;;
+    esac
+fi
+
+pkill -RTMIN+15 "${STATUSBAR:-dwmblocks}"

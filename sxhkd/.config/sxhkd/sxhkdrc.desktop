@@ -1,0 +1,88 @@
+#-----------------------------------------------------------Functions--------------------------------------------------------------
+# lock screen
+super + F1
+    xset s activate
+
+# dmenu password selector
+super + F2
+    ~/.local/bin/pass-dmenu
+
+# dmenu authenticator
+super + F3
+    ~/.local/bin/oath-dmenu
+
+# ssh shell
+super + F4
+    ~/.local/bin/ssh-dmenu -p SSH:
+
+# player controls
+super + F5
+  playerctl stop
+super + F6
+  playerctl previous
+super + F7
+  playerctl play-pause
+super + F8
+  playerctl next
+
+# Wireguard
+super + F11
+    ~/.local/bin/wireguard-switch
+
+# dmenu calculator
+super + F12
+    =
+
+#-----------------------------------------------------------Audio & screen brightness & shutdown--------------------------------------------------------------
+# Audio controls
+XF86AudioRaiseVolume
+    ~/.local/bin/volume inc
+XF86AudioLowerVolume
+    ~/.local/bin/volume dec
+XF86AudioMute
+    ~/.local/bin/volume mute
+
+# Screen brightness controls
+XF86MonBrightnessUp
+    ~/.local/bin/brightness inc
+XF86MonBrightnessDown
+    ~/.local/bin/brightness dec
+# Shutdown / reboot
+XF86Eject
+    prompt "Shutdown computer?" "sudo -A shutdown -h now"
+shift + XF86Eject
+    prompt "Reboot computer?" "sudo -A reboot"
+
+#-----------------------------------------------------------Screenshots--------------------------------------------------------------
+shift + Print
+    maimpick
+
+# desktop screenshot
+Print
+    TIMESTAMP=$(date '+%Y-%m-%d-%H%M%S'); maim ~/Pictures/Screenshots/pic-full-$TIMESTAMP.png && notify-send -i ~/Pictures/Screenshots/pic-full-$TIMESTAMP.png "Desktop Screenshot pic-full-$TIMESTAMP.png"
+
+
+#-----------------------------------------------------------App shortcuts--------------------------------------------------------------
+# terminal emulator
+super + Return
+      st
+
+# program launcher
+super + @space
+    dmenu-frecency
+
+# make sxhkd reload its configuration files:
+super + Escape
+   pkill -USR1 -x sxhkd
+
+# Misc apps
+super + ctrl + alt + {l, n, r, s, c, v, k, a, u, e}
+    $TERMINAL -e {lf, neomutt, /usr/bin/newsboat, spt, castero, nvim, ~/.local/bin/calendar-and-wait, ~/.local/bin/audit, ~/.local/bin/update-arch}
+super + ctrl + alt + {b, e, S}
+    {brave, emacs, spotify}
+super + ctrl + alt + {t}
+    ~/.local/bin/tldr-dmenu
+super + ctrl + alt + {m}
+    ~/.local/bin/dmenuunicode
+super + ctrl + alt + {w}
+    alacritty --class fullscreen,fullscreen -e ~/.config/polybar/bin/wttr-and-wait
