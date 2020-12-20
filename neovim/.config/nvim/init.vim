@@ -76,7 +76,7 @@
 " }
 
 " AutoRestart {
-    autocmd BufWritePost ~/devel/personal/suckless/dwmblocks/blocks.h !cd ~/devel/personal/dwmblocks/; sudo make install && killall -q dwmblocks && setsid dwmblocks &
+    autocmd BufWritePost ~/devel/personal/suckless/dwmblocks/blocks.h !cd ~/devel/personal/suckless/dwmblocks/; sudo make install && killall -q dwmblocks && setsid dwmblocks &
 
     autocmd BufWritePost ~/dotfiles/public/dunst/.config/dunst/dunstrc.thinkpad !killall -q dunst && setsid dunst &
     autocmd BufWritePost ~/dotfiles/public/dunst/.config/dunst/dunstrc.desktop !killall -q dunst && setsid dunst &
