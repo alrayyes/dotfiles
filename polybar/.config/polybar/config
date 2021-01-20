@@ -186,7 +186,7 @@ type = internal/cpu
 format = <label> <ramp-coreload>
 format-prefix = "💻 "
 
-label = %percentage%%
+label = %percentage:3%%
 
 ramp-coreload-0 = ▁
 ramp-coreload-1 = ▂
@@ -249,7 +249,7 @@ interface = eno1
 format-connected-prefix = " "
 format-disconnected-prefix = " "
 
-label-connected = "%local_ip%  %downspeed%  %upspeed%"
+label-connected = "%local_ip%  %downspeed:7%  %upspeed:7%"
 
 [module/date]
 type = internal/date
