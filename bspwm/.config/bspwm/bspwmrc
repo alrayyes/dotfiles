@@ -127,9 +127,9 @@ start_if_not_running iceweasel
 start_if_not_running emacs
 start_if_not_running element-desktop
 start_if_not_running element-desktop-nightly
+start_if_not_running gpodder
 
 if [ "$SCREENCOUNT" -eq 2 ]
-    start_shell_if_not_running castero
     start_if_not_running slack
 end
 
