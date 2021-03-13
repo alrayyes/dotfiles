@@ -18,18 +18,14 @@ path_if_exists ~/.local/share/cargo/bin
 export GPG_TTY="$(tty)"
 
 # Set default browser
-if [ -e "/usr/bin/brave" ]; then
+if [ -e "/sbin/brave" ]; then
 	export BROWSER="brave"
-else
-	if [ -e "/usr/bin/firefox" ]; then
-		export BROWSER="firefox"
-	elif [ -e "/usr/bin/iceweasel" ]; then
-		export BROWSER="iceweasel"
-	fi
+elif [ -e "/sbin/firefox" ]; then
+	export BROWSER="firefox"
 fi
 
 # Set default terminal
-export TERMINAL="alacritty"
+export TERMINAL="st"
 
 # pkg editor
 export VISUAL="nvim"
