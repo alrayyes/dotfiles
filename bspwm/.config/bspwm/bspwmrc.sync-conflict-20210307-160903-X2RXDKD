@@ -2,7 +2,14 @@
 
 ###---Start app if not running already---###
 function start_if_not_running
-    set PROCESS_NAME $argv[1]
+    ###---iceweasel/firefox is weird---###
+    if [ $argv[1] = "iceweasel" ]
+        set PROCESS_NAME "iceweasel|MainThread"
+    else if [ $argv[1] = "element-desktop-nightly" ]
+        set PROCESS_NAME "element-desktop"
+    else
+        set PROCESS_NAME $argv[1]
+    end
 
 
     if [ (pgrep -u (id -u) -x "$PROCESS_NAME" | wc -l) -lt 1 ]
@@ -34,13 +41,17 @@ sxhkd &
 ###---Keyboard---###
 setxkbmap -option caps:escape
 
+if [ -x /usr/bin/numlockx ]
+    /usr/bin/numlockx on
+end
+
 ###---Get monitor count---###
 set SCREENCOUNT (xrandr | grep -c "\*")
 
 ###---Monitors---###
 if [ "$SCREENCOUNT" -eq 2 ]
-    bspc monitor DP-3 -d 2 3 4 5 6 7 8 9 0
-    bspc monitor DP-2 -d 1
+    bspc monitor DP-1 -d 2 3 4 5 6 7 8 9 0
+    bspc monitor HDMI-2 -d 1
     if [ -f "$HOME/.local/bin/screen_desktop" ]
         screen_desktop
     end
@@ -86,11 +97,12 @@ bspc rule -a fullscreen state=fullscreen
 bspc rule -a Emacs state=tiled
 bspc rule -a Zathura state=tiled
 
-bspc rule -a firefox desktop='^1'
+bspc rule -a iceweasel desktop='^1'
 bspc rule -a Brave-browser desktop='^1'
 bspc rule -a bashtop desktop='^2'
 bspc rule -a Slack='^3'
 bspc rule -a Element desktop='^3'
+bspc rule -a Element-Nightly desktop='^3'
 bspc rule -a weechat desktop='^3'
 bspc rule -a castero desktop='^4'
 bspc rule -a Spt desktop='^4'
@@ -111,7 +123,7 @@ start_if_not_running syncthing-gtk
 start_if_not_running caffeine
 
 start_if_not_running brave
-start_if_not_running firefox
+start_if_not_running iceweasel
 start_if_not_running emacs
 start_if_not_running element-desktop
 start_if_not_running element-desktop-nightly
