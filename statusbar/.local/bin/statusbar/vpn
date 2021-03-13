@@ -1,0 +1,32 @@
+#!/bin/sh
+
+check_vpn() {
+    status="$(nmcli device status | grep -c "$1")"
+
+    if [ "$status" -gt "0" ]; then
+        icon=💂
+        if [ "$1" = "tun0" ]; then
+            icon=🔒
+        fi
+
+        echo "$icon$1"
+    fi
+
+}
+
+if [ -n "$1" ]; then
+    case $BLOCK_BUTTON in
+    1) case $1 in
+        "wg-0")
+            wg-quick down "$1"
+            notify-send -a wireguard --replaces-process wireguard-status-"$1" -i network-vpn-offline-symbolic "Wireguard $1" "Connection down" &
+            ;;
+        "wg-1")
+            wg-quick down "$1"
+            notify-send -a wireguard --replaces-process wireguard-status-"$1" -i network-vpn-offline-symbolic "Wireguard $1" "Connection down" &
+            ;;
+        esac ;;
+    esac
+
+    check_vpn "$1"
+fi

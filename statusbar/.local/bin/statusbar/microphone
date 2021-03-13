@@ -1,0 +1,24 @@
+#!/bin/sh
+
+# Prints the current volume or nothing if muted.
+
+case $BLOCK_BUTTON in
+1) setsid -f "$TERMINAL" -e pulsemixer ;;
+2) pamixer -t ;;
+9) pamixer --allow-boost -i 1 ;;
+8) pamixer --allow-boost -d 1 ;;
+esac
+
+source=$(pamixer --list-sources | grep Yeti | awk '{print $1}')
+
+if [ -n "$source" ]; then
+    vol="$(pamixer --source "$source" --get-volume)"
+
+    if [ "$vol" -gt "0" ]; then
+        icon="🎤"
+    fi
+
+    echo "$icon"
+else
+    echo ""
+fi

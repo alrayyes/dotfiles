@@ -1,0 +1,14 @@
+#!/bin/sh
+
+case $BLOCK_BUTTON in
+1) "$BROWSER" --new-tab https://track.toggl.com/timer ;;
+esac
+
+token=$(getpassword toggl)
+current="$(curl --silent -u "$token":api_token "https://api.track.toggl.com/api/v8/time_entries/current" | jq '.data.description' | sed 's/"//g')"
+
+if [ "$current" != "null" ]; then
+    echo "⏲ $current"
+else
+    echo ""
+fi

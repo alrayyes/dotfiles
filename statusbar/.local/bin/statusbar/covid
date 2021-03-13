@@ -1,0 +1,7 @@
+#!/usr/bin/env sh
+
+case $BLOCK_BUTTON in
+1) notify-send Covid "$(curl -4 https://corona-stats.online/Netherlands?emojis=true | sed 's/\x1b\[[0-9;]*m//g')" ;;
+esac
+
+curl --silent "https://corona-stats.online/Netherlands" | sed -n '4p' | sed 's/\x1b\[[0-9;]*m//g' | sed 's/[\ \t]//g' | awk -F '│' '{ print "😷" $3, "💀" $5, "🛌" $4, "🏥" $9 }'
