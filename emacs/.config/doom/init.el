@@ -56,8 +56,8 @@
        vterm             ; another terminals in Emacs
 
        :checkers
-       syntax
-       (spell +enchant +everywhere)
+       ;syntax
+       (spell +aspell +everywhere)
        grammar
 
        :tools
@@ -82,14 +82,14 @@
        ledger
        (markdown +grip)
        (org
-        +noter
-        +journal
-        +roam
         +dragndrop
         +hugo
+        +journal
+        +noter
         +pandoc
         +pretty
-        +present)
+        +present
+        +roam)
        (json +lsp)
        (php +lsp)
        (python +lsp)
