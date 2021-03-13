@@ -57,7 +57,7 @@ inherit = bar/base-laptop
 bottom = true
 monitor = ${env:MONITOR:eDP1}
 
-modules-right = system-usb-udev corona
+#modules-right = system-usb-udev corona
 modules-left = mpd player-mpris-tail
 
 [bar/laptop-top]
@@ -72,17 +72,18 @@ tray-position = right
 
 [bar/monitor1]
 inherit = bar/base-desktop
-monitor = ${env:MONITOR:DP-1}
+monitor = ${env:MONITOR:DP-3}
 
 modules-left = bspwm
 modules-center = mpd player-mpris-tail
-modules-right = seperator corona seperator eth bluetooth seperator volume seperator docker memory cpu temperature seperator system-usb-udev filesystem-root filesystem-home seperator updates-arch-combined mail reddit github rss seperator weather seperator date seperator
+#modules-right = seperator corona seperator eth bluetooth seperator volume seperator docker memory cpu temperature seperator system-usb-udev filesystem-root filesystem-home seperator updates-arch-combined mail reddit github rss seperator weather seperator date seperator
+modules-right = seperator corona seperator eth bluetooth seperator volume seperator docker memory cpu temperature seperator filesystem-root seperator updates-arch-combined mail reddit github rss seperator weather seperator date seperator
 
 tray-position = right
 
 [bar/monitor2]
 inherit = bar/base-desktop
-monitor = ${env:MONITOR:HDMI-2}
+monitor = ${env:MONITOR:DP-2}
 modules-left = bspwm
 
 ;== Modules ========================================================
@@ -180,6 +181,7 @@ ramp-load-4 = ▅
 ramp-load-5 = ▆
 ramp-load-6 = ▇
 ramp-load-7 = █
+
 [module/cpu]
 type = internal/cpu
 
