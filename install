@@ -4,7 +4,6 @@
 set prerequisiteApps bat bmon broot brave caffeine-ng exa fslint fzf graphviz isync imagemagick lightdm-gtk-greeter mailcap neofetch npm pandoc-bin pamixer playerctl pulseaudio pulsemixer python pywal ripgrep stow sxiv tldr trayer udisks2 unclutter xbanish xwallpaper yarn xprop zathura
 set prerequisiteFonts ttf-linux-libertine noto-fonts noto-fonts-emoji ttf-liberation nerd-fonts-hack
 set prerequisiteLibraries libxft-bgra
-set prerequisiteLsp bash-language-server ccls php-language-server python-language-server typescript-language-server-bin vscode-css-languageserver-bin vscode-html-languageserver-bin nodejs-intelephense
 set configuredApps alacritty bspwm castero emacs firejail git gnupg gtk lf dunst mpd mpv mpv-mpris ncmpcpp neomutt neovim picom redshift sxhkd tmux tuir weechat
 set locales aspell-en hunspell-en_GB hunspell-en_US hunspell-nl
 set golang go golangci-lint-bin
@@ -51,10 +50,6 @@ for library in $prerequisiteLibraries
     install_app_if_not_exist "$library"
 end
 
-for lsp in $prerequisiteLsp
-    install_app_if_not_exist "$lsp"
-end
-
 for app in $configuredApps
     install_app_if_not_exist "$app"
 end
@@ -95,6 +90,7 @@ mkdir_if_not_exist ~/.config/coc/extensions
 mkdir_if_not_exist ~/.config/dmenu-frecency
 mkdir_if_not_exist ~/.config/doom
 mkdir_if_not_exist ~/.config/sxhkd
+mkdir_if_not_exist ~/.local/share/applications
 
 
 # Link mpv plugins if they don't exist
