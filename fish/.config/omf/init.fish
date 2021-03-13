@@ -3,11 +3,6 @@ if status is-login
     if test -z "$DISPLAY" -a $XDG_VTNR = 1
         set -xg -x SXHKD_SHELL '/usr/bin/sh'
 
-        # Enable numberlock
-        if [ -x "/usr/bin/numlockx" ]
-            /usr/bin/numlockx on
-        end
-
         exec startx -- -keeptty
     end
 end
@@ -33,7 +28,6 @@ end
 path_if_exists ~/.local/share/yarn/global/node_modules/.bin
 path_if_exists ~/.local/bin
 path_if_exists ~/.emacs.d/bin
-path_if_exists ~/.local/share/go/bin
 path_if_exists ~/.local/share/cargo/bin
 path_if_exists ~/.local/share/go/bin
 
@@ -41,14 +35,10 @@ path_if_exists ~/.local/share/go/bin
 set GPG_TTY (tty)
 
 # Set default browser
-if [ -e "/usr/bin/brave" ]
+if [ -e "/sbin/brave" ]
     set -xg BROWSER "brave"
-else
-    if [ -e "/usr/bin/firefox" ]
+else if [ -e "/sbin/firefox" ]
         set -xg BROWSER "firefox"
-    else if [ -e "/usr/bin/iceweasel" ]
-        set -xg BROWSER "iceweasel"
-    end
 end
 
 # Set default terminal
@@ -102,6 +92,9 @@ set -xg XDG_VIDEOS_DIR $HOME/Videos
 
 # Npm
 set -xg NPM_CONFIG_USERCONFIG $XDG_CONFIG_HOME/npm/npmrc
+
+# Set qt theme
+set -xg QT_QPA_PLATFORMTHEME qt5ct 
 
 # nvim alias
 abbr --add v 'nvim'
