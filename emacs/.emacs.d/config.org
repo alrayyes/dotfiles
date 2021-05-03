@@ -1,0 +1,133 @@
+#+TITLE: Ryan's Emacs config
+#+AUTHOR: Ryan Kes
+#+DESCRIPTION: There are many Emacs configs, this one is mine
+
+* About
+  My personal Emacs config.
+** init.el
+   To load this config add the following to ~init.el~
+#+begin_example
+(org-babel-load-file
+ (expand-file-name
+  "config.org"
+  user-emacs-directory))
+#+end_example
+
+* Package Management
+** Archives
+#+begin_src emacs-lisp
+  (setq package-archives '(("melpa" . "https://melpa.org/packages/")
+			   ("org" . "https://orgmode.org/elpa/")
+			   ("elpa" . "https://elpa.gnu.org/packages/")))
+
+  (package-initialize)
+  (unless package-archive-contents
+  (package-refresh-contents))
+#+end_src
+
+** Use-Package
+   The ~use-package~ macro allows you to isolate package configuration in your ~.emacs~ file in a way that is both performance-oriented and, well, tidy.
+
+#+begin_src emacs-lisp
+(unless (package-installed-p 'use-package)
+  (package-install 'use-package))
+
+(require 'use-package)
+  ;; "ensure" packages by default
+  (setq use-package-always-ensure t)
+#+end_src
+
+** Ensure
+   The ~:ensure~ keyword causes the package(s) to be installed automatically if not already present on your system
+
+#+begin_src emacs-lisp
+(require 'use-package-ensure)
+(setq use-package-always-ensure t)
+#+end_src
+
+* General Configuration
+** User Interface
+   Start with minimal interface
+#+begin_src emacs-lisp
+(setq inhibit-startup-message t) ;; Disable startup message
+
+(scroll-bar-mode -1)        ; Disable visible scrollbar
+(tool-bar-mode -1)          ; Disable the toolbar
+(tooltip-mode -1)           ; Disable tooltips
+(menu-bar-mode -1)          ; Disable the menu bar
+
+;; Set up the visible bell
+(setq visible-bell t)
+#+end_src
+
+** Theme
+#+begin_src emacs-lisp
+(use-package zenburn-theme)
+(load-theme 'zenburn t)
+#+end_src
+
+** Font
+#+begin_src emacs-lisp
+  (set-face-attribute 'default nil :font "JetBrainsMono Nerd Font")
+#+end_src
+
+** Mode Line
+*** Doom Modeline
+#+begin_src emacs-lisp
+    (use-package doom-modeline
+  :init (doom-modeline-mode 1)
+  :custom (doom-modeline-height 15))
+#+end_src
+
+* Keyboard Bindings
+  ** Escape Cancels All
+#+begin_src emacs_lisp
+(global-set-key (kbd "<escape>") 'keyboard-escape-quit)
+#+end_src 
+
+** Evil Mode
+Evil Collection is also installed since it adds 'evil' bindings to parts of Emacs that the standard Evil package does not cover, such as: calenda, help-mode adn ibuffer.
+
+#+begin_src emacs-lisp
+  (use-package evil
+    :init      ;; tweak evil's configuration before loading it
+    (setq evil-want-integration t) ;; This is optional since it's already set to t by default.
+    (setq evil-want-keybinding nil)
+    (setq evil-vsplit-window-right t)
+    (setq evil-split-window-below t)
+    (evil-mode))
+  (use-package evil-collection
+    :after evil
+    :config
+    (setq evil-collection-mode-list '(dashboard dired ibuffer))
+    (evil-collection-init))
+#+end_src
+
+** General Keybindings
+   ~general.el~ provides a more convenient way to bind keys in emacs for both evil and non-evil users. ~general-define-key~ allows defining multiple keys at once, implicitly wrapping key strings with (kbd ...), having named prefix key sequences (like the leader key in vim), and more.
+#+begin_src emacs-lisp
+(use-package general
+  :config
+  (general-evil-setup t))
+#+end_src
+
+* Ivy
+#+begin_src emacs-lisp
+    (use-package ivy
+      :diminish
+      :bind (("C-s" . swiper)
+	     :map ivy-minibuffer-map
+	     ("TAB" . ivy-alt-done)
+	     ("C-l" . ivy-alt-done)
+	     ("C-j" . ivy-next-line)
+	     ("C-k" . ivy-previous-line)
+	     :map ivy-switch-buffer-map
+	     ("C-k" . ivy-previous-line)
+	     ("C-l" . ivy-done)
+	     ("C-d" . ivy-switch-buffer-kill)
+	     :map ivy-reverse-i-search-map
+	     ("C-k" . ivy-previous-line)
+	     ("C-d" . ivy-reverse-i-search-kill))
+      :init
+      (ivy-mode 1)) ;; Load keybindings
+#+end_src

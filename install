@@ -84,6 +84,7 @@ mkdir_if_not_exist ~/.config/systemd/user
 mkdir_if_not_exist ~/.config/wal
 mkdir_if_not_exist ~/.config/weechat
 mkdir_if_not_exist ~/.config/X11
+mkdir_if_not_exist ~/.emacs.d
 mkdir_if_not_exist ~/.gnupg
 mkdir_if_not_exist ~/.config/mpv/scripts
 mkdir_if_not_exist ~/.config/coc/extensions
