@@ -60,10 +60,16 @@
 (setq visible-bell t)
 #+end_src
 
+Enable line numbers and customize their format.
+#+begin_src emacs-lisp
+(column-number-mode)
+(global-display-line-numbers-mode t)
+#+end_src
+
 ** Theme
 #+begin_src emacs-lisp
-(use-package zenburn-theme)
-(load-theme 'zenburn t)
+(use-package doom-themes)
+(load-theme 'doom-molokai t)
 #+end_src
 
 ** Font
@@ -80,8 +86,8 @@
 #+end_src
 
 * Keyboard Bindings
-  ** Escape Cancels All
-#+begin_src emacs_lisp
+** Escape Cancels All
+#+begin_src emacs-lisp
 (global-set-key (kbd "<escape>") 'keyboard-escape-quit)
 #+end_src 
 
@@ -111,7 +117,16 @@ Evil Collection is also installed since it adds 'evil' bindings to parts of Emac
   (general-evil-setup t))
 #+end_src
 
+** Keybinding Panel (which-key)
+[[https://github.com/justbur/emacs-which-key][which-key]] shows an overview of what keybindings are available based on the prefix keys you entered.
+#+begin_src emacs-lisp
+  (use-package which-key
+    :init (which-key-mode)
+  :config(setq which-key-idle-delay 0.3))
+#+end_src
+
 * Ivy
+** General
 #+begin_src emacs-lisp
     (use-package ivy
       :diminish
@@ -130,4 +145,57 @@ Evil Collection is also installed since it adds 'evil' bindings to parts of Emac
 	     ("C-d" . ivy-reverse-i-search-kill))
       :init
       (ivy-mode 1)) ;; Load keybindings
+#+end_src
+
+** Ivy-rich
+[[https://github.com/Yevgnen/ivy-rich][ivy-rich]] comes with rich transformers for commands from ~ivy~ and ~counsel~.
+#+begin_src emacs-lisp
+      (use-package ivy-rich
+:after counsel
+    :init
+  (ivy-rich-mode 1))
+#+end_src
+
+** Counsel
+~ivy-mode~ ensures that any Emacs command using ~completing-read-function~ uses ivy for completion.
+
+Counsel takes this further, providing versions of common Emacs commands that are customised to make the best use of Ivy. For example, ~counsel-find-file~ has some additional keybindings. Pressing ~DEL~ will move you to the parent directory.
+#+begin_src emacs-lisp
+(use-package counsel
+  :demand t
+  :bind (("M-x" . counsel-M-x)
+         ("C-x b" . counsel-ibuffer)
+         ("C-x C-f" . counsel-find-file)
+         ;; ("C-M-j" . counsel-switch-buffer)
+         ("C-M-l" . counsel-imenu)
+         :map minibuffer-local-map
+         ("C-r" . 'counsel-minibuffer-history))
+  :custom
+  (counsel-linux-app-format-function #'counsel-linux-app-format-function-name-only)
+  :config
+  (setq ivy-initial-inputs-alist nil)) ;; Don't start searches with ^
+#+end_src
+
+* Development
+** Languages
+*** Emacs Lisp
+**** Helpful
+     [[https://github.com/Wilfred/helpful][Helpful]] is an alternative to the built-in Emacs help that provides much more contextual information.
+#+begin_src emacs-lisp
+(use-package helpful
+  :custom
+  (counsel-describe-function-function #'helpful-callable)
+  (counsel-describe-variable-function #'helpful-variable)
+  :bind
+  ([remap describe-function] . helpful-function)
+  ([remap describe-symbol] . helpful-symbol)
+  ([remap describe-variable] . helpful-variable)
+  ([remap describe-command] . helpful-command)
+  ([remap describe-key] . helpful-key))
+#+end_src
+** Productivity
+*** Rainbow Delimiters
+#+begin_src emacs-lisp
+  (use-package rainbow-delimiters
+    :hook (prog-mode . rainbow-delimiters-mode))
 #+end_src
