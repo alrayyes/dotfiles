@@ -62,8 +62,9 @@
 
 Enable line numbers and customize their format.
 #+begin_src emacs-lisp
-(column-number-mode)
-(global-display-line-numbers-mode t)
+  (column-number-mode)
+  (global-display-line-numbers-mode t)
+  (setq display-line-numbers-type `relative)
 #+end_src
 
 ** Theme
