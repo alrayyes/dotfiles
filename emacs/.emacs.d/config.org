@@ -77,6 +77,11 @@ Enable line numbers and customize their format.
   (set-face-attribute 'default nil :font "JetBrainsMono Nerd Font")
 #+end_src
 
+** Icons
+#+begin_src emacs-lisp
+(use-package all-the-icons)
+#+end_src
+  
 ** Mode Line
 *** Doom Modeline
 #+begin_src emacs-lisp
@@ -92,29 +97,36 @@ Enable line numbers and customize their format.
 #+end_src 
 
 ** Evil Mode
-Evil Collection is also installed since it adds 'evil' bindings to parts of Emacs that the standard Evil package does not cover, such as: calenda, help-mode adn ibuffer.
 
+*** General
 #+begin_src emacs-lisp
   (use-package evil
     :init      ;; tweak evil's configuration before loading it
-    (setq evil-want-integration t) ;; This is optional since it's already set to t by default.
     (setq evil-want-keybinding nil)
-    (setq evil-vsplit-window-right t)
-    (setq evil-split-window-below t)
+(setq evil-want-C-u-scroll t)
     (evil-mode))
+#+end_src
+
+*** Evil Collection
+    Evil Collection is also installed since it adds 'evil' bindings to parts of Emacs that the standard Evil package does not cover, such as: calendar, help-mode and ibuffer.
+#+begin_src emacs-lisp
   (use-package evil-collection
     :after evil
     :config
-    (setq evil-collection-mode-list '(dashboard dired ibuffer))
     (evil-collection-init))
 #+end_src
 
 ** General Keybindings
-   ~general.el~ provides a more convenient way to bind keys in emacs for both evil and non-evil users. ~general-define-key~ allows defining multiple keys at once, implicitly wrapping key strings with (kbd ...), having named prefix key sequences (like the leader key in vim), and more.
+   [[https://github.com/noctuid/general.el][general.el]] provides a more convenient way to bind keys in emacs for both evil and non-evil users. ~general-define-key~ allows defining multiple keys at once, implicitly wrapping key strings with (kbd ...), having named prefix key sequences (like the leader key in vim), and more.
 #+begin_src emacs-lisp
-(use-package general
-  :config
-  (general-evil-setup t))
+   (use-package general
+     :config
+     (general-evil-setup t)
+
+  (general-create-definer dw/leader-key-def
+     :keymaps '(normal insert visual emacs)
+     :prefix "SPC"
+     :global-prefix "C-SPC"))
 #+end_src
 
 ** Keybinding Panel (which-key)
@@ -199,3 +211,4 @@ Counsel takes this further, providing versions of common Emacs commands that are
   (use-package rainbow-delimiters
     :hook (prog-mode . rainbow-delimiters-mode))
 #+end_src
+*** 
