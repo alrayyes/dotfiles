@@ -4,8 +4,9 @@
 
 * About
   My personal Emacs config.
-** init.el
+* init.el
    To load this config add the following to ~init.el~
+
 #+begin_example
 (org-babel-load-file
  (expand-file-name
@@ -24,7 +25,6 @@
   (unless package-archive-contents
   (package-refresh-contents))
 #+end_src
-
 ** Use-Package
    The ~use-package~ macro allows you to isolate package configuration in your ~.emacs~ file in a way that is both performance-oriented and, well, tidy.
 
@@ -36,7 +36,6 @@
   ;; "ensure" packages by default
   (setq use-package-always-ensure t)
 #+end_src
-
 ** Ensure
    The ~:ensure~ keyword causes the package(s) to be installed automatically if not already present on your system
 
@@ -47,7 +46,7 @@
 
 * General Configuration
 ** User Interface
-   Start with minimal interface
+*** Start with minimal interface
 #+begin_src emacs-lisp
 (setq inhibit-startup-message t) ;; Disable startup message
 
@@ -59,8 +58,7 @@
 ;; Set up the visible bell
 (setq visible-bell t)
 #+end_src
-
-Enable line numbers and customize their format.
+*** Enable line numbers and customize their format.
 #+begin_src emacs-lisp
   (column-number-mode)
   (global-display-line-numbers-mode t)
@@ -91,6 +89,7 @@ Enable line numbers and customize their format.
   :custom (doom-modeline-height 15))
 #+end_src
 
+
 * Keyboard Bindings
 ** Escape Cancels All
 #+begin_src emacs-lisp
@@ -98,7 +97,6 @@ Enable line numbers and customize their format.
 #+end_src 
 
 ** Evil Mode
-
 *** General
 #+begin_src emacs-lisp
   (use-package evil
@@ -110,6 +108,7 @@ Enable line numbers and customize their format.
 
 *** Evil Collection
     Evil Collection is also installed since it adds 'evil' bindings to parts of Emacs that the standard Evil package does not cover, such as: calendar, help-mode and ibuffer.
+
 #+begin_src emacs-lisp
   (use-package evil-collection
     :after evil
@@ -119,6 +118,7 @@ Enable line numbers and customize their format.
 
 ** General Keybindings
    [[https://github.com/noctuid/general.el][general.el]] provides a more convenient way to bind keys in emacs for both evil and non-evil users. ~general-define-key~ allows defining multiple keys at once, implicitly wrapping key strings with (kbd ...), having named prefix key sequences (like the leader key in vim), and more.
+
 #+begin_src emacs-lisp
    (use-package general
      :config
@@ -131,12 +131,14 @@ Enable line numbers and customize their format.
 #+end_src
 
 ** Keybinding Panel (which-key)
-[[https://github.com/justbur/emacs-which-key][which-key]] shows an overview of what keybindings are available based on the prefix keys you entered.
+   [[https://github.com/justbur/emacs-which-key][which-key]] shows an overview of what keybindings are available based on the prefix keys you entered.
+
 #+begin_src emacs-lisp
   (use-package which-key
     :init (which-key-mode)
   :config(setq which-key-idle-delay 0.3))
 #+end_src
+
 
 * Ivy
 ** General
@@ -161,7 +163,8 @@ Enable line numbers and customize their format.
 #+end_src
 
 ** Ivy-rich
-[[https://github.com/Yevgnen/ivy-rich][ivy-rich]] comes with rich transformers for commands from ~ivy~ and ~counsel~.
+   [[https://github.com/Yevgnen/ivy-rich][ivy-rich]] comes with rich transformers for commands from ~ivy~ and ~counsel~.
+
 #+begin_src emacs-lisp
       (use-package ivy-rich
 :after counsel
@@ -170,9 +173,8 @@ Enable line numbers and customize their format.
 #+end_src
 
 ** Counsel
-~ivy-mode~ ensures that any Emacs command using ~completing-read-function~ uses ivy for completion.
+   ~ivy-mode~ ensures that any Emacs command using ~completing-read-function~ uses ivy for completion. Counsel takes this further, providing versions of common Emacs commands that are customised to make the best use of Ivy. For example, ~counsel-find-file~ has some additional keybindings. Pressing ~DEL~ will move you to the parent directory.
 
-Counsel takes this further, providing versions of common Emacs commands that are customised to make the best use of Ivy. For example, ~counsel-find-file~ has some additional keybindings. Pressing ~DEL~ will move you to the parent directory.
 #+begin_src emacs-lisp
 (use-package counsel
   :demand t
@@ -189,27 +191,60 @@ Counsel takes this further, providing versions of common Emacs commands that are
   (setq ivy-initial-inputs-alist nil)) ;; Don't start searches with ^
 #+end_src
 
+
 * Development
 ** Languages
 *** Emacs Lisp
 **** Helpful
      [[https://github.com/Wilfred/helpful][Helpful]] is an alternative to the built-in Emacs help that provides much more contextual information.
+
 #+begin_src emacs-lisp
-(use-package helpful
-  :custom
-  (counsel-describe-function-function #'helpful-callable)
-  (counsel-describe-variable-function #'helpful-variable)
-  :bind
-  ([remap describe-function] . helpful-function)
-  ([remap describe-symbol] . helpful-symbol)
-  ([remap describe-variable] . helpful-variable)
-  ([remap describe-command] . helpful-command)
-  ([remap describe-key] . helpful-key))
+  (use-package helpful
+    :custom
+    (counsel-describe-function-function #'helpful-callable)
+    (counsel-describe-variable-function #'helpful-variable)
+    :bind
+    ([remap describe-function] . helpful-function)
+    ([remap describe-symbol] . helpful-symbol)
+    ([remap describe-variable] . helpful-variable)
+    ([remap describe-command] . helpful-command)
+    ([remap describe-key] . helpful-key))
 #+end_src
+
 ** Productivity
 *** Rainbow Delimiters
 #+begin_src emacs-lisp
   (use-package rainbow-delimiters
     :hook (prog-mode . rainbow-delimiters-mode))
 #+end_src
-*** 
+
+** Projectile
+   [[https://github.com/bbatsov/projectile][Projectile]] is a project interaction library for Emacs. Its goal is to provide a nice set of features operating on a project level without introducing external dependencies (when feasible). For instance - finding project files has a portable implementation written in pure Emacs Lisp without the use of GNU ~find~ (but for performance sake an indexing mechanism backed by external commands exists as well).
+
+#+begin_src emacs-lisp
+(use-package projectile
+  :ensure t
+  :init
+  (projectile-mode +1)
+  (setq projectile-project-search-path '("~/devel/" "~/dotfiles/" "~/Documents/"))
+  :bind (:map projectile-mode-map
+              ("s-p" . projectile-command-map)
+              ("C-c p" . projectile-command-map)))
+#+end_src
+*** Counsel-projectile
+    [[https://github.com/bbatsov/projectile][Projectile]] has native support for using [[https://github.com/abo-abo/swiper][ivy]] as its completion system. [[https://github.com/ericdanan/counsel-projectile][Counsel-projectile]] provides further ivy integration into projectile by taking advantage of ivy's support for selecting from a list of actions and applying an action without leaving the completion session. Concretely, counsel-projectile defines replacements for existing projectile commands as well as new commands that have no projectile counterparts. A minor mode is also provided that adds key bindings for all these commands on top of the projectile key bindings.
+
+#+begin_src emacs-lisp
+  (use-package counsel-projectile
+  :after projectile
+  :config
+  (counsel-projectile-mode))
+#+end_src
+
+** Git
+*** Magit
+    [[https://magit.vc/][Magit]] is a complete text-based user interface to Git. It fills the glaring gap between the Git command-line interface and various GUIs, letting you perform trivial as well as elaborate version control tasks with just a couple of mnemonic key presses. 
+
+#+begin_src emacs-lisp
+(use-package magit)
+#+end_src

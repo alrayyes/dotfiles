@@ -52,12 +52,14 @@ A repository of my personal configuration files.
 
 * Applications installed by script
 ** Applications
+- [[https://github.com/ggreer/the_silver_searcher][ag]]
 - [[https://github.com/sharkdp/bat][bat]]
 - [[https://github.com/tgraf/bmon][bmon]]
 - [[https://dystroy.org/broot/][broot]]
 - [[https://brave.com/][brave]]
 - [[https://github.com/caffeine-ng/caffeine-ng][caffeine-ng]]
 - [[https://the.exa.website/][exa]]
+- [[https://github.com/sharkdp/fd][fd]]
 - [[https://github.com/pixelb/fslint][fslint]]
 - [[https://github.com/junegunn/fzf][fzf]]
 - [[https://gnupg.org/][gnupg]]
