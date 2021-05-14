@@ -73,13 +73,14 @@
 
 ** Font
 #+begin_src emacs-lisp
-    (set-face-attribute 'default nil :font "JetBrainsMono Nerd Font")
+  ;; Default pitch face
+  (set-face-attribute 'default nil :font "JetBrainsMono Nerd Font")
 
   ;; Fixed pitch face
-    (set-face-attribute 'fixed-pitch  nil :font "JetBrainsMono Nerd Font")
+  (set-face-attribute 'fixed-pitch  nil :font "JetBrainsMono Nerd Font")
 
-;;  Variable pitch face
-    (set-face-attribute 'variable-pitch  nil :font "Cantarell")
+  ;; Variable pitch face
+  (set-face-attribute 'variable-pitch  nil :font "Cantarell")
 #+end_src
 
 ** Icons
@@ -95,7 +96,7 @@
   :custom (doom-modeline-height 15))
 #+end_src
 
-* Keyboard Bindings
+
 ** Escape Cancels All
 #+begin_src emacs-lisp
 (global-set-key (kbd "<escape>") 'keyboard-escape-quit)
@@ -315,4 +316,10 @@
 
   (use-package visual-fill-column
     :hook (org-mode . efs/org-mode-visual-fill))
+#+end_src
+
+** Org Agenda
+#+begin_src emacs-lisp
+    (setq
+  org-agenda-files (directory-files-recursively "~/Documents/org/" "\.org$"))
 #+end_src
