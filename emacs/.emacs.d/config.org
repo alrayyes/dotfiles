@@ -73,7 +73,13 @@
 
 ** Font
 #+begin_src emacs-lisp
-  (set-face-attribute 'default nil :font "JetBrainsMono Nerd Font")
+    (set-face-attribute 'default nil :font "JetBrainsMono Nerd Font")
+
+  ;; Fixed pitch face
+    (set-face-attribute 'fixed-pitch  nil :font "JetBrainsMono Nerd Font")
+
+;;  Variable pitch face
+    (set-face-attribute 'variable-pitch  nil :font "Cantarell")
 #+end_src
 
 ** Icons
@@ -88,7 +94,6 @@
   :init (doom-modeline-mode 1)
   :custom (doom-modeline-height 15))
 #+end_src
-
 
 * Keyboard Bindings
 ** Escape Cancels All
@@ -138,7 +143,6 @@
     :init (which-key-mode)
   :config(setq which-key-idle-delay 0.3))
 #+end_src
-
 
 * Ivy
 ** General
@@ -190,7 +194,6 @@
   :config
   (setq ivy-initial-inputs-alist nil)) ;; Don't start searches with ^
 #+end_src
-
 
 * Development
 ** Languages
@@ -247,4 +250,69 @@
 
 #+begin_src emacs-lisp
 (use-package magit)
+#+end_src
+
+* Org Mode
+  [[https://orgmode.org/][Org]] is a highly flexible structured plain text file format, composed of a few simple, yet versatile, structures — constructed to be both simple enough for the novice and powerful enough for the expert. 
+
+#+begin_src emacs-lisp
+    (defun efs/org-mode-setup ()
+      (org-indent-mode)
+      (variable-pitch-mode 1)
+      (visual-line-mode 1))
+
+      (use-package org
+    :hook
+  (org-mode . efs/org-mode-setup)
+  :config
+    (setq org-ellipsis " ▾"))
+#+end_src
+
+** Heading Bullets
+[[https://github.com/sabof/org-bullets][org-bullets]] shows org-mode bullets as UTF-8 characters.
+
+#+begin_src emacs-lisp
+      (use-package org-bullets
+  :hook
+(org-bullets-mode t))
+#+end_src
+
+** Better Font Faces
+
+#+begin_src emacs-lisp
+  (dolist (face '((org-level-1 . 1.2)
+                  (org-level-2 . 1.1)
+                  (org-level-3 . 1.05)
+                  (org-level-4 . 1.0)
+                  (org-level-5 . 1.1)
+                  (org-level-6 . 1.1)
+                  (org-level-7 . 1.1)
+                  (org-level-8 . 1.1)))
+    (set-face-attribute (car face) nil :font "Cantarell" :weight 'regular :height (cdr face)))
+
+  ;; Ensure that anything that should be fixed-pitch in Org files appears that way
+  (set-face-attribute 'org-block nil    :foreground nil :inherit 'fixed-pitch)
+  (set-face-attribute 'org-table nil    :inherit 'fixed-pitch)
+  (set-face-attribute 'org-formula nil  :inherit 'fixed-pitch)
+  (set-face-attribute 'org-code nil     :inherit '(shadow fixed-pitch))
+  (set-face-attribute 'org-table nil    :inherit '(shadow fixed-pitch))
+  (set-face-attribute 'org-verbatim nil :inherit '(shadow fixed-pitch))
+  (set-face-attribute 'org-special-keyword nil :inherit '(font-lock-comment-face fixed-pitch))
+  (set-face-attribute 'org-meta-line nil :inherit '(font-lock-comment-face fixed-pitch))
+  (set-face-attribute 'org-checkbox nil  :inherit 'fixed-pitch)
+  (set-face-attribute 'line-number nil :inherit 'fixed-pitch)
+  (set-face-attribute 'line-number-current-line nil :inherit 'fixed-pitch)
+#+end_src
+
+** Center Org Buffers
+[[https://github.com/joostkremers/visual-fill-column][visual-fill-column-mode]] is a small Emacs minor mode that mimics the effect of ~fill-column~ in ~visual-line-mode~. Instead of wrapping lines at the window edge, which is the standard behaviour of ~visual-line-mode~, it wraps lines at ~fill-column~. If ~fill-column~ is too large for the window, the text is wrapped at the window edge.
+
+#+begin_src emacs-lisp
+  (defun efs/org-mode-visual-fill ()
+    (setq visual-fill-column-width 120
+          visual-fill-column-center-text t)
+    (visual-fill-column-mode 1))
+
+  (use-package visual-fill-column
+    :hook (org-mode . efs/org-mode-visual-fill))
 #+end_src
