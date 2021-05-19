@@ -323,3 +323,30 @@
     (setq
   org-agenda-files (directory-files-recursively "~/Documents/org/" "\.org$"))
 #+end_src
+
+** Configure Babel Languages
+To execute or export code in ~org-mode~ code blocks, you’ll need to set up ~org-babel-load-languages~ for each language you’d like to use. [[https://orgmode.org/worg/org-contrib/babel/languages.html][This page]] documents all of the languages that you can use with ~org-babel~.
+
+#+begin_src emacs-lisp
+(with-eval-after-load 'org
+  (org-babel-do-load-languages
+      'org-babel-load-languages
+      '((emacs-lisp . t)
+      (python . t)))
+
+  (push '("conf-unix" . conf-unix) org-src-lang-modes))
+#+end_src
+
+** Structure Templates
+With just a few keystrokes, it is possible to insert empty [[https://orgmode.org/manual/Structure-Templates.html][structural blocks]], such as ~#+BEGIN_SRC~ … ~#+END_SRC~, or to wrap existing text in such a block. 
+
+#+begin_src emacs-lisp
+(with-eval-after-load 'org
+  ;; This is needed as of Org 9.2
+  (require 'org-tempo)
+
+  (add-to-list 'org-structure-template-alist '("sh" . "src shell"))
+  (add-to-list 'org-structure-template-alist '("el" . "src emacs-lisp"))
+  (add-to-list 'org-structure-template-alist '("py" . "src python"))
+  (add-to-list 'org-structure-template-alist '("ph" . "src php")))
+  #+end_src
