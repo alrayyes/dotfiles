@@ -110,7 +110,6 @@ start_if_not_running redshift-gtk
 start_if_not_running syncthing-gtk
 start_if_not_running caffeine
 
-start_if_not_running brave
 start_if_not_running firefox
 start_if_not_running emacs
 start_if_not_running element-desktop
