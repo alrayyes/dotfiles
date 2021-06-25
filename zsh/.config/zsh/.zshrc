@@ -83,6 +83,9 @@ alias rm="rm -i"
 # Colorize diff
 alias diff="diff --color"
 
+# Doom Emacs alias
+alias demacs="emacs --with-profile doom"
+
 # Use lf to switch directories and bind it to ctrl-o
 lfcd() {
 	tmp="$(mktemp)"

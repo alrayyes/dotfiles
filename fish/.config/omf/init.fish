@@ -27,7 +27,7 @@ end
 # Add paths
 path_if_exists ~/.local/share/yarn/global/node_modules/.bin
 path_if_exists ~/.local/bin
-path_if_exists ~/.emacs.d/bin
+path_if_exists ~/.local/share/doom/bin
 path_if_exists ~/.local/share/cargo/bin
 path_if_exists ~/.local/share/go/bin
 
@@ -132,6 +132,9 @@ abbr --add rm "rm -i"
 
 # Colorize diff
 abbr --add diff "diff --color"
+
+# Doom Emacs alias
+abbr --add demacs "emacs --with-profile doom"
 
 # Load lfcd wiith proper icons
 function lf
