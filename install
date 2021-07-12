@@ -9,6 +9,7 @@ set locales aspell-en hunspell-en_GB hunspell-en_US hunspell-nl
 set golang go golangci-lint-bin
 set shell shfmt shellcheck
 set screenlock xsecurelock xss-lock
+set dmenu clipmenu
 
 function mkdir_if_not_exist
     if [ ! -d "$argv" ]
@@ -68,6 +69,10 @@ end
 
 for lock in $screenlock
     install_app_if_not_exist "$lock"
+end
+
+for script in $dmenu
+    install_app_if_not_exist "$script"
 end
 
 # Create directories that  need to exist

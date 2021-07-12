@@ -87,6 +87,10 @@ super + ctrl + alt + {m}
 super + ctrl + alt + {w}
     alacritty --class fullscreen,fullscreen -e ~/.config/polybar/bin/wttr-and-wait
 
+# clipboard manager
+super + ctrl + {c}
+    clipmenu
+
 #-----------------------------------------------------------Bspwm--------------------------------------------------------------
 # quit/restart bspwm
 super + alt + {q,r}

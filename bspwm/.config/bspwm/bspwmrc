@@ -109,6 +109,7 @@ start_if_not_running pasystray
 start_if_not_running redshift-gtk
 start_if_not_running syncthing-gtk
 start_if_not_running caffeine
+start_if_not_running clipmenud
 
 start_if_not_running firefox
 start_if_not_running emacs
