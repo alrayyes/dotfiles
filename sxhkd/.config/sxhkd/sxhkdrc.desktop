@@ -65,7 +65,7 @@ Print
 #-----------------------------------------------------------App shortcuts--------------------------------------------------------------
 # terminal emulator
 super + BackSpace
-      st
+      alacritty
 
 # program launcher
 super + Delete
