@@ -49,3 +49,6 @@ colors:
     magenta: "0xd3869b"
     cyan: "0x8ec07c"
     white: "0xebdbb2"
+
+selection:
+    save_to_clipboard: true
