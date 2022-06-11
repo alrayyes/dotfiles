@@ -14,6 +14,9 @@ path_if_exists ~/.local/share/doom/bin
 path_if_exists ~/.local/share/go/bin
 path_if_exists ~/.local/share/cargo/bin
 
+# Add local node_modules
+export PATH="./node_modules/.bin/:$PATH"
+
 # Set GPG TTY
 export GPG_TTY="$(tty)"
 
