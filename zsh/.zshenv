@@ -42,6 +42,9 @@ export PASSWORD_STORE_ENABLE_EXTENSIONS="true"
 # Make sure pass uses the proper directory
 export PASSWORD_STORE_DIR=~/.local/share/pass
 
+# Make sure pass ignores throw-keyids config
+export PASSWORD_STORE_GPG_OPTS="--no-throw-keyids"
+
 # Use alternative muhome
 export MU_HOME=~/.cache/mu
 

@@ -56,6 +56,9 @@ set -g PASSWORD_STORE_ENABLE_EXTENSIONS "true"
 # Make sure pass uses the proper directory
 set -g PASSWORD_STORE_DIR ~/.local/share/pass
 
+# Make sure pass ignores throw-keyids config
+set -g PASSWORD_STORE_GPG_OPTS "--no-throw-keyids"
+
 # Use alternative muhome
 set -xg MU_HOME ~/.cache/mu
 
@@ -94,7 +97,7 @@ set -xg XDG_VIDEOS_DIR $HOME/Videos
 set -xg NPM_CONFIG_USERCONFIG $XDG_CONFIG_HOME/npm/npmrc
 
 # Set qt theme
-set -xg QT_QPA_PLATFORMTHEME qt5ct 
+set -xg QT_QPA_PLATFORMTHEME qt5ct
 
 # nvim alias
 abbr --add v 'nvim'
@@ -114,7 +117,7 @@ abbr --add weechat "weechat -d ~/.config/weechat"
 abbr --add tmux "tmux -f ~/.config/tmux/tmux.conf"
 
 # pass
-abbr --add pass "PASSWORD_STORE_DIR=$PASSWORD_STORE_DIR /usr/bin/pass"
+abbr --add pass "PASSWORD_STORE_DIR=$PASSWORD_STORE_DIR PASSWORD_STORE_GPG_OPTS=$PASSWORD_STORE_GPG_OPTS /usr/bin/pass"
 
 # pacman aliases
 abbr --add pacrmorphans "sudo pacman -Rs (pacman -Qtdq)"
