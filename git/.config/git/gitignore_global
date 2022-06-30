@@ -272,3 +272,6 @@ typings/
 
 # C
 .ccls-cache/
+
+# VSCode
+.vscode
