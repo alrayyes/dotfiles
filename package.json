@@ -2,8 +2,8 @@
   "name": "dotfiles",
   "description": "My dotfiles",
   "devDependencies": {
-    "@commitlint/config-conventional": "^12.0.1",
-    "husky": "^5.1.3"
+    "@commitlint/config-conventional": "^17.1.0",
+    "husky": "^8.0.1"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
