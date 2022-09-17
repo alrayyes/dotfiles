@@ -42,6 +42,4 @@ wait
 
 mu index --muhome=~/.cache/mu --maildir=~/.local/share/mail 2>/dev/null
 
-# Create a touch file that indicates the time of the last run of mailsync
-touch "/tmp/.mailsynclastrun"
-pkill -RTMIN+6 "${STATUSBAR:-dwmblocks}"
+exit 0
