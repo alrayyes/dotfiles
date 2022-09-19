@@ -1,5 +1,0 @@
-#!/usr/bin/env fish
-
-# This loads spt on bspwm startup with wal colours
-cat ~/.cache/wal/sequences
-spt
