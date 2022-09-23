@@ -77,7 +77,7 @@ monitor = ${env:MONITOR:DP-3}
 modules-left = bspwm
 modules-center = mpd player-mpris-tail
 #modules-right = seperator corona seperator eth bluetooth seperator volume seperator docker memory cpu temperature seperator system-usb-udev filesystem-root filesystem-home seperator updates-arch-combined mail reddit github rss seperator weather seperator date seperator
-modules-right = seperator corona seperator eth bluetooth seperator volume seperator docker memory cpu temperature seperator filesystem-root seperator updates-arch-combined mail reddit github rss seperator weather seperator date seperator
+modules-right = seperator eth bluetooth seperator volume seperator docker memory cpu temperature seperator filesystem-root seperator updates-arch-combined mail reddit github rss seperator weather seperator date seperator
 
 tray-position = right
 
