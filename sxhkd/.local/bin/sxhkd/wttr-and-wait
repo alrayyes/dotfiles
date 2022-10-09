@@ -1,3 +1,0 @@
-#!/usr/bin/env fish
-
-wttr && read -n 1 -p ""

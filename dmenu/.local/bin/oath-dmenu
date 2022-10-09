@@ -1,4 +1,0 @@
-#!/usr/bin/env fish
-
-. ~/.cache/wal/colors.fish
-yubikey-oath-dmenu --clipboard --clipboard-cmd 'xclip -selection clipboard' --notify --menu-cmd "dmenu -nb \"$color0\" -nf \"$color15\" -sb \"$color1\" -sf \"$color15\" -fn \"FuraCode Nerd Font\""

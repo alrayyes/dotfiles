@@ -1,0 +1,26 @@
+#!/usr/bin/env sh
+
+password=$(getpassword rss)
+session_id=$(curl -s -d '{"op":"login","user":"alrayyes","password":"'"$password"'"}' "https://rss.higherlearning.eu/api/" | jq -r ".content.session_id")
+count=$(curl -s -d '{"sid":"'$session_id'","op":"getUnread","feed_id":"0","is_cat":"1"}' "https://rss.higherlearning.eu/api/" | jq -r ".content.unread")
+#newsboat_count=$(/usr/bin/newsboat -x print-unread | awk '{print $1}')
+
+#if [ "$count" != "$newsboat_count" ]; then
+#    ~/.local/bin/newsup
+#fi
+
+if [ ! "$(pgrep -f 'newsboat')" ]; then
+    icon="📰"
+else
+    icon="🔃"
+fi
+
+if [ ! "$count" ]; then
+    echo "%{F#666}轢 n/a%{F-}"
+else
+    if [ ! "$count" -eq 0 ]; then
+        echo "$icon $count"
+    else
+        echo "%{F#666}%{F-}"
+    fi
+fi

@@ -1,6 +1,0 @@
-#!/usr/bin/env sh
-
-yay
-sudo pacman -Rs $(pacman -Qtdq)
-pacrmorphans
-pkill -RTMIN+9 "${STATUSBAR:-dwmblocks}"

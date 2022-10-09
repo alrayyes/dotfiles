@@ -7,13 +7,11 @@
 - [[#description][Description]]
   - [[#maintainers][Maintainers]]
 - [[#prerequisites][Prerequisites]]
-- [[#applications-installed-by-script][Applications installed by script]]
+- [[#applications-installed][Applications installed]]
   - [[#applications][Applications]]
   - [[#fonts][Fonts]]
-  - [[#libraries][Libraries]]
-    - [[#st--dmenu--dwm][st / dmenu / dwm]]
   - [[#lsp-backends][LSP Backends]]
-- [[#configured-applications-also-installed-by-script][Configured Applications (also installed by script)]]
+- [[#configured-applications-also-installed][Configured Applications (also installed)]]
 - [[#configured-locales][Configured Locales]]
 - [[#golang][Golang]]
 - [[#shell][Shell]]
@@ -49,8 +47,9 @@ A repository of my personal configuration files.
 - [[https://www.archlinux.org/][Arch Linux]]
 - [[https://fishshell.com/][fish shell]]
 - [[https://github.com/Jguer/yay][yay]]
+- [[https://www.chezmoi.io/][chezmoi]]
 
-* Applications installed by script
+* Applications installed
 ** Applications
 - [[https://github.com/ggreer/the_silver_searcher][ag]]
 - [[https://github.com/sharkdp/bat][bat]]
@@ -97,9 +96,6 @@ A repository of my personal configuration files.
 - [[https://www.google.com/get/noto/][Noto Fonts]]
 - [[https://www.google.com/get/noto/help/emoji/][Noto Color Emoji]]
 - Nerd patched [[https://sourcefoundry.org/hack/][Hack]]
-** Libraries
-*** st / dmenu / dwm
-- [[#+title: https://aur.archlinux.org/packages/libxft-bgra/][libxft-bgra]]
 ** LSP Backends
 - [[https://github.com/mads-hartmann/bash-language-server][bash-language-server]]
 - [[https://github.com/MaskRay/ccls][ccls]]
@@ -110,10 +106,9 @@ A repository of my personal configuration files.
 - [[https://github.com/vscode-langservers/vscode-html-languageserver][vscode-html-languageserver]]
 - [[https://github.com/bmewburn/vscode-intelephense][vscode-intelephense]]
 
-* Configured Applications (also installed by script)
+* Configured Applications (also installed)
 - [[https://github.com/alacritty/][alacritty]]
 - [[https://github.com/baskerville/bspwm][bspwm]]
-- [[https://github.com/xgi/castero][castero]]
 - [[https://github.com/hlissner/doom-emacs][Doom Emacs]]
 - [[https://dunst-project.org/][dunst]]
 - [[https://firejail.wordpress.com/][firejail]]
@@ -230,7 +225,7 @@ A repository of my personal configuration files.
 * Configuration
 ** Installation
 #+BEGIN_SRC shell
-./install
+chezmoi apply
 #+END_SRC
 ** Find & delete orphaned symlinks
 #+BEGIN_SRC shell

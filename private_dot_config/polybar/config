@@ -1,0 +1,545 @@
+;==========================================================
+;
+;
+;   ██████╗  ██████╗ ██╗  ██╗   ██╗██████╗  █████╗ ██████╗
+;   ██╔══██╗██╔═══██╗██║  ╚██╗ ██╔╝██╔══██╗██╔══██╗██╔══██╗
+;   ██████╔╝██║   ██║██║   ╚████╔╝ ██████╔╝███████║██████╔╝
+;   ██╔═══╝ ██║   ██║██║    ╚██╔╝  ██╔══██╗██╔══██║██╔══██╗
+;   ██║     ╚██████╔╝███████╗██║   ██████╔╝██║  ██║██║  ██║
+;   ╚═╝      ╚═════╝ ╚══════╝╚═╝   ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝
+;
+;
+;   Modified By Ryan Kes.
+;
+;==========================================================
+
+[colors]
+background = ${xrdb:color0:#222}
+#foreground = ${xrdb:color7:#222}
+foreground = #C5C8C6
+#foreground-alt = ${xrdb:color7:#222}
+foreground-alt = #C5C8C6
+primary = ${xrdb:color1:#222}
+secondary = ${xrdb:color2:#222}
+alert = ${xrdb:color3:#222}
+disabled = #666
+
+;== Bars ========================================================
+
+[bar/base]
+background = ${colors.background}
+foreground = ${colors.foreground}
+
+module-margin-left = 1
+module-margin-right = 1
+
+scroll-up = bspwm-desknext
+scroll-down = bspwm-deskprev
+
+cursor-click = pointer
+
+wm-restack = bspwm
+
+[bar/base-laptop]
+inherit = "bar/base"
+font-0 = Hack Nerd Font:pixelsize=16
+font-1 = JoyPixels:style=Regular:scale=6;1
+font-2 = Noto Sans Symbols2:size=16
+font-3 = Unifont Upper:size=16
+
+[bar/base-desktop]
+inherit = "bar/base"
+font-0 = Hack Nerd Font:size=10
+font-1 = JoyPixels:style=Regular:scale=10;2
+font-2 = Noto Sans Symbols2:size=10
+font-3 = Unifont Upper:size=10
+
+[bar/laptop-bottom]
+inherit = bar/base-laptop
+bottom = true
+monitor = ${env:MONITOR:eDP1}
+
+#modules-right = system-usb-udev corona
+modules-left = mpd player-mpris-tail
+
+[bar/laptop-top]
+inherit = bar/base-laptop
+monitor = ${env:MONITOR:eDP1}
+
+modules-left = bspwm
+modules-center = battery0 battery1 seperator wlan wg0 wg1 bluetooth
+modules-right = seperator xbacklight volume-laptop seperator docker memory cpu-laptop temperature seperator filesystem-root filesystem-home seperator updates-arch-combined mail reddit github rss seperator weather seperator date seperator
+
+tray-position = right
+
+[bar/monitor1]
+inherit = bar/base-desktop
+monitor = ${env:MONITOR:DP-3}
+
+modules-left = bspwm
+modules-center = mpd player-mpris-tail
+#modules-right = seperator corona seperator eth bluetooth seperator volume seperator docker memory cpu temperature seperator system-usb-udev filesystem-root filesystem-home seperator updates-arch-combined mail reddit github rss seperator weather seperator date seperator
+modules-right = seperator eth bluetooth seperator volume seperator docker memory cpu temperature seperator filesystem-root seperator updates-arch-combined mail reddit github rss seperator weather seperator date seperator
+
+tray-position = right
+
+[bar/monitor2]
+inherit = bar/base-desktop
+monitor = ${env:MONITOR:DP-2}
+modules-left = bspwm
+
+[bar/framework-bottom]
+inherit = bar/base-laptop
+bottom = true
+monitor = ${env:MONITOR:eDP-1}
+
+#modules-right = system-usb-udev corona
+modules-left = mpd player-mpris-tail
+
+[bar/framework-top]
+inherit = bar/base-laptop
+monitor = ${env:MONITOR:eDP-1}
+
+modules-left = bspwm
+modules-center = frameworkbattery seperator wg0 wg1
+modules-right = docker memory cpu-laptop temperature seperator filesystem-root seperator updates-arch-combined mail reddit github rss seperator weather seperator date seperator
+
+tray-position = right
+
+;== Modules ========================================================
+
+[module/filesystem-home]
+type = internal/fs
+
+mount-0 = /home
+
+label-mounted =  🏠 %percentage_used%%
+label-unmounted-background = ${colors.alert}
+
+[module/filesystem-root]
+type = internal/fs
+
+mount-0 = /
+
+label-mounted = 💽 %percentage_used%%
+label-unmounted-background = ${colors.alert}
+
+
+[module/bspwm]
+type = internal/bspwm
+
+label-focused-background = ${colors.primary}
+label-focused-padding = 2
+label-occupied-background = ${colors.background}
+label-occupied-padding = 2
+label-empty =
+label-urgent-background = ${colors.alert}
+label-urgent-padding = 2
+label-empty-foreground = ${colors.foreground-alt}
+label-empty-padding = 2
+
+pin-workspaces = true
+
+[module/mpd]
+type = internal/mpd
+
+format-online = <icon-prev> <icon-seekb> <icon-stop> <toggle> <icon-seekf> <icon-next>  <icon-repeat> <icon-random>  <bar-progress> <label-time>  <label-song>
+format-stopped =
+
+label-song = 𝄞 %artist% - %title%
+label-song-maxlen = 25
+label-song-ellipsis = true
+
+icon-play = ⏵
+icon-pause = ⏸
+icon-stop = ⏹
+icon-prev = ⏮
+icon-next = ⏭
+icon-seekb = ⏪
+icon-seekf = ⏩
+icon-random = 
+icon-repeat = 🔁
+icon-repeatone = 🔂
+icon-single = 🔂
+icon-consume = ✀
+
+bar-progress-width = 45
+bar-progress-indicator = |
+bar-progress-fill = ─
+bar-progress-empty = ─
+
+[module/xbacklight]
+type = internal/xbacklight
+
+format = <label>
+label = 💡 %percentage%%
+
+bar-width = 10
+bar-indicator = |
+bar-indicator-foreground = #ff
+bar-indicator-font = 2
+bar-fill = ─
+bar-fill-font = 2
+bar-fill-foreground = #9f78e1
+bar-empty = ─
+bar-empty-font = 2
+bar-empty-foreground = ${colors.foreground-alt}
+
+[module/cpu-laptop]
+type = internal/cpu
+
+format = <label> <ramp-load>
+format-prefix = "💻 "
+
+label =
+
+ramp-load-0 = ▁
+ramp-load-1 = ▂
+ramp-load-2 = ▃
+ramp-load-3 = ▄
+ramp-load-4 = ▅
+ramp-load-5 = ▆
+ramp-load-6 = ▇
+ramp-load-7 = █
+
+[module/cpu]
+type = internal/cpu
+
+format = <label> <ramp-coreload>
+format-prefix = "💻 "
+
+label = %percentage:3%%
+
+ramp-coreload-0 = ▁
+ramp-coreload-1 = ▂
+ramp-coreload-2 = ▃
+ramp-coreload-3 = ▄
+ramp-coreload-4 = ▅
+ramp-coreload-5 = ▆
+ramp-coreload-6 = ▇
+ramp-coreload-7 = █
+
+[module/memory]
+type = internal/memory
+
+format-prefix = "🧠 "
+
+label = %percentage_used%%
+
+ramp-used-0 = ▁
+ramp-used-1 = ▂
+ramp-used-2 = ▃
+ramp-used-3 = ▄
+ramp-used-4 = ▅
+ramp-used-5 = ▆
+ramp-used-6 = ▇
+ramp-used-7 = █
+
+[module/frameworkwlan]
+type = internal/network
+interface = wlp166s0
+interval = 3.0
+
+format-connected = <ramp-signal>
+format-packetloss = <animation-packetloss> <label-connected>
+format-disconnected =
+format-connected-prefix = "📶 "
+format-disconnected-prefix = "睊"
+
+label-connected = " %downspeed%  %upspeed%"
+label-disconnected =
+
+ramp-signal-0 = ▁
+ramp-signal-1 = ▂
+ramp-signal-2 = ▃
+ramp-signal-3 = ▄
+ramp-signal-4 = ▅
+ramp-signal-5 = ▆
+ramp-signal-6 = ▇
+ramp-signal-7 = █
+
+animation-packetloss-0 = ⚠
+animation-packetloss-0-foreground = #ffa64c
+animation-packetloss-1 = 📶
+animation-packetloss-1-foreground = #000000
+animation-packetloss-framerate = 500
+
+[module/wlan]
+type = internal/network
+interface = wlp4s0
+interval = 3.0
+
+format-connected = <ramp-signal>
+format-packetloss = <animation-packetloss> <label-connected>
+format-disconnected =
+format-connected-prefix = "📶 "
+format-disconnected-prefix = "睊"
+
+label-connected = " %downspeed%  %upspeed%"
+label-disconnected =
+
+ramp-signal-0 = ▁
+ramp-signal-1 = ▂
+ramp-signal-2 = ▃
+ramp-signal-3 = ▄
+ramp-signal-4 = ▅
+ramp-signal-5 = ▆
+ramp-signal-6 = ▇
+ramp-signal-7 = █
+
+animation-packetloss-0 = ⚠
+animation-packetloss-0-foreground = #ffa64c
+animation-packetloss-1 = 📶
+animation-packetloss-1-foreground = #000000
+animation-packetloss-framerate = 500
+
+[module/eth]
+type = internal/network
+interface = eno1
+
+format-connected-prefix = " "
+format-disconnected-prefix = " "
+
+label-connected = "%local_ip%  %downspeed:7%  %upspeed:7%"
+
+[module/date]
+type = internal/date
+date =
+date-alt = " %d-%m-%Y"
+time = "%H:%M"
+time-alt =
+
+format-prefix = 📅
+
+label = %date% %time%
+label-padding-right=1
+
+[module/volume]
+type = internal/pulseaudio
+sink = alsa_output.pci-0000_00_1b.0.iec958-stereo
+
+format-volume = <ramp-volume>
+
+label-muted = 🔇 muted
+label-muted-foreground = #666
+
+click-right = setsid alacritty --class=float,float -e pulsemixer
+
+ramp-volume-0 = 🔈
+ramp-volume-1 = 🔉
+ramp-volume-2 = 🔊
+
+[module/volume-laptop]
+type = internal/pulseaudio
+sink = alsa_output.pci-0000_00_1f.3.analog-stereo
+
+format-volume = <ramp-volume>
+
+click-right = setsid alacritty --class=float,float -e pulsemixer
+
+label-muted = 🔇 muted
+label-muted-foreground = #666
+
+ramp-volume-0 = 🔈
+ramp-volume-1 = 🔉
+ramp-volume-2 = 🔊
+
+[module/frameworkbattery]
+type = internal/battery
+battery = BAT1
+adapter = ACAD
+full-at = 70
+
+format-charging = <animation-charging> <label-charging>
+format-discharging = <animation-discharging> <label-discharging>
+format-full-prefix = " "
+format-full-prefix-foreground = ${colors.foreground-alt}
+
+animation-charging-0 = 
+animation-charging-1 = 
+animation-charging-2 = 
+animation-charging-3 = 
+animation-charging-4 = 
+animation-charging-framerate = 750
+
+animation-discharging-0 = 
+animation-discharging-1 = 
+animation-discharging-2 = 
+animation-discharging-3 = 
+animation-discharging-4 = 
+animation-discharging-framerate = 5000
+
+[module/battery0]
+type = internal/battery
+battery = BAT0
+adapter = AC
+full-at = 70
+
+format-charging = <animation-charging> <label-charging>
+format-discharging = <animation-discharging> <label-discharging>
+format-full-prefix = " "
+format-full-prefix-foreground = ${colors.foreground-alt}
+
+animation-charging-0 = 
+animation-charging-1 = 
+animation-charging-2 = 
+animation-charging-3 = 
+animation-charging-4 = 
+animation-charging-framerate = 750
+
+animation-discharging-0 = 
+animation-discharging-1 = 
+animation-discharging-2 = 
+animation-discharging-3 = 
+animation-discharging-4 = 
+animation-discharging-framerate = 5000
+
+[module/battery1]
+type = internal/battery
+battery = BAT1
+adapter = AC
+full-at = 70
+
+format-charging = <animation-charging> <label-charging>
+format-discharging = <animation-discharging> <label-discharging>
+format-full-prefix = "🔋 "
+format-full-prefix-foreground = ${colors.foreground-alt}
+
+animation-charging-0 = 
+animation-charging-1 = 
+animation-charging-2 = 
+animation-charging-3 = 
+animation-charging-4 = 
+animation-charging-framerate = 750
+
+animation-discharging-0 = 
+animation-discharging-1 = 
+animation-discharging-2 = 
+animation-discharging-3 = 
+animation-discharging-4 = 
+animation-discharging-framerate = 5000
+
+[module/temperature]
+type = internal/temperature
+
+format-prefix = "🌡 "
+
+label-warn-foreground = ${colors.alert}
+
+[module/github]
+type = internal/github
+token = ${file:~/.local/share/github/github-access-token}
+empty-notificaitons = false
+interval = 300
+
+format-prefix = " "
+format-prefix-foreground=${colors.alert}
+format-offline =
+
+label-foreground = ${colors.alert}
+
+[module/updates-arch-combined]
+type = custom/script
+exec = sh ~/.local/share/polybar-scripts/polybar-scripts/updates-pacman-aurhelper/updates-pacman-aurhelper.sh | tr -d "\#\ "
+interval = 600
+
+click-left = setsid alacritty --class=float,float -e update-arch
+
+format-prefix = " "
+
+[module/player-mpris-tail]
+type = custom/script
+exec = python ~/.local/share/polybar-scripts/polybar-scripts/player-mpris-tail/player-mpris-tail.py -f '{:title: {icon} {artist} - {title}:}' --icon-playing '▶' --icon-paused '⏸' --icon-stop '⏹'
+tail = true
+
+click-left = python ~/.local/share/polybar-scripts/polybar-scripts/player-mpris-tail/player-mpris-tail.py previous &
+click-right = python ~/.local/share/polybar-scripts/polybar-scripts/player-mpris-tail/player-mpris-tail.py next &
+click-middle = python ~/.local/share/polybar-scripts/polybar-scripts/player-mpris-tail/player-mpris-tail.py play-pause &
+
+[module/bluetooth]
+type = custom/script
+exec = ~/.config/polybar/bin/isactive-bluetooth
+
+click-left = ~/.config/polybar/bin/switch-bluetooth
+
+[module/rss]
+type = custom/script
+exec = ~/.config/polybar/bin/rsscount
+
+click-left = setsid alacritty --class float,float -e /usr/bin/newsboat
+click-middle = setsid ~/.local/bin/newsup
+
+[module/mail]
+type = custom/script
+exec = ~/.config/polybar/bin/mailcount
+
+click-left = setsid alacritty --class float,float -e neomutt
+click-middle = mailsync &
+
+[module/docker]
+type = custom/script
+exec = ~/.config/polybar/bin/dockerstatus
+
+label =  %output%
+
+[module/reddit]
+type = custom/script
+exec = ~/.config/polybar/bin/notification-reddit.sh
+interval = 300
+
+label =  %output%
+
+click-left = brave https://www.reddit.com/message/unread
+
+[module/system-usb-udev]
+type = custom/script
+exec = sh ~/.config/polybar/bin/system-usb-udev
+tail = true
+
+click-left = sh ~/.config/polybar/bin/system-usb-udev --mount &
+click-right = sh ~/.config/polybar/bin/system-usb-udev --unmount &
+
+[module/wg0]
+type = custom/script
+exec = ~/.config/polybar/bin/wireguard-status wg0
+
+;This doesn't work when run in the background for some reason
+click-left = ~/.local/bin/wireguard-switch wg0
+
+[module/wg1]
+type = custom/script
+exec = ~/.config/polybar/bin/wireguard-status wg1
+
+;This doesn't work when run in the background for some reason
+click-left = ~/.local/bin/wireguard-switch wg1
+
+[module/weather]
+type = custom/script
+exec = ~/.config/polybar/bin/wttr
+interval = 900
+
+click-left = setsid alacritty --class fullscreen,fullscreen -e ~/.local/bin/wttr-and-wait
+
+[module/seperator]
+type = custom/text
+content = "|"
+content-foreground = ${colors.primary}
+
+[module/corona]
+type = custom/script
+exec = ~/.config/polybar/bin/corona
+interval = 900
+
+click-left = brave https://corona-stats.online/Netherlands
+click-right = brave https://corona-stats.online
+
+;== Other Settings ========================================================
+
+[settings]
+screenchange-reload = true
+
+[global/wm]
+margin-top = 5
+margin-bottom = 5
+
+; vim:ft=dosini

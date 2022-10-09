@@ -1,0 +1,3 @@
+#!/usr/bin/env fish
+
+PASSWORD_STORE_DIR=$PASSWORD_STORE_DIR passmenu -p Password: -fn "FuraCode Nerd Font"

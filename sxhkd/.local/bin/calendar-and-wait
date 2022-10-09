@@ -1,3 +1,0 @@
-#!/usr/bin/env sh
-
-khal list && read -n 1 -p ""

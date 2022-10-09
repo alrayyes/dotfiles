@@ -1,0 +1,21 @@
+[".local/share/doom"]
+    type = "git-repo"
+    url = "https://github.com/doomemacs/doomemacs.git"
+    refreshPeriod = "24h"
+    [".local/share/doom".clone]
+        args = ["--depth=1"]
+
+[".local/share/polybar-scripts"]
+    type = "git-repo"
+    url = "https://github.com/polybar/polybar-scripts.git"
+    refreshPeriod = "24h"
+
+[".local/share/omf"]
+    type = "git-repo"
+    url = "https://github.com/oh-my-fish/oh-my-fish.git"
+    refreshPeriod = "8760h"
+
+[".local/share/nvim/site/autoload/plug.vim"]
+    type = "file"
+    url = "https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim"
+    refreshPeriod = "168h"

@@ -1,0 +1,3 @@
+#!/usr/bin/env sh
+
+yubikey-oath-dmenu --clipboard --clipboard-cmd 'xclip -selection clipboard' --notify --menu-cmd "dmenu -fn \"FuraCode Nerd Font\""

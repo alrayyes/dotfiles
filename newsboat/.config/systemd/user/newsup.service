@@ -1,5 +1,0 @@
-[Unit]
-Description=Newsboat RSS Feed Update Daemon
-
-[Service]
-ExecStart=%h/.local/bin/newsup

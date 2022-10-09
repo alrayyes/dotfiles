@@ -1,0 +1,4 @@
+{{- $type := promptStringOnce . "type" "Computer type (desktop|laptop)" -}}
+
+[data]
+    type = {{ $type | quote }}

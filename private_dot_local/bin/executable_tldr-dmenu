@@ -1,0 +1,5 @@
+#!/usr/bin/env sh
+
+command=$(curl --silent "https://github.com/tldr-pages/tldr/tree/master/pages/linux" | grep -o "[1-zA-Z0-9\-]*.md" | cut -f 1 -d '.' | uniq | sort | dmenu -p "tldr" -i)
+
+test ! -z "$command" && alacritty --class float,float -e ~/.config/polybar/bin/tldr-and-wait "$command"
