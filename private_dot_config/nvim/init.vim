@@ -73,6 +73,9 @@
     set iskeyword-=#                                                               " '#' is an end of word designator
     set iskeyword-=-                                                               " '-' is an end of word designator
     set cmdheight=2                                                                " Better display for messages
+
+    " apply changes to chezmoi files automatically
+    autocmd BufWritePost ~/.local/share/chezmoi/* ! chezmoi apply --source-path "%"
 " }
 
 " AutoRestart {
