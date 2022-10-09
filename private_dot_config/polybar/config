@@ -68,7 +68,7 @@ monitor = ${env:MONITOR:eDP1}
 
 modules-left = bspwm
 modules-center = battery0 battery1 seperator wlan wg0 wg1 bluetooth
-modules-right = seperator xbacklight volume-laptop seperator docker memory cpu-laptop temperature seperator filesystem-root filesystem-home seperator updates-arch-combined mail reddit github rss seperator weather seperator date seperator
+modules-right = seperator xbacklight volume-laptop seperator memory cpu-laptop temperature seperator filesystem-root filesystem-home seperator updates-arch-combined mail reddit github rss seperator weather seperator date seperator
 
 tray-position = right
 
@@ -102,7 +102,7 @@ monitor = ${env:MONITOR:eDP-1}
 
 modules-left = bspwm
 modules-center = frameworkbattery seperator wg0 wg1
-modules-right = docker memory cpu-laptop temperature seperator filesystem-root seperator updates-arch-combined mail reddit github rss seperator weather seperator date seperator
+modules-right = memory cpu-laptop temperature seperator filesystem-root seperator updates-arch-combined mail reddit github rss seperator weather seperator date seperator
 
 tray-position = right
 
