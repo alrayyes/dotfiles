@@ -1,4 +1,5 @@
-{{- $type := promptStringOnce . "type" "Computer type (desktop|laptop)" -}}
+{{- $chassisType := "desktop" }}
+{{- $chassisType = (output "hostnamectl" "--json=short" | mustFromJson).Chassis }}
 
 [data]
-    type = {{ $type | quote }}
+    chassisType = {{ $chassisType| quote }}

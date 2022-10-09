@@ -80,11 +80,11 @@ Print
 
 #-----------------------------------------------------------App shortcuts--------------------------------------------------------------
 # terminal emulator
-super + {{ if eq .type "desktop" }}Backspace{{ else }}Return{{- end }}
+super + {{ if eq .chassisType "desktop" }}Backspace{{ else }}Return{{- end }}
     $TERMINAL
 
 # program launcher
-super + {{ if eq .type "desktop" }}Delete{{ else }}@space{{- end }}
+super + {{ if eq .chassisType "desktop" }}Delete{{ else }}@space{{- end }}
     dmenu-frecency
 
 # make sxhkd reload its configuration files:
