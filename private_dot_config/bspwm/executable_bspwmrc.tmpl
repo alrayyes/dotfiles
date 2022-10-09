@@ -35,13 +35,13 @@ sxhkd &
 setxkbmap -option caps:escape
 
 ###---Monitors---###
-{{ if eq .type "desktop" }}
+{{- if eq .type "desktop" }}
 bspc monitor DP-3 -d 2 3 4 5 6 7 8 9 0
 bspc monitor DP-2 -d 1
 xrandr --output DP-3 --primary --mode 3840x2160 --rotate normal --output DP-2 --mode 2560x1440 --pos 0x0 --rotate left
 {{ else }}
 bspc monitor -d 1 2 3 4 5 6 7 8 9 0
-{{ end }}
+{{- end }}
 
 ###---Polybar---###
 # Terminate already running bar instances
@@ -51,21 +51,20 @@ killall -q polybar
 while pgrep -u (id -u) -x polybar >/dev/null
     sleep 1
 end
-{{ if eq .type "desktop" }}
+{{- if eq .type "desktop" }}
 polybar-monitor1 &
 polybar-monitor2 &
 {{ else }}
 polybar framework-top &
 polybar framework-bottom &
-{{ end }}
-
+{{- end }}
 
 ###---Wallpaper & opacity---###
-{{ if eq .type "desktop" }}
+{{- if eq .type "desktop" }}
 xwallpaper --output DP-2 --zoom ~/.cache/wall2.png --output DP-3 --zoom ~/.cache/wall1.png &
 {{ else }}
 xwallpaper --output eDP-1 --zoom ~/.cache/wall1.png &
-{{ end }}
+{{- end }}
 wal -n -R
 picom -b
 
@@ -123,7 +122,7 @@ start_if_not_running emacs
 start_if_not_running element-desktop
 start_if_not_running element-desktop-nightly
 start_if_not_running gpodder
-{{ if eq .type "desktop" }}start_if_not_running slack{{ end }}
+{{- if eq .type "desktop" }}start_if_not_running slack{{ end }}
 
 pkill -f cleanfullscreen
 ~/.local/bin/cleanfullscreen &
