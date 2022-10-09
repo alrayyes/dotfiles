@@ -6,7 +6,7 @@ function start_if_not_running
 
 
     if [ (pgrep -u (id -u) -x "$PROCESS_NAME" | wc -l) -lt 1 ]
-        if.chassisType -q $argv[1]
+        if type -q $argv[1]
             eval "$argv[1] &"
         end
     end
@@ -15,7 +15,7 @@ end
 ###---Start app in alacritty if not running already---###
 function start_shell_if_not_running
     if [ (pgrep -u (id -u) -x $argv[1] | wc -l) -lt 1 ]
-        if.chassisType -q $argv[1]
+        if type -q $argv[1]
             eval "alacritty --class $argv[1],$argv[1] -e $argv[1] &"
         end
     end
